@@ -1,0 +1,48 @@
+.layoutGridTrigger {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  z-index:50;
+  color: red;
+  text-decoration: none;
+}
+.layoutGridWrapper {
+  position:fixed;
+  width:var(--widthContent);
+  left: 50%;
+  margin-left: calc(var(--widthContent) * -0.5);
+  pointer-events: none;
+}
+.layoutGrid {
+  position: absolute;
+  left:0px;
+  right:0px;
+  z-index: 900;
+  margin-top: -50000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.layoutGrid.off {
+  display: none;
+}
+
+.layoutGrid div {
+  height: 50000px;
+  background-color:rgba(255,0,0,0.1);
+  width: var(--widthColumn);
+}
+
+/* Six col layout - hide half */
+.layoutGrid div:nth-child(odd) {
+  display:none;
+}
+
+/* medium-up */
+@media (min-width: 768px) {
+  /* 12 col layout - show all */
+  .layoutGrid div:nth-child(odd) {
+      display: block;
+  }
+}

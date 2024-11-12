@@ -39,18 +39,6 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
-      name: 'title',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'publishedAt',
-      type: 'date',
-      admin: {
-        position: 'sidebar',
-      },
-    },
-    {
       type: 'tabs',
       tabs: [
         {
@@ -70,6 +58,24 @@ export const Pages: CollectionConfig = {
         },
       ],
     },
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      admin: {
+        position: 'sidebar',
+      }
+    },
     slugField(),
+    {
+      name: 'publishedAt',
+      type: 'date',
+      admin: {
+        position: 'sidebar',
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+      },
+    },
   ],
 }

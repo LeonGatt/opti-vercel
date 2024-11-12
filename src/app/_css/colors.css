@@ -1,0 +1,39 @@
+:root {
+
+  /* Theme Colors */
+  --softBlack: #1d1d16;
+  --darkGray: #a2a2a2;
+  --lightGray: #f5f5f5;
+  --brandBlue: #41b6e6;
+  --colorText: #707070;
+  --colorPrimaryForeground: #fff;
+  --colorPrimaryBackground: #000;
+
+  /* Header Colors */
+  --colorHeaderBackground: #f1f1f1;
+  --colorHeaderForeground: var(--softBlack);
+
+  /* Footer Colors */
+  --colorFooterBackground: #111;
+  --colorFooterForeground: hsla(0, 0%, 100%, .5);
+
+  /* Body Colors */
+  --colorBody: var(--colorText);
+  --colorBackground: #fff;
+  --colorStrong: #000;
+
+  /* Heading Colors */
+  --colorH1: var(--softBlack);
+  --colorH2: var(--softBlack);
+  --colorH3: var(--softBlack);
+  --colorH4: var(--softBlack);
+
+  /* Caption Colors */
+  --colorCaption: var(--softBlack);
+
+  /* Admin Bar Colors */
+  --colorAdminBarBackground: var(--darkGray);
+  --colorAdminBarBackgroundDark: var(--softBlack);
+  --colorAdminBarForeground: #f1f1f1;
+
+}
