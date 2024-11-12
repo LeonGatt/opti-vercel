@@ -1,19 +1,14 @@
-@use '../../_css/queries.scss' as *;
-
 .footer {
-  padding: calc(var(--base) * 4) 0;
-  background-color: var(--theme-elevation-1000);
-  color: var(--theme-elevation-0);
-
-  @include small-break {
-    padding: calc(var(--base) * 2) 0;
-  }
+  padding: 30px 0 20px;
+  background-color: var(--colorFooterBackground);
+  color: var(--colorFooterForeground);
+  font-size: var(--fontSizeFooter);
+  line-height: var(--lineHeightFooter);
 }
 
 :global([data-theme="dark"]) {
   .footer {
-    background-color: var(--theme-elevation-50);
-    color: var(--theme-elevation-1000);
+
   }
 }
 
@@ -24,20 +19,44 @@
   gap: calc(var(--base) / 2) var(--base);
 }
 
-.logo {
-  width: 150px;
-}
 
 .nav {
   display: flex;
-  gap: calc(var(--base) / 4) var(--base);
-  align-items: center;
-  flex-wrap: wrap;
-  opacity: 1;
-  transition: opacity 100ms linear;
-  visibility: visible;
+  gap: 40px;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 10px;
+}
+nav .navGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-  > * {
-    text-decoration: none;
-  }
+}
+nav .navGroup a {
+  background-color: transparent;
+  color: var(--colorFooterForeground);
+  padding: 0;
+  text-decoration: none;
+}
+nav .navGroup a:first-child {
+  color:#fff;
+  font-weight: 700;
+}
+nav.sub {
+  border-top: 1px solid hsla(0, 0%, 100%, .35);
+  padding: 20px 0 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.social svg {
+  margin-right: 14px;
+}
+.social svg path {
+  fill: var(--colorFooterForeground);
+  transition: all 0.3s;
+}
+.social svg:hover path {
+  fill: #fff;
 }

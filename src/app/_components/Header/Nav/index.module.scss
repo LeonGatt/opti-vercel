@@ -1,4 +1,3 @@
-@use '../../../_css/queries.scss' as *;
 
 .nav {
   display: flex;
@@ -12,6 +11,10 @@
   > * {
     text-decoration: none;
   }
+}
+.nav a {
+  color: var(--colorHeaderForeground);
+  font-size: var(--fontSizeHeader);
 }
 
 .hide {

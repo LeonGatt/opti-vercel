@@ -1,6 +1,6 @@
 import type { GlobalConfig } from 'payload/types'
 
-import link from '../fields/link'
+import linkGroup from '../fields/linkGroup'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
@@ -13,8 +13,8 @@ export const Footer: GlobalConfig = {
       type: 'array',
       maxRows: 6,
       fields: [
-        link({
-          appearances: false,
+        linkGroup({
+          appearances: ['primary', 'secondary'],
         }),
       ],
     },
