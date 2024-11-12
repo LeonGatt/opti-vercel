@@ -5,7 +5,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { Header } from '../../../payload/payload-types'
+import { Header as HeaderType } from '../../../payload/payload-types'
 import { fetchHeader } from '../../_api/fetchGlobals'
 import { Gutter } from '../Gutter'
 import { HeaderNav } from './Nav'
@@ -13,7 +13,7 @@ import { HeaderNav } from './Nav'
 import classes from './index.module.scss'
 
 export async function Header() {
-  let header: Header | null = null
+  let header: HeaderType | null = null
 
   try {
     header = await fetchHeader()

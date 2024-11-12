@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  siteName: 'Payload Website Template',
-  title: 'Payload Website Template',
-  description: 'An open-source website built with Payload and Next.js.',
+  siteName: 'OptiTrack',
+  title: 'OptiTrack - Motion Capture Systems',
+  description: 'Industry leading precision motion capture and 3D tracking systems for video game design, animation, virtual reality, robotics, and movement sciences.',
   images: [
     {
       url: 'https://payloadcms.com/images/og-image.jpg',
