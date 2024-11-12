@@ -17,17 +17,17 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <InitTheme />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        { /* <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> */}
+        {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> */}
       </head>
       <body>
         <Providers>
           <AdminBar />
-          <div className='contentWrapper'>
-          {/* @ts-expect-error */}
-          <Header />
-          <div className='contentMain'>{children}</div>
-          {/* @ts-expect-error */}
-          <Footer />
+          <div className="contentWrapper">
+            {/* @ts-expect-error */}
+            <Header />
+            <div className="contentMain">{children}</div>
+            {/* @ts-expect-error */}
+            <Footer />
           </div>
           <LayoutGrid />
         </Providers>

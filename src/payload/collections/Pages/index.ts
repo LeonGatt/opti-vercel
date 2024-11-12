@@ -64,7 +64,7 @@ export const Pages: CollectionConfig = {
       required: true,
       admin: {
         position: 'sidebar',
-      }
+      },
     },
     slugField(),
     {

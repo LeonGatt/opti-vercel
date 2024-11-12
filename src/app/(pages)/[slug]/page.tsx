@@ -36,7 +36,6 @@ export default async function Page({ params: { slug = 'home' } }) {
     // console.error(error)
   }
 
-  
   if (!page) {
     return notFound()
   }
