@@ -6,10 +6,8 @@
   line-height: var(--lineHeightFooter);
 }
 
-:global([data-theme="dark"]) {
-  .footer {
+:global([data-theme="dark"]) .footer {
 
-  }
 }
 
 .wrap {

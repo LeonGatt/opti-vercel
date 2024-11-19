@@ -13,10 +13,10 @@ export const generateMeta = async (args: { doc: Page | Project | Post }): Promis
     `${process.env.NEXT_PUBLIC_SERVER_URL}${doc.meta.image.url}`
 
   return {
-    title: doc?.meta?.title || 'Payload',
+    title: doc?.meta?.title || 'OptiTrack',
     description: doc?.meta?.description,
     openGraph: mergeOpenGraph({
-      title: doc?.meta?.title || 'Payload',
+      title: doc?.meta?.title || 'OptiTrack',
       description: doc?.meta?.description,
       url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
       images: ogImage

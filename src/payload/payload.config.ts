@@ -22,7 +22,7 @@ import { Header } from './globals/Header'
 import { Settings } from './globals/Settings'
 
 const generateTitle: GenerateTitle = () => {
-  return 'My Website'
+  return 'OptiTrack'
 }
 
 dotenv.config({
@@ -72,6 +72,7 @@ export default buildConfig({
       collections: ['pages', 'posts', 'projects'],
       generateTitle,
       uploadsCollection: 'media',
+      tabbedUI: true,
     }),
     payloadCloud(),
   ],

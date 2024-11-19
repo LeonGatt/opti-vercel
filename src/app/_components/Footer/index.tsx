@@ -7,7 +7,7 @@ import { ThemeSelector } from '../../_providers/Theme/ThemeSelector'
 import { Gutter } from '../Gutter'
 import { CMSLink } from '../Link'
 
-import classes from './index.module.scss'
+import classes from './index.module.css'
 
 export async function Footer() {
   let footer: FooterType | null = null

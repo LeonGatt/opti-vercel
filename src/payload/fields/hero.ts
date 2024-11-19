@@ -41,11 +41,6 @@ export const hero: Field = {
         leaves: [],
       },
     }),
-    linkGroup({
-      overrides: {
-        maxRows: 2,
-      },
-    }),
     {
       name: 'media',
       type: 'upload',
@@ -55,5 +50,10 @@ export const hero: Field = {
         condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
       },
     },
+    linkGroup({
+      overrides: {
+        maxRows: 2,
+      },
+    }),
   ],
 }
