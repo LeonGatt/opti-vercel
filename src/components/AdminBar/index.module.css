@@ -1,0 +1,53 @@
+.adminBar {
+  z-index: 10;
+  width: 100%;
+  padding: 5px 20px;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  background-color: var(--colorAdminBarBackground);
+  transition: opacity 150ms linear;
+}
+
+/*
+:global([data-theme="dark"]) {
+  .adminBar {
+    background-color: var(--colorAdminBarBackgroundDark);
+  }
+}
+  */
+
+.payloadAdminBar {
+  color: var(--colorAdminBarForeground) !important;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.controls > *:not(:last-child) {
+    margin-right: 10px !important;
+}
+
+
+.user {
+  margin-right: 10px !important;
+}
+
+.logo {
+  margin-right: 10px !important;
+}
+
+.blockContainer {
+  position: relative;
+}
+
+.hr {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--light-gray);
+  height: 2px;
+}

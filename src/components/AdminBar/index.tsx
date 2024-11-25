@@ -8,7 +8,7 @@ import { PayloadAdminBar } from 'payload-admin-bar'
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-import './index.scss'
+import styles from './index.module.css'
 
 const baseClass = 'admin-bar'
 
@@ -44,10 +44,7 @@ export const AdminBar: React.FC<{
 
   return (
     <div
-      className={cn(baseClass, 'py-2 bg-black text-white', {
-        block: show,
-        hidden: !show,
-      })}
+      className={[styles.adminBar, show && styles.show].filter(Boolean).join(' ')}
     >
       <div className="container">
         <PayloadAdminBar

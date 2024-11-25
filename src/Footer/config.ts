@@ -1,6 +1,6 @@
 import type { GlobalConfig } from 'payload'
 
-import { link } from '@/fields/link'
+import { linkGroup } from '@/fields/linkGroup'
 import { revalidateFooter } from './hooks/revalidateFooter'
 
 export const Footer: GlobalConfig = {
@@ -13,7 +13,7 @@ export const Footer: GlobalConfig = {
       name: 'navItems',
       type: 'array',
       fields: [
-        link({
+        linkGroup({
           appearances: false,
         }),
       ],

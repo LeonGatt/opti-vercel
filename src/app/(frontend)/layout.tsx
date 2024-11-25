@@ -14,7 +14,7 @@ import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 
-import './globals.css'
+import './styles/global.css'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        { /*<link href="/favicon.svg" rel="icon" type="image/svg+xml" />*/ }
       </head>
       <body>
         <Providers>
@@ -35,9 +35,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           />
           <LivePreviewListener />
 
-          <Header />
-          {children}
+          <div className='contentWrapper'>
+            <Header />
+            <div className='contentMain'>{children}</div>
           <Footer />
+          </div>
         </Providers>
       </body>
     </html>

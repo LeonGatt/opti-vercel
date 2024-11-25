@@ -1,0 +1,125 @@
+:root {
+  --breakMinTiny: 320px;
+  --breakMinSmall: 480px;
+  --breakMinMedium: 768px;
+  --breakMinLarge: 960px;
+  --breakMinXlarge: 1200px;
+  --breakMinHD: 1920px;
+
+}
+
+/* Tiny */
+@media screen and (min-width: 0px) {
+  :root {
+    /* Font Sizes */
+    --fontSizeH1:48px;
+    --fontSizeH2:16px;
+    --fontSizeH3:16px;
+    --fontSizeH4:14px;
+    --fontSizeBody:14px;
+    --fontSizeCaption: 11px;
+
+    /* Layout Sizes */
+    --minWidthBreak: 320px;
+    --widthContent: 290px;
+    --widthColumn: 27.5px;
+    --widthGutter: 25px;
+    --widthMargin: 15px;
+  }
+}
+  
+/* Small */
+@media screen and (min-width: 480px) {
+  :root{
+      /* Font Sizes */
+      --fontSizeH1:48px;
+      --fontSizeH2:18px;
+      --fontSizeH3:18px;
+      --fontSizeH4:16px;
+      --fontSizeBody:16px;
+      --fontSizeCaption: 14px;
+
+    /* Layout Sizes */
+    --minWidthBreak: 480px;
+    --widthContent: 450px;
+    --widthColumn: 54.16667px;
+    --widthGutter: 25px;
+    --widthMargin: 15px;
+  }
+}
+  
+/* Medium */
+@media screen and (min-width: 768px) {
+  :root{
+      /* Font Sizes */
+      --fontSizeH1:48px;
+      --fontSizeH2:24px;
+      --fontSizeH3:24px;
+      --fontSizeH4:14px;
+      --fontSizeBody:14px;
+
+      /* Layout Sizes */
+      --minWidthBreak: 768px;
+      --widthContent: 718px;
+      --widthColumn: 41.5px;
+      --widthGutter: 20px;
+      --widthMargin: 25px;
+  }
+}
+  
+/* Large */
+@media screen and (min-width: 960px) {
+  :root{
+      /* Font Sizes */
+      --fontSizeH1:48px;
+      --fontSizeH2:36px;
+      --fontSizeH3:28px;
+      --fontSizeH4:17px;
+      --fontSizeBody:17px;
+
+      /* Layout Sizes */
+      --minWidthBreak: 960px;
+      --widthContent: 910px;
+      --widthColumn: 57.5px;
+      --widthGutter: 20px;
+      --widthMargin: 25px;
+  }
+}
+  
+/* XLarge */
+@media screen and (min-width: 1200px) {
+  :root{
+      /* Font Sizes */
+      --fontSizeH1:48px;
+      --fontSizeH2:36px;
+      --fontSizeH3:36px;
+      --fontSizeH4:17px;
+      --fontSizeBody:17px;
+
+      /* Layout Sizes */
+      --minWidthBreak: 1200px;
+      --widthContent: 1150px;
+      --widthColumn: 77.5px;
+      --widthGutter: 20px;
+      --widthMargin: 25px;
+  }
+}
+  
+/* HD */
+@media screen and (min-width: 1920px) {
+  :root{
+      /* Font Sizes */
+      --fontSizeH1:48px;
+      --fontSizeH2:48px;
+      --fontSizeH3:36px;
+      --fontSizeH4:21px;
+      --fontSizeBody:21px;
+
+      /* Layout Sizes */
+      --minWidthBreak: 1920px;
+      --widthContent: 1870px;
+      --widthColumn: 141.5px;
+      --widthGutter:15.63px;
+      --widthMargin: 25px;
+  }
+}

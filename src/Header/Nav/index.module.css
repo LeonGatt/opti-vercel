@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 1;
+  transition: opacity 100ms linear;
+  visibility: visible;
+}
+.nav > * {
+  text-decoration: none;
+}
+.nav a {
+  color: var(--colorHeaderForeground);
+  font-size: var(--fontSizeHeader);
+}
