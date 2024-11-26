@@ -59,6 +59,11 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Testing dark/light themes */
+html[data-theme="dark"] {
+  background: black;
+}
+
 
 html,
 body,
