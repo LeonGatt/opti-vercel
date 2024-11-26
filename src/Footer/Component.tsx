@@ -10,7 +10,7 @@ import styles from './index.module.css'
 export async function Footer() {
   const footer: Footer = await getCachedGlobal('footer')()
 
-  const navItems = footer?.navItems || []
+  const navItems = footer?.navGroup || []
 
   return (
     <footer className={ styles.footer }>
