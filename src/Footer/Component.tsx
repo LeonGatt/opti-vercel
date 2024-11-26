@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import type { Footer } from '@/payload-types'
-
+import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
 import styles from './index.module.css'
 
@@ -24,7 +24,7 @@ export async function Footer() {
                     })}
                   </div>
                 );
-              })}
+              })} 
             </nav>
             <nav className={ styles.sub }>
             <div className={ styles.social }>
@@ -61,7 +61,11 @@ export async function Footer() {
               </a>
 
             </div>
-            <div className={ styles.copyright }>&copy; { new Date().getFullYear() } NaturalPoint, Inc. DBA OptiTrack</div>
+            
+            <div className={ styles.copyAndTheme }>
+              <div className={ styles.copyright }>&copy; { new Date().getFullYear() } NaturalPoint, Inc. DBA OptiTrack</div>
+              <div><ThemeSelector /></div>
+            </div>
           </nav>
         </div>
     </footer>
