@@ -2,7 +2,6 @@
 
 import type { PayloadAdminBarProps } from 'payload-admin-bar'
 
-import { cn } from '@/utilities/cn'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import { PayloadAdminBar } from 'payload-admin-bar'
 import React, { useState } from 'react'
@@ -10,7 +9,6 @@ import { useRouter } from 'next/navigation'
 
 import styles from './index.module.css'
 
-const baseClass = 'admin-bar'
 
 const collectionLabels = {
   pages: {
@@ -20,14 +18,10 @@ const collectionLabels = {
   posts: {
     plural: 'Posts',
     singular: 'Post',
-  },
-  projects: {
-    plural: 'Projects',
-    singular: 'Project',
-  },
+  }
 }
 
-const Title: React.FC = () => <span>Dashboard</span>
+const Title: React.FC = () => <span>CMS Dashboard</span>
 
 export const AdminBar: React.FC<{
   adminBarProps?: PayloadAdminBarProps
@@ -49,12 +43,6 @@ export const AdminBar: React.FC<{
       <div className="container">
         <PayloadAdminBar
           {...adminBarProps}
-          className="py-2 text-white"
-          classNames={{
-            controls: 'font-medium text-white',
-            logo: 'text-white',
-            user: 'text-white',
-          }}
           cmsURL={process.env.NEXT_PUBLIC_SERVER_URL}
           collection={collection}
           collectionLabels={{

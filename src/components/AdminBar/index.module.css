@@ -2,12 +2,18 @@
   z-index: 10;
   width: 100%;
   padding: 5px 20px;
-  display: block;
+  display: none;
   visibility: hidden;
   opacity: 0;
   background-color: var(--colorAdminBarBackground);
   transition: opacity 150ms linear;
 }
+.adminBar.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
 
 /*
 :global([data-theme="dark"]) {
@@ -21,10 +27,6 @@
   color: var(--colorAdminBarForeground) !important;
 }
 
-.show {
-  visibility: visible;
-  opacity: 1;
-}
 
 .controls > *:not(:last-child) {
     margin-right: 10px !important;
