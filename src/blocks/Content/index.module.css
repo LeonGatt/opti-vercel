@@ -1,0 +1,30 @@
+.contentWrapper {
+  width: var(--widthContent);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  column-gap: var(--columnGap);
+  margin-bottom: var(--rowGap);
+}
+
+.contentCol {
+  
+}
+
+.contentCol.size-full {
+  grid-column: auto / span 12;
+}
+.contentCol.size-half {
+  grid-column: auto / span 6;
+}
+.contentCol.size-oneThird {
+  grid-column: auto / span 4;
+}
+.contentCol.size-twoThirds {
+  grid-column: auto / span 8;
+}

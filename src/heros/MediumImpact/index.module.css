@@ -1,0 +1,29 @@
+.heroMedium {
+  height: var(--heightHero);
+  background: var(--backgroundHero);
+  margin-bottom: var(--paddingVerticalHero);
+}
+
+.contentWrapper {
+  width: var(--widthContent);
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  column-gap: var(--columnGap);
+  align-items: center;
+}
+
+.copyWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--rowGap);
+}
+
+.linksList {
+  display: flex;
+  column-gap: var(--columnGap);
+  list-style: none;
+  padding:0;
+  margin:0;
+}

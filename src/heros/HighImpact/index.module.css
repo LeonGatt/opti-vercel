@@ -1,0 +1,34 @@
+.heroHigh {
+  height: var(--heightHero);
+}
+.contentWrapper {
+position:relative;
+}
+.visualWrapper {
+
+}
+.imageWrapper {
+  height: var(--heightHero);
+  overflow: hidden;
+  position: relative;
+}
+.copyWrapper {
+  position: absolute;
+  top:0px;
+  width: var(--widthContent);
+  height: var(--heightHero);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--rowGap);
+  color:#fff;
+}
+
+.linksList {
+  display: flex;
+  column-gap: var(--columnGap);
+  list-style: none;
+  padding:0;
+  margin:0;
+}

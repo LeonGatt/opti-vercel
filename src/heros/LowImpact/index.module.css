@@ -1,0 +1,4 @@
+.contentWrapper {
+  width: var(--widthContent);
+  margin: calc(var(--paddingVerticalHero) * 0.5) auto var(--paddingVerticalHero);
+}
