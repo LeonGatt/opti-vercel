@@ -1,0 +1,42 @@
+.heroHigh {
+  height: var(--heightHero);
+  margin-bottom: var(--paddingVerticalHero);
+}
+.contentWrapper {
+position:relative;
+}
+.visualWrapper {
+
+}
+.imageWrapper {
+  height: var(--heightHero);
+  overflow: hidden;
+  position: relative;
+}
+.copyWrapper {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width: var(--widthContent);
+  height: var(--heightHero);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: var(--rowGap);
+  color:#fff;
+}
+
+.linksList {
+  display: flex;
+  column-gap: var(--columnGap);
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+.richTextWrapper {
+  width: 50%;
+}

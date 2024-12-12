@@ -26,6 +26,12 @@
   --paddingVerticalBlock: 120px;
   --rowGapBlock: 1.5rem;
 
+
+
+  /* Column Gap */
+  --columnGap: 40px;
+  --rowGap: 40px;
+
   /* Header Sizing */
   --heightHeader: 64px;
   --fontSizeHeader: 13px;
@@ -37,8 +43,15 @@
   --fontSizeFooter: 14px;
 
   /* Maximum Paragraph Width */
-  --maxWidthCopy: 40rem;
-  --maxWidthHeading: 60rem;
+  --maxWidthCopy: none; /* 40rem; */
+  --maxWidthHeading: none; /* 60rem; */
+
+  /* Hero */
+  --heightHero: 500px;
+  --backgroundHero: linear-gradient(-180deg, transparent, rgba(0,0,0,0.07));
+    /* Hero Padding */
+    --paddingVerticalHero: 120px;
+  
 
   /* Line Heights */
   --lineHeightH1: 1.2;
