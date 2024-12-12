@@ -39,8 +39,20 @@ export const hero: Field = {
       required: true,
     },
     {
+      name: 'media',
+      type: 'upload',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
+      },
+      relationTo: 'media',
+      required: true,
+    },
+    {
       name: 'richText',
       type: 'richText',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
+      },
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [
@@ -56,17 +68,11 @@ export const hero: Field = {
     linkGroup({
       overrides: {
         maxRows: 2,
+        admin: {
+          condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
+        },
       },
     }),
-    {
-      name: 'media',
-      type: 'upload',
-      admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
-      },
-      relationTo: 'media',
-      required: true,
-    },
   ],
   label: false,
 }

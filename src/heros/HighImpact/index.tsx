@@ -18,7 +18,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
           )}
         </div>
         <div className={ styles.copyWrapper }>
-          {richText && <RichText content={richText} enableGutter={false} />}
+          {richText && <RichText className={ styles.richTextWrapper } content={richText} enableGutter={false} />}
           {Array.isArray(links) && links.length > 0 && (
             <ul className={ styles.linksList }>
               {links.map(({ link }, i) => {
