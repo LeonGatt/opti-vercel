@@ -1,14 +1,20 @@
 .ctaWrapper {
-  width: var(--widthContent);
+  max-width: 30%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: var(--paddingVerticalBlock);
 }
 .contentWrapper {
-
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: center;
 }
+
 .richTextWrapper {
 
 }
 .linksWrapper {
-
+  display: flex;
+  column-gap: 20px;
 }

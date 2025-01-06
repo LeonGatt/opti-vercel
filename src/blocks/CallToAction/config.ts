@@ -16,6 +16,11 @@ export const CallToAction: Block = {
   interfaceName: 'CallToActionBlock',
   fields: [
     {
+      name: 'media',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
       name: 'richText',
       type: 'richText',
       editor: lexicalEditor({
