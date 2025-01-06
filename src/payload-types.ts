@@ -221,6 +221,7 @@ export interface Media {
  * via the `definition` "CallToActionBlock".
  */
 export interface CallToActionBlock {
+  media?: (string | null) | Media;
   richText?: {
     root: {
       type: string;
@@ -793,6 +794,7 @@ export interface PagesSelect<T extends boolean = true> {
         cta?:
           | T
           | {
+              media?: T;
               richText?: T;
               links?:
                 | T

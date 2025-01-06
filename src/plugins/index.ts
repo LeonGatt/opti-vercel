@@ -88,5 +88,10 @@ export const plugins: Plugin[] = [
       },
     },
   }),
-  payloadCloudPlugin(),
+  payloadCloudPlugin({
+    email: {
+      defaultFromName: 'OptiTrack CMS',
+      defaultFromAddress: 'cms@optitrack3.payloadcms.app',
+    }
+  }),
 ]

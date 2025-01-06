@@ -1,0 +1,23 @@
+.variant-default {
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid var(--softBlack);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--softBlack);
+  color: #fff;
+}
+
+
+.variant-outline {
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid var(--softBlack);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  color: var(--softBlack);
+}
+.variant-outline:hover {
+  background-color: var(--softBlack);
+  color: #fff;
+}
