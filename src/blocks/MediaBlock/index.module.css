@@ -1,0 +1,10 @@
+.mediaBlockWrapper {
+  margin-bottom: var(--paddingVerticalBlock);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.mediaBlockWrapper.position-default {
+  width: var(--widthContent);
+}

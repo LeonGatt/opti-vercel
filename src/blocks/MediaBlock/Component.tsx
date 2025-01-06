@@ -1,12 +1,13 @@
 import type { StaticImageData } from 'next/image'
 
-import { cn } from 'src/utilities/cn'
 import React from 'react'
 import RichText from '@/components/RichText'
 
 import type { MediaBlock as MediaBlockProps } from '@/payload-types'
 
 import { Media } from '../../components/Media'
+
+import styles from './index.module.css'
 
 type Props = MediaBlockProps & {
   breakout?: boolean
@@ -34,34 +35,29 @@ export const MediaBlock: React.FC<Props> = (props) => {
   if (media && typeof media === 'object') caption = media.caption
 
   return (
-    <div
-      className={cn(
-        '',
-        {
-          container: position === 'default' && enableGutter,
-        },
-        className,
-      )}
-    >
-      {position === 'fullscreen' && (
-        <div className="relative">
-          <Media resource={media} src={staticImage} />
-        </div>
-      )}
-      {position === 'default' && (
-        <Media imgClassName={cn('rounded', imgClassName)} resource={media} src={staticImage} />
-      )}
+    <div className={[
+      styles.mediaBlockWrapper, 
+      className && styles[`${className}`],
+      position && styles[`position-${position}`]
+    ].filter(Boolean).join(' ')}>
+      <div className={ styles.mediaWrapper }>
+        <Media 
+          resource={media} 
+          src={staticImage} 
+          className={[
+            imgClassName && styles[`${imgClassName}`]
+          ].filter(Boolean).join(' ')}
+        />
+      </div>
       {caption && (
-        <div
-          className={cn(
-            'mt-6',
-            {
-              container: position === 'fullscreen' && !disableInnerContainer,
-            },
-            captionClassName,
-          )}
-        >
-          <RichText content={caption} enableGutter={false} />
+        <div className={ styles.captionWrapper }>
+          <RichText 
+            content={caption} 
+            enableGutter={false} 
+            className={[
+              captionClassName && styles[`${captionClassName}`]
+            ].filter(Boolean).join(' ')}
+          />
         </div>
       )}
     </div>
