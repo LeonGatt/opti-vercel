@@ -13,6 +13,11 @@ position:relative;
   overflow: hidden;
   position: relative;
 }
+.imageWrapper img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
 .copyWrapper {
   position: absolute;
   top:0;

@@ -46,27 +46,46 @@ export const Media: CollectionConfig = {
       {
         name: 'thumbnail',
         width: 300,
+        generateImageName: ({ originalName, sizeName, extension}) => {
+          return `${originalName}-${sizeName}.${extension}`
+        },
       },
       {
         name: 'square',
         width: 500,
         height: 500,
+        generateImageName: ({ originalName, sizeName, extension}) => {
+          return `${originalName}-${sizeName}.${extension}`
+        },
       },
       {
         name: 'small',
         width: 600,
+        generateImageName: ({ originalName, sizeName, extension}) => {
+          return `${originalName}-${sizeName}.${extension}`
+        },
+
       },
       {
         name: 'medium',
         width: 900,
+        generateImageName: ({ originalName, sizeName, extension}) => {
+          return `${originalName}-${sizeName}.${extension}`
+        },
       },
       {
         name: 'large',
         width: 1400,
+        generateImageName: ({ originalName, sizeName, extension}) => {
+          return `${originalName}-${sizeName}.${extension}`
+        },
       },
       {
         name: 'xlarge',
         width: 1920,
+        generateImageName: ({ originalName, sizeName, extension}) => {
+          return `${originalName}-${sizeName}.${extension}`
+        },
       },
     ],
   },
