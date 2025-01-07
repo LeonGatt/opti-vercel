@@ -1,0 +1,11 @@
+.postWrapper {
+  padding-bottom: var(--paddingVerticalBlock);
+}
+.copyWrapper {
+  width: var(--widthContent);
+  margin-left: auto;
+  margin-right: auto;
+}
+.postContent {
+  margin-bottom: var(--paddingVerticalBlock);
+}

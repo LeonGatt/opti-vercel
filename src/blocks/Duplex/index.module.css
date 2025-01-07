@@ -1,0 +1,55 @@
+.duplexWrapper {
+  width: var(--widthContent);
+  margin-bottom: var(--paddingVerticalBlock);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contentWrapper {
+  display: grid;
+  column-gap: var(--columnGap);
+  align-items: center;
+}
+
+
+/***** Layout *****/
+
+/** Layout - Reverse **/
+.contentWrapper.layout-reverse .mediaWrapper {
+  grid-column: -1;
+  grid-row: 1;
+}
+.contentWrapper.layout-reverse .copyWrapper {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/** Layout - Vertical **/
+.contentWrapper.layout-vertical,
+.contentWrapper.layout-vertical.emphasis-equal,
+.contentWrapper.layout-vertical.emphasis-copy,
+.contentWrapper.layout-vertical.emphasis-media {
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: var(--rowGap);
+}
+.contentWrapper.layout-vertical .copyWrapper {
+  max-width: var(--maxWidthCopy);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/***** Emphasis *****/
+
+/** Emphasis - Equal **/
+.contentWrapper.emphasis-equal {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/** Emphasis - Copy **/
+.contentWrapper.emphasis-copy {
+  grid-template-columns: 1fr 2fr;
+}
+/** Emphasis - Media **/
+.contentWrapper.emphasis-media {
+  grid-template-columns: 2fr 1fr;
+}

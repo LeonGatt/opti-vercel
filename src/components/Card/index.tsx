@@ -1,5 +1,4 @@
 'use client'
-import { cn } from '@/utilities/cn'
 import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
@@ -7,6 +6,7 @@ import React, { Fragment } from 'react'
 import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
+import styles from './index.module.css'
 
 export const Card: React.FC<{
   alignItems?: 'center'
@@ -29,19 +29,18 @@ export const Card: React.FC<{
 
   return (
     <article
-      className={cn(
-        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer',
-        className,
-      )}
+      className={ styles[`${className}`]}
       ref={card.ref}
     >
-      <div className="relative w-full ">
-        {!metaImage && <div className="">No image</div>}
-        {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="360px" />}
+      <div className={ styles.mediaWrapper }>
+        {!metaImage && <div className={ styles.noImageWrapper }>No image</div>}
+        {metaImage && typeof metaImage !== 'string' && (
+          <div className={ styles.imageWrapper} ><Media resource={metaImage} size="360px" /></div>
+          )}
       </div>
-      <div className="p-4">
+      <div>
         {showCategories && hasCategories && (
-          <div className="uppercase text-sm mb-4">
+          <div>
             {showCategories && hasCategories && (
               <div>
                 {categories?.map((category, index) => {
@@ -67,15 +66,15 @@ export const Card: React.FC<{
           </div>
         )}
         {titleToUse && (
-          <div className="prose">
+          <div className={ styles.titleWrapper }>
             <h3>
-              <Link className="not-prose" href={href} ref={link.ref}>
+              <Link href={href} ref={link.ref}>
                 {titleToUse}
               </Link>
             </h3>
           </div>
         )}
-        {description && <div className="mt-2">{description && <p>{sanitizedDescription}</p>}</div>}
+        {description && <div className={ styles.descriptionWrapper }>{description && <p>{sanitizedDescription}</p>}</div>}
       </div>
     </article>
   )

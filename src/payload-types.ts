@@ -119,7 +119,7 @@ export interface Page {
         }[]
       | null;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | DuplexBlock)[];
   meta?: {
     title?: string | null;
     image?: (string | null) | Media;
@@ -591,6 +591,33 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "duplexBlock".
+ */
+export interface DuplexBlock {
+  layout?: ('default' | 'reverse' | 'vertical') | null;
+  emphasis?: ('equal' | 'copy' | 'media') | null;
+  media: string | Media;
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'duplexBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -864,6 +891,16 @@ export interface PagesSelect<T extends boolean = true> {
               form?: T;
               enableIntro?: T;
               introContent?: T;
+              id?: T;
+              blockName?: T;
+            };
+        duplexBlock?:
+          | T
+          | {
+              layout?: T;
+              emphasis?: T;
+              media?: T;
+              richText?: T;
               id?: T;
               blockName?: T;
             };
