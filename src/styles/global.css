@@ -43,8 +43,8 @@
   --fontSizeFooter: 14px;
 
   /* Maximum Paragraph Width */
-  --maxWidthCopy: none; /* 40rem; */
-  --maxWidthHeading: none; /* 60rem; */
+  --maxWidthCopy: 40rem;
+  --maxWidthHeading: 60rem;
 
   /* Hero */
   --heightHero: 500px;
@@ -107,7 +107,7 @@ img {
 
 p {
   margin: 0 0 var(--fontSizeBody);
-  max-width: var(--maxWidthCopy);
+  /* max-width: var(--maxWidthCopy); */
   text-wrap: pretty;
 }
 p:last-child {

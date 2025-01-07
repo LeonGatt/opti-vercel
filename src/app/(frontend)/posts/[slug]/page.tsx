@@ -13,6 +13,7 @@ import type { Post } from '@/payload-types'
 import { PostHero } from '@/heros/PostHero'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
+import styles from './index.module.css'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -44,7 +45,7 @@ export default async function Post({ params: paramsPromise }: Args) {
   if (!post) return <PayloadRedirects url={url} />
 
   return (
-    <article className="pt-16 pb-16">
+    <article className={ styles.postWrapper }>
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
@@ -52,20 +53,21 @@ export default async function Post({ params: paramsPromise }: Args) {
 
       <PostHero post={post} />
 
-      <div className="flex flex-col items-center gap-4 pt-8">
-        <div className="container lg:mx-0 lg:grid lg:grid-cols-[1fr_48rem_1fr] grid-rows-[1fr]">
+      <div className={ styles.copyWrapper }>
+        <div className={ styles.postContent }>
           <RichText
-            className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[1fr]"
             content={post.content}
             enableGutter={false}
           />
         </div>
 
         {post.relatedPosts && post.relatedPosts.length > 0 && (
-          <RelatedPosts
-            className="mt-12"
-            docs={post.relatedPosts.filter((post) => typeof post === 'object')}
-          />
+          <div className={ styles.relatedWrapper }>
+            <h2>Additional Articles</h2>
+            <RelatedPosts
+              docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+            />
+            </div>
         )}
       </div>
     </article>

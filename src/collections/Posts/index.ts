@@ -4,6 +4,11 @@ import {
   BlocksFeature,
   FixedToolbarFeature,
   HeadingFeature,
+  SuperscriptFeature,
+  StrikethroughFeature,
+  AlignFeature,
+  BlockquoteFeature,
+  LinkFeature,
   HorizontalRuleFeature,
   InlineToolbarFeature,
   lexicalEditor,
@@ -74,6 +79,11 @@ export const Posts: CollectionConfig = {
                 features: ({ rootFeatures }) => {
                   return [
                     ...rootFeatures,
+                    SuperscriptFeature(),
+                    StrikethroughFeature(),
+                    AlignFeature(),
+                    BlockquoteFeature(),
+                    LinkFeature(),
                     HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
                     BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
                     FixedToolbarFeature(),
