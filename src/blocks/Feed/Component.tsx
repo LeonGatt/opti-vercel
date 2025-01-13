@@ -1,15 +1,15 @@
-import type { Post, ArchiveBlock as ArchiveBlockProps } from '@/payload-types'
+import type { Post, FeedBlock as FeedBlockProps } from '@/payload-types'
 
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
 import RichText from '@/components/RichText'
 
-import { CollectionArchive } from '@/components/CollectionArchive'
+import { FeedGrid } from '@/components/FeedGrid'
 import styles from './index.module.css'
 
-export const ArchiveBlock: React.FC<
-  ArchiveBlockProps & {
+export const FeedBlock: React.FC<
+  FeedBlockProps & {
     id?: string
   }
 > = async (props) => {
@@ -54,13 +54,13 @@ export const ArchiveBlock: React.FC<
   }
 
   return (
-    <div className={ styles.archiveWrapper } id={`block-${id}`}>
+    <div className={ styles.feedWrapper } id={`block-${id}`}>
       {introContent && (
         <div className={ styles.introWrapper }>
           <RichText className={ styles.richTextWrapper } content={introContent} enableGutter={false} />
         </div>
       )}
-      <CollectionArchive posts={posts} />
+      <FeedGrid posts={posts} />
     </div>
   )
 }

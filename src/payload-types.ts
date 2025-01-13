@@ -120,7 +120,7 @@ export interface Page {
         }[]
       | null;
   };
-  layout: (CallToActionBlock | MediaBlock | ArchiveBlock | FormBlock | DuplexBlock | GridBlock)[];
+  layout: (CallToActionBlock | MediaBlock | FeedBlock | FormBlock | DuplexBlock | GridBlock)[];
   meta?: {
     title?: string | null;
     image?: (string | null) | Media;
@@ -272,9 +272,9 @@ export interface MediaBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArchiveBlock".
+ * via the `definition` "FeedBlock".
  */
-export interface ArchiveBlock {
+export interface FeedBlock {
   introContent?: {
     root: {
       type: string;
@@ -302,7 +302,7 @@ export interface ArchiveBlock {
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'archive';
+  blockType: 'feed';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -841,7 +841,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        archive?:
+        feed?:
           | T
           | {
               introContent?: T;

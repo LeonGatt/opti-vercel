@@ -1,5 +1,6 @@
-.archiveWrapper {
+.feedWrapper {
   width: var(--widthContent);
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: var(--paddingVerticalBlock);
 }
