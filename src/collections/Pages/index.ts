@@ -4,7 +4,7 @@ import { authenticated } from '../../access/authenticated'
 import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { Archive } from '../../blocks/ArchiveBlock/config'
 import { CallToAction } from '../../blocks/CallToAction/config'
-import { Content } from '../../blocks/Content/config'
+import { Grid } from '../../blocks/Grid/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { DuplexBlock } from '../../blocks/Duplex/config'
@@ -69,7 +69,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, DuplexBlock],
+              blocks: [CallToAction, MediaBlock, Archive, FormBlock, DuplexBlock, Grid],
               required: true,
             },
           ],

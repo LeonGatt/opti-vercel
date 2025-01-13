@@ -8,7 +8,8 @@ import React from 'react'
 import type { Page, Post } from '@/payload-types'
 
 type CMSLinkType = {
-  appearance?: 'default' | 'outline' | 'link' | null | undefined
+  appearance?: 'plain' | 'dim' | 'outline' | 'solid' | null | undefined
+  color?: 'default' | 'blue' | 'orange' | null | undefined
   children?: React.ReactNode
   className?: string
   label?: string | null
@@ -26,6 +27,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   const {
     type,
     appearance = 'inline',
+    color,
     children,
     className,
     label,
@@ -44,7 +46,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
 
   if (!href) return null
 
-  const size = appearance === 'link' ? 'clear' : sizeFromProps
+  const size = appearance === 'plain' ? 'clear' : sizeFromProps
   const newTabProps = newTab ? { rel: 'noopener noreferrer', target: '_blank' } : {}
 
   /* Ensure we don't break any styles set by richText */
@@ -63,6 +65,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
       className={className}
       size={size}
       href={href}
+      color={color}
       appearance={appearance}
       label={label}
     />

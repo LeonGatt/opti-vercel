@@ -42,7 +42,7 @@
   --maxWidthHeading: 60rem;
 
   /* Hero */
-  --heightHero: 500px;
+  --heightHero: 630px;
   --backgroundHero: linear-gradient(-180deg, transparent, rgba(0,0,0,0.07));
     /* Hero Padding */
     --paddingVerticalHero: 120px;
@@ -54,15 +54,21 @@
   box-sizing: border-box;
 }
 
+/* Switch to dark theme */
+html[data-theme="dark"] {
+  --colorForeground: var(--darkForeground);
+  --colorBackground: var(--darkBackground);
+}
+
 html {
   background: var(--colorBackground);
+  color: var(--colorForeground);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Testing dark/light themes */
-html[data-theme="dark"] {
-  background: black;
-}
+
+
+
 
 
 html,
@@ -76,7 +82,7 @@ body {
   font-size: var(--fontSizeBody);
   line-height: var(--lineHeightBody);
   margin: 0;
-  color: var(--colorBody);
+  color: var(--colorForeground);
 }
 
 .contentWrapper {
@@ -102,7 +108,6 @@ p:last-child {
 }
 
 strong {
-  color: var(--colorStrong);
   font-family: var(--fontFamilyStrong);
   text-wrap: nowrap;
 }
@@ -130,7 +135,6 @@ h1 {
   font-family: var(--fontFamilyH1);
   font-size: var(--fontSizeH1);
   font-weight: normal;
-  color: var(--colorH1);
   line-height: var(--lineHeightH1);
   margin:0;
   padding:0;
@@ -140,7 +144,6 @@ h2 {
   font-family: var(--fontFamilyH2);
   font-size: var(--fontSizeH2);
   font-weight: normal;
-  color: var(--colorH2);
   line-height: var(--lineHeightH2);
   margin:0;
   padding:0;
@@ -150,7 +153,6 @@ h3 {
   font-family: var(--fontFamilyH3);
   font-size: var(--fontSizeH3);
   font-weight: normal;
-  color: var(--colorH3);
   line-height: var(--lineHeightH3);
   margin:0;
   padding:0;
@@ -160,7 +162,6 @@ h4 {
   font-family: var(--fontFamilyH4);
   font-size: var(--fontSizeH4);
   font-weight: normal;
-  color: var(--colorH4);
   line-height: var(--lineHeightH4);
   margin:0;
   padding:0;

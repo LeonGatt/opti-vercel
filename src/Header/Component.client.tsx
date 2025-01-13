@@ -31,7 +31,10 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ header }) => {
   }, [headerTheme])
 
   return (
-    <header className={ styles.header }>
+    <header className={[
+      styles.header, 
+      theme && styles[`theme-${theme}`]
+    ].filter(Boolean).join(' ')}>
       <div className={ styles.headerContent }>
         <Link href="/">
           <Logo />

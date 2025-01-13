@@ -1,23 +1,56 @@
-.variant-default {
+.button {
+  padding: 8px 16px;
   border-radius: 8px;
-  padding: 6px 8px;
-  border: 1px solid var(--softBlack);
-  text-decoration: none;
   transition: all 0.3s ease-in-out;
-  background-color: var(--softBlack);
-  color: #fff;
+  text-decoration: none;
+  color: var(--buttonColor);
 }
 
-
-.variant-outline {
-  border-radius: 8px;
-  padding: 6px 8px;
-  border: 1px solid var(--softBlack);
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  color: var(--softBlack);
+/***** Colors *****/
+.color-default {
+  --buttonColor: var(--colorForeground);
 }
-.variant-outline:hover {
-  background-color: var(--softBlack);
+.color-blue {
+  --buttonColor: var(--blue01);
+}
+.color-orange {
+  --buttonColor: var(--orange01);
+}
+
+/***** Appearance *****/
+
+/** Appearance - Plain **/
+.appearance-plain {
+  
+}
+
+/** Appearance - Dim **/
+.appearance-dim {
+  background-color: #F5F6F9;
+}
+.appearance-dim:hover {
+  background-color: var(--gray04);
+}
+
+/** Appearance - Outline **/
+.appearance-outline {
+  border: 1px solid var(--buttonColor);
+}
+.appearance-outline:hover {
+  background-color: var(--gray04);
+}
+
+/** Appearance - Solid **/
+.appearance-solid {
+  background-color: var(--buttonColor);
   color: #fff;
+}
+.appearance-solid.color-blue:hover {
+  background-color: var(--blue02);
+}
+.appearance-solid.color-orange:hover {
+  background-color: var(--orange02);
+}
+.appearance-solid.color-default:hover {
+  background-color: #717176;
 }

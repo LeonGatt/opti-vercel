@@ -24,8 +24,10 @@
   --warning: #FFE137;
   --success: #31CE4B;
 
-  --colorPrimaryForeground: var(--white);
-  --colorPrimaryBackground: var(--black);
+  --lightForeground: var(--darkGray);
+  --lightBackground: var(--white);
+  --darkForeground:  hsla(0, 0%, 100%, .8);
+  --darkBackground: var(--darkGray);
 
   /* Dark Components */
   --colorDarkPrimaryForeground: var(--gray04);
@@ -48,15 +50,9 @@
   --colorFooterForeground: hsla(0, 0%, 100%, .5);
 
   /* Body Colors */
-  --colorBody: var(--colorText);
-  --colorBackground: #fff;
-  --colorStrong: #000;
+  --colorForeground: var(--lightForeground);
+  --colorBackground: var(--lightBackground);
 
-  /* Heading Colors */
-  --colorH1: var(--softBlack);
-  --colorH2: var(--softBlack);
-  --colorH3: var(--softBlack);
-  --colorH4: var(--softBlack);
 
   /* Caption Colors */
   --colorCaption: var(--softBlack);

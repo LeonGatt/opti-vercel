@@ -5,10 +5,10 @@ import {
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
+  LinkFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
-import { link } from '@/fields/link'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 
 const columnFields: Field[] = [
@@ -42,6 +42,7 @@ const columnFields: Field[] = [
       features: ({ rootFeatures }) => {
         return [
           ...rootFeatures,
+          LinkFeature(),
           HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
           BlocksFeature({ blocks: [MediaBlock] }),
           FixedToolbarFeature(),
@@ -51,22 +52,11 @@ const columnFields: Field[] = [
     }),
     label: false,
   },
-  {
-    name: 'enableLink',
-    type: 'checkbox',
-  },
-  link({
-    overrides: {
-      admin: {
-        condition: (_, { enableLink }) => Boolean(enableLink),
-      },
-    },
-  }),
 ]
 
-export const Content: Block = {
-  slug: 'content',
-  interfaceName: 'ContentBlock',
+export const Grid: Block = {
+  slug: 'grid',
+  interfaceName: 'GridBlock',
   fields: [
     {
       name: 'columns',
