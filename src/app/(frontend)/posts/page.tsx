@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types'
 
-import { CollectionArchive } from '@/components/FeedGrid'
+import { FeedGrid } from '@/components/FeedGrid'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
@@ -39,7 +39,7 @@ export default async function Page() {
         />
       </div>
 
-      <CollectionArchive posts={posts.docs} />
+      <FeedGrid posts={posts.docs} />
 
       <div className="container">
         {posts.totalPages > 1 && posts.page && (

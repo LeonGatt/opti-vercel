@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types'
 
-import { CollectionArchive } from '@/components/FeedGrid'
+import { FeedGrid } from '@/components/FeedGrid'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
@@ -62,7 +62,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
       </div>
 
       {posts.totalDocs > 0 ? (
-        <CollectionArchive posts={posts.docs as unknown as Post[]} />
+        <FeedGrid posts={posts.docs as unknown as Post[]} />
       ) : (
         <div className="container">No results found.</div>
       )}
