@@ -12,10 +12,6 @@
   margin-bottom: var(--rowGap);
 }
 
-.contentCol {
-  
-}
-
 .contentCol.size-full {
   grid-column: auto / span 12;
 }

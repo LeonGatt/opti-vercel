@@ -7,7 +7,8 @@ import styles from './index.module.css'
 
 export type Props = {
   label?: string | null | undefined
-  appearance?: 'default' | 'outline' | 'link' | null | undefined
+  appearance?: 'plain' | 'dim' | 'outline' | 'solid' | null | undefined
+  color?: 'default' | 'blue' | 'orange' | null | undefined
   el?: 'button' | 'link' | 'a'
   onClick?: () => void
   href?: string
@@ -26,6 +27,7 @@ export const Button: React.FC<Props> = ({
   newTab,
   href,
   appearance,
+  color,
   className: classNameFromProps,
   onClick,
   type = 'button',
@@ -41,7 +43,8 @@ export const Button: React.FC<Props> = ({
   const className = [
     styles.button,
     classNameFromProps,
-    styles[`variant-${appearance}`],
+    styles[`appearance-${appearance}`],
+    styles[`color-${color}`],
     invert && styles[`${appearance}--invert`],
   ]
     .filter(Boolean)

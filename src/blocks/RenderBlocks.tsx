@@ -2,16 +2,16 @@ import React, { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
 
-import { ArchiveBlock } from '@/blocks/ArchiveBlock/Component'
+import { FeedBlock } from '@/blocks/Feed/Component'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
-import { ContentBlock } from '@/blocks/Content/Component'
+import { GridBlock } from '@/blocks/Grid/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { DuplexBlock } from '@/blocks/Duplex/Component'
 
 const blockComponents = {
-  archive: ArchiveBlock,
-  content: ContentBlock,
+  feed: FeedBlock,
+  grid: GridBlock,
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,

@@ -113,13 +113,14 @@ export interface Page {
             } | null;
             url?: string | null;
             label: string;
-            appearance?: ('default' | 'outline') | null;
+            appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
+            color?: ('default' | 'blue' | 'orange') | null;
           };
           id?: string | null;
         }[]
       | null;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | DuplexBlock)[];
+  layout: (CallToActionBlock | MediaBlock | FeedBlock | FormBlock | DuplexBlock | GridBlock)[];
   meta?: {
     title?: string | null;
     image?: (string | null) | Media;
@@ -248,7 +249,8 @@ export interface CallToActionBlock {
           } | null;
           url?: string | null;
           label: string;
-          appearance?: ('default' | 'outline') | null;
+          appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
+          color?: ('default' | 'blue' | 'orange') | null;
         };
         id?: string | null;
       }[]
@@ -256,48 +258,6 @@ export interface CallToActionBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'cta';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentBlock".
- */
-export interface ContentBlock {
-  columns?:
-    | {
-        size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
-        richText?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        enableLink?: boolean | null;
-        link?: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-          appearance?: ('default' | 'outline') | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'content';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -312,9 +272,9 @@ export interface MediaBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArchiveBlock".
+ * via the `definition` "FeedBlock".
  */
-export interface ArchiveBlock {
+export interface FeedBlock {
   introContent?: {
     root: {
       type: string;
@@ -342,7 +302,7 @@ export interface ArchiveBlock {
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'archive';
+  blockType: 'feed';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -618,6 +578,36 @@ export interface DuplexBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridBlock".
+ */
+export interface GridBlock {
+  columns?:
+    | {
+        size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'grid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -811,6 +801,7 @@ export interface PagesSelect<T extends boolean = true> {
                     url?: T;
                     label?: T;
                     appearance?: T;
+                    color?: T;
                   };
               id?: T;
             };
@@ -835,30 +826,7 @@ export interface PagesSelect<T extends boolean = true> {
                           url?: T;
                           label?: T;
                           appearance?: T;
-                        };
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        content?:
-          | T
-          | {
-              columns?:
-                | T
-                | {
-                    size?: T;
-                    richText?: T;
-                    enableLink?: T;
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          appearance?: T;
+                          color?: T;
                         };
                     id?: T;
                   };
@@ -873,7 +841,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        archive?:
+        feed?:
           | T
           | {
               introContent?: T;
@@ -901,6 +869,19 @@ export interface PagesSelect<T extends boolean = true> {
               emphasis?: T;
               media?: T;
               richText?: T;
+              id?: T;
+              blockName?: T;
+            };
+        grid?:
+          | T
+          | {
+              columns?:
+                | T
+                | {
+                    size?: T;
+                    richText?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1298,6 +1279,7 @@ export interface Header {
           } | null;
           url?: string | null;
           label: string;
+          color?: ('default' | 'blue' | 'orange') | null;
         };
         id?: string | null;
       }[]
@@ -1324,6 +1306,7 @@ export interface Footer {
                 } | null;
                 url?: string | null;
                 label: string;
+                color?: ('default' | 'blue' | 'orange') | null;
               };
               id?: string | null;
             }[]
@@ -1350,6 +1333,7 @@ export interface HeaderSelect<T extends boolean = true> {
               reference?: T;
               url?: T;
               label?: T;
+              color?: T;
             };
         id?: T;
       };
@@ -1376,6 +1360,7 @@ export interface FooterSelect<T extends boolean = true> {
                     reference?: T;
                     url?: T;
                     label?: T;
+                    color?: T;
                   };
               id?: T;
             };

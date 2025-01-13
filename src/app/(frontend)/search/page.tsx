@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types'
 
-import { CollectionArchive } from '@/components/CollectionArchive'
+import { CollectionArchive } from '@/components/FeedGrid'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'

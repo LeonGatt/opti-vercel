@@ -2,26 +2,50 @@ import type { Field } from 'payload'
 
 import deepMerge from '@/utilities/deepMerge'
 
-export type LinkAppearances = 'default' | 'outline'
+export type LinkAppearances = 'plain' | 'dim' | 'outline' | 'solid'
+export type LinkColors = 'default' | 'blue' | 'orange'
 
 export const appearanceOptions: Record<LinkAppearances, { label: string; value: string }> = {
-  default: {
-    label: 'Default',
-    value: 'default',
+  plain: {
+    label: 'Plain',
+    value: 'plain',
+  },
+  dim: {
+    label: 'Dim',
+    value: 'dim',
   },
   outline: {
     label: 'Outline',
     value: 'outline',
   },
+  solid: {
+    label: 'Solid',
+    value: 'solid',
+  },
+}
+export const colorOptions: Record<LinkColors, { label: string; value: string }> = {
+  default: {
+    label: 'Default',
+    value: 'default',
+  },
+  blue: {
+    label: 'Blue',
+    value: 'blue',
+  },
+  orange: {
+    label: 'Orange',
+    value: 'orange',
+  }
 }
 
 type LinkType = (options?: {
   appearances?: LinkAppearances[] | false
+  colors?: LinkColors[] | false
   disableLabel?: boolean
   overrides?: Record<string, unknown>
 }) => Field
 
-export const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = {}) => {
+export const link: LinkType = ({ appearances, colors, disableLabel = false, overrides = {} } = {}) => {
   const linkResult: Field = {
     name: 'link',
     type: 'group',
@@ -119,7 +143,7 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
   }
 
   if (appearances !== false) {
-    let appearanceOptionsToUse = [appearanceOptions.default, appearanceOptions.outline]
+    let appearanceOptionsToUse = [appearanceOptions.plain, appearanceOptions.dim, appearanceOptions.outline, appearanceOptions.solid]
 
     if (appearances) {
       appearanceOptionsToUse = appearances.map((appearance) => appearanceOptions[appearance])
@@ -131,8 +155,25 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
       admin: {
         description: 'Choose how the link should be rendered.',
       },
-      defaultValue: 'default',
+      defaultValue: 'plain',
       options: appearanceOptionsToUse,
+    })
+  }
+  if (colors !== false) {
+    let colorOptionsToUse = [colorOptions.default, colorOptions.blue, colorOptions.orange]
+
+    if (colors) {
+      colorOptionsToUse = colors.map((color) => colorOptions[color])
+    }
+
+    linkResult.fields.push({
+      name: 'color',
+      type: 'select',
+      admin: {
+        description: 'Color of the link.',
+      },
+      defaultValue: 'default',
+      options: colorOptionsToUse,
     })
   }
 
