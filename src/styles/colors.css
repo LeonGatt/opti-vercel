@@ -30,16 +30,16 @@
   --darkBackground: var(--darkGray);
 
   /* Dark Components */
-  --colorDarkPrimaryForeground: var(--gray04);
-  --colorDarkPrimaryBackground: var(--black);
-  --colorDarkSecondaryForeground: var(--gray02);
-  --colorDarkSecondaryBackground: var(--darkGray);
+  --dark1Foreground: var(--gray04);
+  --dark1Background: var(--black);
+  --dark2Foreground: var(--gray02);
+  --dark2Background: var(--darkGray);
 
   /* Light Components */
-  --colorLightPrimaryForeground: var(--darkGray);
-  --colorLightPrimaryBackground: var(--white);
-  --colorLightSecondaryForeground: var(--gray01);
-  --colorLightSecondaryBackground: var(--gray04);
+  --light1Foreground: var(--darkGray);
+  --light1Background: var(--white);
+  --light2Foreground: var(--gray01);
+  --light2Background: var(--gray04);
 
   /* Header Colors */
   --colorHeaderBackground: #f1f1f1;

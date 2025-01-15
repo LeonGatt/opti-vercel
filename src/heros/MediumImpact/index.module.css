@@ -1,6 +1,7 @@
 .heroMedium {
   height: var(--heightHero);
   background: var(--backgroundHero);
+  color: var(--foregroundHero);
   margin-bottom: var(--paddingVerticalHero);
 }
 
@@ -9,18 +10,30 @@
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  column-gap: var(--columnGap);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: calc((var(--widthColumn) * 1) + (var(--widthGutter) * 2));
   align-items: center;
+  padding:0 calc((var(--widthColumn) * 1) + (var(--widthGutter) * 1));
 }
 
+.visualWrapper {
+
+}
 .copyWrapper {
   display: flex;
   flex-direction: column;
   row-gap: var(--rowGap);
 }
+.copyWrapper h1,
+.copyWrapper h2,
+.copyWrapper h3,
+.copyWrapper h4 {
+  margin-bottom: var(--rowGap);
+  color: var(--colorHeadingHero);
+}
 
-.linksList {
+.linksWrapper {
   display: flex;
   column-gap: var(--columnGap);
   list-style: none;

@@ -30,8 +30,8 @@ export default buildConfig({
         {
           label: 'Mobile',
           name: 'mobile',
-          width: 375,
-          height: 667,
+          width: 320,
+          height: 480,
         },
         {
           label: 'Tablet',
