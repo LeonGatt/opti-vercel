@@ -109,19 +109,18 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
             case 'mediaBlock':
               return (
                 <MediaBlock
-                  className="col-start-1 col-span-3"
-                  imgClassName="m-0"
+                  className="inRichText"
                   key={index}
                   {...block}
-                  captionClassName="mx-auto max-w-[48rem]"
+                  captionClassName="inRichText"
                   enableGutter={false}
                   disableInnerContainer={true}
                 />
               )
             case 'banner':
-              return <BannerBlock className="col-start-2 mb-4" key={index} {...block} />
+              return <BannerBlock className="inRichText" key={index} {...block} />
             case 'code':
-              return <CodeBlock className="col-start-2" key={index} {...block} />
+              return <CodeBlock className="inRichText" key={index} {...block} />
             default:
               return null
           }

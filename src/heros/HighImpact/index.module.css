@@ -1,6 +1,7 @@
 .heroHigh {
   height: var(--heightHero);
   margin-bottom: var(--paddingVerticalHero);
+  color: var(--foregroundHero);
 }
 .contentWrapper {
 position:relative;
@@ -31,11 +32,19 @@ position:relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   row-gap: var(--rowGap);
-  color:#fff;
+  text-align: center;
+}
+.copyWrapper h1,
+.copyWrapper h2,
+.copyWrapper h3,
+.copyWrapper h4 {
+  margin-bottom: var(--rowGap);
+  color: var(--colorHeadingHero);
 }
 
-.linksList {
+.linksWrapper {
   display: flex;
   column-gap: var(--columnGap);
   list-style: none;

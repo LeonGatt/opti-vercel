@@ -11,6 +11,17 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
   return (
     <div className={ styles.heroMedium }>
       <div className={ styles.contentWrapper }>
+        <div className={ styles.copyWrapper }>
+          {richText && <RichText content={richText} enableGutter={false} />}
+
+          {Array.isArray(links) && links.length > 0 && (
+            <div className={ styles.linksWrapper }>
+              {links.map(({ link }, i) => {
+                return (<CMSLink key={i} {...link} />)
+              })}
+            </div>
+          )}
+        </div>
         <div className={ styles.visualWrapper }>
           {media && typeof media === 'object' && (
             <div className={ styles.visualContent }>
@@ -25,21 +36,6 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
                 </div>
               )}
             </div>
-          )}
-        </div>
-        <div className={ styles.copyWrapper }>
-          {richText && <RichText content={richText} enableGutter={false} />}
-
-          {Array.isArray(links) && links.length > 0 && (
-            <ul className={ styles.linksList }>
-              {links.map(({ link }, i) => {
-                return (
-                  <li key={i}>
-                    <CMSLink {...link} />
-                  </li>
-                )
-              })}
-            </ul>
           )}
         </div>
       </div>

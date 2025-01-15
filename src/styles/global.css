@@ -44,6 +44,8 @@
   /* Hero */
   --heightHero: 630px;
   --backgroundHero: linear-gradient(-180deg, transparent, rgba(0,0,0,0.07));
+  --foregroundHero: var(--colorForeground);
+  --colorHeadingHero: var(--colorForeground);
     /* Hero Padding */
     --paddingVerticalHero: 120px;
   
@@ -58,6 +60,10 @@
 html[data-theme="dark"] {
   --colorForeground: var(--darkForeground);
   --colorBackground: var(--darkBackground);
+  
+  /* Hero Dark Theme Changes */
+  --backgroundHero: var(--dark1Background);
+  --colorHeadingHero: var(--white);
 }
 
 html {

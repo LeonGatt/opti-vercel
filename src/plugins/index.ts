@@ -68,7 +68,7 @@ export const plugins: Plugin[] = [
                   return [
                     ...rootFeatures,
                     FixedToolbarFeature(),
-                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+                    HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
                   ]
                 },
               }),

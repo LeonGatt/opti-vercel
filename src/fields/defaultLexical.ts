@@ -3,6 +3,7 @@ import {
   BoldFeature,
   ItalicFeature,
   LinkFeature,
+  SuperscriptFeature,
   ParagraphFeature,
   lexicalEditor,
   UnderlineFeature,
@@ -13,6 +14,7 @@ export const defaultLexical: Config['editor'] = lexicalEditor({
     return [
       ParagraphFeature(),
       UnderlineFeature(),
+      SuperscriptFeature(),
       BoldFeature(),
       ItalicFeature(),
       LinkFeature({

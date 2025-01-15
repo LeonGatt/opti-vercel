@@ -18,15 +18,11 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
         <div className={ styles.copyWrapper }>
           {richText && <RichText className={ styles.richTextWrapper } content={richText} enableGutter={false} />}
           {Array.isArray(links) && links.length > 0 && (
-            <ul className={ styles.linksList }>
+            <div className={ styles.linksWrapper }>
               {links.map(({ link }, i) => {
-                return (
-                  <li key={i}>
-                    <CMSLink {...link} />
-                  </li>
-                )
+                return (<CMSLink key={i} {...link} />)
               })}
-            </ul>
+            </div>
           )}
         </div>
       </div>

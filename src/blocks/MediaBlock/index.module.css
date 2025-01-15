@@ -4,8 +4,15 @@
   margin-right: auto;
   max-width: 100%;
 }
+.mediaBlockWrapper.inRichText {
+  margin-bottom: 20px;
+}
 
 
 .mediaBlockWrapper.position-default {
   width: var(--widthContent);
+}
+.mediaWrapper img {
+  margin-left:auto;
+  margin-right: auto;
 }
