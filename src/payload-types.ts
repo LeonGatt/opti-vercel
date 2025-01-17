@@ -45,10 +45,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    'payload-cloud-instance': PayloadCloudInstance;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    'payload-cloud-instance': PayloadCloudInstanceSelect<false> | PayloadCloudInstanceSelect<true>;
   };
   locale: null;
   user: User & {
@@ -113,7 +115,13 @@ export interface Page {
             } | null;
             url?: string | null;
             label: string;
+            /**
+             * Choose how the link should be rendered.
+             */
             appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
+            /**
+             * Color of the link.
+             */
             color?: ('default' | 'blue' | 'orange') | null;
           };
           id?: string | null;
@@ -123,6 +131,9 @@ export interface Page {
   layout: (CallToActionBlock | MediaBlock | FeedBlock | FormBlock | DuplexBlock | GridBlock)[];
   meta?: {
     title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (string | null) | Media;
     description?: string | null;
   };
@@ -222,6 +233,7 @@ export interface Media {
  * via the `definition` "CallToActionBlock".
  */
 export interface CallToActionBlock {
+  blockTheme?: ('light' | 'dark') | null;
   media?: (string | null) | Media;
   richText?: {
     root: {
@@ -249,7 +261,13 @@ export interface CallToActionBlock {
           } | null;
           url?: string | null;
           label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
           appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
+          /**
+           * Color of the link.
+           */
           color?: ('default' | 'blue' | 'orange') | null;
         };
         id?: string | null;
@@ -265,6 +283,7 @@ export interface CallToActionBlock {
  */
 export interface MediaBlock {
   position?: ('default' | 'fullscreen') | null;
+  blockTheme?: ('light' | 'dark') | null;
   media: string | Media;
   id?: string | null;
   blockName?: string | null;
@@ -275,6 +294,7 @@ export interface MediaBlock {
  * via the `definition` "FeedBlock".
  */
 export interface FeedBlock {
+  blockTheme?: ('light' | 'dark') | null;
   introContent?: {
     root: {
       type: string;
@@ -349,6 +369,9 @@ export interface Post {
   categories?: (string | Category)[] | null;
   meta?: {
     title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (string | null) | Media;
     description?: string | null;
   };
@@ -501,6 +524,9 @@ export interface Form {
       )[]
     | null;
   submitButtonLabel?: string | null;
+  /**
+   * Choose whether to display an on-page message or redirect to a different page after they submit the form.
+   */
   confirmationType?: ('message' | 'redirect') | null;
   confirmationMessage?: {
     root: {
@@ -520,6 +546,9 @@ export interface Form {
   redirect?: {
     url: string;
   };
+  /**
+   * Send custom emails when the form submits. Use comma separated lists to send the same email to multiple recipients. To reference a value from this form, wrap that field's name with double curly brackets, i.e. {{firstName}}. You can use a wildcard {{*}} to output all data and {{*:table}} to format it as an HTML table in the email.
+   */
   emails?:
     | {
         emailTo?: string | null;
@@ -528,6 +557,9 @@ export interface Form {
         replyTo?: string | null;
         emailFrom?: string | null;
         subject: string;
+        /**
+         * Enter the message that should be sent in this email.
+         */
         message?: {
           root: {
             type: string;
@@ -556,6 +588,7 @@ export interface Form {
 export interface DuplexBlock {
   layout?: ('default' | 'reverse' | 'vertical') | null;
   emphasis?: ('equal' | 'copy' | 'media') | null;
+  blockTheme?: ('light' | 'dark') | null;
   media: string | Media;
   richText?: {
     root: {
@@ -581,6 +614,7 @@ export interface DuplexBlock {
  * via the `definition` "GridBlock".
  */
 export interface GridBlock {
+  blockTheme?: ('light' | 'dark') | null;
   columns?:
     | {
         size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -630,6 +664,9 @@ export interface User {
  */
 export interface Redirect {
   id: string;
+  /**
+   * You will need to rebuild the website when changing this field.
+   */
   from: string;
   to?: {
     type?: ('reference' | 'custom') | null;
@@ -665,6 +702,8 @@ export interface FormSubmission {
   createdAt: string;
 }
 /**
+ * This is a collection of automatically created search results. These results are used by the global site search and will be updated automatically as documents in the CMS are created or updated.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "search".
  */
@@ -809,82 +848,12 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        cta?:
-          | T
-          | {
-              media?: T;
-              richText?: T;
-              links?:
-                | T
-                | {
-                    link?:
-                      | T
-                      | {
-                          type?: T;
-                          newTab?: T;
-                          reference?: T;
-                          url?: T;
-                          label?: T;
-                          appearance?: T;
-                          color?: T;
-                        };
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        mediaBlock?:
-          | T
-          | {
-              position?: T;
-              media?: T;
-              id?: T;
-              blockName?: T;
-            };
-        feed?:
-          | T
-          | {
-              introContent?: T;
-              populateBy?: T;
-              relationTo?: T;
-              categories?: T;
-              limit?: T;
-              selectedDocs?: T;
-              id?: T;
-              blockName?: T;
-            };
-        formBlock?:
-          | T
-          | {
-              form?: T;
-              enableIntro?: T;
-              introContent?: T;
-              id?: T;
-              blockName?: T;
-            };
-        duplexBlock?:
-          | T
-          | {
-              layout?: T;
-              emphasis?: T;
-              media?: T;
-              richText?: T;
-              id?: T;
-              blockName?: T;
-            };
-        grid?:
-          | T
-          | {
-              columns?:
-                | T
-                | {
-                    size?: T;
-                    richText?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
+        cta?: T | CallToActionBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+        feed?: T | FeedBlockSelect<T>;
+        formBlock?: T | FormBlockSelect<T>;
+        duplexBlock?: T | DuplexBlockSelect<T>;
+        grid?: T | GridBlockSelect<T>;
       };
   meta?:
     | T
@@ -899,6 +868,99 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock_select".
+ */
+export interface CallToActionBlockSelect<T extends boolean = true> {
+  blockTheme?: T;
+  media?: T;
+  richText?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+              color?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock_select".
+ */
+export interface MediaBlockSelect<T extends boolean = true> {
+  position?: T;
+  blockTheme?: T;
+  media?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FeedBlock_select".
+ */
+export interface FeedBlockSelect<T extends boolean = true> {
+  blockTheme?: T;
+  introContent?: T;
+  populateBy?: T;
+  relationTo?: T;
+  categories?: T;
+  limit?: T;
+  selectedDocs?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormBlock_select".
+ */
+export interface FormBlockSelect<T extends boolean = true> {
+  form?: T;
+  enableIntro?: T;
+  introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "duplexBlock_select".
+ */
+export interface DuplexBlockSelect<T extends boolean = true> {
+  layout?: T;
+  emphasis?: T;
+  blockTheme?: T;
+  media?: T;
+  richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridBlock_select".
+ */
+export interface GridBlockSelect<T extends boolean = true> {
+  blockTheme?: T;
+  columns?:
+    | T
+    | {
+        size?: T;
+        richText?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1279,6 +1341,9 @@ export interface Header {
           } | null;
           url?: string | null;
           label: string;
+          /**
+           * Color of the link.
+           */
           color?: ('default' | 'blue' | 'orange') | null;
         };
         id?: string | null;
@@ -1306,6 +1371,9 @@ export interface Footer {
                 } | null;
                 url?: string | null;
                 label: string;
+                /**
+                 * Color of the link.
+                 */
                 color?: ('default' | 'blue' | 'orange') | null;
               };
               id?: string | null;
@@ -1314,6 +1382,16 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-cloud-instance".
+ */
+export interface PayloadCloudInstance {
+  id: string;
+  instance: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1366,6 +1444,16 @@ export interface FooterSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-cloud-instance_select".
+ */
+export interface PayloadCloudInstanceSelect<T extends boolean = true> {
+  instance?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

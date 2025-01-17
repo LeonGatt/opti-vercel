@@ -1,4 +1,5 @@
 import type { Block, Field } from 'payload'
+import { blockTheme } from '@/fields/blockTheme'
 
 import {
   BlocksFeature,
@@ -56,6 +57,7 @@ export const Grid: Block = {
   slug: 'grid',
   interfaceName: 'GridBlock',
   fields: [
+    blockTheme,
     {
       name: 'columns',
       type: 'array',

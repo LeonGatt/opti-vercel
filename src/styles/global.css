@@ -21,7 +21,6 @@
   --fontFamilyTiny: var(--haasText55);
 
   /* Vertical Spacing */
-  --paddingVerticalBlock: 120px;
   --spacingVerticalLarge: 160px;
   --spacingVerticalMedium: 120px;
   --spacingVerticalSmall: 80px;
@@ -48,6 +47,10 @@
   --colorHeadingHero: var(--colorForeground);
     /* Hero Padding */
     --paddingVerticalHero: 120px;
+
+  /* Blocks */
+  --paddingVerticalBlock: 40px;
+  --marginVerticalBlock: 120px;
   
 }
 

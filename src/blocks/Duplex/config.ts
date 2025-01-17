@@ -1,4 +1,6 @@
 import type { Block } from 'payload'
+import { blockTheme } from '@/fields/blockTheme'
+
 import {
   FixedToolbarFeature,
   HeadingFeature,
@@ -11,45 +13,51 @@ export const DuplexBlock: Block = {
   interfaceName: 'duplexBlock',
   fields: [
     {
-      name: 'layout',
-      type: 'select',
-      defaultValue: 'default',
-      options: [
+      type: 'row',
+      fields: [
         {
-          label: 'Default',
-          value: 'default',
+          name: 'layout',
+          type: 'select',
+          defaultValue: 'default',
+          options: [
+            {
+              label: 'Default',
+              value: 'default',
+            },
+            {
+              label: 'Reverse',
+              value: 'reverse',
+            },
+            {
+              label: 'Vertical',
+              value: 'vertical',
+            },
+          ],
         },
         {
-          label: 'Reverse',
-          value: 'reverse',
+          name: 'emphasis',
+          type: 'select',
+          defaultValue: 'equal',
+          options: [
+            {
+              label: 'Equal',
+              value: 'equal',
+            },
+            {
+              label: 'Copy',
+              value: 'copy',
+            },
+            {
+              label: 'Media',
+              value: 'media',
+            },
+          ],
+          admin: {
+            condition: (_, { layout } = {}) => ['default', 'reverse'].includes(layout),
+          },
         },
-        {
-          label: 'Vertical',
-          value: 'vertical',
-        },
-      ],
-    },
-    {
-      name: 'emphasis',
-      type: 'select',
-      defaultValue: 'equal',
-      options: [
-        {
-          label: 'Equal',
-          value: 'equal',
-        },
-        {
-          label: 'Copy',
-          value: 'copy',
-        },
-        {
-          label: 'Media',
-          value: 'media',
-        },
-      ],
-      admin: {
-        condition: (_, { layout } = {}) => ['default', 'reverse'].includes(layout),
-      },
+        blockTheme,
+      ]
     },
     {
       name: 'media',

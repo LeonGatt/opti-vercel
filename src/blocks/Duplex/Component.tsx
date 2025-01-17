@@ -6,9 +6,9 @@ import RichText from '@/components/RichText'
 import { Media } from '@/components/Media'
 import styles from './index.module.css'
 
-export const DuplexBlock: React.FC<DuplexBlockProps> = ({ layout, emphasis, richText, media }) => {
+export const DuplexBlock: React.FC<DuplexBlockProps> = ({ layout, emphasis, richText, blockTheme, media }) => {
   return (
-    <div className={ styles.duplexWrapper }>
+    <div className={[styles.duplexWrapper, blockTheme && styles[`theme-${blockTheme}`]].filter(Boolean).join(' ')}>
       <div className={[
         styles.contentWrapper, 
         layout && styles[`layout-${layout}`],

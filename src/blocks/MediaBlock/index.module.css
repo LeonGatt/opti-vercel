@@ -1,18 +1,32 @@
 .mediaBlockWrapper {
-  margin-bottom: var(--paddingVerticalBlock);
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
+  margin-bottom: var(--marginVerticalBlock);
 }
 .mediaBlockWrapper.inRichText {
   margin-bottom: 20px;
 }
 
 
-.mediaBlockWrapper.position-default {
+.mediaBlockWrapper.position-default .mediaWrapper,
+.mediaBlockWrapper.position-default .captionWrapper {
   width: var(--widthContent);
+}
+.mediaWrapper,
+.captionWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  color: var(--colorForeground);
 }
 .mediaWrapper img {
   margin-left:auto;
   margin-right: auto;
+}
+
+.mediaBlockWrapper.theme-light {
+
+}
+.mediaBlockWrapper.theme-dark {
+  background-color: var(--darkBackground);
+  --colorForeground: var(--darkForeground);
+  --colorHeading: var(--white);
 }

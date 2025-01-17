@@ -8,6 +8,7 @@ import styles from './index.module.css'
 export type Props = {
   label?: string | null | undefined
   appearance?: 'plain' | 'dim' | 'outline' | 'solid' | null | undefined
+  theme?: 'light' | 'dark' | null | undefined
   color?: 'default' | 'blue' | 'orange' | null | undefined
   el?: 'button' | 'link' | 'a'
   onClick?: () => void
@@ -33,6 +34,7 @@ export const Button: React.FC<Props> = ({
   type = 'button',
   disabled,
   invert,
+  theme,
   size,
   variant,
 }) => {
@@ -45,6 +47,7 @@ export const Button: React.FC<Props> = ({
     classNameFromProps,
     styles[`appearance-${appearance}`],
     styles[`color-${color}`],
+    theme && styles[`theme-${theme}`],
     invert && styles[`${appearance}--invert`],
   ]
     .filter(Boolean)

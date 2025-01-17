@@ -127,11 +127,11 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
         } else {
           switch (node.type) {
             case 'linebreak': {
-              return <br className="col-start-2" key={index} />
+              return <br className="inRichText" key={index} />
             }
             case 'paragraph': {
               return (
-                <p className="col-start-2" key={index}>
+                <p className="inRichText" key={index}>
                   {serializedChildren}
                 </p>
               )
@@ -139,7 +139,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
             case 'heading': {
               const Tag = node?.tag
               return (
-                <Tag className="col-start-2" key={index}>
+                <Tag className="inRichText" key={index}>
                   {serializedChildren}
                 </Tag>
               )
@@ -147,7 +147,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
             case 'list': {
               const Tag = node?.tag
               return (
-                <Tag className="list col-start-2" key={index}>
+                <Tag className="inRichText" key={index}>
                   {serializedChildren}
                 </Tag>
               )
@@ -177,7 +177,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
             }
             case 'quote': {
               return (
-                <blockquote className="col-start-2" key={index}>
+                <blockquote className="inRichText" key={index}>
                   {serializedChildren}
                 </blockquote>
               )

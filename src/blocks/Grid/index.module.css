@@ -1,16 +1,23 @@
 .contentWrapper {
-  width: var(--widthContent);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: var(--paddingVerticalBlock);
+  margin-bottom: var(--marginVerticalBlock);
+  padding: var(--paddingVerticalBlock) 0;
+}
+.contentWrapper h1,
+.contentWrapper h2,
+.contentWrapper h3,
+.contentWrapper h4 {
+  color: var(--colorHeading);
 }
 
 .contentGrid {
+  width: var(--widthContent);
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-
   column-gap: var(--columnGap);
   margin-bottom: var(--rowGap);
+  color: var(--colorForeground);
 }
 
 .contentCol.size-full {
@@ -24,4 +31,13 @@
 }
 .contentCol.size-twoThirds {
   grid-column: auto / span 8;
+}
+
+.contentWrapper.theme-light {
+  
+}
+.contentWrapper.theme-dark {
+  background-color: var(--darkBackground);
+  --colorForeground: var(--darkForeground);
+  --colorHeading: var(--white);
 }

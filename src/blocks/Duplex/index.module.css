@@ -1,14 +1,22 @@
 .duplexWrapper {
-  width: var(--widthContent);
-  margin-bottom: var(--paddingVerticalBlock);
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: var(--marginVerticalBlock);
 }
 
 .contentWrapper {
+  width: var(--widthContent);
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
   column-gap: var(--columnGap);
   align-items: center;
+  padding: var(--paddingVerticalBlock) 0;
+  color: var(--colorForeground);
+}
+.copyWrapper h1,
+.copyWrapper h2,
+.copyWrapper h3,
+.copyWrapper h4 {
+  color: var(--colorHeading);
 }
 
 
@@ -52,4 +60,17 @@
 /** Emphasis - Media **/
 .contentWrapper.emphasis-media {
   grid-template-columns: 2fr 1fr;
+}
+
+/***** Theme *****/
+
+/** Theme - Light **/
+.duplexWrapper.theme-light {
+ 
+}
+/** Theme - Dark **/
+.duplexWrapper.theme-dark {
+    background-color: var(--darkBackground);
+    --colorForeground: var(--darkForeground);
+    --colorHeading: var(--white);
 }

@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { blockTheme } from '@/fields/blockTheme'
 
 import {
   FixedToolbarFeature,
@@ -15,6 +16,7 @@ export const CallToAction: Block = {
   slug: 'cta',
   interfaceName: 'CallToActionBlock',
   fields: [
+    blockTheme,
     {
       name: 'media',
       type: 'upload',
@@ -27,7 +29,7 @@ export const CallToAction: Block = {
         features: ({ rootFeatures }) => {
           return [
             ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+            HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
             BlocksFeature({ blocks: [MediaBlock] }),
             FixedToolbarFeature(),
             InlineToolbarFeature(),
