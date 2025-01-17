@@ -10,6 +10,7 @@ import type { Page, Post } from '@/payload-types'
 type CMSLinkType = {
   appearance?: 'plain' | 'dim' | 'outline' | 'solid' | null | undefined
   color?: 'default' | 'blue' | 'orange' | null | undefined
+  theme?: 'dark' | 'light' | null | undefined
   children?: React.ReactNode
   className?: string
   label?: string | null
@@ -30,6 +31,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
     color,
     children,
     className,
+    theme,
     label,
     newTab,
     reference,
@@ -65,6 +67,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
       className={className}
       size={size}
       href={href}
+      theme={theme}
       color={color}
       appearance={appearance}
       label={label}

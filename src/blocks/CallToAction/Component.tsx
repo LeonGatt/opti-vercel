@@ -7,9 +7,9 @@ import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import styles from './index.module.css'
 
-export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText, media }) => {
+export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText, blockTheme, media }) => {
   return (
-    <div className={ styles.ctaWrapper }>
+    <div className={[styles.ctaWrapper, blockTheme && styles[`theme-${blockTheme}`]].filter(Boolean).join(' ')} >
       <div className={ styles.contentWrapper }>
 
           {media && typeof media === 'object' && (
@@ -22,7 +22,7 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText, me
 
         <div className={ styles.linksWrapper }>
           {(links || []).map(({ link }, i) => {
-            return <CMSLink key={i} size="lg" {...link} />
+            return <CMSLink key={i} theme={ blockTheme } size="lg" {...link} />
           })}
         </div>
       </div>

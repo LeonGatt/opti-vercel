@@ -26,6 +26,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
     enableGutter = true,
     imgClassName,
     media,
+    blockTheme,
     position = 'default',
     staticImage,
     disableInnerContainer,
@@ -38,6 +39,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
     <div className={[
       styles.mediaBlockWrapper, 
       className && styles[`${className}`],
+      blockTheme && styles[`theme-${blockTheme}`],
       position && styles[`position-${position}`]
     ].filter(Boolean).join(' ')}>
       <div className={ styles.mediaWrapper }>

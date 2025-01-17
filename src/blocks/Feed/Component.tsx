@@ -13,7 +13,7 @@ export const FeedBlock: React.FC<
     id?: string
   }
 > = async (props) => {
-  const { id, categories, introContent, limit: limitFromProps, populateBy, selectedDocs } = props
+  const { id, categories, introContent, limit: limitFromProps, populateBy, blockTheme, selectedDocs } = props
 
   const limit = limitFromProps || 3
 
@@ -54,13 +54,18 @@ export const FeedBlock: React.FC<
   }
 
   return (
-    <div className={ styles.feedWrapper } id={`block-${id}`}>
+    <div className={[styles.feedWrapper, blockTheme && styles[`theme-${blockTheme}`]].filter(Boolean).join(' ')} id={`block-${id}`}>
       {introContent && (
         <div className={ styles.introWrapper }>
           <RichText className={ styles.richTextWrapper } content={introContent} enableGutter={false} />
         </div>
       )}
-      <FeedGrid posts={posts} />
+
+      {posts && (
+        <div className={ styles.gridWrapper}>
+          <FeedGrid posts={posts} />
+        </div>
+      )}
     </div>
   )
 }

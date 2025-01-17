@@ -1,14 +1,14 @@
 import React from 'react'
 import RichText from '@/components/RichText'
 
-import type { GridBlock as ContentBlockProps } from '@/payload-types'
+import type { GridBlock as GridBlockProps } from '@/payload-types'
 import styles from './index.module.css'
 
-export const GridBlock: React.FC<ContentBlockProps> = (props) => {
-  const { columns } = props
+export const GridBlock: React.FC<GridBlockProps> = (props) => {
+  const { columns, blockTheme } = props
 
   return (
-    <div className={ styles.contentWrapper }>
+    <div className={[styles.contentWrapper, blockTheme && styles[`theme-${blockTheme}`]].filter(Boolean).join(' ')}>
       <div className={ styles.contentGrid }>
         {columns &&
           columns.length > 0 &&

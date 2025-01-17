@@ -36,10 +36,10 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div key={index}>
+                <>
                   {/* @ts-expect-error */}
-                  <Block {...block} />
-                </div>
+                  <Block key={index} {...block} />
+                </>
               )
             }
           }

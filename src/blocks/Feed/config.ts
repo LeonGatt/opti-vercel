@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { blockTheme } from '@/fields/blockTheme'
 
 import {
   FixedToolbarFeature,
@@ -11,6 +12,7 @@ export const Feed: Block = {
   slug: 'feed',
   interfaceName: 'FeedBlock',
   fields: [
+    blockTheme,
     {
       name: 'introContent',
       type: 'richText',
