@@ -88,6 +88,9 @@ export interface Page {
   title: string;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    theme?: ('light' | 'dark') | null;
+    valign?: ('center' | 'top' | 'bottom') | null;
+    halign?: ('center' | 'left') | null;
     media?: (string | null) | Media;
     richText?: {
       root: {
@@ -826,6 +829,9 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        theme?: T;
+        valign?: T;
+        halign?: T;
         media?: T;
         richText?: T;
         links?:

@@ -7,9 +7,12 @@ import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import styles from './index.module.css'
 
-export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
+export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, theme, richText }) => {
   return (
-    <div className={ styles.heroMedium }>
+    <div className={[
+      styles.heroMedium, 
+      theme && styles[`theme-${theme}`]
+      ].filter(Boolean).join(' ')}>
       <div className={ styles.contentWrapper }>
         <div className={ styles.copyWrapper }>
           {richText && <RichText content={richText} enableGutter={false} />}
@@ -17,7 +20,7 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
           {Array.isArray(links) && links.length > 0 && (
             <div className={ styles.linksWrapper }>
               {links.map(({ link }, i) => {
-                return (<CMSLink key={i} {...link} />)
+                return (<CMSLink theme={ theme } key={i} {...link} />)
               })}
             </div>
           )}
