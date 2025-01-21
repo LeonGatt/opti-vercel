@@ -15,9 +15,9 @@ type LowImpactHeroType =
       richText?: Page['hero']['richText']
     })
 
-export const LowImpactHero: React.FC<Page['hero']> = ({ links, richText }) => {
+export const LowImpactHero: React.FC<Page['hero']> = ({ links, theme, richText }) => {
   return (
-    <div className={ styles.contentWrapper }>
+    <div className={[styles.heroLow, theme && styles[`theme-${theme}`]].filter(Boolean).join(' ')}>
         <div className={ styles.copyWrapper }>
           {richText && <RichText className={ styles.richTextWrapper } content={richText} enableGutter={false} />}
 
@@ -26,7 +26,7 @@ export const LowImpactHero: React.FC<Page['hero']> = ({ links, richText }) => {
               {links.map(({ link }, i) => {
                 return (
                   <li key={i}>
-                    <CMSLink {...link} />
+                    <CMSLink theme={ theme } {...link} />
                   </li>
                 )
               })}

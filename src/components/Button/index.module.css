@@ -45,6 +45,9 @@
 .appearance-outline {
   border: 1px solid var(--buttonColor);
 }
+.appearance-outline.color-default {
+  border: 1px solid var(--colorForeground);
+}
 .appearance-outline:hover {
   background-color: var(--gray04);
 }
@@ -73,6 +76,6 @@
 .theme-light {
   
 }
-.theme-dark {
-  
+.button.theme-dark {
+
 }

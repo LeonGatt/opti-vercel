@@ -21,8 +21,8 @@
 
 }
 .copyWrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   row-gap: var(--rowGap);
 }
 .copyWrapper h1,
@@ -40,3 +40,17 @@
   padding:0;
   margin:0;
 }
+
+/***** Theme *****/
+.heroMedium.theme-light {
+
+}
+.heroMedium.theme-dark {
+  --foregroundHero: var(--darkForeground);
+  --colorHeadingHero: var(--white);
+  --backgroundHero: var(--darkBackground);
+  background-color: var(--darkBackground);
+  --colorForeground: var(--darkForeground);
+}
+
+

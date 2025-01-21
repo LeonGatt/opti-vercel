@@ -14,29 +14,94 @@ export const hero: Field = {
   type: 'group',
   fields: [
     {
-      name: 'type',
-      type: 'select',
-      defaultValue: 'lowImpact',
-      label: 'Type',
-      options: [
+      type: 'row',
+      fields: [
         {
-          label: 'None',
-          value: 'none',
+          name: 'type',
+          type: 'select',
+          defaultValue: 'lowImpact',
+          label: 'Type',
+          options: [
+            {
+              label: 'None',
+              value: 'none',
+            },
+            {
+              label: 'High Impact',
+              value: 'highImpact',
+            },
+            {
+              label: 'Medium Impact',
+              value: 'mediumImpact',
+            },
+            {
+              label: 'Low Impact',
+              value: 'lowImpact',
+            },
+          ],
+          required: true,
         },
         {
-          label: 'High Impact',
-          value: 'highImpact',
+          name: 'theme',
+          label: 'Theme',
+          type: 'select',
+          defaultValue: 'light',
+          options: [
+            {
+              label: 'Light',
+              value: 'light',
+            },
+            {
+              label: 'Dark',
+              value: 'dark',
+            }
+          ],
+        },
+      ]
+    },
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'valign',
+          label: 'Copy Vertical Alignment',
+          type: 'select',
+          defaultValue: 'center',
+          options: [
+            {
+              label: 'Center',
+              value: 'center',
+            },
+            {
+              label: 'Top',
+              value: 'top',
+            },
+            {
+              label: 'Bottom',
+              value: 'bottom',
+            }
+          ]
         },
         {
-          label: 'Medium Impact',
-          value: 'mediumImpact',
-        },
-        {
-          label: 'Low Impact',
-          value: 'lowImpact',
+          name: 'halign',
+          label: 'Copy Horizontal Alignment',
+          type: 'select',
+          defaultValue: 'center',
+          options: [
+            {
+              label: 'Center',
+              value: 'center',
+            },
+            {
+              label: 'Left',
+              value: 'left',
+            },
+          ]
         },
       ],
-      required: true,
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact'].includes(type),
+      },
     },
     {
       name: 'media',
