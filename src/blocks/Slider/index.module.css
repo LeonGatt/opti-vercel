@@ -1,0 +1,9 @@
+.sliderWrapper {
+  margin-bottom: var(--marginVerticalBlock);
+}
+
+.contentWrapper {
+  width: var(--widthContent);
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -8,6 +8,7 @@ import { GridBlock } from '@/blocks/Grid/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { DuplexBlock } from '@/blocks/Duplex/Component'
+import { SliderBlock } from '@/blocks/Slider/Component'
 
 const blockComponents = {
   feed: FeedBlock,
@@ -16,6 +17,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   duplexBlock: DuplexBlock,
+  sliderBlock: SliderBlock,
 }
 
 export const RenderBlocks: React.FC<{
