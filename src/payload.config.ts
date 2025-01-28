@@ -18,7 +18,7 @@ import { defaultLexical } from '@/fields/defaultLexical'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-console.log(process.env)
+
 export default buildConfig({
   admin: {
     importMap: {
