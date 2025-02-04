@@ -12,11 +12,21 @@ export const SliderBlock: Block = {
   slug: 'sliderBlock',
   interfaceName: 'sliderBlock',
   fields: [
-    blockTheme,
     {
-      name: 'slider',
+      type: 'row',
+      fields: [
+        {
+          name: 'sliderTitle',
+          label: 'Slider Title',
+          type: 'text',
+        },
+        blockTheme,
+      ]
+    },
+    {
+      name: 'slides',
       type: 'array',
-      label: 'Slider',
+      label: 'Slides',
       minRows: 3,
       maxRows: 10,
       interfaceName: 'Slide',
@@ -26,7 +36,7 @@ export const SliderBlock: Block = {
       },
       fields: [
         {
-          name: 'image',
+          name: 'media',
           type: 'upload',
           relationTo: 'media',
           required: true,

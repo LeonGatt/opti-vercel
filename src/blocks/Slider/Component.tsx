@@ -1,25 +1,17 @@
 import React from 'react'
-
-import type { SliderBlock as SliderBlockProps, Slide as SlideType } from '@/payload-types'
-
-import RichText from '@/components/RichText'
-import { Media } from '@/components/Media'
+import type { SliderBlock as SliderBlockProps } from '@/payload-types'
 import { Slide } from '@/components/Slide'
 import styles from './index.module.css'
 
-export const SliderBlock: React.FC<SliderBlockProps> = ({ blockTheme, slider }) => {
+export const SliderBlock: React.FC<SliderBlockProps> = ({ blockTheme, slides, sliderTitle }) => {
   return (
     <div className={[styles.sliderWrapper, blockTheme && styles[`theme-${blockTheme}`]].filter(Boolean).join(' ')}>
+      { sliderTitle && <h2 className={ styles.title }>{sliderTitle}</h2> }
       <div className={styles.contentWrapper}>
-
-        Slider goes here
-        { slider && slider.length }
-
-
-        {Array.isArray(slider) && slider.length > 0 && (
-            <div className={ styles.slideWrapper }>
-              {slider.map((slide, i) => {
-                return (<Slide key={i} {...slide} />)
+        {Array.isArray(slides) && slides.length > 0 && (
+            <div className={ styles.slidesWrapper }>
+              {slides.map((slide, i) => {
+                return (<div key={i} className={ styles.slideWrapper }><Slide {...slide} /></div>)
               })}
             </div>
           )}

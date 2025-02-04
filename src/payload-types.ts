@@ -12,7 +12,7 @@
  */
 export type Slide =
   | {
-      image: string | Media;
+      media: string | Media;
       richText?: {
         root: {
           type: string;
@@ -382,8 +382,9 @@ export interface CallToActionBlock {
  * via the `definition` "sliderBlock".
  */
 export interface SliderBlock {
+  sliderTitle?: string | null;
   blockTheme?: ('light' | 'dark') | null;
-  slider?: Slide;
+  slides?: Slide;
   id?: string | null;
   blockName?: string | null;
   blockType: 'sliderBlock';
@@ -985,8 +986,9 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
  * via the `definition` "sliderBlock_select".
  */
 export interface SliderBlockSelect<T extends boolean = true> {
+  sliderTitle?: T;
   blockTheme?: T;
-  slider?: T | SlideSelect<T>;
+  slides?: T | SlideSelect<T>;
   id?: T;
   blockName?: T;
 }
@@ -995,7 +997,7 @@ export interface SliderBlockSelect<T extends boolean = true> {
  * via the `definition` "Slide_select".
  */
 export interface SlideSelect<T extends boolean = true> {
-  image?: T;
+  media?: T;
   richText?: T;
   id?: T;
 }
