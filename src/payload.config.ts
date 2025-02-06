@@ -5,7 +5,7 @@ import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-
+import {testEmailAdapter} from './utilities/testEmailAdapter'
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
@@ -83,4 +83,5 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
+  email : process.env.NODE_ENV === 'development' ? testEmailAdapter : undefined,
 })
