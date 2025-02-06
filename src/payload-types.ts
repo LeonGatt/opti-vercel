@@ -28,6 +28,29 @@ export type Slide =
         };
         [k: string]: unknown;
       } | null;
+      links?:
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?: {
+                relationTo: 'pages';
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              label: string;
+              /**
+               * Choose how the link should be rendered.
+               */
+              appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
+              /**
+               * Color of the link.
+               */
+              color?: ('default' | 'blue' | 'orange') | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
       id?: string | null;
     }[]
   | null;
@@ -999,6 +1022,22 @@ export interface SliderBlockSelect<T extends boolean = true> {
 export interface SlideSelect<T extends boolean = true> {
   media?: T;
   richText?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+              color?: T;
+            };
+        id?: T;
+      };
   id?: T;
 }
 /**

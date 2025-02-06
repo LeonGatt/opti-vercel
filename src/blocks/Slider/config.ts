@@ -1,5 +1,6 @@
 import type { Block } from 'payload'
 import { blockTheme } from '@/fields/blockTheme'
+import { linkGroup } from '@/fields/linkGroup'
 
 import {
   FixedToolbarFeature,
@@ -56,6 +57,12 @@ export const SliderBlock: Block = {
             },
           }),
         },
+        linkGroup({
+          appearances: ['plain', 'dim', 'outline', 'solid'],
+          overrides: {
+            maxRows: 2,
+          },
+        }),
       ],
     },
   ],
