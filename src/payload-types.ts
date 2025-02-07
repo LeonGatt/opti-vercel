@@ -6,6 +6,55 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Slide".
+ */
+export type Slide =
+  | {
+      media: string | Media;
+      richText?: {
+        root: {
+          type: string;
+          children: {
+            type: string;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      links?:
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?: {
+                relationTo: 'pages';
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              label: string;
+              /**
+               * Choose how the link should be rendered.
+               */
+              appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
+              /**
+               * Color of the link.
+               */
+              color?: ('default' | 'blue' | 'orange') | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
+      id?: string | null;
+    }[]
+  | null;
+
 export interface Config {
   auth: {
     users: UserAuthOperations;
@@ -131,7 +180,7 @@ export interface Page {
         }[]
       | null;
   };
-  layout: (CallToActionBlock | MediaBlock | FeedBlock | FormBlock | DuplexBlock | GridBlock)[];
+  layout: (GridBlock | MediaBlock | DuplexBlock | CallToActionBlock | SliderBlock | FeedBlock | FormBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -233,6 +282,77 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridBlock".
+ */
+export interface GridBlock {
+  blockTheme?: ('light' | 'dark') | null;
+  columns?:
+    | {
+        size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'grid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock".
+ */
+export interface MediaBlock {
+  position?: ('default' | 'fullscreen') | null;
+  blockTheme?: ('light' | 'dark') | null;
+  media: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "duplexBlock".
+ */
+export interface DuplexBlock {
+  layout?: ('default' | 'reverse' | 'vertical') | null;
+  emphasis?: ('equal' | 'copy' | 'media') | null;
+  blockTheme?: ('light' | 'dark') | null;
+  media: string | Media;
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'duplexBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CallToActionBlock".
  */
 export interface CallToActionBlock {
@@ -282,15 +402,15 @@ export interface CallToActionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock".
+ * via the `definition` "sliderBlock".
  */
-export interface MediaBlock {
-  position?: ('default' | 'fullscreen') | null;
+export interface SliderBlock {
+  sliderTitle?: string | null;
   blockTheme?: ('light' | 'dark') | null;
-  media: string | Media;
+  slides?: Slide;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'mediaBlock';
+  blockType: 'sliderBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -586,65 +706,6 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "duplexBlock".
- */
-export interface DuplexBlock {
-  layout?: ('default' | 'reverse' | 'vertical') | null;
-  emphasis?: ('equal' | 'copy' | 'media') | null;
-  blockTheme?: ('light' | 'dark') | null;
-  media: string | Media;
-  richText?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'duplexBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "GridBlock".
- */
-export interface GridBlock {
-  blockTheme?: ('light' | 'dark') | null;
-  columns?:
-    | {
-        size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
-        richText?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'grid';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -854,12 +915,13 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        cta?: T | CallToActionBlockSelect<T>;
+        grid?: T | GridBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
+        duplexBlock?: T | DuplexBlockSelect<T>;
+        cta?: T | CallToActionBlockSelect<T>;
+        sliderBlock?: T | SliderBlockSelect<T>;
         feed?: T | FeedBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
-        duplexBlock?: T | DuplexBlockSelect<T>;
-        grid?: T | GridBlockSelect<T>;
       };
   meta?:
     | T
@@ -874,6 +936,46 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridBlock_select".
+ */
+export interface GridBlockSelect<T extends boolean = true> {
+  blockTheme?: T;
+  columns?:
+    | T
+    | {
+        size?: T;
+        richText?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock_select".
+ */
+export interface MediaBlockSelect<T extends boolean = true> {
+  position?: T;
+  blockTheme?: T;
+  media?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "duplexBlock_select".
+ */
+export interface DuplexBlockSelect<T extends boolean = true> {
+  layout?: T;
+  emphasis?: T;
+  blockTheme?: T;
+  media?: T;
+  richText?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -904,14 +1006,39 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock_select".
+ * via the `definition` "sliderBlock_select".
  */
-export interface MediaBlockSelect<T extends boolean = true> {
-  position?: T;
+export interface SliderBlockSelect<T extends boolean = true> {
+  sliderTitle?: T;
   blockTheme?: T;
-  media?: T;
+  slides?: T | SlideSelect<T>;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Slide_select".
+ */
+export interface SlideSelect<T extends boolean = true> {
+  media?: T;
+  richText?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+              color?: T;
+            };
+        id?: T;
+      };
+  id?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -936,35 +1063,6 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "duplexBlock_select".
- */
-export interface DuplexBlockSelect<T extends boolean = true> {
-  layout?: T;
-  emphasis?: T;
-  blockTheme?: T;
-  media?: T;
-  richText?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "GridBlock_select".
- */
-export interface GridBlockSelect<T extends boolean = true> {
-  blockTheme?: T;
-  columns?:
-    | T
-    | {
-        size?: T;
-        richText?: T;
-        id?: T;
-      };
   id?: T;
   blockName?: T;
 }

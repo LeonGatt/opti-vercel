@@ -8,6 +8,7 @@ import { Grid } from '../../blocks/Grid/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { DuplexBlock } from '../../blocks/Duplex/config'
+import { SliderBlock } from '../../blocks/Slider/config'
 import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
@@ -69,7 +70,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, MediaBlock, Feed, FormBlock, DuplexBlock, Grid],
+              blocks: [Grid, MediaBlock, DuplexBlock, CallToAction, SliderBlock, Feed, FormBlock],
               required: true,
             },
           ],
