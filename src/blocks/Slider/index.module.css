@@ -1,6 +1,5 @@
 .sliderWrapper {
-  width: 100vw;
-  max-width: 100%;
+  max-width: calc(100vw - 17px);
   margin-bottom: var(--marginVerticalBlock);
   
 }
@@ -23,15 +22,20 @@ position: relative;
 
 .swiperSlide {
   flex-shrink: inherit;
+  --slideCopyOpacity: 0;
 }
 
 /* Swiper Slides */
+.slide {
+
+}
 .slideActive{
+  --slideCopyOpacity: 1;
 }
   
 .slideNext,
 .slidePrev {
-  
+
 }
 
 

@@ -2,6 +2,7 @@
   /* width: var(--widthContent); */ 
   width: calc( (var(--widthColumn) * 10) + (var(--widthGutter) * 9));
   color: var(--colorForeground);
+  margin:0 auto;
 }
 .slideWrapper h1,
 .slideWrapper h2,
@@ -15,12 +16,20 @@
 }
 .mediaAsset img{
   border-radius: 10px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   
 }
+
+.richTextWrapper,
+.linksWrapper {
+  opacity: var(--slideCopyOpacity);
+  transition: opacity 0.5s ease-in-out;
+}
+
 .richTextWrapper {
   width: 75%;
   padding:0 0 40px 20px;
-  
 }
 .linksWrapper {
   display: flex;
