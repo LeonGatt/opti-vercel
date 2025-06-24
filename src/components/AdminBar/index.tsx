@@ -1,14 +1,18 @@
 'use client'
 
-import type { PayloadAdminBarProps } from 'payload-admin-bar'
+import type { PayloadAdminBarProps, PayloadMeUser } from '@payloadcms/admin-bar'
 
+import { cn } from '@/utilities/ui'
+import { PayloadAdminBar } from '@payloadcms/admin-bar'
 import { useSelectedLayoutSegments } from 'next/navigation'
-import { PayloadAdminBar } from 'payload-admin-bar'
-import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
 
-import styles from './index.module.css'
+import './index.scss'
 
+import { getClientSideURL } from '@/utilities/getURL'
+
+const baseClass = 'admin-bar'
 
 const collectionLabels = {
   pages: {
@@ -18,10 +22,10 @@ const collectionLabels = {
   posts: {
     plural: 'Posts',
     singular: 'Post',
-  }
+  },
 }
 
-const Title: React.FC = () => <span>CMS Dashboard</span>
+const Title: React.FC = () => <span>Dashboard</span>
 
 export const AdminBar: React.FC<{
   adminBarProps?: PayloadAdminBarProps
@@ -29,22 +33,33 @@ export const AdminBar: React.FC<{
   const { adminBarProps } = props || {}
   const segments = useSelectedLayoutSegments()
   const [show, setShow] = useState(false)
-  const collection = collectionLabels?.[segments?.[1]] ? segments?.[1] : 'pages'
+  const collection = (
+    collectionLabels[segments?.[1] as keyof typeof collectionLabels] ? segments[1] : 'pages'
+  ) as keyof typeof collectionLabels
   const router = useRouter()
 
-  const onAuthChange = React.useCallback((user) => {
-    setShow(user?.id)
+  const onAuthChange = React.useCallback((user: PayloadMeUser) => {
+    setShow(Boolean(user?.id))
   }, [])
 
   return (
     <div
-      className={[styles.adminBar, show && styles.show].filter(Boolean).join(' ')}
+      className={cn(baseClass, 'py-2 bg-black text-white', {
+        block: show,
+        hidden: !show,
+      })}
     >
       <div className="container">
         <PayloadAdminBar
           {...adminBarProps}
-          cmsURL={process.env.NEXT_PUBLIC_SERVER_URL}
-          collection={collection}
+          className="py-2 text-white"
+          classNames={{
+            controls: 'font-medium text-white',
+            logo: 'text-white',
+            user: 'text-white',
+          }}
+          cmsURL={getClientSideURL()}
+          collectionSlug={collection}
           collectionLabels={{
             plural: collectionLabels[collection]?.plural || 'Pages',
             singular: collectionLabels[collection]?.singular || 'Page',

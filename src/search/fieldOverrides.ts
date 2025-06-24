@@ -1,4 +1,4 @@
-import { Field } from 'payload'
+import type { Field } from 'payload'
 
 export const searchFields: Field[] = [
   {
@@ -49,7 +49,7 @@ export const searchFields: Field[] = [
         type: 'text',
       },
       {
-        name: 'id',
+        name: 'categoryID',
         type: 'text',
       },
       {

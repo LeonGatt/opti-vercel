@@ -1,0 +1,117 @@
+@import './general.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tailwind Base Reset Overrides */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: unset;
+    font-weight: unset;
+  }
+
+  :root {
+    --background: var(--white);
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 240 5% 96%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 240 6% 80%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.2rem;
+
+    /* Custom Tokens (Imported + Custom Theme) */
+    --softBlack: #1d1d16;
+    --darkGray: #1d1d1f;
+    --lightGray: #f5f5f5;
+    --brandBlue: #41b6e6;
+    --colorText: #707070;
+
+    --blue01: #41b6e6;
+    --blue02: #75d5fd;
+    --blue03: #cef1ff;
+    --orange01: #f7951e;
+    --orange02: #fbb867;
+    --orange03: #ffd8a9;
+
+    --gray01: #6e6e73;
+    --gray02: #86868b;
+    --gray03: #dddfe6;
+    --gray04: #fafbfd;
+
+    --white: #fff;
+    --black: #000;
+    --error: #e33610;
+    --warning: #ffe137;
+    --success: #31ce4b;
+
+    --colorForeground: var(--darkGray);
+    --colorBackground: var(--white);
+
+    --colorHeading: var(--black);
+    --colorCaption: var(--softBlack);
+
+    --colorHeaderBackground: #f1f1f1;
+    --colorHeaderForeground: var(--softBlack);
+    --colorFooterBackground: #111;
+    --colorFooterForeground: hsla(0, 0%, 100%, 0.5);
+    --colorAdminBarBackground: var(--darkGray);
+    --colorAdminBarBackgroundDark: var(--softBlack);
+    --colorAdminBarForeground: #f1f1f1;
+  }
+
+  [data-theme='dark'] {
+    --background: var(--darkGray);
+    --foreground: 210 40% 98%;
+    --card: 0 0% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 15% / 0.8;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --colorForeground: hsla(0, 0%, 100%, 0.8);
+    --colorBackground: var(--darkGray);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-[100vh] flex flex-col;
+    font-family: var(--fontFamilyBody);
+    font-size: var(--fontSizeBody);
+    line-height: var(--lineHeightBody);
+  }
+}

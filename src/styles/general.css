@@ -1,0 +1,174 @@
+@import './colors.css';
+@import './type.css';
+@import './queries.css';
+
+:root {
+  /* Font Families */
+  --haasText55: 'HaasGrotText-55Roman';
+  --haasText75: 'HaasGrotText-75Bold';
+  --haasDisplay55: 'Haas Grot Disp 55 Roman';
+  --haasDisplay65: 'Haas Grot Disp 65';
+  --haasDisplay75: 'Haas Grot Disp 75';
+
+  --fontFamilyDisplay: var(--haasDisplay75);
+  --fontFamilyH1: var(--haasDisplay75);
+  --fontFamilyH2: var(--haasDisplay75);
+  --fontFamilyH3: var(--haasDisplay75);
+  --fontFamilyH4: var(--haasDisplay75);
+  --fontFamilyBody: var(--haasText55);
+  --fontFamilyStrong: var(--haasText75);
+  --fontFamilyTiny: var(--haasText55);
+
+  /* Vertical Spacing */
+  --spacingVerticalLarge: 160px;
+  --spacingVerticalMedium: 120px;
+  --spacingVerticalSmall: 80px;
+
+  /* Grid Spacing */
+  --columnGap: var(--widthGutter);
+  --rowGap: 40px;
+
+  /* Header Sizing */
+  --heightHeader: 64px;
+  --fontSizeHeader: 13px;
+
+  /* Footer Sizing */
+  --fontSizeFooter: 14px;
+
+  /* Maximum Paragraph Width */
+  --maxWidthCopy: 40rem;
+  --maxWidthHeading: 60rem;
+
+  /* Hero */
+  --heightHero: 630px;
+  --backgroundHero: linear-gradient(-180deg, transparent, rgba(0, 0, 0, 0.07));
+  --foregroundHero: var(--colorForeground);
+  --colorHeadingHero: var(--colorForeground);
+  /* Hero Padding */
+  --paddingVerticalHero: 120px;
+
+  /* Blocks */
+  --paddingVerticalBlock: 40px;
+  --marginVerticalBlock: 120px;
+}
+
+/* Global Tag styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Switch to dark theme */
+html[data-theme='dark'] {
+  --colorForeground: var(--darkForeground);
+  --colorBackground: var(--darkBackground);
+
+  /* Hero Dark Theme Changes */
+  --backgroundHero: var(--dark1Background);
+  --colorHeadingHero: var(--white);
+}
+
+html {
+  background: var(--colorBackground);
+  color: var(--colorForeground);
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  font-family: var(--fontFamilyBody);
+  font-size: var(--fontSizeBody);
+  line-height: var(--lineHeightBody);
+  margin: 0;
+  color: var(--colorForeground);
+}
+
+.contentWrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+p {
+  margin: 0 0 var(--fontSizeBody);
+  /* max-width: var(--maxWidthCopy); */
+  text-wrap: pretty;
+}
+p:last-child {
+  margin: 0;
+}
+
+strong {
+  font-family: var(--fontFamilyStrong);
+  text-wrap: nowrap;
+}
+
+ul,
+ol {
+  max-width: var(--maxWidthCopy);
+}
+
+a {
+  color: currentColor;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: var(--maxWidthHeading);
+  text-wrap: balance;
+}
+
+h1 {
+  font-family: var(--fontFamilyH1);
+  font-size: var(--fontSizeH1);
+  font-weight: normal;
+  line-height: var(--lineHeightH1);
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-family: var(--fontFamilyH2);
+  font-size: var(--fontSizeH2);
+  font-weight: normal;
+  line-height: var(--lineHeightH2);
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-family: var(--fontFamilyH3);
+  font-size: var(--fontSizeH3);
+  font-weight: normal;
+  line-height: var(--lineHeightH3);
+  margin: 0;
+  padding: 0;
+}
+
+h4 {
+  font-family: var(--fontFamilyH4);
+  font-size: var(--fontSizeH4);
+  font-weight: normal;
+  line-height: var(--lineHeightH4);
+  margin: 0;
+  padding: 0;
+}

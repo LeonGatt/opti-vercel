@@ -1,6 +1,0 @@
-.relatedPostsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: var(--columnGap);
-  row-gap: var(--rowGap);
-}

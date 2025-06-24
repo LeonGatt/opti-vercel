@@ -1,5 +1,8 @@
+import typography from '@tailwindcss/typography'
+import tailwindcssAnimate from 'tailwindcss-animate'
+
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -7,8 +10,7 @@ export default {
     './src/**/*.{ts,tsx}',
   ],
   darkMode: ['selector', '[data-theme="dark"]'],
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
-  prefix: '',
+  plugins: [tailwindcssAnimate, typography],
   safelist: [
     'lg:col-span-4',
     'lg:col-span-6',
@@ -27,19 +29,19 @@ export default {
     container: {
       center: true,
       padding: {
-        '2xl': '2rem',
         DEFAULT: '1rem',
-        lg: '2rem',
-        md: '2rem',
         sm: '1rem',
+        md: '2rem',
+        lg: '2rem',
         xl: '2rem',
+        '2xl': '2rem',
       },
       screens: {
-        '2xl': '86rem',
-        lg: '64rem',
-        md: '48rem',
         sm: '40rem',
+        md: '48rem',
+        lg: '64rem',
         xl: '80rem',
+        '2xl': '86rem',
       },
     },
     extend: {
@@ -48,30 +50,43 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        md: 'calc(var(--radius) - 2px)',
+        lg: 'var(--radius)',
       },
       colors: {
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+        softBlack: 'var(--softBlack)',
+        darkGray: 'var(--darkGray)',
+        lightGray: 'var(--lightGray)',
+        brandBlue: 'var(--brandBlue)',
+        colorText: 'var(--colorText)',
+        blue: {
+          1: 'var(--blue01)',
+          2: 'var(--blue02)',
+          3: 'var(--blue03)',
         },
+        orange: {
+          1: 'var(--orange01)',
+          2: 'var(--orange02)',
+          3: 'var(--orange03)',
+        },
+        gray: {
+          1: 'var(--gray01)',
+          2: 'var(--gray02)',
+          3: 'var(--gray03)',
+          4: 'var(--gray04)',
+        },
+        white: 'var(--white)',
+        black: 'var(--black)',
+        error: 'var(--error)',
+        warning: 'var(--warning)',
+        success: 'var(--success)',
+
         background: 'hsl(var(--background))',
-        border: 'hsl(var(--border))',
+        foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        foreground: 'hsl(var(--foreground))',
-        input: 'hsl(var(--input))',
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
@@ -81,18 +96,60 @@ export default {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
         },
-        ring: 'hsl(var(--ring))',
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
-        success: 'hsl(var(--success))',
-        error: 'hsl(var(--error))',
-        warning: 'hsl(var(--warning))',
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        border: 'hsla(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+
+        // Custom Themed Aliases
+        colorBackground: 'var(--colorBackground)',
+        colorForeground: 'var(--colorForeground)',
+        colorHeading: 'var(--colorHeading)',
+        colorCaption: 'var(--colorCaption)',
+        colorHeaderBackground: 'var(--colorHeaderBackground)',
+        colorHeaderForeground: 'var(--colorHeaderForeground)',
+        colorFooterBackground: 'var(--colorFooterBackground)',
+        colorFooterForeground: 'var(--colorFooterForeground)',
+        colorAdminBarBackground: 'var(--colorAdminBarBackground)',
+        colorAdminBarBackgroundDark: 'var(--colorAdminBarBackgroundDark)',
+        colorAdminBarForeground: 'var(--colorAdminBarForeground)',
       },
       fontFamily: {
-        mono: ['var(--font-geist-mono)'],
-        sans: ['var(--font-geist-sans)'],
+        display: ['var(--fontFamilyDisplay)'],
+        h1: ['var(--fontFamilyH1)'],
+        h2: ['var(--fontFamilyH2)'],
+        h3: ['var(--fontFamilyH3)'],
+        h4: ['var(--fontFamilyH4)'],
+        body: ['var(--fontFamilyBody)'],
+        strong: ['var(--fontFamilyStrong)'],
+        tiny: ['var(--fontFamilyTiny)'],
+      },
+      spacing: {
+        'vertical-lg': 'var(--spacingVerticalLarge)',
+        'vertical-md': 'var(--spacingVerticalMedium)',
+        'vertical-sm': 'var(--spacingVerticalSmall)',
+        'padding-block': 'var(--paddingVerticalBlock)',
+        'margin-block': 'var(--marginVerticalBlock)',
+        hero: 'var(--paddingVerticalHero)',
+      },
+      maxWidth: {
+        copy: 'var(--maxWidthCopy)',
+        heading: 'var(--maxWidthHeading)',
       },
       keyframes: {
         'accordion-down': {
@@ -104,19 +161,18 @@ export default {
           to: { height: '0' },
         },
       },
-      typography: ({ theme }) => ({
+      typography: () => ({
         DEFAULT: {
           css: {
-            '--tw-prose-body': 'var(--text)',
-            '--tw-prose-headings': 'var(--text)',
-            h1: {
-              fontSize: '4rem',
-              fontWeight: 'normal',
-              marginBottom: '0.25em',
-            },
+            '--tw-prose-body': 'var(--colorForeground)',
+            '--tw-prose-headings': 'var(--colorForeground)',
+            color: 'var(--colorForeground)',
+            a: { color: 'inherit' },
           },
         },
       }),
     },
   },
 }
+
+export default config

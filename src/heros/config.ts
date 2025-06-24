@@ -14,110 +14,33 @@ export const hero: Field = {
   type: 'group',
   fields: [
     {
-      type: 'row',
-      fields: [
+      name: 'type',
+      type: 'select',
+      defaultValue: 'lowImpact',
+      label: 'Type',
+      options: [
         {
-          name: 'type',
-          type: 'select',
-          defaultValue: 'lowImpact',
-          label: 'Type',
-          options: [
-            {
-              label: 'None',
-              value: 'none',
-            },
-            {
-              label: 'High Impact',
-              value: 'highImpact',
-            },
-            {
-              label: 'Medium Impact',
-              value: 'mediumImpact',
-            },
-            {
-              label: 'Low Impact',
-              value: 'lowImpact',
-            },
-          ],
-          required: true,
+          label: 'None',
+          value: 'none',
         },
         {
-          name: 'theme',
-          label: 'Theme',
-          type: 'select',
-          defaultValue: 'light',
-          options: [
-            {
-              label: 'Light',
-              value: 'light',
-            },
-            {
-              label: 'Dark',
-              value: 'dark',
-            }
-          ],
-        },
-      ]
-    },
-    {
-      type: 'row',
-      fields: [
-        {
-          name: 'valign',
-          label: 'Copy Vertical Alignment',
-          type: 'select',
-          defaultValue: 'center',
-          options: [
-            {
-              label: 'Center',
-              value: 'center',
-            },
-            {
-              label: 'Top',
-              value: 'top',
-            },
-            {
-              label: 'Bottom',
-              value: 'bottom',
-            }
-          ]
+          label: 'High Impact',
+          value: 'highImpact',
         },
         {
-          name: 'halign',
-          label: 'Copy Horizontal Alignment',
-          type: 'select',
-          defaultValue: 'center',
-          options: [
-            {
-              label: 'Center',
-              value: 'center',
-            },
-            {
-              label: 'Left',
-              value: 'left',
-            },
-          ]
+          label: 'Medium Impact',
+          value: 'mediumImpact',
+        },
+        {
+          label: 'Low Impact',
+          value: 'lowImpact',
         },
       ],
-      admin: {
-        condition: (_, { type } = {}) => ['highImpact'].includes(type),
-      },
-    },
-    {
-      name: 'media',
-      type: 'upload',
-      admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
-      },
-      relationTo: 'media',
       required: true,
     },
     {
       name: 'richText',
       type: 'richText',
-      admin: {
-        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
-      },
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [
@@ -133,11 +56,17 @@ export const hero: Field = {
     linkGroup({
       overrides: {
         maxRows: 2,
-        admin: {
-          condition: (_, { type } = {}) => ['highImpact', 'mediumImpact', 'lowImpact'].includes(type),
-        },
       },
     }),
+    {
+      name: 'media',
+      type: 'upload',
+      admin: {
+        condition: (_, { type } = {}) => ['highImpact', 'mediumImpact'].includes(type),
+      },
+      relationTo: 'media',
+      required: true,
+    },
   ],
   label: false,
 }

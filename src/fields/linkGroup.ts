@@ -21,6 +21,9 @@ export const linkGroup: LinkGroupType = ({ appearances, colors, overrides = {} }
         colors,
       }),
     ],
+    admin: {
+      initCollapsed: true,
+    },
   }
 
   return deepMerge(generatedLinkGroup, overrides)

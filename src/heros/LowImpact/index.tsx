@@ -1,9 +1,8 @@
-import React from 'react'
+import type React from 'react'
 
 import type { Page } from '@/payload-types'
-import { CMSLink } from '@/components/Link'
+
 import RichText from '@/components/RichText'
-import styles from './index.module.css'
 
 type LowImpactHeroType =
   | {
@@ -15,24 +14,12 @@ type LowImpactHeroType =
       richText?: Page['hero']['richText']
     })
 
-export const LowImpactHero: React.FC<Page['hero']> = ({ links, theme, richText }) => {
+export const LowImpactHero: React.FC<LowImpactHeroType> = ({ children, richText }) => {
   return (
-    <div className={[styles.heroLow, theme && styles[`theme-${theme}`]].filter(Boolean).join(' ')}>
-        <div className={ styles.copyWrapper }>
-          {richText && <RichText className={ styles.richTextWrapper } content={richText} enableGutter={false} />}
-
-          {Array.isArray(links) && links.length > 0 && (
-            <ul className={ styles.linksList }>
-              {links.map(({ link }, i) => {
-                return (
-                  <li key={i}>
-                    <CMSLink theme={ theme } {...link} />
-                  </li>
-                )
-              })}
-            </ul>
-          )}
-        </div>
+    <div className="container mt-16">
+      <div className="max-w-[48rem]">
+        {children || (richText && <RichText data={richText} enableGutter={false} />)}
+      </div>
     </div>
   )
 }

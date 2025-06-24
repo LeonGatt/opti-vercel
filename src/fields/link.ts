@@ -35,7 +35,7 @@ export const colorOptions: Record<LinkColors, { label: string; value: string }> 
   orange: {
     label: 'Orange',
     value: 'orange',
-  }
+  },
 }
 
 type LinkType = (options?: {
@@ -45,7 +45,12 @@ type LinkType = (options?: {
   overrides?: Record<string, unknown>
 }) => Field
 
-export const link: LinkType = ({ appearances, colors, disableLabel = false, overrides = {} } = {}) => {
+export const link: LinkType = ({
+  appearances,
+  colors,
+  disableLabel = false,
+  overrides = {},
+} = {}) => {
   const linkResult: Field = {
     name: 'link',
     type: 'group',
@@ -143,7 +148,12 @@ export const link: LinkType = ({ appearances, colors, disableLabel = false, over
   }
 
   if (appearances !== false) {
-    let appearanceOptionsToUse = [appearanceOptions.plain, appearanceOptions.dim, appearanceOptions.outline, appearanceOptions.solid]
+    let appearanceOptionsToUse = [
+      appearanceOptions.plain,
+      appearanceOptions.dim,
+      appearanceOptions.outline,
+      appearanceOptions.solid,
+    ]
 
     if (appearances) {
       appearanceOptionsToUse = appearances.map((appearance) => appearanceOptions[appearance])

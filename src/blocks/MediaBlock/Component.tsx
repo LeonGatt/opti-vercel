@@ -1,13 +1,12 @@
 import type { StaticImageData } from 'next/image'
 
-import React from 'react'
 import RichText from '@/components/RichText'
+import { cn } from '@/utilities/ui'
+import type React from 'react'
 
-import type { MediaBlock as MediaBlockProps } from '@/payload-types'
+import type { MediaBlock as MediaBlockProps, Media as MediaType } from '@/payload-types'
 
 import { Media } from '../../components/Media'
-
-import styles from './index.module.css'
 
 type Props = MediaBlockProps & {
   breakout?: boolean
@@ -26,40 +25,43 @@ export const MediaBlock: React.FC<Props> = (props) => {
     enableGutter = true,
     imgClassName,
     media,
-    blockTheme,
-    position = 'default',
     staticImage,
     disableInnerContainer,
   } = props
 
-  let caption
-  if (media && typeof media === 'object') caption = media.caption
+  let caption: undefined | MediaType['caption']
+  if (media && typeof media === 'object') {
+    caption = media.caption
+  }
 
   return (
-    <div className={[
-      styles.mediaBlockWrapper, 
-      className && styles[`${className}`],
-      blockTheme && styles[`theme-${blockTheme}`],
-      position && styles[`position-${position}`]
-    ].filter(Boolean).join(' ')}>
-      <div className={ styles.mediaWrapper }>
-        <Media 
-          resource={media} 
-          src={staticImage} 
-          className={[
-            imgClassName && styles[`${imgClassName}`]
-          ].filter(Boolean).join(' ')}
+    <div
+      className={cn(
+        '',
+        {
+          container: enableGutter,
+        },
+        className,
+      )}
+    >
+      {(media || staticImage) && (
+        <Media
+          imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
+          resource={media}
+          src={staticImage}
         />
-      </div>
+      )}
       {caption && (
-        <div className={ styles.captionWrapper }>
-          <RichText 
-            content={caption} 
-            enableGutter={false} 
-            className={[
-              captionClassName && styles[`${captionClassName}`]
-            ].filter(Boolean).join(' ')}
-          />
+        <div
+          className={cn(
+            'mt-6',
+            {
+              container: !disableInnerContainer,
+            },
+            captionClassName,
+          )}
+        >
+          <RichText data={caption} enableGutter={false} />
         </div>
       )}
     </div>

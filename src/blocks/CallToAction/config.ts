@@ -1,27 +1,18 @@
 import type { Block } from 'payload'
-import { blockTheme } from '@/fields/blockTheme'
 
 import {
   FixedToolbarFeature,
-  BlocksFeature,
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
-import { linkGroup } from '@/fields/linkGroup'
-import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { linkGroup } from '../../fields/linkGroup'
 
 export const CallToAction: Block = {
   slug: 'cta',
   interfaceName: 'CallToActionBlock',
   fields: [
-    blockTheme,
-    {
-      name: 'media',
-      type: 'upload',
-      relationTo: 'media',
-    },
     {
       name: 'richText',
       type: 'richText',
@@ -29,8 +20,7 @@ export const CallToAction: Block = {
         features: ({ rootFeatures }) => {
           return [
             ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
-            BlocksFeature({ blocks: [MediaBlock] }),
+            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
             FixedToolbarFeature(),
             InlineToolbarFeature(),
           ]

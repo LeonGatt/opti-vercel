@@ -13,6 +13,6 @@ export const blockTheme: Field = {
     {
       label: 'Dark',
       value: 'dark',
-    }
+    },
   ],
 }

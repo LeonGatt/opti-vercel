@@ -1,5 +1,4 @@
 :root {
-
   /* Theme Colors */
   --softBlack: #1d1d16;
   --darkGray: #a2a2a2;
@@ -7,26 +6,26 @@
   --brandBlue: #41b6e6;
   --colorText: #707070;
 
-  --blue01: #41B6E6;
-  --blue02: #75D5FD;
-  --blue03: #CEF1FF;
-  --orange01: #F7951E;
-  --orange02: #FBB867;
-  --orange03: #FFD8A9;
+  --blue01: #41b6e6;
+  --blue02: #75d5fd;
+  --blue03: #cef1ff;
+  --orange01: #f7951e;
+  --orange02: #fbb867;
+  --orange03: #ffd8a9;
   --black: #000;
-  --darkGray: #1D1D1F;
-  --gray01: #6E6E73;
-  --gray02: #86868B;
-  --gray03: #DDDFE6;
-  --gray04: #FAFBFD;
+  --darkGray: #1d1d1f;
+  --gray01: #6e6e73;
+  --gray02: #86868b;
+  --gray03: #dddfe6;
+  --gray04: #fafbfd;
   --white: #fff;
-  --error: #E33610;
-  --warning: #FFE137;
-  --success: #31CE4B;
+  --error: #e33610;
+  --warning: #ffe137;
+  --success: #31ce4b;
 
   --lightForeground: var(--darkGray);
   --lightBackground: var(--white);
-  --darkForeground:  hsla(0, 0%, 100%, .8);
+  --darkForeground: hsla(0, 0%, 100%, 0.8);
   --darkBackground: var(--darkGray);
 
   /* Dark Components */
@@ -47,13 +46,12 @@
 
   /* Footer Colors */
   --colorFooterBackground: #111;
-  --colorFooterForeground: hsla(0, 0%, 100%, .5);
+  --colorFooterForeground: hsla(0, 0%, 100%, 0.5);
 
   /* Body Colors */
   --colorForeground: var(--lightForeground);
   --colorBackground: var(--lightBackground);
   --colorHeading: var(--black);
-
 
   /* Caption Colors */
   --colorCaption: var(--softBlack);
@@ -62,5 +60,4 @@
   --colorAdminBarBackground: var(--darkGray);
   --colorAdminBarBackgroundDark: var(--softBlack);
   --colorAdminBarForeground: #f1f1f1;
-
 }

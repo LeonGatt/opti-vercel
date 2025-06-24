@@ -1,11 +1,9 @@
-/* import { Button, type ButtonProps } from '@/components/ui/button' */
-import { Button, Props as ButtonProps } from '../Button' 
+import { Button, type Props as ButtonProps } from '../Button'
 
-import { cn } from 'src/utilities/cn'
 import Link from 'next/link'
-import React from 'react'
 
 import type { Page, Post } from '@/payload-types'
+import { cn } from '@/utilities/ui'
 
 type CMSLinkType = {
   appearance?: 'plain' | 'dim' | 'outline' | 'solid' | null | undefined
@@ -62,7 +60,6 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   }
 
   return (
-    
     <Button
       className={className}
       size={size}
@@ -72,6 +69,5 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
       appearance={appearance}
       label={label}
     />
-    
   )
 }

@@ -1,28 +1,20 @@
-import React from 'react'
+import type React from 'react'
 
 import type { CallToActionBlock as CTABlockProps } from '@/payload-types'
 
-import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
-import { Media } from '@/components/Media'
-import styles from './index.module.css'
+import RichText from '@/components/RichText'
 
-export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText, blockTheme, media }) => {
+export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText }) => {
   return (
-    <div className={[styles.ctaWrapper, blockTheme && styles[`theme-${blockTheme}`]].filter(Boolean).join(' ')} >
-      <div className={ styles.contentWrapper }>
-
-          {media && typeof media === 'object' && (
-            <div className={ styles.visualWrapper}>
-              <Media className={ styles.imageWrapper } priority resource={media} />
-            </div>
-          )}
-        
-          {richText && <RichText className={ styles.richTextWrapper } content={richText} enableGutter={false} />}
-
-        <div className={ styles.linksWrapper }>
+    <div className="container">
+      <div className="bg-card rounded border-border border p-4 flex flex-col gap-8 md:flex-row md:justify-between md:items-center">
+        <div className="max-w-[48rem] flex items-center">
+          {richText && <RichText className="mb-0" data={richText} enableGutter={false} />}
+        </div>
+        <div className="flex flex-col gap-8">
           {(links || []).map(({ link }, i) => {
-            return <CMSLink key={i} theme={ blockTheme } size="lg" {...link} />
+            return <CMSLink key={i} size="lg" {...link} />
           })}
         </div>
       </div>

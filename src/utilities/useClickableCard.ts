@@ -31,6 +31,7 @@ function useClickableCard<T extends HTMLElement>({
   const hasActiveParent = useRef<boolean>(false)
   const pressedButton = useRef<number>(0)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const handleMouseDown = useCallback(
     (e: MouseEvent) => {
       if (e.target) {
@@ -49,10 +50,10 @@ function useClickableCard<T extends HTMLElement>({
         }
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [router, card, link, timeDown],
   )
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const handleMouseUp = useCallback(
     (e: MouseEvent) => {
       if (link.current?.href) {
@@ -71,27 +72,27 @@ function useClickableCard<T extends HTMLElement>({
         }
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [router, card, link, timeDown],
   )
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     const cardNode = card.current
 
+    const abortController = new AbortController()
+
     if (cardNode) {
-      cardNode.addEventListener('mousedown', handleMouseDown)
-      cardNode.addEventListener('mouseup', handleMouseUp)
+      cardNode.addEventListener('mousedown', handleMouseDown, {
+        signal: abortController.signal,
+      })
+      cardNode.addEventListener('mouseup', handleMouseUp, {
+        signal: abortController.signal,
+      })
     }
 
     return () => {
-      if (cardNode) {
-        if (cardNode) {
-          cardNode?.removeEventListener('mousedown', handleMouseDown)
-          cardNode?.removeEventListener('mouseup', handleMouseUp)
-        }
-      }
+      abortController.abort()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [card, link, router])
 
   return {

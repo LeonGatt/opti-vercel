@@ -2,13 +2,26 @@ build
 dist / media
 node_modules
 .DS_Store
+.env
 .next
 .vercel
 
 # Payload default media upload directory
 public/media/
 
-# environemnt env files
-*.env
-*.env.*
-!.env.example
+public/robots.txt
+public/sitemap*.xml
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+*storybook.log
+storybook-static

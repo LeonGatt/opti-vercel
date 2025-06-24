@@ -1,20 +1,20 @@
-// storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 
-import sharp from 'sharp' // sharp-import
-import path from 'path'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
-import {testEmailAdapter} from './utilities/testEmailAdapter'
+import sharp from 'sharp'
+
+import { defaultLexical } from '@/fields/defaultLexical'
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
-import { Footer } from './Footer/config'
-import { Header } from './Header/config'
+import { Footer } from './globals/Footer/config'
+import { Header } from './globals/Header/config'
 import { plugins } from './plugins'
-import { defaultLexical } from '@/fields/defaultLexical'
+import { getServerSideURL } from './utilities/getURL'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,40 +28,22 @@ export default buildConfig({
     livePreview: {
       breakpoints: [
         {
-          label: 'XS',
-          name: 'xs',
-          width: 320,
-          height: 240,
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+          height: 667,
         },
         {
-          label: 'S',
-          name: 's',
-          width: 480,
-          height: 320,
-        },
-        {
-          label: 'M',
-          name: 'm',
+          label: 'Tablet',
+          name: 'tablet',
           width: 768,
-          height: 480,
-        },
-        {
-          label: 'L',
-          name: 'l',
-          width: 960,
-          height: 720,
-        },
-        {
-          label: 'XL',
-          name: 'xl',
-          width: 1200,
-          height: 960,
-        },
-        {
-          label: 'XXL',
-          name: 'xxl',
-          width: 1400,
           height: 1024,
+        },
+        {
+          label: 'Desktop',
+          name: 'desktop',
+          width: 1440,
+          height: 900,
         },
       ],
     },
@@ -72,16 +54,12 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   collections: [Pages, Posts, Media, Categories, Users],
-  cors: [process.env.NEXT_PUBLIC_SERVER_URL || ''].filter(Boolean),
+  cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
-  plugins: [
-    ...plugins,
-    // storage-adapter-placeholder
-  ],
+  plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  email : process.env.NODE_ENV === 'development' ? testEmailAdapter : undefined,
 })
