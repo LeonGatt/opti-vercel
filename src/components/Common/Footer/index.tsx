@@ -1,5 +1,4 @@
 import { getCachedGlobal } from '@/utilities/getGlobals'
-import React from 'react'
 
 import { CMSLink } from '@/components/Link'
 import type { Footer } from '@/payload-types'
@@ -11,8 +10,8 @@ export async function FooterComponent() {
   const navItems = footer?.navGroup || []
 
   return (
-    <footer className="bg-colorFooterBackground text-colorFooterForeground text-fontSizeFooter leading-lineHeightFooter py-7 pb-5">
-      <div className="container mx-auto">
+    <footer className="bg-colorFooterBackground text-colorFooterForeground text-fontSizeFooter leading-lineHeightFooter py-7 pb-5 mt-auto">
+      <div className="container">
         <nav className="flex justify-between gap-10 w-full pb-7">
           {navItems.map(({ links, id }, index) => (
             <div key={id ?? index} className="flex flex-col text-sm">

@@ -43,7 +43,7 @@ export const Button: FC<Props> = ({
   const baseClasses = 'px-4 py-2 rounded-lg transition-all duration-300 no-underline'
 
   const colorVar = {
-    default: 'text-colorForeground',
+    default: 'text-foreground',
     blue: 'text-blue-1',
     orange: 'text-orange-1',
   }
@@ -56,13 +56,13 @@ export const Button: FC<Props> = ({
     ),
     outline: clsx(
       'border',
-      color === 'default' ? 'border-colorForeground' : 'border-colorForeground',
+      color === 'default' ? 'border-foreground' : 'border-foreground',
       'hover:bg-[var(--gray04)]',
       theme === 'dark' && 'hover:bg-[#313136]',
     ),
     solid: clsx(
       'text-white',
-      'bg-colorForeground',
+      'bg-foreground',
       color === 'blue' && 'hover:bg-blue-2',
       color === 'orange' && 'hover:bg-orange-2',
       color === 'default' && 'hover:bg-[#717176]',

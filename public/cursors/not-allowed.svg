@@ -1,0 +1,13 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5 22.75C20.3995 22.75 22.75 20.3995 22.75 17.5C22.75 14.6005 20.3995 12.25 17.5 12.25C14.6005 12.25 12.25 14.6005 12.25 17.5C12.25 20.3995 14.6005 22.75 17.5 22.75Z" fill="white" stroke="white" stroke-width="1.5"/>
+<path d="M8 18.25L2.75 2.75L17.25 9L9.75 10.75L8 18.25Z" fill="#020617"/>
+<mask id="mask0_117_65" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="19" height="20">
+<path d="M18.75 0.75H0.75V19.75H18.75V0.75Z" fill="white"/>
+<path d="M8 18.25L2.75 2.75L17.25 9L9.75 10.75L8 18.25Z" fill="black"/>
+</mask>
+<g mask="url(#mask0_117_65)">
+<path d="M8 18.25L2.75 2.75L17.25 9L9.75 10.75L8 18.25Z" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+</g>
+<path d="M17.5 21.25C19.5711 21.25 21.25 19.5711 21.25 17.5C21.25 15.4289 19.5711 13.75 17.5 13.75C15.4289 13.75 13.75 15.4289 13.75 17.5C13.75 19.5711 15.4289 21.25 17.5 21.25Z" fill="white" stroke="#020617" stroke-width="1.5"/>
+<path d="M15 15L20 20" stroke="#020617" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

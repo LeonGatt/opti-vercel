@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 import type { Page, Post } from '@/payload-types'
 import { cn } from '@/utilities/ui'
+import { buttonVariants } from '../ui/button'
+import type { VariantProps } from 'class-variance-authority'
 
 type CMSLinkType = {
   appearance?: 'plain' | 'dim' | 'outline' | 'solid' | null | undefined
@@ -20,6 +22,7 @@ type CMSLinkType = {
   size?: ButtonProps['size'] | null
   type?: 'custom' | 'reference' | null
   url?: string | null
+  variant?: VariantProps<typeof buttonVariants>['variant'] | null
 }
 
 export const CMSLink: React.FC<CMSLinkType> = (props) => {
@@ -35,6 +38,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
     reference,
     size: sizeFromProps,
     url,
+    variant = 'none',
   } = props
 
   const href =
@@ -49,10 +53,11 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   const size = appearance === 'plain' ? 'clear' : sizeFromProps
   const newTabProps = newTab ? { rel: 'noopener noreferrer', target: '_blank' } : {}
 
+  const combinedClassName = cn(buttonVariants({ variant }), className)
   /* Ensure we don't break any styles set by richText */
   if (appearance === 'inline') {
     return (
-      <Link className={cn(className)} href={href || url || ''} {...newTabProps}>
+      <Link className={cn(combinedClassName)} href={href || url || ''} {...newTabProps}>
         {label && label}
         {children && children}
       </Link>
