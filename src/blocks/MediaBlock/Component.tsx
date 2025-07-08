@@ -1,69 +1,44 @@
-import type { StaticImageData } from 'next/image'
+import React from "react";
+import { Media } from "@/components/Media";
+import type { Page } from "@/payload-types";
+import { cn } from "@/utilities/cn";
 
-import RichText from '@/components/RichText'
-import { cn } from '@/utilities/ui'
-import type React from 'react'
-
-import type { MediaBlock as MediaBlockProps, Media as MediaType } from '@/payload-types'
-
-import { Media } from '../../components/Media'
-
-type Props = MediaBlockProps & {
-  breakout?: boolean
-  captionClassName?: string
-  className?: string
-  enableGutter?: boolean
-  imgClassName?: string
-  staticImage?: StaticImageData
-  disableInnerContainer?: boolean
-}
+type Props = Extract<Page["layout"][0], { blockType: "mediaBlock" }> & {
+  disableContainer?: boolean;
+};
 
 export const MediaBlock: React.FC<Props> = (props) => {
-  const {
-    captionClassName,
-    className,
-    enableGutter = true,
-    imgClassName,
-    media,
-    staticImage,
-    disableInnerContainer,
-  } = props
+  const { media, caption, aspectRatio, disableContainer } = props;
 
-  let caption: undefined | MediaType['caption']
-  if (media && typeof media === 'object') {
-    caption = media.caption
-  }
+  const aspectRatioClasses = {
+    "16/9": "aspect-video",
+    "4/3": "aspect-4/3",
+    "1/1": "aspect-square",
+    original: "",
+  };
 
   return (
-    <div
-      className={cn(
-        '',
-        {
-          container: enableGutter,
-        },
-        className,
-      )}
-    >
-      {(media || staticImage) && (
-        <Media
-          imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
-          resource={media}
-          src={staticImage}
-        />
-      )}
-      {caption && (
+    <div className={!disableContainer ? "container my-16" : ""}>
+      <div className="max-w-5xl mx-auto">
         <div
           className={cn(
-            'mt-6',
-            {
-              container: !disableInnerContainer,
-            },
-            captionClassName,
+            "relative overflow-hidden rounded-lg",
+            aspectRatio !== "original" &&
+              aspectRatioClasses[aspectRatio || "16/9"],
           )}
         >
-          <RichText data={caption} enableGutter={false} />
+          <Media
+            resource={media}
+            className="w-full h-full"
+            imgClassName="w-full h-full object-cover"
+          />
         </div>
-      )}
+        {caption && (
+          <p className="mt-2 text-sm text-muted-foreground text-center">
+            {caption}
+          </p>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};

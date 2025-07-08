@@ -1,6 +1,6 @@
-import * as Sentry from '@sentry/nextjs'
+import * as Sentry from "@sentry/nextjs";
 
-const sentryDns = process.env.NEXT_PUBLIC_SENTRY_DSN
+const sentryDns = process.env.NEXT_PUBLIC_SENTRY_DSN;
 
 if (sentryDns) {
   Sentry.init({
@@ -21,7 +21,9 @@ if (sentryDns) {
         blockAllMedia: false,
       }),
     ],
-  })
+  });
 }
 
-export const onRouterTransitionStart = sentryDns ? Sentry.captureRouterTransitionStart : undefined
+export const onRouterTransitionStart = sentryDns
+  ? Sentry.captureRouterTransitionStart
+  : undefined;

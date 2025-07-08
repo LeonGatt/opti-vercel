@@ -1,23 +1,27 @@
-import type { Preview } from '@storybook/nextjs-vite'
-import '../src/styles/globals.css'
+import type { Preview } from "@storybook/nextjs-vite";
+import React from "react";
+
+import { withProviders } from "./decorators/withProviders";
+import { withTheme } from "./decorators/withTheme";
+import "../src/app/(frontend)/[[...slugs]]/globals.css";
 
 export const globalTypes = {
   theme: {
-    name: 'Theme',
-    description: 'Theme selector',
-    defaultValue: 'dark',
+    name: "Theme",
+    description: "Theme selector",
+    defaultValue: "dark",
     toolbar: {
       items: [
-        { value: 'light', title: 'Light', icon: 'sun' },
-        { value: 'dark', title: 'Dark', icon: 'moon' },
+        { value: "light", title: "Light", icon: "sun" },
+        { value: "dark", title: "Dark", icon: "moon" },
       ],
       showName: true,
     },
   },
-}
+};
 
 const preview: Preview = {
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
     controls: {
       matchers: {
@@ -27,24 +31,10 @@ const preview: Preview = {
     },
 
     a11y: {
-      test: 'todo',
+      test: "todo",
     },
   },
-  decorators: [
-    (Story, context) => {
-      const theme = context.globals.theme
+  decorators: [withProviders, withTheme],
+};
 
-      const iframe = window.parent?.document?.querySelector<HTMLIFrameElement>(
-        '#storybook-preview-iframe',
-      )
-
-      if (iframe?.contentDocument?.documentElement) {
-        iframe.contentDocument.documentElement.setAttribute('data-theme', theme)
-      }
-
-      return Story(context)
-    },
-  ],
-}
-
-export default preview
+export default preview;

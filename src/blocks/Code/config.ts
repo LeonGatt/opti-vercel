@@ -1,33 +1,36 @@
-import type { Block } from 'payload'
+import { backgroundColor } from "@/fields/color";
+import type { Block } from "payload";
 
 export const Code: Block = {
-  slug: 'code',
-  interfaceName: 'CodeBlock',
+  slug: "code",
+  interfaceName: "CodeBlock",
   fields: [
+    backgroundColor,
     {
-      name: 'language',
-      type: 'select',
-      defaultValue: 'typescript',
+      name: "language",
+      type: "select",
+      defaultValue: "typescript",
       options: [
         {
-          label: 'Typescript',
-          value: 'typescript',
+          label: "Typescript",
+          value: "typescript",
         },
         {
-          label: 'Javascript',
-          value: 'javascript',
+          label: "Javascript",
+          value: "javascript",
         },
         {
-          label: 'CSS',
-          value: 'css',
+          label: "CSS",
+          value: "css",
         },
       ],
     },
     {
-      name: 'code',
-      type: 'code',
+      name: "code",
+      type: "code",
+      localized: true,
       label: false,
       required: true,
     },
   ],
-}
+};

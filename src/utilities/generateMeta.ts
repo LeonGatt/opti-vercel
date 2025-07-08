@@ -1,47 +1,39 @@
-import type { Metadata } from 'next'
-
-import type { Config, Media, Page, Post } from '../payload-types'
-
-import { getServerSideURL } from './getURL'
-import { mergeOpenGraph } from './mergeOpenGraph'
-
-const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
-  const serverUrl = getServerSideURL()
-
-  let url = `${serverUrl}/website-template-OG.webp`
-
-  if (image && typeof image === 'object' && 'url' in image) {
-    const ogUrl = image.sizes?.og?.url
-
-    url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url
-  }
-
-  return url
-}
+import type { Metadata } from "next";
+import type { Page, Post } from "../payload-types";
+import { mergeOpenGraph } from "./mergeOpenGraph";
+import { serverUrl as NEXT_PUBLIC_SERVER_URL } from "@/config/server";
 
 export const generateMeta = async (args: {
-  doc: Partial<Page> | Partial<Post> | null
+  doc: Page | Post;
+  url: string;
 }): Promise<Metadata> => {
-  const { doc } = args
+  const { doc, url } = args || {};
 
-  const ogImage = getImageURL(doc?.meta?.image)
+  const customOGImage =
+    typeof doc?.meta?.image === "object" &&
+    doc.meta.image !== null &&
+    "url" in doc.meta.image &&
+    `${NEXT_PUBLIC_SERVER_URL}${doc.meta.image.url}`;
 
-  const title = doc?.meta?.title ?? 'OptiTrack'
+  const title = doc?.meta?.title || doc?.title || "Payblocks";
+  const description = doc?.meta?.description || "";
+
+  const defaultOGImage = `${NEXT_PUBLIC_SERVER_URL}/next/og?title=${title}`;
 
   return {
-    description: doc?.meta?.description,
+    title: `${title}`,
+    description,
     openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || '',
-      images: ogImage
+      title,
+      description,
+      url,
+      images: customOGImage
         ? [
             {
-              url: ogImage,
+              url: customOGImage,
             },
           ]
-        : undefined,
-      title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+        : defaultOGImage,
     }),
-    title,
-  }
-}
+  };
+};

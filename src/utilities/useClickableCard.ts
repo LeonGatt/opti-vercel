@@ -1,22 +1,22 @@
-'use client'
-import type { RefObject } from 'react'
+"use client";
+import type { RefObject } from "react";
 
-import { useRouter } from 'next/navigation'
-import { useCallback, useEffect, useRef } from 'react'
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useRef } from "react";
 
 type UseClickableCardType<T extends HTMLElement> = {
   card: {
-    ref: RefObject<T | null>
-  }
+    ref: RefObject<T | null>;
+  };
   link: {
-    ref: RefObject<HTMLAnchorElement | null>
-  }
-}
+    ref: RefObject<HTMLAnchorElement | null>;
+  };
+};
 
 interface Props {
-  external?: boolean
-  newTab?: boolean
-  scroll?: boolean
+  external?: boolean;
+  newTab?: boolean;
+  scroll?: boolean;
 }
 
 function useClickableCard<T extends HTMLElement>({
@@ -24,76 +24,79 @@ function useClickableCard<T extends HTMLElement>({
   newTab = false,
   scroll = true,
 }: Props): UseClickableCardType<T> {
-  const router = useRouter()
-  const card = useRef<T>(null)
-  const link = useRef<HTMLAnchorElement>(null)
-  const timeDown = useRef<number>(0)
-  const hasActiveParent = useRef<boolean>(false)
-  const pressedButton = useRef<number>(0)
+  const router = useRouter();
+  const card = useRef<T>(null);
+  const link = useRef<HTMLAnchorElement>(null);
+  const timeDown = useRef<number>(0);
+  const hasActiveParent = useRef<boolean>(false);
+  const pressedButton = useRef<number>(0);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const handleMouseDown = useCallback(
     (e: MouseEvent) => {
       if (e.target) {
-        const target = e.target as Element
+        const target = e.target as Element;
 
-        const timeNow = +new Date()
-        const parent = target?.closest('a')
+        const timeNow = +new Date();
+        const parent = target?.closest("a");
 
-        pressedButton.current = e.button
+        pressedButton.current = e.button;
 
         if (!parent) {
-          hasActiveParent.current = false
-          timeDown.current = timeNow
+          hasActiveParent.current = false;
+          timeDown.current = timeNow;
         } else {
-          hasActiveParent.current = true
+          hasActiveParent.current = true;
         }
       }
     },
-    [router, card, link, timeDown],
-  )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [router, card, link, timeDown]
+  );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const handleMouseUp = useCallback(
     (e: MouseEvent) => {
       if (link.current?.href) {
-        const timeNow = +new Date()
-        const difference = timeNow - timeDown.current
+        const timeNow = +new Date();
+        const difference = timeNow - timeDown.current;
 
         if (link.current?.href && difference <= 250) {
-          if (!hasActiveParent.current && pressedButton.current === 0 && !e.ctrlKey) {
+          if (
+            !hasActiveParent.current &&
+            pressedButton.current === 0 &&
+            !e.ctrlKey
+          ) {
             if (external) {
-              const target = newTab ? '_blank' : '_self'
-              window.open(link.current.href, target)
+              const target = newTab ? "_blank" : "_self";
+              window.open(link.current.href, target);
             } else {
-              router.push(link.current.href, { scroll })
+              router.push(link.current.href, { scroll });
             }
           }
         }
       }
     },
-    [router, card, link, timeDown],
-  )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [router, card, link, timeDown]
+  );
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
-    const cardNode = card.current
-
-    const abortController = new AbortController()
+    const cardNode = card.current;
 
     if (cardNode) {
-      cardNode.addEventListener('mousedown', handleMouseDown, {
-        signal: abortController.signal,
-      })
-      cardNode.addEventListener('mouseup', handleMouseUp, {
-        signal: abortController.signal,
-      })
+      cardNode.addEventListener("mousedown", handleMouseDown);
+      cardNode.addEventListener("mouseup", handleMouseUp);
     }
 
     return () => {
-      abortController.abort()
-    }
-  }, [card, link, router])
+      if (cardNode) {
+        if (cardNode) {
+          cardNode?.removeEventListener("mousedown", handleMouseDown);
+          cardNode?.removeEventListener("mouseup", handleMouseUp);
+        }
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [card, link, router]);
 
   return {
     card: {
@@ -102,7 +105,7 @@ function useClickableCard<T extends HTMLElement>({
     link: {
       ref: link,
     },
-  }
+  };
 }
 
-export default useClickableCard
+export default useClickableCard;

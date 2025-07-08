@@ -72,11 +72,11 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    roles: Role;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
     search: Search;
-    'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -88,11 +88,11 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    roles: RolesSelect<false> | RolesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     search: SearchSelect<false> | SearchSelect<true>;
-    'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -103,23 +103,19 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    'page-config': PageConfig;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    'page-config': PageConfigSelect<false> | PageConfigSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'de' | 'fr' | 'ja' | 'ko' | 'pt' | 'sk' | 'zh';
   user: User & {
     collection: 'users';
   };
   jobs: {
-    tasks: {
-      schedulePublish: TaskSchedulePublish;
-      inline: {
-        input: unknown;
-        output: unknown;
-      };
-    };
+    tasks: unknown;
     workflows: unknown;
   };
 }
@@ -148,49 +144,29 @@ export interface UserAuthOperations {
 export interface Page {
   id: string;
   title: string;
-  hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
-    richText?: {
-      root: {
-        type: string;
-        children: {
-          type: string;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: string | Page;
-            } | null;
-            url?: string | null;
-            label: string;
-            /**
-             * Choose how the link should be rendered.
-             */
-            appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
-            /**
-             * Color of the link.
-             */
-            color?: ('default' | 'blue' | 'orange') | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    media?: (string | null) | Media;
-  };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  hero: Hero;
+  layout: (
+    | FeatureBlock
+    | ArchiveBlock
+    | FormBlock
+    | CtaBlock
+    | LogosBlock
+    | AboutBlock
+    | ContactBlock
+    | GalleryBlock
+    | TestimonialBlock
+    | FaqBlock
+    | StatBlock
+    | SplitViewBlock
+    | TextBlock
+    | MediaBlock
+    | CustomBlock
+    | Changelogblock
+    | BlogBlock
+    | BannerBlockV2
+    | CasestudiesBlock
+    | TimelineBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -202,9 +178,179 @@ export interface Page {
   publishedAt?: string | null;
   slug?: string | null;
   slugLock?: boolean | null;
+  /**
+   * Enable breadcrumbs for the page
+   */
+  enableBreadcrumbs?: boolean | null;
+  parent?: (string | null) | Page;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Page;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Hero".
+ */
+export interface Hero {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'none' | '1' | '2' | '3' | '4' | '5' | '6' | '12' | '112' | '195' | 'customHighImpact';
+  badge?: string | null;
+  badgeIcon?: string | null;
+  tagline?: string | null;
+  badgeLink?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    section?: string | null;
+    url?: string | null;
+    iconBefore?: string | null;
+    iconAfter?: string | null;
+  };
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  images?: (string | Media)[] | null;
+  icons?: (string | Media)[] | null;
+  USPs?:
+    | {
+        icon?: (string | null) | Media;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  statsItems?:
+    | {
+        title?: string | null;
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  pricing?: {
+    headline?: string | null;
+    price?: string | null;
+    description?: string | null;
+  };
+  rating?: number | null;
+  /**
+   * Choose the horizontal alignment of the hero content.
+   */
+  horizontalAlignment?: ('left' | 'center' | 'right') | null;
+  /**
+   * Choose the vertical alignment of the hero content.
+   */
+  verticalAlignment?: ('top' | 'middle' | 'bottom') | null;
+  /**
+   * Enable high impact mode for the hero section.
+   */
+  highImpact?: boolean | null;
+  presentationVideo?: {
+    label?: string | null;
+    videoUrl?: string | null;
+  };
+  tabs?:
+    | {
+        title: string;
+        icon: 'SquareKanban' | 'BarChart' | 'PieChart' | 'Database' | 'Layers';
+        image: string | Media;
+        id?: string | null;
+      }[]
+    | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -239,70 +385,68 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
-  sizes?: {
-    thumbnail?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    square?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    small?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    medium?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    large?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    xlarge?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    og?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock".
+ * via the `definition` "FeatureBlock".
  */
-export interface CallToActionBlock {
+export interface FeatureBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion:
+    | 'FEATURE1'
+    | 'FEATURE25'
+    | 'FEATURE50'
+    | 'FEATURE53'
+    | 'FEATURE57'
+    | 'FEATURE70'
+    | 'FEATURE72'
+    | 'FEATURE91'
+    | 'FEATURE97'
+    | 'FEATURE99'
+    | 'FEATURE102'
+    | 'FEATURE103'
+    | 'FEATURE114'
+    | 'FEATURE117'
+    | 'FEATURE126';
+  badge?: string | null;
+  tagline?: string | null;
+  icon?: string | null;
   richText?: {
     root: {
       type: string;
@@ -327,32 +471,33 @@ export interface CallToActionBlock {
             relationTo: 'pages';
             value: string | Page;
           } | null;
+          section?: string | null;
           url?: string | null;
           label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
-          /**
-           * Color of the link.
-           */
-          color?: ('default' | 'blue' | 'orange') | null;
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
         };
         id?: string | null;
       }[]
     | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'cta';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentBlock".
- */
-export interface ContentBlock {
-  columns?:
+  image?: (string | null) | Media;
+  images?: (string | Media)[] | null;
+  metrics?:
     | {
-        size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+        title?: string | null;
+        subline?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  USPs?:
+    | {
+        uspIcon?: string | null;
+        tagline?: string | null;
         richText?: {
           root: {
             type: string;
@@ -368,7 +513,56 @@ export interface ContentBlock {
           };
           [k: string]: unknown;
         } | null;
-        enableLink?: boolean | null;
+        /**
+         * USPs can feature 1 or many features, with icon and richText
+         */
+        USPFeatures?:
+          | {
+              icon?: string | null;
+              richText?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              id?: string | null;
+            }[]
+          | null;
+        links?:
+          | {
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null;
+                section?: string | null;
+                url?: string | null;
+                label: string;
+                iconBefore?: string | null;
+                iconAfter?: string | null;
+                /**
+                 * Choose how the link should be rendered.
+                 */
+                appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+                size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Single link for this USP. Icons might be set automatically, depending on the design version
+         */
         link?: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
@@ -376,39 +570,62 @@ export interface ContentBlock {
             relationTo: 'pages';
             value: string | Page;
           } | null;
+          section?: string | null;
           url?: string | null;
           label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('plain' | 'dim' | 'outline' | 'solid') | null;
-          /**
-           * Color of the link.
-           */
-          color?: ('default' | 'blue' | 'orange') | null;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
         };
+        image?: (string | null) | Media;
         id?: string | null;
       }[]
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'content';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock".
- */
-export interface MediaBlock {
-  media: string | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'mediaBlock';
+  blockType: 'feature';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ArchiveBlock".
  */
 export interface ArchiveBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
   introContent?: {
     root: {
       type: string;
@@ -445,8 +662,6 @@ export interface ArchiveBlock {
 export interface Category {
   id: string;
   title: string;
-  slug?: string | null;
-  slugLock?: boolean | null;
   parent?: (string | null) | Category;
   breadcrumbs?:
     | {
@@ -466,7 +681,10 @@ export interface Category {
 export interface Post {
   id: string;
   title: string;
-  heroImage?: (string | null) | Media;
+  /**
+   * Banner image displayed at the top of the blog post
+   */
+  bannerImage?: (string | null) | Media;
   content: {
     root: {
       type: string;
@@ -492,6 +710,7 @@ export interface Post {
     image?: (string | null) | Media;
     description?: string | null;
   };
+  designVersion: 'BLOG18' | 'BLOG20';
   publishedAt?: string | null;
   authors?: (string | User)[] | null;
   populatedAuthors?:
@@ -500,6 +719,7 @@ export interface Post {
         name?: string | null;
       }[]
     | null;
+  readTime?: number | null;
   slug?: string | null;
   slugLock?: boolean | null;
   updatedAt: string;
@@ -513,6 +733,14 @@ export interface Post {
 export interface User {
   id: string;
   name?: string | null;
+  /**
+   * User roles. Admin has full access. Editor is the most common role, with limited access. First user is always admin.
+   */
+  roles?: (string | Role)[] | null;
+  /**
+   * This is the Oauth2 sub field
+   */
+  sub?: string | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -525,10 +753,55 @@ export interface User {
   password?: string | null;
 }
 /**
+ * Manage user roles and their permissions
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "roles".
+ */
+export interface Role {
+  id: string;
+  /**
+   * The name of the role (e.g., Admin, Editor)
+   */
+  name: string;
+  /**
+   * The identifier for the role (e.g., admin, editor)
+   */
+  slug: string;
+  /**
+   * A description of what this role can do
+   */
+  description?: string | null;
+  /**
+   * Role permissions
+   */
+  permissions?: {
+    /**
+     * Can create and edit content
+     */
+    canManageContent?: boolean | null;
+    /**
+     * Can publish content
+     */
+    canPublish?: boolean | null;
+    /**
+     * Can manage users
+     */
+    canManageUsers?: boolean | null;
+    /**
+     * Can manage redirects
+     */
+    canManageRedirects?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FormBlock".
  */
 export interface FormBlock {
+  size?: ('oneThird' | 'half' | 'twoThirds') | null;
   form: string | Form;
   enableIntro?: boolean | null;
   introContent?: {
@@ -726,12 +999,1455 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBlock".
+ */
+export interface CtaBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'CTA1' | 'CTA6' | 'CTA10';
+  tagline?: string | null;
+  icon?: string | null;
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  image?: (string | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogosBlock".
+ */
+export interface LogosBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'LOGOS2' | 'LOGOS3';
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  link?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    section?: string | null;
+    url?: string | null;
+    label: string;
+    iconBefore?: string | null;
+    iconAfter?: string | null;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+  };
+  logos: (string | Media)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'logos';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutBlock".
+ */
+export interface AboutBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'ABOUT3' | 'ABOUT4';
+  headline?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text1?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text2?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  text3?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  link?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    section?: string | null;
+    url?: string | null;
+    label: string;
+    iconBefore?: string | null;
+    iconAfter?: string | null;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+  };
+  images?: (string | Media)[] | null;
+  logos?: (string | Media)[] | null;
+  counter?:
+    | {
+        value: string;
+        title: string;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'about';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactBlock".
+ */
+export interface ContactBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'CONTACT2';
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  contactBlocks?:
+    | {
+        icon?: string | null;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  maps?:
+    | {
+        iframe?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  form?: FormBlock[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contact';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GalleryBlock".
+ */
+export interface GalleryBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'GALLERY4' | 'GALLERY5' | 'GALLERY6';
+  /**
+   * Optional heading and description for the gallery
+   */
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  tagline?: string | null;
+  /**
+   * Single link for this gallery. Might look best with arrowRight icon
+   */
+  link?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    section?: string | null;
+    url?: string | null;
+    label: string;
+    iconBefore?: string | null;
+    iconAfter?: string | null;
+  };
+  /**
+   * Add images to the gallery
+   */
+  elements?:
+    | {
+        image: string | Media;
+        /**
+         * Select an icon to display with this item
+         */
+        icon?: string | null;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'gallery';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialBlock".
+ */
+export interface TestimonialBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'TESTIMONIAL2' | 'TESTIMONIAL3' | 'TESTIMONIAL4';
+  headline?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  tagline?: string | null;
+  link?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    section?: string | null;
+    url?: string | null;
+    label: string;
+    iconBefore?: string | null;
+    iconAfter?: string | null;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+  };
+  testimonial?:
+    | {
+        authorName?: string | null;
+        authorDescription?: string | null;
+        authorAvatar?: (string | null) | Media;
+        icon?: (string | null) | Media;
+        rating?: number | null;
+        text?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        link?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonial';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqBlock".
+ */
+export interface FaqBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'FAQ1' | 'FAQ4' | 'FAQ5';
+  badge?: string | null;
+  headline?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  faqs?:
+    | {
+        question: string;
+        answer?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  calloutText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  calloutLink?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    section?: string | null;
+    url?: string | null;
+    label: string;
+    iconBefore?: string | null;
+    iconAfter?: string | null;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatBlock".
+ */
+export interface StatBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'STAT1';
+  headline?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  stats?:
+    | {
+        counter: string;
+        title: string;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'stat';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SplitViewBlock".
+ */
+export interface SplitViewBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  columns?: (TextBlock | MediaBlock | FormBlock)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'splitView';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextBlock".
+ */
+export interface TextBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'text';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock".
+ */
+export interface MediaBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  media: string | Media;
+  caption?: string | null;
+  aspectRatio?: ('16/9' | '4/3' | '1/1' | 'original') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CustomBlock".
+ */
+export interface CustomBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  customBlockType: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'customblock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "changelogblock".
+ */
+export interface Changelogblock {
+  designVersion: 'CHANGELOG1';
+  /**
+   * Add a tagline underneath the intro text
+   */
+  tagline?: string | null;
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  fetchFromGithub?: boolean | null;
+  githubSettings?: {
+    /**
+     * The repository to fetch the changelog from
+     */
+    repository: string;
+    /**
+     * Optional GitHub token to use for authentication
+     */
+    githubToken?: string | null;
+  };
+  /**
+   * Add changelog entries. Entries coming from Github won't be overwritten when the data is updated manually.
+   */
+  entries?:
+    | {
+        /**
+         * Describe this release. We will auto-generate it using the version, if not set
+         */
+        title?: string | null;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        date: string;
+        version: string;
+        githubId?: string | null;
+        /**
+         * Optional image for the entry
+         */
+        image?: (string | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'changelog';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBlock".
+ */
+export interface BlogBlock {
+  designVersion: 'BLOG29';
+  /**
+   * Optional heading and description for the blog section
+   */
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Choose how to populate blog posts
+   */
+  populateBy: 'collection' | 'selection';
+  /**
+   * Select which collection to display posts from
+   */
+  postCollection?: 'posts' | null;
+  /**
+   * Filter posts by these categories (optional)
+   */
+  categories?: (string | Category)[] | null;
+  /**
+   * Maximum number of posts to display
+   */
+  limit?: number | null;
+  /**
+   * Field to sort posts by
+   */
+  sortField?: ('publishedAt' | 'updatedAt' | 'title' | 'readTime') | null;
+  /**
+   * Order to sort posts (ascending or descending)
+   */
+  sortOrder?: ('asc' | 'desc') | null;
+  /**
+   * Select specific posts to display
+   */
+  selectedPosts?: (string | Post)[] | null;
+  /**
+   * Optional "View All" or "Read More" link
+   */
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlockV2".
+ */
+export interface BannerBlockV2 {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'BANNER5';
+  position?: ('TOP' | 'BOTTOM') | null;
+  defaultVisible?: boolean | null;
+  title?: string | null;
+  description?: string | null;
+  icon?: string | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'banner';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasestudiesBlock".
+ */
+export interface CasestudiesBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'CASESTUDIES5';
+  slides: {
+    name: string;
+    content: string;
+    logo: string | Media;
+    logoClass?: ('h-4 md:h-6' | 'h-6 md:h-8' | 'h-8 md:h-10' | 'h-10 md:h-12') | null;
+    images: {
+      src: string | Media;
+      position: number;
+      id?: string | null;
+    }[];
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casestudies';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimelineBlock".
+ */
+export interface TimelineBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'TIMELINE2' | 'TIMELINE8';
+  heading: string;
+  sections?:
+    | {
+        date?: string | null;
+        tagline?: string | null;
+        image?: (string | null) | Media;
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'timeline';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
   id: string;
   /**
-   * You will need to rebuild the website when changing this field.
+   * Add new redirects here. The redirect will work immediately after saving. For example: /about or https://example.com/about
    */
   from: string;
   to?: {
@@ -751,6 +2467,8 @@ export interface Redirect {
   createdAt: string;
 }
 /**
+ * Form submissions that got collected by forms in the frontend
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "form-submissions".
  */
@@ -778,8 +2496,8 @@ export interface Search {
   title?: string | null;
   priority?: number | null;
   doc: {
-    relationTo: 'posts';
-    value: string | Post;
+    relationTo: 'pages';
+    value: string | Page;
   };
   slug?: string | null;
   meta?: {
@@ -790,103 +2508,10 @@ export interface Search {
   categories?:
     | {
         relationTo?: string | null;
-        categoryID?: string | null;
+        id?: string | null;
         title?: string | null;
-        id?: string | null;
       }[]
     | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-jobs".
- */
-export interface PayloadJob {
-  id: string;
-  /**
-   * Input data provided to the job
-   */
-  input?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  taskStatus?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  completedAt?: string | null;
-  totalTried?: number | null;
-  /**
-   * If hasError is true this job will not be retried
-   */
-  hasError?: boolean | null;
-  /**
-   * If hasError is true, this is the error that caused it
-   */
-  error?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * Task execution log
-   */
-  log?:
-    | {
-        executedAt: string;
-        completedAt: string;
-        taskSlug: 'inline' | 'schedulePublish';
-        taskID: string;
-        input?:
-          | {
-              [k: string]: unknown;
-            }
-          | unknown[]
-          | string
-          | number
-          | boolean
-          | null;
-        output?:
-          | {
-              [k: string]: unknown;
-            }
-          | unknown[]
-          | string
-          | number
-          | boolean
-          | null;
-        state: 'failed' | 'succeeded';
-        error?:
-          | {
-              [k: string]: unknown;
-            }
-          | unknown[]
-          | string
-          | number
-          | boolean
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-  taskSlug?: ('inline' | 'schedulePublish') | null;
-  queue?: string | null;
-  waitUntil?: string | null;
-  processing?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -918,6 +2543,10 @@ export interface PayloadLockedDocument {
         value: string | User;
       } | null)
     | ({
+        relationTo: 'roles';
+        value: string | Role;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: string | Redirect;
       } | null)
@@ -932,10 +2561,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'search';
         value: string | Search;
-      } | null)
-    | ({
-        relationTo: 'payload-jobs';
-        value: string | PayloadJob;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -985,37 +2610,30 @@ export interface PayloadMigration {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
-  hero?:
-    | T
-    | {
-        type?: T;
-        richText?: T;
-        links?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    appearance?: T;
-                    color?: T;
-                  };
-              id?: T;
-            };
-        media?: T;
-      };
+  hero?: T | HeroSelect<T>;
   layout?:
     | T
     | {
-        cta?: T | CallToActionBlockSelect<T>;
-        content?: T | ContentBlockSelect<T>;
-        mediaBlock?: T | MediaBlockSelect<T>;
+        feature?: T | FeatureBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        cta?: T | CtaBlockSelect<T>;
+        logos?: T | LogosBlockSelect<T>;
+        about?: T | AboutBlockSelect<T>;
+        contact?: T | ContactBlockSelect<T>;
+        gallery?: T | GalleryBlockSelect<T>;
+        testimonial?: T | TestimonialBlockSelect<T>;
+        faq?: T | FaqBlockSelect<T>;
+        stat?: T | StatBlockSelect<T>;
+        splitView?: T | SplitViewBlockSelect<T>;
+        text?: T | TextBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+        customblock?: T | CustomBlockSelect<T>;
+        changelog?: T | ChangelogblockSelect<T>;
+        blog?: T | BlogBlockSelect<T>;
+        banner?: T | BannerBlockV2Select<T>;
+        casestudies?: T | CasestudiesBlockSelect<T>;
+        timeline?: T | TimelineBlockSelect<T>;
       };
   meta?:
     | T
@@ -1027,15 +2645,41 @@ export interface PagesSelect<T extends boolean = true> {
   publishedAt?: T;
   slug?: T;
   slugLock?: T;
+  enableBreadcrumbs?: T;
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock_select".
+ * via the `definition` "Hero_select".
  */
-export interface CallToActionBlockSelect<T extends boolean = true> {
+export interface HeroSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  badge?: T;
+  badgeIcon?: T;
+  tagline?: T;
+  badgeLink?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        section?: T;
+        url?: T;
+        iconBefore?: T;
+        iconAfter?: T;
+      };
   richText?: T;
   links?:
     | T
@@ -1046,49 +2690,144 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
               type?: T;
               newTab?: T;
               reference?: T;
+              section?: T;
               url?: T;
               label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
               appearance?: T;
-              color?: T;
+              size?: T;
             };
         id?: T;
       };
-  id?: T;
-  blockName?: T;
+  images?: T;
+  icons?: T;
+  USPs?:
+    | T
+    | {
+        icon?: T;
+        richText?: T;
+        id?: T;
+      };
+  statsItems?:
+    | T
+    | {
+        title?: T;
+        value?: T;
+        id?: T;
+      };
+  pricing?:
+    | T
+    | {
+        headline?: T;
+        price?: T;
+        description?: T;
+      };
+  rating?: T;
+  horizontalAlignment?: T;
+  verticalAlignment?: T;
+  highImpact?: T;
+  presentationVideo?:
+    | T
+    | {
+        label?: T;
+        videoUrl?: T;
+      };
+  tabs?:
+    | T
+    | {
+        title?: T;
+        icon?: T;
+        image?: T;
+        id?: T;
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentBlock_select".
+ * via the `definition` "FeatureBlock_select".
  */
-export interface ContentBlockSelect<T extends boolean = true> {
-  columns?:
+export interface FeatureBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  badge?: T;
+  tagline?: T;
+  icon?: T;
+  richText?: T;
+  links?:
     | T
     | {
-        size?: T;
-        richText?: T;
-        enableLink?: T;
         link?:
           | T
           | {
               type?: T;
               newTab?: T;
               reference?: T;
+              section?: T;
               url?: T;
               label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
               appearance?: T;
-              color?: T;
+              size?: T;
             };
         id?: T;
       };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock_select".
- */
-export interface MediaBlockSelect<T extends boolean = true> {
-  media?: T;
+  image?: T;
+  images?: T;
+  metrics?:
+    | T
+    | {
+        title?: T;
+        subline?: T;
+        id?: T;
+      };
+  USPs?:
+    | T
+    | {
+        uspIcon?: T;
+        tagline?: T;
+        richText?: T;
+        USPFeatures?:
+          | T
+          | {
+              icon?: T;
+              richText?: T;
+              id?: T;
+            };
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    section?: T;
+                    url?: T;
+                    label?: T;
+                    iconBefore?: T;
+                    iconAfter?: T;
+                    appearance?: T;
+                    size?: T;
+                  };
+              id?: T;
+            };
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+            };
+        image?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1097,6 +2836,7 @@ export interface MediaBlockSelect<T extends boolean = true> {
  * via the `definition` "ArchiveBlock_select".
  */
 export interface ArchiveBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
   introContent?: T;
   populateBy?: T;
   relationTo?: T;
@@ -1111,9 +2851,511 @@ export interface ArchiveBlockSelect<T extends boolean = true> {
  * via the `definition` "FormBlock_select".
  */
 export interface FormBlockSelect<T extends boolean = true> {
+  size?: T;
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBlock_select".
+ */
+export interface CtaBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  tagline?: T;
+  icon?: T;
+  richText?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+              appearance?: T;
+              size?: T;
+            };
+        id?: T;
+      };
+  image?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogosBlock_select".
+ */
+export interface LogosBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  richText?: T;
+  link?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        section?: T;
+        url?: T;
+        label?: T;
+        iconBefore?: T;
+        iconAfter?: T;
+        appearance?: T;
+        size?: T;
+      };
+  logos?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutBlock_select".
+ */
+export interface AboutBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  headline?: T;
+  text1?: T;
+  text2?: T;
+  text3?: T;
+  link?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        section?: T;
+        url?: T;
+        label?: T;
+        iconBefore?: T;
+        iconAfter?: T;
+        appearance?: T;
+        size?: T;
+      };
+  images?: T;
+  logos?: T;
+  counter?:
+    | T
+    | {
+        value?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactBlock_select".
+ */
+export interface ContactBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  richText?: T;
+  contactBlocks?:
+    | T
+    | {
+        icon?: T;
+        description?: T;
+        id?: T;
+      };
+  maps?:
+    | T
+    | {
+        iframe?: T;
+        id?: T;
+      };
+  form?:
+    | T
+    | {
+        formBlock?: T | FormBlockSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GalleryBlock_select".
+ */
+export interface GalleryBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  richText?: T;
+  tagline?: T;
+  link?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        section?: T;
+        url?: T;
+        label?: T;
+        iconBefore?: T;
+        iconAfter?: T;
+      };
+  elements?:
+    | T
+    | {
+        image?: T;
+        icon?: T;
+        richText?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialBlock_select".
+ */
+export interface TestimonialBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  headline?: T;
+  tagline?: T;
+  link?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        section?: T;
+        url?: T;
+        label?: T;
+        iconBefore?: T;
+        iconAfter?: T;
+        appearance?: T;
+        size?: T;
+      };
+  testimonial?:
+    | T
+    | {
+        authorName?: T;
+        authorDescription?: T;
+        authorAvatar?: T;
+        icon?: T;
+        rating?: T;
+        text?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+              appearance?: T;
+              size?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqBlock_select".
+ */
+export interface FaqBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  badge?: T;
+  headline?: T;
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  calloutText?: T;
+  calloutLink?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        section?: T;
+        url?: T;
+        label?: T;
+        iconBefore?: T;
+        iconAfter?: T;
+        appearance?: T;
+        size?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StatBlock_select".
+ */
+export interface StatBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  headline?: T;
+  stats?:
+    | T
+    | {
+        counter?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+              appearance?: T;
+              size?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SplitViewBlock_select".
+ */
+export interface SplitViewBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  columns?:
+    | T
+    | {
+        text?: T | TextBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+        formBlock?: T | FormBlockSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextBlock_select".
+ */
+export interface TextBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  content?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+              appearance?: T;
+              size?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock_select".
+ */
+export interface MediaBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  media?: T;
+  caption?: T;
+  aspectRatio?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CustomBlock_select".
+ */
+export interface CustomBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  customBlockType?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "changelogblock_select".
+ */
+export interface ChangelogblockSelect<T extends boolean = true> {
+  designVersion?: T;
+  tagline?: T;
+  richText?: T;
+  fetchFromGithub?: T;
+  githubSettings?:
+    | T
+    | {
+        repository?: T;
+        githubToken?: T;
+      };
+  entries?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        date?: T;
+        version?: T;
+        githubId?: T;
+        image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBlock_select".
+ */
+export interface BlogBlockSelect<T extends boolean = true> {
+  designVersion?: T;
+  richText?: T;
+  populateBy?: T;
+  postCollection?: T;
+  categories?: T;
+  limit?: T;
+  sortField?: T;
+  sortOrder?: T;
+  selectedPosts?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BannerBlockV2_select".
+ */
+export interface BannerBlockV2Select<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  position?: T;
+  defaultVisible?: T;
+  title?: T;
+  description?: T;
+  icon?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasestudiesBlock_select".
+ */
+export interface CasestudiesBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  slides?:
+    | T
+    | {
+        name?: T;
+        content?: T;
+        logo?: T;
+        logoClass?: T;
+        images?:
+          | T
+          | {
+              src?: T;
+              position?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TimelineBlock_select".
+ */
+export interface TimelineBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  heading?: T;
+  sections?:
+    | T
+    | {
+        date?: T;
+        tagline?: T;
+        image?: T;
+        richText?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1123,7 +3365,7 @@ export interface FormBlockSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
-  heroImage?: T;
+  bannerImage?: T;
   content?: T;
   relatedPosts?: T;
   categories?: T;
@@ -1134,6 +3376,7 @@ export interface PostsSelect<T extends boolean = true> {
         image?: T;
         description?: T;
       };
+  designVersion?: T;
   publishedAt?: T;
   authors?: T;
   populatedAuthors?:
@@ -1142,6 +3385,7 @@ export interface PostsSelect<T extends boolean = true> {
         id?: T;
         name?: T;
       };
+  readTime?: T;
   slug?: T;
   slugLock?: T;
   updatedAt?: T;
@@ -1166,80 +3410,6 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
-  sizes?:
-    | T
-    | {
-        thumbnail?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        square?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        small?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        medium?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        large?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        xlarge?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        og?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1247,8 +3417,6 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
-  slug?: T;
-  slugLock?: T;
   parent?: T;
   breadcrumbs?:
     | T
@@ -1267,6 +3435,8 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  roles?: T;
+  sub?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -1276,6 +3446,25 @@ export interface UsersSelect<T extends boolean = true> {
   hash?: T;
   loginAttempts?: T;
   lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "roles_select".
+ */
+export interface RolesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  description?: T;
+  permissions?:
+    | T
+    | {
+        canManageContent?: T;
+        canPublish?: T;
+        canManageUsers?: T;
+        canManageRedirects?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1462,41 +3651,9 @@ export interface SearchSelect<T extends boolean = true> {
     | T
     | {
         relationTo?: T;
-        categoryID?: T;
+        id?: T;
         title?: T;
-        id?: T;
       };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-jobs_select".
- */
-export interface PayloadJobsSelect<T extends boolean = true> {
-  input?: T;
-  taskStatus?: T;
-  completedAt?: T;
-  totalTried?: T;
-  hasError?: T;
-  error?: T;
-  log?:
-    | T
-    | {
-        executedAt?: T;
-        completedAt?: T;
-        taskSlug?: T;
-        taskID?: T;
-        input?: T;
-        output?: T;
-        state?: T;
-        error?: T;
-        id?: T;
-      };
-  taskSlug?: T;
-  queue?: T;
-  waitUntil?: T;
-  processing?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1533,12 +3690,286 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   createdAt?: T;
 }
 /**
+ * Theme configuration (For live preview config has to be saved)
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header".
  */
 export interface Header {
   id: string;
-  navItems?:
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  items?:
+    | (
+        | {
+            icon?: string | null;
+            label: string;
+            subitems: {
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null;
+                section?: string | null;
+                url?: string | null;
+                label: string;
+                iconBefore?: string | null;
+                iconAfter?: string | null;
+              };
+              Description?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'sub';
+          }
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?: {
+                relationTo: 'pages';
+                value: string | Page;
+              } | null;
+              section?: string | null;
+              url?: string | null;
+              label: string;
+              iconBefore?: string | null;
+              iconAfter?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'link';
+          }
+      )[]
+    | null;
+  richItems?:
+    | (
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?: {
+                relationTo: 'pages';
+                value: string | Page;
+              } | null;
+              section?: string | null;
+              url?: string | null;
+              label: string;
+              iconBefore?: string | null;
+              iconAfter?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'link';
+          }
+        | {
+            icon?: string | null;
+            label: string;
+            blocks: (
+              | {
+                  title?: string | null;
+                  subtitle?: string | null;
+                  description?: string | null;
+                  image?: (string | null) | Media;
+                  backgroundColor?: ('primary' | 'secondary' | 'accent' | 'muted') | null;
+                  link: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?: {
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null;
+                    section?: string | null;
+                    url?: string | null;
+                    label: string;
+                    iconBefore?: string | null;
+                    iconAfter?: string | null;
+                    /**
+                     * Choose how the link should be rendered.
+                     */
+                    appearance?: ('default' | 'outline' | 'ghost' | 'secondary') | null;
+                    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'featuredBanner';
+                }
+              | {
+                  title?: string | null;
+                  items?:
+                    | {
+                        title?: string | null;
+                        description?: string | null;
+                        icon?: string | null;
+                        link: {
+                          type?: ('reference' | 'custom') | null;
+                          newTab?: boolean | null;
+                          reference?: {
+                            relationTo: 'pages';
+                            value: string | Page;
+                          } | null;
+                          section?: string | null;
+                          url?: string | null;
+                          label: string;
+                          iconBefore?: string | null;
+                          iconAfter?: string | null;
+                        };
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'categoryGrid';
+                }
+              | {
+                  title?: string | null;
+                  cards?:
+                    | {
+                        title?: string | null;
+                        description?: string | null;
+                        links?:
+                          | {
+                              link: {
+                                type?: ('reference' | 'custom') | null;
+                                newTab?: boolean | null;
+                                reference?: {
+                                  relationTo: 'pages';
+                                  value: string | Page;
+                                } | null;
+                                section?: string | null;
+                                url?: string | null;
+                                label: string;
+                                iconBefore?: string | null;
+                                iconAfter?: string | null;
+                              };
+                              icon?: string | null;
+                              id?: string | null;
+                            }[]
+                          | null;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'cardGrid';
+                }
+              | {
+                  title?: string | null;
+                  features?:
+                    | {
+                        title?: string | null;
+                        description?: string | null;
+                        icon?: string | null;
+                        link: {
+                          type?: ('reference' | 'custom') | null;
+                          newTab?: boolean | null;
+                          reference?: {
+                            relationTo: 'pages';
+                            value: string | Page;
+                          } | null;
+                          section?: string | null;
+                          url?: string | null;
+                          label: string;
+                          iconBefore?: string | null;
+                          iconAfter?: string | null;
+                        };
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'featureList';
+                }
+              | {
+                  title?: string | null;
+                  links?:
+                    | {
+                        link: {
+                          type?: ('reference' | 'custom') | null;
+                          newTab?: boolean | null;
+                          reference?: {
+                            relationTo: 'pages';
+                            value: string | Page;
+                          } | null;
+                          section?: string | null;
+                          url?: string | null;
+                          label: string;
+                        };
+                        icon?: string | null;
+                        description?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'simpleLinks';
+                }
+              | {
+                  title?: string | null;
+                  subtitle?: string | null;
+                  description?: string | null;
+                  image?: (string | null) | Media;
+                  backgroundColor?: ('primary' | 'secondary' | 'accent' | 'muted') | null;
+                  link?: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?: {
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null;
+                    section?: string | null;
+                    url?: string | null;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'featuredImage';
+                }
+            )[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'submenu';
+          }
+      )[]
+    | null;
+  buttons?:
     | {
         link: {
           type?: ('reference' | 'custom') | null;
@@ -1547,28 +3978,119 @@ export interface Header {
             relationTo: 'pages';
             value: string | Page;
           } | null;
+          section?: string | null;
           url?: string | null;
           label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
           /**
-           * Color of the link.
+           * Choose how the link should be rendered.
            */
-          color?: ('default' | 'blue' | 'orange') | null;
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
         };
         id?: string | null;
       }[]
     | null;
+  copyright?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
 /**
+ * Theme configuration (For live preview config has to be saved)
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "footer".
  */
 export interface Footer {
   id: string;
-  navGroup?:
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion?: ('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8') | null;
+  logo?: (string | null) | Media;
+  copyright?: string | null;
+  subline?: string | null;
+  /**
+   * Legal links like imprint, privacy policy, etc.
+   */
+  legalLinks?:
     | {
-        links?:
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Add social media links with icons
+   */
+  socialLinks?:
+    | {
+        icon:
+          | 'facebook'
+          | 'twitter'
+          | 'instagram'
+          | 'linkedin'
+          | 'discord'
+          | 'reddit'
+          | 'telegram'
+          | 'github'
+          | 'youtube'
+          | 'tiktok'
+          | 'apple'
+          | 'android'
+          | 'googleplay';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  navItems?:
+    | {
+        title: string;
+        subNavItems?:
           | {
               link: {
                 type?: ('reference' | 'custom') | null;
@@ -1577,12 +4099,11 @@ export interface Footer {
                   relationTo: 'pages';
                   value: string | Page;
                 } | null;
+                section?: string | null;
                 url?: string | null;
                 label: string;
-                /**
-                 * Color of the link.
-                 */
-                color?: ('default' | 'blue' | 'orange') | null;
+                iconBefore?: string | null;
+                iconAfter?: string | null;
               };
               id?: string | null;
             }[]
@@ -1595,10 +4116,275 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "page-config".
+ */
+export interface PageConfig {
+  id: string;
+  /**
+   * Default meta information used as fallback when no specific meta is provided
+   */
+  defaultMeta: {
+    title: string;
+    description: string;
+  };
+  openGraph?: {
+    /**
+     * This background image will be used to render OpenGraph images for every page. Use the aspect ratio 1200x630.
+     */
+    backgroundImage?: (string | null) | Media;
+    /**
+     * Choose a color for the overlay text of the OpenGraph image (HEX)
+     */
+    textColor?: string | null;
+    textPosition?: ('top' | 'center' | 'bottom' | 'left' | 'right') | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
-  navItems?:
+  backgroundColor?: T;
+  items?:
+    | T
+    | {
+        sub?:
+          | T
+          | {
+              icon?: T;
+              label?: T;
+              subitems?:
+                | T
+                | {
+                    link?:
+                      | T
+                      | {
+                          type?: T;
+                          newTab?: T;
+                          reference?: T;
+                          section?: T;
+                          url?: T;
+                          label?: T;
+                          iconBefore?: T;
+                          iconAfter?: T;
+                        };
+                    Description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        link?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    section?: T;
+                    url?: T;
+                    label?: T;
+                    iconBefore?: T;
+                    iconAfter?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  richItems?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    section?: T;
+                    url?: T;
+                    label?: T;
+                    iconBefore?: T;
+                    iconAfter?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        submenu?:
+          | T
+          | {
+              icon?: T;
+              label?: T;
+              blocks?:
+                | T
+                | {
+                    featuredBanner?:
+                      | T
+                      | {
+                          title?: T;
+                          subtitle?: T;
+                          description?: T;
+                          image?: T;
+                          backgroundColor?: T;
+                          link?:
+                            | T
+                            | {
+                                type?: T;
+                                newTab?: T;
+                                reference?: T;
+                                section?: T;
+                                url?: T;
+                                label?: T;
+                                iconBefore?: T;
+                                iconAfter?: T;
+                                appearance?: T;
+                                size?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    categoryGrid?:
+                      | T
+                      | {
+                          title?: T;
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                icon?: T;
+                                link?:
+                                  | T
+                                  | {
+                                      type?: T;
+                                      newTab?: T;
+                                      reference?: T;
+                                      section?: T;
+                                      url?: T;
+                                      label?: T;
+                                      iconBefore?: T;
+                                      iconAfter?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    cardGrid?:
+                      | T
+                      | {
+                          title?: T;
+                          cards?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                links?:
+                                  | T
+                                  | {
+                                      link?:
+                                        | T
+                                        | {
+                                            type?: T;
+                                            newTab?: T;
+                                            reference?: T;
+                                            section?: T;
+                                            url?: T;
+                                            label?: T;
+                                            iconBefore?: T;
+                                            iconAfter?: T;
+                                          };
+                                      icon?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    featureList?:
+                      | T
+                      | {
+                          title?: T;
+                          features?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                icon?: T;
+                                link?:
+                                  | T
+                                  | {
+                                      type?: T;
+                                      newTab?: T;
+                                      reference?: T;
+                                      section?: T;
+                                      url?: T;
+                                      label?: T;
+                                      iconBefore?: T;
+                                      iconAfter?: T;
+                                    };
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    simpleLinks?:
+                      | T
+                      | {
+                          title?: T;
+                          links?:
+                            | T
+                            | {
+                                link?:
+                                  | T
+                                  | {
+                                      type?: T;
+                                      newTab?: T;
+                                      reference?: T;
+                                      section?: T;
+                                      url?: T;
+                                      label?: T;
+                                    };
+                                icon?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    featuredImage?:
+                      | T
+                      | {
+                          title?: T;
+                          subtitle?: T;
+                          description?: T;
+                          image?: T;
+                          backgroundColor?: T;
+                          link?:
+                            | T
+                            | {
+                                type?: T;
+                                newTab?: T;
+                                reference?: T;
+                                section?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  buttons?:
     | T
     | {
         link?:
@@ -1607,12 +4393,17 @@ export interface HeaderSelect<T extends boolean = true> {
               type?: T;
               newTab?: T;
               reference?: T;
+              section?: T;
               url?: T;
               label?: T;
-              color?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+              appearance?: T;
+              size?: T;
             };
         id?: T;
       };
+  copyright?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1622,10 +4413,38 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  navGroup?:
+  backgroundColor?: T;
+  designVersion?: T;
+  logo?: T;
+  copyright?: T;
+  subline?: T;
+  legalLinks?:
     | T
     | {
-        links?:
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+            };
+        id?: T;
+      };
+  socialLinks?:
+    | T
+    | {
+        icon?: T;
+        url?: T;
+        id?: T;
+      };
+  navItems?:
+    | T
+    | {
+        title?: T;
+        subNavItems?:
           | T
           | {
               link?:
@@ -1634,9 +4453,11 @@ export interface FooterSelect<T extends boolean = true> {
                     type?: T;
                     newTab?: T;
                     reference?: T;
+                    section?: T;
                     url?: T;
                     label?: T;
-                    color?: T;
+                    iconBefore?: T;
+                    iconAfter?: T;
                   };
               id?: T;
             };
@@ -1648,32 +4469,71 @@ export interface FooterSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "TaskSchedulePublish".
+ * via the `definition` "page-config_select".
  */
-export interface TaskSchedulePublish {
-  input: {
-    type?: ('publish' | 'unpublish') | null;
-    locale?: string | null;
-    doc?:
-      | ({
-          relationTo: 'pages';
-          value: string | Page;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: string | Post;
-        } | null);
-    global?: string | null;
-    user?: (string | null) | User;
-  };
-  output?: unknown;
+export interface PageConfigSelect<T extends boolean = true> {
+  defaultMeta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  openGraph?:
+    | T
+    | {
+        backgroundImage?: T;
+        textColor?: T;
+        textPosition?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "BannerBlock".
  */
 export interface BannerBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
   style: 'info' | 'warning' | 'error' | 'success';
+  icon?: string | null;
+  title?: string | null;
   content: {
     root: {
       type: string;
@@ -1698,6 +4558,43 @@ export interface BannerBlock {
  * via the `definition` "CodeBlock".
  */
 export interface CodeBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
   language?: ('typescript' | 'javascript' | 'css') | null;
   code: string;
   id?: string | null;

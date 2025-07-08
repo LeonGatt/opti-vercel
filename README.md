@@ -1,82 +1,48 @@
-<div align="center">
-  <h1>🚀 OptiTrack Web</h1>
-  <p>A high-performance, modern web application template built with Next.js and Payload CMS</p>
+# Payblocks
 
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Payload CMS](https://img.shields.io/badge/Payload_CMS-2B2F3A?style=flat&logo=payloadcms&logoColor=white)](https://payloadcms.com/)
-[![Storybook](https://img.shields.io/badge/Storybook-FF4785?style=flat&logo=storybook&logoColor=white)](https://storybook.js.org/)
-[![Playwright](https://img.shields.io/badge/Playwright-45ba4b?style=flat&logo=playwright&logoColor=white)](https://playwright.dev/)
+Payblocks is a powerful website builder that combines the best of two worlds: PayloadCMS's robust content management capabilities and shadcnblocks' extensive UI component library. The name "Payblocks" reflects this fusion - "Pay" from PayloadCMS and "Blocks" from shadcnblocks.
 
-</div>
+This project transforms the traditional PayloadCMS starter into a feature-rich website builder with a beautiful, modern UI and an extensive collection of pre-built components. Whether you're building a corporate website, a portfolio, or a complex web application, Payblocks provides all the building blocks you need.
 
-## 🚀 Quick Start
+The docs for this repo are located here: [Payblocks Docs](https://docs.shadcnblocks.com/payload/getting-started/)
 
-Get started with the project locally in just a few steps:
+## ✨ Key Features
 
-### Prerequisites
+- 🎨 **Rich Component Library**
 
-- Node.js 20+ and pnpm
-- Docker and Docker Compose (for local database)
+  - Extensive collection of pre-built blocks from shadcnblocks
+  - Multiple variants for each component type:
+    - 5+ FAQ layouts
+    - 15+ CTA designs
+    - 6+ Gallery layouts
+    - Various form components
+  - All components are fully customizable and responsive
 
-### Installation
+- 🔒 **Enhanced Security**
 
-1. **Install dependencies**
+  - Cloudflare Turnstile integration for form protection
+  - Secure authentication system
+  - Login with Google
+  - Role-based access control
 
-```bash
-pnpm install
-```
+- 🚀 **Advanced Features**
 
-2. **Set up environment variables**
+  - Layout Builder with drag-and-drop functionality
+  - Live Preview for real-time content editing
+  - Draft Preview system
+  - SEO optimization tools
+  - Redirects management
+  - Advanced form builder with various field types
 
-Copy the example environment file and update the values:
+- 💻 **Developer Experience**
+  - Built with Next.js and TypeScript
+  - Shadcn/ui integration for consistent UI components
+  - MongoDB/PostgreSQL database support
+  - Email integration with Nodemailer
+  - Cloud storage with Vercel Blob
 
-```bash
-cp .env.example .env
-```
+## Quick Start
 
-3. **Start the development environment**
+To spin up this project locally, follow these steps from our [Shadcnblocks Payload CMS boilerplate docs](https://docs.shadcnblocks.com/payload/getting-started/)
 
-```bash
-pnpm dev
-```
-
-The application will be available at:
-
-- Frontend: http://localhost:3000
-- Admin Panel: http://localhost:3000/admin
-- Storybook: http://localhost:6006
-
-## 🛠 Development
-
-### Available Scripts
-
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run linter
-- `pnpm test` - Run unit tests
-- `pnpm test:e2e` - Run end-to-end tests
-- `pnpm storybook` - Start Storybook
-- `pnpm build-storybook` - Build Storybook
-
-## 🧪 Testing
-
-### Unit Tests
-
-```bash
-pnpm test
-```
-
-### E2E Tests
-
-```bash
-# Run tests in headless mode
-pnpm test:e2e
-
-# Run tests in UI mode
-pnpm test:e2e:headed
-
-# Debug tests
-pnpm test:e2e:debug
-```
+If you are stuck, feel free to open a Issue in this repo for things that are related especially to this boilerplate. For general payload CMS problems we recommend to consult the [official Payload CMS](https://payloadcms.com/docs/getting-started/what-is-payload) docs or search/open a issue in the [Payload CMS repo](https://github.com/payloadcms/payload/issues).

@@ -1,26 +1,28 @@
-import type { BannerBlock as BannerBlockProps } from '@/payload-types'
+import { BannerDesignVersion, allBannerDesignVersions } from "./config";
+import Banner5 from "./banner5";
 
-import RichText from '@/components/RichText'
-import { cn } from '@/utilities/ui'
-import type React from 'react'
+// Extract the value property from BannerDesignVersion for use as keys
+type BannerVersionValue = BannerDesignVersion["value"];
 
-type Props = {
-  className?: string
-} & BannerBlockProps
+type Banner<T extends string = string> = Required<
+  Record<BannerVersionValue, React.FC<any>>
+> &
+  Record<T, React.FC<any>>;
 
-export const BannerBlock: React.FC<Props> = ({ className, content, style }) => {
-  return (
-    <div className={cn('mx-auto my-8 w-full', className)}>
-      <div
-        className={cn('border py-3 px-6 flex items-center rounded', {
-          'border-border bg-card': style === 'info',
-          'border-error bg-error/30': style === 'error',
-          'border-success bg-success/30': style === 'success',
-          'border-warning bg-warning/30': style === 'warning',
-        })}
-      >
-        <RichText data={content} enableGutter={false} enableProse={false} />
-      </div>
-    </div>
-  )
-}
+const banner: Banner = {
+  BANNER5: Banner5,
+};
+
+export const BannerBlock: React.FC<any> = (props) => {
+  const { designVersion } = props || {};
+  if (props.blockType !== "banner") return null;
+  if (!designVersion) return null;
+
+  const BannerToRender = banner[designVersion as BannerVersionValue];
+
+  if (!BannerToRender) return null;
+
+  return <BannerToRender {...props} />;
+};
+
+export default BannerBlock;

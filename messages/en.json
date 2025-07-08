@@ -1,0 +1,12 @@
+{
+  "cart": {
+    "title": "Cart",
+    "checkout": "Checkout",
+    "empty": "Empty",
+    "empty_description": "Your cart is empty.",
+    "loading": "Loading...",
+    "items": {
+      "remove": "Remove"
+    }
+  }
+}

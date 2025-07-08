@@ -5,8 +5,8 @@
  * @param item
  * @returns {boolean}
  */
-export function isObject(item: unknown): item is object {
-  return typeof item === 'object' && !Array.isArray(item)
+export function isObject(item: unknown): boolean {
+  return item && typeof item === "object" && !Array.isArray(item);
 }
 
 /**
@@ -15,21 +15,20 @@ export function isObject(item: unknown): item is object {
  * @param ...sources
  */
 export default function deepMerge<T, R>(target: T, source: R): T {
-  const output = { ...target }
+  const output = { ...target };
   if (isObject(target) && isObject(source)) {
-    // biome-ignore lint/complexity/noForEach: <explanation>
     Object.keys(source).forEach((key) => {
       if (isObject(source[key])) {
         if (!(key in target)) {
-          Object.assign(output, { [key]: source[key] })
+          Object.assign(output, { [key]: source[key] });
         } else {
-          output[key] = deepMerge(target[key], source[key])
+          output[key] = deepMerge(target[key], source[key]);
         }
       } else {
-        Object.assign(output, { [key]: source[key] })
+        Object.assign(output, { [key]: source[key] });
       }
-    })
+    });
   }
 
-  return output
+  return output;
 }

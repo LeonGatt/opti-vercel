@@ -1,59 +1,20 @@
 {
-  "npm.packageManager": "pnpm",
-  "editor.defaultFormatter": "biomejs.biome",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biomejs": "explicit"
-    }
-  },
-  "[less][scss][sass]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biomejs": "explicit"
-    }
-  },
-  "css.format.enable": false,
-  "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biomejs": "explicit"
-    }
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biomejs": "explicit"
-    }
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biomejs": "explicit"
-    }
-  },
-  "[json]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true
-  },
-  "editor.formatOnSaveMode": "file",
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "[javascript][typescript][typescriptreact]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.biomejs": "explicit"
-    }
-  }
+  "tailwindCSS.experimental.classRegex": [
+    "\\/\\*Tailwind\\*\\/ \"([^\"]*)",
+    "\\/\\*Tailwind\\*\\/ '([^']*)",
+    "\\/\\*Tailwind\\*\\/ `([^`]*)"
+  ],
+  "cSpell.words": [
+    "akku",
+    "AUTOLOGIN",
+    "darkmode",
+    "EJSON",
+    "heros",
+    "lucide",
+    "mongoexport",
+    "mongoimport",
+    "payblocks",
+    "payloadcms",
+    "subline"
+  ]
 }
