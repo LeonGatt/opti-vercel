@@ -14,11 +14,7 @@ import "./[[...slugs]]/globals.css";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getMessages } from '@/i18n/messages';
-
-// Change fonts by changing class Geist_Mono or Geist.
-// No change in tailwind.config.mjs needed (Because it's already synced via --font-mono and --font-sans variables). Just make sure, that these variables stay.
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
-const sans = Geist({ subsets: ["latin"], variable: "--font-sans" });
+import { haasGrotText, haasGrotDisplay, haasGrotBody } from "@/fonts";
 
 export default async function NotFound() {
   const publicContext: PublicContextProps = {
@@ -32,7 +28,7 @@ export default async function NotFound() {
 
   return (
     <html
-      className={cn(mono.variable, sans.variable)}
+      className={cn(haasGrotText.variable, haasGrotDisplay.variable, haasGrotBody.variable)}
       lang={localization.defaultLocale}
       suppressHydrationWarning
     >

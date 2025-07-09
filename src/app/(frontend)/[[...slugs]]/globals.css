@@ -80,9 +80,9 @@
   --color-stroke-icon: var(--color-gray-600);
   --color-hover: var(--color-gray-100);
 
-  /* Other custom variables */
-  --font-body: 'Haas Grot Text', 'sans-serif';
-  --font-heading: 'Haas Grot Display', 'sans-serif';
+  /* Font families - managed by Next.js localFont */
+  --font-body: var(--font-body);
+  --font-heading: var(--font-heading);
 
   --breakpoint-xs: 320px;
   --breakpoint-sm: 480px;
@@ -241,9 +241,7 @@
   }
 }
 
-@layer base {
- 
-}
+
 
 @utility container {
   margin-inline: auto;
@@ -285,7 +283,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased cursor-default;
+    @apply bg-background text-foreground antialiased cursor-default;
+    font-family: var(--font-body);
   }
   .contentWrapper {
     @apply min-h-[100vh] flex flex-col;
@@ -306,7 +305,8 @@
     h4,
     h5,
     h6 {
-      @apply font-heading font-bold text-foreground;
+      @apply font-bold text-foreground;
+      font-family: var(--font-heading);
     }
     h1 {
       @apply lg:text-5xl text-3xl mb-6 last:mb-0;
@@ -323,7 +323,8 @@
       @apply text-2xl mt-8 mb-6 last:mb-0;
     }
     p {
-      @apply font-body text-base my-6 last:mb-0;
+      @apply text-base my-6 last:mb-0;
+      font-family: var(--font-body);
     }
     a {
       @apply underline;

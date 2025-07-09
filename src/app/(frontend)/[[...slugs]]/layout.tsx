@@ -1,17 +1,8 @@
 import type { Metadata } from "next";
-
-import {
-  Inter,
-  Roboto_Serif,
-  Roboto_Mono,
-  Playfair_Display,
-  Caveat,
-} from "next/font/google";
-import React from "react";
+import type React from "react";
 import { mergeOpenGraph } from "@/utilities/mergeOpenGraph";
 import { serverUrl as NEXT_PUBLIC_SERVER_URL } from "@/config/server";
 
-import { cn } from "src/utilities/cn";
 import { AdminBar } from "@/components/AdminBar";
 import { Footer } from "@/globals/Footer/Component";
 import { Header } from "@/globals/Header/Component";
@@ -22,7 +13,7 @@ import { draftMode } from "next/headers";
 
 import { resolveSlugs } from "@/utilities/resolveSlugs";
 import localization, { type Locale } from "@/localization.config";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import type { PublicContextProps } from "@/utilities/publicContextProps";
 import { getMessages } from "@/i18n/messages";
 
 import "./globals.css";
@@ -30,20 +21,8 @@ import {
   TrackingScriptsBody,
   TrackingScriptsHead,
 } from "@/providers/TrackingScriptWrapper";
-
-// Change fonts by changing class Geist_Mono or Geist.
-// No change in tailwind.config.mjs needed (Because it's already synced via --font-mono and --font-sans variables). Just make sure, that these variables stay.
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const robotoSerif = Roboto_Serif({
-  subsets: ["latin"],
-  variable: "--font-serif",
-});
-const robotoMono = Roboto_Mono({ subsets: ["latin"], variable: "--font-mono" });
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
-const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat" });
+import { cn } from "@/utilities/cn";
+import { haasGrotText, haasGrotDisplay, haasGrotBody } from "@/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(NEXT_PUBLIC_SERVER_URL || "https://trieb.work"),
@@ -71,13 +50,7 @@ export default async function RootLayout({
 
   return (
     <html
-      className={cn(
-        inter.variable,
-        robotoSerif.variable,
-        robotoMono.variable,
-        playfair.variable,
-        caveat.variable,
-      )}
+      className={cn(haasGrotText.variable, haasGrotDisplay.variable, haasGrotBody.variable)}
       lang={locale}
       suppressHydrationWarning
     >
