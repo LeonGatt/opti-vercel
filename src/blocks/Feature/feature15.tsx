@@ -1,31 +1,31 @@
-import { Infinity, MessagesSquare, Zap, ZoomIn } from "lucide-react";
+import { Infinity, MessagesSquare, Zap, ZoomIn } from 'lucide-react'
 
 const feature = [
   {
-    title: "Quality",
+    title: 'Quality',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.',
     icon: <ZoomIn className="size-6" />,
   },
   {
-    title: "Innovation",
+    title: 'Innovation',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.',
     icon: <Zap className="size-6" />,
   },
   {
-    title: "Customer Support",
+    title: 'Customer Support',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.',
     icon: <MessagesSquare className="size-6" />,
   },
   {
-    title: "Reliability",
+    title: 'Reliability',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.',
     icon: <Infinity className="size-6" />,
   },
-];
+]
 
 const Feature15 = () => {
   return (
@@ -39,10 +39,9 @@ const Feature15 = () => {
             </h2>
 
             <p className="text-muted-foreground md:max-w-2xl">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi
-              necessitatibus, culpa at vitae molestias tenetur explicabo.
-              Voluptatum amet architecto suscipit pariatur eligendi repellendus
-              mollitia dolore unde sint?
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa
+              at vitae molestias tenetur explicabo. Voluptatum amet architecto suscipit pariatur
+              eligendi repellendus mollitia dolore unde sint?
             </p>
           </div>
         </div>
@@ -56,19 +55,15 @@ const Feature15 = () => {
                 {feature.icon}
               </span>
               <div>
-                <h3 className="text-lg font-medium md:text-2xl">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-muted-foreground">
-                  {feature.description}
-                </p>
+                <h3 className="text-lg font-medium md:text-2xl">{feature.title}</h3>
+                <p className="mt-2 text-muted-foreground">{feature.description}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature15;
+export default Feature15

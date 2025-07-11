@@ -1,9 +1,9 @@
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc'
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 const Login5 = () => {
   return (
@@ -19,20 +19,14 @@ const Login5 = () => {
                   className="mb-7 h-10 w-auto"
                 />
                 <p className="mb-2 text-2xl font-bold">Welcome back</p>
-                <p className="text-muted-foreground">
-                  Welcome back! Please enter your details.
-                </p>
+                <p className="text-muted-foreground">Welcome back! Please enter your details.</p>
               </div>
               <div className="w-full rounded-md bg-background">
                 <div>
                   <div className="grid gap-4">
                     <div className="grid w-full max-w-sm items-center gap-1.5">
                       <Label htmlFor="email">Email</Label>
-                      <Input
-                        type="email"
-                        placeholder="Enter your email"
-                        required
-                      />
+                      <Input type="email" placeholder="Enter your email" required />
                     </div>
                     <div>
                       <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -47,10 +41,7 @@ const Login5 = () => {
                     </div>
                     <div className="flex justify-between">
                       <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="remember"
-                          className="border-muted-foreground"
-                        />
+                        <Checkbox id="remember" className="border-muted-foreground" />
                         <label
                           htmlFor="remember"
                           className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -89,7 +80,7 @@ const Login5 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Login5;
+export default Login5

@@ -1,6 +1,6 @@
-import { Expand, Globe, MoveRight, Rocket, Wrench } from "lucide-react";
+import { Expand, Globe, MoveRight, Rocket, Wrench } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero24 = () => {
   return (
@@ -27,9 +27,7 @@ const Hero24 = () => {
           <div className="flex flex-col gap-3 bg-background p-5 md:gap-6">
             <Globe className="size-6 shrink-0" />
             <div>
-              <h2 className="text-sm font-semibold md:text-base">
-                Robust Infrastructure
-              </h2>
+              <h2 className="text-sm font-semibold md:text-base">Robust Infrastructure</h2>
               <p className="text-sm text-muted-foreground md:text-base">
                 Reliable and scalable infrastructure, easy to manage.
               </p>
@@ -47,9 +45,7 @@ const Hero24 = () => {
           <div className="flex flex-col gap-3 bg-background p-5 md:gap-6">
             <Expand className="size-6 shrink-0" />
             <div>
-              <h2 className="text-sm font-semibold md:text-base">
-                Effortless Scaling
-              </h2>
+              <h2 className="text-sm font-semibold md:text-base">Effortless Scaling</h2>
               <p className="text-sm text-muted-foreground md:text-base">
                 Built to handle increased demand with ease.
               </p>
@@ -58,9 +54,7 @@ const Hero24 = () => {
           <div className="flex flex-col gap-3 bg-background p-5 md:gap-6">
             <Wrench className="size-6 shrink-0" />
             <div>
-              <h2 className="text-sm font-semibold md:text-base">
-                Low Maintenance
-              </h2>
+              <h2 className="text-sm font-semibold md:text-base">Low Maintenance</h2>
               <p className="text-sm text-muted-foreground md:text-base">
                 Focus on building, not on maintenance tasks.
               </p>
@@ -69,7 +63,7 @@ const Hero24 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero24;
+export default Hero24

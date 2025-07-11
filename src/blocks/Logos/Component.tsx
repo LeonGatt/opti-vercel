@@ -1,30 +1,28 @@
-import Logos2 from "@/blocks/Logos/logos2";
-import Logos3 from "@/blocks/Logos/logos3";
+import Logos2 from '@/blocks/Logos/logos2'
+import Logos3 from '@/blocks/Logos/logos3'
 
-import { LogosDesignVersion } from "./config";
+import { LogosDesignVersion } from './config'
 
-type Logos<T extends string = string> = Required<
-  Record<LogosDesignVersion, React.FC<any>>
-> &
-  Record<T, React.FC<any>>;
+type Logos<T extends string = string> = Required<Record<LogosDesignVersion, React.FC<any>>> &
+  Record<T, React.FC<any>>
 
 const Logos: Logos = {
   LOGOS2: Logos2,
   LOGOS3: Logos3,
-};
+}
 
 export const LogosBlock: React.FC<any> = (props) => {
-  if (props.blockType !== "logos") return null;
+  if (props.blockType !== 'logos') return null
 
-  const { designVersion } = props || {};
+  const { designVersion } = props || {}
 
-  if (!designVersion) return null;
+  if (!designVersion) return null
 
-  const LogosToRender = Logos[designVersion as LogosDesignVersion];
+  const LogosToRender = Logos[designVersion as LogosDesignVersion]
 
-  if (!LogosToRender) return null;
+  if (!LogosToRender) return null
 
-  return <LogosToRender {...props} />;
-};
+  return <LogosToRender {...props} />
+}
 
-export default LogosBlock;
+export default LogosBlock

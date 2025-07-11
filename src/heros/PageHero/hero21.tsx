@@ -1,7 +1,7 @@
-import { ChevronRight, Play } from "lucide-react";
+import { ChevronRight, Play } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 
 const Hero21 = () => {
   return (
@@ -23,9 +23,8 @@ const Hero21 = () => {
             Smart home automation and security system for you
           </h1>
           <p className="mx-auto max-w-screen-md text-center text-sm text-muted-foreground md:text-base">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            possimus fugit ab cumque consequuntur pariatur provident? Nulla
-            consequuntur nisi eum!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia possimus fugit ab cumque
+            consequuntur pariatur provident? Nulla consequuntur nisi eum!
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
             <Button>
@@ -55,7 +54,7 @@ const Hero21 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero21;
+export default Hero21

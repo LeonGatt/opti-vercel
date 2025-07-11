@@ -1,14 +1,18 @@
-import { Button } from "@/components/ui/button";
-import RichText from "@/components/RichText";
-import { FeatureBlock } from "@/payload-types";
-import { Media } from "@/components/Media";
-import { CMSLink } from "@/components/Link";
-import { Icon } from "@/components/Icon";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Button } from '@/components/ui/button'
+import RichText from '@/components/RichText'
+import { FeatureBlock } from '@/payload-types'
+import { Media } from '@/components/Media'
+import { CMSLink } from '@/components/Link'
+import { Icon } from '@/components/Icon'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-const Feature1: React.FC<
-  FeatureBlock & { publicContext: PublicContextProps }
-> = ({ richText, image, links, icon, publicContext }) => {
+const Feature1: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+  richText,
+  image,
+  links,
+  icon,
+  publicContext,
+}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -22,8 +26,8 @@ const Feature1: React.FC<
                 publicContext={publicContext}
                 withWrapper={false}
                 overrideStyle={{
-                  h1: "my-6 text-pretty text-3xl font-bold lg:text-4xl",
-                  p: "mb-8 max-w-xl text-muted-foreground lg:text-lg",
+                  h1: 'my-6 text-pretty text-3xl font-bold lg:text-4xl',
+                  p: 'mb-8 max-w-xl text-muted-foreground lg:text-lg',
                 }}
                 content={richText}
               />
@@ -39,24 +43,19 @@ const Feature1: React.FC<
                         className="w-full sm:w-auto"
                         key={i}
                         {...link}
-                        size={"lg"}
+                        size={'lg'}
                       />
-                    );
+                    )
                   })}
                 </div>
               )}
             </div>
           </div>
-          {image && (
-            <Media
-              resource={image}
-              className="max-h-96 w-full rounded-md object-cover"
-            />
-          )}
+          {image && <Media resource={image} className="max-h-96 w-full rounded-md object-cover" />}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature1;
+export default Feature1

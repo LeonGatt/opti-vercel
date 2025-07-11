@@ -1,6 +1,6 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero11 = () => {
   return (
@@ -19,9 +19,8 @@ const Hero11 = () => {
                   Build your next project with Blocks
                 </h1>
                 <p className="text-muted-foreground lg:text-xl">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-                  doloremque mollitia fugiat omnis! Porro facilis quo animi
-                  consequatur. Explicabo.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+                  fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
                 </p>
               </div>
               <Button>
@@ -38,7 +37,7 @@ const Hero11 = () => {
         </div>
       </section>
     </section>
-  );
-};
+  )
+}
 
-export default Hero11;
+export default Hero11

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Feature90 = () => {
   return (
@@ -9,8 +9,8 @@ const Feature90 = () => {
             Seamless connections with all your tools
           </h2>
           <p className="text-center text-lg text-muted-foreground lg:text-xl">
-            Easily integrate your platform with the services you rely on to
-            enhance your productivity and results.
+            Easily integrate your platform with the services you rely on to enhance your
+            productivity and results.
           </p>
           <Button variant="outline" className="mt-6">
             View all integrations
@@ -84,7 +84,7 @@ const Feature90 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature90;
+export default Feature90

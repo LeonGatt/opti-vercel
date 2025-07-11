@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero30 = () => {
   return (
@@ -12,23 +12,10 @@ const Hero30 = () => {
           <defs>
             <filter id="blur1" x="-20%" y="-20%" width="140%" height="140%">
               <feFlood floodOpacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
-              <feGaussianBlur
-                stdDeviation="180"
-                result="effect1_foregroundBlur"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="180" result="effect1_foregroundBlur" />
             </filter>
-            <pattern
-              id="innerGrid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
+            <pattern id="innerGrid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path
                 d="M 40 0 L 0 0 0 40"
                 fill="none"
@@ -37,12 +24,7 @@ const Hero30 = () => {
                 strokeOpacity={0.6}
               />
             </pattern>
-            <pattern
-              id="grid"
-              width="160"
-              height="160"
-              patternUnits="userSpaceOnUse"
-            >
+            <pattern id="grid" width="160" height="160" patternUnits="userSpaceOnUse">
               <rect width="160" height="160" fill="url(#innerGrid)" />
               <path
                 d="M 70 80 H 90 M 80 70 V 90"
@@ -54,11 +36,7 @@ const Hero30 = () => {
             </pattern>
           </defs>
           <g filter="url(#blur1)">
-            <rect
-              width="1400"
-              height="656"
-              fill="hsl(from_var(--muted)_h_s_l)"
-            />
+            <rect width="1400" height="656" fill="hsl(from_var(--muted)_h_s_l)" />
             <rect
               x="0"
               y="0"
@@ -89,9 +67,8 @@ const Hero30 = () => {
               Welcome to Our Website
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi
-              consequatur. Explicabo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               <Button variant="outline" className="w-full sm:w-auto">
@@ -114,7 +91,7 @@ const Hero30 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero30;
+export default Hero30

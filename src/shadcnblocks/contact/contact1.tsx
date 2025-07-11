@@ -1,15 +1,15 @@
-import { Check } from "lucide-react";
+import { Check } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select'
 
 const Contact1 = () => {
   return (
@@ -184,7 +184,7 @@ const Contact1 = () => {
       </div>
     */}
     </section>
-  );
-};
+  )
+}
 
-export default Contact1;
+export default Contact1

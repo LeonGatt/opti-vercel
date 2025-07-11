@@ -1,17 +1,22 @@
-import React from "react";
-import { Badge } from "@/components/ui/badge";
+import React from 'react'
+import { Badge } from '@/components/ui/badge'
 
-import type { Page } from "@/payload-types";
+import type { Page } from '@/payload-types'
 
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
-import RichText from "@/components/RichText";
-import { Icon } from "@/components/Icon";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import RichText from '@/components/RichText'
+import { Icon } from '@/components/Icon'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-export const Hero1: React.FC<
-  Page["hero"] & { publicContext: PublicContextProps }
-> = ({ links, badgeIcon, images, badge, richText, publicContext }) => {
+export const Hero1: React.FC<Page['hero'] & { publicContext: PublicContextProps }> = ({
+  links,
+  badgeIcon,
+  images,
+  badge,
+  richText,
+  publicContext,
+}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -19,8 +24,7 @@ export const Hero1: React.FC<
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             {badge && (
               <Badge variant="outline">
-                {badge}{" "}
-                {badgeIcon && <Icon icon={badgeIcon} className="ml-2 size-4" />}
+                {badge} {badgeIcon && <Icon icon={badgeIcon} className="ml-2 size-4" />}
               </Badge>
             )}
             {richText && (
@@ -30,8 +34,8 @@ export const Hero1: React.FC<
                 content={richText}
                 enableGutter={false}
                 overrideStyle={{
-                  h1: "my-6 text-pretty text-4xl font-bold lg:text-6xl",
-                  p: "mb-8 max-w-xl text-muted-foreground lg:text-xl",
+                  h1: 'my-6 text-pretty text-4xl font-bold lg:text-6xl',
+                  p: 'mb-8 max-w-xl text-muted-foreground lg:text-xl',
                 }}
               />
             )}
@@ -45,7 +49,7 @@ export const Hero1: React.FC<
                       key={i}
                       {...link}
                     />
-                  );
+                  )
                 })}
               </div>
             )}
@@ -60,5 +64,5 @@ export const Hero1: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

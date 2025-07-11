@@ -1,19 +1,19 @@
-import type { Field } from "payload";
+import type { Field } from 'payload'
 
 import {
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
-} from "@payloadcms/richtext-lexical";
+} from '@payloadcms/richtext-lexical'
 
-import { linkGroup } from "@/fields/linkGroup";
-import { link } from "@/fields/link";
-import { icon } from "@/components/Icon/config";
-import { customHeroFields } from "./CustomHero/config";
-import { backgroundColor } from "@/fields/color";
-import { designVersionDescription } from "@/components/AdminDashboard/DesignVersionDescription";
-import { designVersionPreview } from "@/components/AdminDashboard/DesignVersionPreview/config";
+import { linkGroup } from '@/fields/linkGroup'
+import { link } from '@/fields/link'
+import { icon } from '@/components/Icon/config'
+import { customHeroFields } from './CustomHero/config'
+import { backgroundColor } from '@/fields/color'
+import { designVersionDescription } from '@/components/AdminDashboard/DesignVersionDescription'
+import { designVersionPreview } from '@/components/AdminDashboard/DesignVersionPreview/config'
 
 /* TODO:
 13 -> X
@@ -53,105 +53,116 @@ What should happen with the two big boxes? Image or Tex?
 */
 
 export const allHeroDesignVersions = [
-  { label: "no Hero", value: "none" },
-  { label: "HERO1", value: "1", image: "/admin/previews/hero/hero1.jpeg" },
-  { label: "HERO2", value: "2", image: "/admin/previews/hero/hero2.jpeg" },
-  { label: "HERO3", value: "3", image: "/admin/previews/hero/hero3.jpeg" },
-  { label: "HERO4", value: "4", image: "/admin/previews/hero/hero4.jpeg" },
-  { label: "HERO5", value: "5", image: "/admin/previews/hero/hero5.jpeg" },
-  { label: "HERO6", value: "6", image: "/admin/previews/hero/hero6.jpeg" },
-  { label: "HERO12", value: "12", image: "/admin/previews/hero/hero12.jpeg" },
+  { label: 'no Hero', value: 'none' },
+  { label: 'HERO1', value: '1', image: '/admin/previews/hero/hero1.jpeg' },
+  { label: 'HERO2', value: '2', image: '/admin/previews/hero/hero2.jpeg' },
+  { label: 'HERO3', value: '3', image: '/admin/previews/hero/hero3.jpeg' },
+  { label: 'HERO4', value: '4', image: '/admin/previews/hero/hero4.jpeg' },
+  { label: 'HERO5', value: '5', image: '/admin/previews/hero/hero5.jpeg' },
+  { label: 'HERO6', value: '6', image: '/admin/previews/hero/hero6.jpeg' },
+  { label: 'HERO12', value: '12', image: '/admin/previews/hero/hero12.jpeg' },
   {
-    label: "HERO112",
-    value: "112",
-    image: "/admin/previews/hero/hero112.jpeg",
+    label: 'HERO112',
+    value: '112',
+    image: '/admin/previews/hero/hero112.jpeg',
   },
   {
-    label: "HERO195",
-    value: "195",
-    image: "/admin/previews/hero/hero195.webp",
+    label: 'HERO195',
+    value: '195',
+    image: '/admin/previews/hero/hero195.webp',
   },
   {
-    label: "CUSTOMHIGHIMPACT",
-    value: "customHighImpact",
-    image: "/admin/previews/hero/customHighImpact.jpg",
+    label: 'HERO220',
+    value: '220',
+    image: '/admin/previews/hero/hero220.jpeg',
   },
-] as const;
+  {
+    label: 'HERO214',
+    value: '214',
+    image: '/admin/previews/hero/hero214.webp',
+  },
+  {
+    label: 'CUSTOMHIGHIMPACT',
+    value: 'customHighImpact',
+    image: '/admin/previews/hero/customHighImpact.jpg',
+  },
+] as const
 
-export type HeroDesignVersion = (typeof allHeroDesignVersions)[number];
+export type HeroDesignVersion = (typeof allHeroDesignVersions)[number]
 
 export const hero: Field = {
-  name: "hero",
-  type: "group",
-  interfaceName: "Hero",
+  name: 'hero',
+  type: 'group',
+  interfaceName: 'Hero',
   fields: [
     backgroundColor,
     designVersionPreview(allHeroDesignVersions),
     {
-      name: "badge",
-      type: "text",
+      name: 'badge',
+      type: 'text',
       localized: true,
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["1", "2", "3", "4", "5", "6", "12", "112"].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) =>
+          ['1', '2', '3', '4', '5', '6', '12', '112'].includes(designVersion),
       },
     },
     icon({
-      name: "badgeIcon",
+      name: 'badgeIcon',
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["1", "2", "3", "4", "5", "6"].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) =>
+          ['1', '2', '3', '4', '5', '6'].includes(designVersion),
       },
     }),
     {
-      name: "tagline",
-      type: "text",
+      name: 'tagline',
+      type: 'text',
       localized: true,
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["3", "27", "26", "55", "21", "53", "12", "51", "57", "112"].includes(
-            designVersion,
-          ),
+        condition: (_, { designVersion = '' } = {}) =>
+          ['3', '27', '26', '55', '21', '53', '12', '51', '57', '112', '220'].includes(designVersion),
       },
     },
     link({
       appearances: false,
       disableLabel: true,
       overrides: {
-        name: "badgeLink",
+        name: 'badgeLink',
         admin: {
-          condition: (_, { designVersion } = { designVersion: "" }) =>
-            ["26", "55", "21", "50"].includes(designVersion),
+          condition: (_, { designVersion } = { designVersion: '' }) =>
+            ['26', '55', '21', '50'].includes(designVersion),
+        },
+      },
+    }),
+    link({
+      appearances: false,
+      disableIcon: true,
+      overrides: {
+        name: 'buttonLink',
+        label: 'Button Link',
+        admin: {
+          condition: (_, { designVersion } = { designVersion: '' }) =>
+            ['214'].includes(designVersion),
         },
       },
     }),
     {
-      name: "richText",
-      type: "richText",
+      name: 'richText',
+      type: 'richText',
       localized: true,
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "12",
-            "112",
-            "195",
-            "customHighImpact",
-          ].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) =>
+          ['1', '2', '3', '4', '5', '6', '12', '112', '195', '214', 'customHighImpact'].includes(
+            designVersion,
+          ),
       },
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [
             ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ["h1"] }),
+            HeadingFeature({ enabledHeadingSizes: ['h1'] }),
             FixedToolbarFeature(),
             InlineToolbarFeature(),
-          ];
+          ]
         },
       }),
       label: false,
@@ -160,93 +171,84 @@ export const hero: Field = {
       overrides: {
         maxRows: 2,
         admin: {
-          condition: (_, { designVersion = "" } = {}) =>
-            [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "12",
-              "112",
-              "195",
-              "customHighImpact",
-            ].includes(designVersion),
+          condition: (_, { designVersion = '' } = {}) =>
+            ['1', '2', '3', '4', '5', '6', '12', '112', '195', 'customHighImpact'].includes(
+              designVersion,
+            ),
         },
       },
     }),
     {
-      name: "images",
-      type: "upload",
+      name: 'images',
+      type: 'upload',
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
+        condition: (_, { designVersion = '' } = {}) =>
           [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "12",
-            "31",
-            "37",
-            "38",
-            "18",
-            "112",
-            "customHighImpact",
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '12',
+            '31',
+            '37',
+            '38',
+            '18',
+            '112',
+            '220',
+            '214',
+            'customHighImpact',
           ].includes(designVersion),
       },
-      relationTo: "media",
+      relationTo: 'media',
       hasMany: true,
       maxRows: 3,
     },
     designVersionDescription(
-      "description112",
-      (_, { designVersion } = {}) => ["112"].includes(designVersion),
+      'description112',
+      (_, { designVersion } = {}) => ['112'].includes(designVersion),
       {
-        en: "Just use a single image here as background image",
-        de: "Nur ein Bild hier als Hintergrund-Bild verwenden",
+        en: 'Just use a single image here as background image',
+        de: 'Nur ein Bild hier als Hintergrund-Bild verwenden',
       },
     ),
     {
-      name: "icons",
-      type: "upload",
+      name: 'icons',
+      type: 'upload',
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["3", "53", "28", "32", "12", "51", "57", "50", "18", "112"].includes(
-            designVersion,
-          ),
+        condition: (_, { designVersion = '' } = {}) =>
+          ['3', '53', '28', '32', '12', '51', '57', '50', '18', '112'].includes(designVersion),
       },
-      relationTo: "media",
+      relationTo: 'media',
       hasMany: true,
       maxRows: 14,
     },
     {
-      name: "USPs",
-      type: "array",
+      name: 'USPs',
+      type: 'array',
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["24", "25", "20", "45"].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) =>
+          ['24', '25', '20', '45'].includes(designVersion),
       },
       fields: [
         {
-          name: "icon",
-          type: "upload",
-          relationTo: "media",
+          name: 'icon',
+          type: 'upload',
+          relationTo: 'media',
         },
         {
-          name: "richText",
-          type: "richText",
+          name: 'richText',
+          type: 'richText',
           localized: true,
           editor: lexicalEditor({
             features: ({ rootFeatures }) => {
               return [
                 ...rootFeatures,
-                HeadingFeature({ enabledHeadingSizes: ["h2", "h3", "h4"] }),
+                HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
                 FixedToolbarFeature(),
                 InlineToolbarFeature(),
-              ];
+              ]
             },
           }),
           label: false,
@@ -254,128 +256,124 @@ export const hero: Field = {
       ],
     },
     {
-      name: "statsItems",
-      label: "Stats Items",
-      type: "array",
+      name: 'statsItems',
+      label: 'Stats Items',
+      type: 'array',
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["112"].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) => ['112'].includes(designVersion),
       },
       maxRows: 3,
       defaultValue: [
         {
-          title: "Courses by Experts",
-          value: "87",
+          title: 'Courses by Experts',
+          value: '87',
         },
         {
-          title: "Hours of Content",
-          value: "200+",
+          title: 'Hours of Content',
+          value: '200+',
         },
         {
-          title: "User Satisfaction Rating",
-          value: "100%",
+          title: 'User Satisfaction Rating',
+          value: '100%',
         },
       ],
       fields: [
         {
-          name: "title",
-          type: "text",
+          name: 'title',
+          type: 'text',
           localized: true,
         },
         {
-          name: "value",
-          type: "text",
+          name: 'value',
+          type: 'text',
           localized: true,
         },
       ],
     },
     {
-      name: "pricing",
-      type: "group",
+      name: 'pricing',
+      type: 'group',
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["33"].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) => ['33'].includes(designVersion),
       },
       fields: [
         {
-          name: "headline",
-          type: "text",
+          name: 'headline',
+          type: 'text',
           localized: true,
         },
         {
-          name: "price",
-          type: "text",
+          name: 'price',
+          type: 'text',
           localized: true,
         },
         {
-          name: "description",
-          type: "text",
+          name: 'description',
+          type: 'text',
           localized: true,
         },
       ],
     },
     {
-      name: "rating",
-      type: "number",
+      name: 'rating',
+      type: 'number',
       max: 5,
       min: 1,
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["3", "4", "7", "15"].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) =>
+          ['3', '4', '7', '15'].includes(designVersion),
       },
     },
     ...customHeroFields,
     {
-      name: "presentationVideo",
-      type: "group",
+      name: 'presentationVideo',
+      type: 'group',
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["112"].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) => ['112'].includes(designVersion),
       },
       fields: [
         {
-          name: "label",
-          type: "text",
+          name: 'label',
+          type: 'text',
           localized: true,
-          defaultValue: "Presentation Video",
+          defaultValue: 'Presentation Video',
         },
         {
-          name: "videoUrl",
-          type: "text",
+          name: 'videoUrl',
+          type: 'text',
           localized: true,
         },
       ],
     },
     {
-      name: "tabs",
-      type: "array",
+      name: 'tabs',
+      type: 'array',
       admin: {
-        condition: (_, { designVersion = "" } = {}) =>
-          ["195"].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) => ['195'].includes(designVersion),
       },
       fields: [
         {
-          name: "title",
-          type: "text",
+          name: 'title',
+          type: 'text',
           localized: true,
           required: true,
         },
         {
-          name: "icon",
-          type: "select",
+          name: 'icon',
+          type: 'select',
           options: [
-            { label: "Square Kanban", value: "SquareKanban" },
-            { label: "Bar Chart", value: "BarChart" },
-            { label: "Pie Chart", value: "PieChart" },
-            { label: "Database", value: "Database" },
-            { label: "Layers", value: "Layers" },
+            { label: 'Square Kanban', value: 'SquareKanban' },
+            { label: 'Bar Chart', value: 'BarChart' },
+            { label: 'Pie Chart', value: 'PieChart' },
+            { label: 'Database', value: 'Database' },
+            { label: 'Layers', value: 'Layers' },
           ],
           required: true,
         },
         {
-          name: "image",
-          type: "upload",
-          relationTo: "media",
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
           required: true,
         },
       ],
@@ -383,4 +381,4 @@ export const hero: Field = {
     },
   ],
   label: false,
-};
+}

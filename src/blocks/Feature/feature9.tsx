@@ -1,20 +1,15 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 
 const Feature9 = () => {
   return (
     <section className="py-32">
       <div className="container">
         <div className="flex flex-col items-center gap-6">
-          <Badge variant={"outline"}>Badge</Badge>
+          <Badge variant={'outline'}>Badge</Badge>
           <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">
             This is where your feature goes
           </h2>
@@ -24,14 +19,14 @@ const Feature9 = () => {
           <div className="mt-6 flex flex-col gap-6 lg:flex-row">
             <Card className="flex flex-col justify-between gap-5 lg:w-1/3">
               <CardHeader className="items-start">
-                <Badge variant={"outline"}>Badge</Badge>
+                <Badge variant={'outline'}>Badge</Badge>
               </CardHeader>
               <CardContent className="text-lg lg:text-2xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
-                nostrum ullam. Voluptatibus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In, nostrum ullam.
+                Voluptatibus.
               </CardContent>
               <CardFooter>
-                <Button variant={"outline"}>
+                <Button variant={'outline'}>
                   Read more
                   <ChevronRight className="ml-2 size-4" />
                 </Button>
@@ -46,14 +41,14 @@ const Feature9 = () => {
             </div>
             <Card className="flex flex-col justify-between gap-5 lg:w-1/3">
               <CardHeader className="items-start">
-                <Badge variant={"outline"}>Badge</Badge>
+                <Badge variant={'outline'}>Badge</Badge>
               </CardHeader>
               <CardContent className="text-lg lg:text-2xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
-                nostrum ullam. Voluptatibus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In, nostrum ullam.
+                Voluptatibus.
               </CardContent>
               <CardFooter>
-                <Button variant={"outline"}>
+                <Button variant={'outline'}>
                   Read more
                   <ChevronRight className="ml-2 size-4" />
                 </Button>
@@ -63,7 +58,7 @@ const Feature9 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature9;
+export default Feature9

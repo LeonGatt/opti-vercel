@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const CTA5 = () => {
   return (
@@ -17,16 +17,15 @@ const CTA5 = () => {
               Feature name
             </h3>
             <p className="mb-8 text-muted-foreground lg:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi
-              consequatur. Explicabo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
             </p>
             <Button>Call to Action</Button>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CTA5;
+export default CTA5

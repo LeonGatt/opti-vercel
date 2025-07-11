@@ -1,13 +1,13 @@
-import { Menu } from "lucide-react";
-import type { Header as HeaderType } from "@/payload-types";
+import { Menu } from 'lucide-react'
+import type { Header as HeaderType } from '@/payload-types'
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button, buttonVariants } from "@/components/ui/button";
+} from '@/components/ui/accordion'
+import { Button, buttonVariants } from '@/components/ui/button'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,27 +16,18 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { cn } from "@/utilities/cn";
-import { CMSLink } from "@/components/Link";
-import { Icon } from "@/components/Icon";
-import {
-  LanguageSwitcher,
-  LanguageSwitcherMobile,
-} from "@/components/LanguageSwitcher";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { Logo } from "@/components/Logo/Logo";
+} from '@/components/ui/navigation-menu'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { cn } from '@/utilities/cn'
+import { CMSLink } from '@/components/Link'
+import { Icon } from '@/components/Icon'
+import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/LanguageSwitcher'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { Logo } from '@/components/Logo/Logo'
 
 export const Navbar1: React.FC<{
-  header: HeaderType;
-  publicContext: PublicContextProps;
+  header: HeaderType
+  publicContext: PublicContextProps
 }> = ({ header, publicContext }) => {
   return (
     <section className="py-32 z-50">
@@ -52,7 +43,7 @@ export const Navbar1: React.FC<{
               <NavigationMenu>
                 <NavigationMenuList>
                   {header.items?.map((item) => {
-                    if (item.blockType === "link") {
+                    if (item.blockType === 'link') {
                       // Single Nav Link
                       return (
                         <CMSLink
@@ -60,25 +51,20 @@ export const Navbar1: React.FC<{
                           key={item.id}
                           {...item.link}
                           className={cn(
-                            "text-muted-foreground",
+                            'text-muted-foreground',
                             navigationMenuTriggerStyle,
                             buttonVariants({
-                              variant: "ghost",
+                              variant: 'ghost',
                             }),
                           )}
                         />
-                      );
-                    } else if (item.blockType === "sub") {
+                      )
+                    } else if (item.blockType === 'sub') {
                       // Sub Nav Group
                       return (
-                        <NavigationMenuItem
-                          key={item.id}
-                          className="text-muted-foreground"
-                        >
+                        <NavigationMenuItem key={item.id} className="text-muted-foreground">
                           <NavigationMenuTrigger>
-                            {item.icon && (
-                              <Icon className={"mr-2 h-6"} icon={item.icon} />
-                            )}
+                            {item.icon && <Icon className={'mr-2 h-6'} icon={item.icon} />}
                             <span>{item.label}</span>
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
@@ -89,7 +75,7 @@ export const Navbar1: React.FC<{
                                     <CMSLink
                                       publicContext={publicContext}
                                       className={cn(
-                                        "flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                                        'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                                       )}
                                       {...subitem.link}
                                       label=""
@@ -114,7 +100,7 @@ export const Navbar1: React.FC<{
                             </ul>
                           </NavigationMenuContent>
                         </NavigationMenuItem>
-                      );
+                      )
                     }
                   })}
                 </NavigationMenuList>
@@ -124,12 +110,7 @@ export const Navbar1: React.FC<{
           {/* Right Button Group */}
           <div className="flex gap-2 z-50">
             {header?.buttons?.map((btn) => (
-              <CMSLink
-                publicContext={publicContext}
-                key={btn.id}
-                {...btn.link}
-                size="sm"
-              />
+              <CMSLink publicContext={publicContext} key={btn.id} {...btn.link} size="sm" />
             ))}
             <LanguageSwitcher publicContext={publicContext} size="sm" />
           </div>
@@ -143,7 +124,7 @@ export const Navbar1: React.FC<{
             </div>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant={"outline"} size={"icon"}>
+                <Button variant={'outline'} size={'icon'}>
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
@@ -160,7 +141,7 @@ export const Navbar1: React.FC<{
                   <Accordion type="single" collapsible>
                     <LanguageSwitcherMobile publicContext={publicContext} />
                     {header.items?.map((item) => {
-                      if (item.blockType === "link") {
+                      if (item.blockType === 'link') {
                         // Single Nav Link
                         return (
                           <CMSLink
@@ -169,8 +150,8 @@ export const Navbar1: React.FC<{
                             {...item.link}
                             className="font-semibold"
                           />
-                        );
-                      } else if (item.blockType === "sub") {
+                        )
+                      } else if (item.blockType === 'sub') {
                         // Sub Nav Group
                         return (
                           <AccordionItem
@@ -180,12 +161,7 @@ export const Navbar1: React.FC<{
                           >
                             <AccordionTrigger className="mb-4 py-0 font-semibold hover:no-underline">
                               <span className="inline-flex">
-                                {item.icon && (
-                                  <Icon
-                                    className={"mr-2 h-6"}
-                                    icon={item.icon}
-                                  />
-                                )}
+                                {item.icon && <Icon className={'mr-2 h-6'} icon={item.icon} />}
                                 {item.label}
                               </span>
                             </AccordionTrigger>
@@ -195,7 +171,7 @@ export const Navbar1: React.FC<{
                                   publicContext={publicContext}
                                   key={subitem.id}
                                   className={cn(
-                                    "flex select-none gap-4 rounded-md p-3 leading-none outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                                    'flex select-none gap-4 rounded-md p-3 leading-none outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                                   )}
                                   {...subitem.link}
                                   label=""
@@ -250,7 +226,7 @@ export const Navbar1: React.FC<{
                             </ul>
                           </NavigationMenuContent>
                         </NavigationMenuItem> */
-                        );
+                        )
                       }
                     })}
                   </Accordion>
@@ -286,11 +262,7 @@ export const Navbar1: React.FC<{
                   </div> */}
                   <div className="mt-2 flex flex-col gap-3">
                     {header?.buttons?.map((btn) => (
-                      <CMSLink
-                        publicContext={publicContext}
-                        key={btn.id}
-                        {...btn.link}
-                      />
+                      <CMSLink publicContext={publicContext} key={btn.id} {...btn.link} />
                     ))}
                   </div>
                 </div>
@@ -300,5 +272,5 @@ export const Navbar1: React.FC<{
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

@@ -1,10 +1,16 @@
-import RichText from "@/components/RichText";
-import { FeatureBlock } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import RichText from '@/components/RichText'
+import { FeatureBlock } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-const Feature99: React.FC<
-  FeatureBlock & { publicContext: PublicContextProps }
-> = ({ richText, image, links, icon, tagline, USPs, publicContext }) => {
+const Feature99: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+  richText,
+  image,
+  links,
+  icon,
+  tagline,
+  USPs,
+  publicContext,
+}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -19,27 +25,22 @@ const Feature99: React.FC<
                 publicContext={publicContext}
                 content={richText}
                 withWrapper={false}
-                overrideStyle={{ h2: "mb-11 text-3xl lg:text-5xl" }}
+                overrideStyle={{ h2: 'mb-11 text-3xl lg:text-5xl' }}
               />
             )}
             <div className="grid gap-8 md:grid-cols-3">
               {USPs?.map(({ richText }, index) => (
-                <div
-                  className="flex flex-col gap-1 border-l px-4 md:pl-8"
-                  key={index}
-                >
-                  <span className="font-mono text-4xl lg:text-7xl">
-                    {index + 1}
-                  </span>
+                <div className="flex flex-col gap-1 border-l px-4 md:pl-8" key={index}>
+                  <span className="font-mono text-4xl lg:text-7xl">{index + 1}</span>
                   {richText && (
                     <RichText
                       publicContext={publicContext}
                       content={richText}
                       withWrapper={false}
                       overrideStyle={{
-                        h3: "text-xl font-medium",
-                        p: "text-sm text-muted-foreground",
-                        li: "text-sm text-muted-foreground",
+                        h3: 'text-xl font-medium',
+                        p: 'text-sm text-muted-foreground',
+                        li: 'text-sm text-muted-foreground',
                       }}
                     />
                   )}
@@ -50,7 +51,7 @@ const Feature99: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature99;
+export default Feature99

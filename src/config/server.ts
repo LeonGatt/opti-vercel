@@ -14,22 +14,22 @@ export const serverConfig = {
     process.env.NEXT_PUBLIC_SERVER_URL ||
     (process.env.NEXT_PUBLIC_VERCEL_URL
       ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : "http://localhost:3000"),
+      : 'http://localhost:3000'),
 
   /**
    * Returns true if the application is running in development mode
    */
-  isDevelopment: process.env.NODE_ENV === "development",
+  isDevelopment: process.env.NODE_ENV === 'development',
 
   /**
    * Returns true if the application is running in production mode
    */
-  isProduction: process.env.NODE_ENV === "production",
+  isProduction: process.env.NODE_ENV === 'production',
 
   /**
    * Returns true if the application is running on Vercel
    */
   isVercel: !!process.env.VERCEL,
-} as const;
+} as const
 
-export const { serverUrl } = serverConfig;
+export const { serverUrl } = serverConfig

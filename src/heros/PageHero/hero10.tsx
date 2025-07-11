@@ -1,6 +1,6 @@
-import { ArrowDownRight } from "lucide-react";
+import { ArrowDownRight } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 
 const Hero10 = () => {
   return (
@@ -17,132 +17,27 @@ const Hero10 = () => {
           >
             <g clipPath="url(#clip0_4_5)">
               <rect width="1920" height="1080" />
-              <line
-                y1="49.5"
-                x2="1920"
-                y2="49.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="99.5"
-                x2="1920"
-                y2="99.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="149.5"
-                x2="1920"
-                y2="149.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="199.5"
-                x2="1920"
-                y2="199.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="249.5"
-                x2="1920"
-                y2="249.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="299.5"
-                x2="1920"
-                y2="299.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="349.5"
-                x2="1920"
-                y2="349.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="399.5"
-                x2="1920"
-                y2="399.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="449.5"
-                x2="1920"
-                y2="449.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="499.5"
-                x2="1920"
-                y2="499.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="549.5"
-                x2="1920"
-                y2="549.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="599.5"
-                x2="1920"
-                y2="599.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="649.5"
-                x2="1920"
-                y2="649.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="699.5"
-                x2="1920"
-                y2="699.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="749.5"
-                x2="1920"
-                y2="749.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="799.5"
-                x2="1920"
-                y2="799.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="849.5"
-                x2="1920"
-                y2="849.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="899.5"
-                x2="1920"
-                y2="899.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="949.5"
-                x2="1920"
-                y2="949.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="999.5"
-                x2="1920"
-                y2="999.5"
-                className="stroke-muted-foreground"
-              />
-              <line
-                y1="1049.5"
-                x2="1920"
-                y2="1049.5"
-                className="stroke-muted-foreground"
-              />
+              <line y1="49.5" x2="1920" y2="49.5" className="stroke-muted-foreground" />
+              <line y1="99.5" x2="1920" y2="99.5" className="stroke-muted-foreground" />
+              <line y1="149.5" x2="1920" y2="149.5" className="stroke-muted-foreground" />
+              <line y1="199.5" x2="1920" y2="199.5" className="stroke-muted-foreground" />
+              <line y1="249.5" x2="1920" y2="249.5" className="stroke-muted-foreground" />
+              <line y1="299.5" x2="1920" y2="299.5" className="stroke-muted-foreground" />
+              <line y1="349.5" x2="1920" y2="349.5" className="stroke-muted-foreground" />
+              <line y1="399.5" x2="1920" y2="399.5" className="stroke-muted-foreground" />
+              <line y1="449.5" x2="1920" y2="449.5" className="stroke-muted-foreground" />
+              <line y1="499.5" x2="1920" y2="499.5" className="stroke-muted-foreground" />
+              <line y1="549.5" x2="1920" y2="549.5" className="stroke-muted-foreground" />
+              <line y1="599.5" x2="1920" y2="599.5" className="stroke-muted-foreground" />
+              <line y1="649.5" x2="1920" y2="649.5" className="stroke-muted-foreground" />
+              <line y1="699.5" x2="1920" y2="699.5" className="stroke-muted-foreground" />
+              <line y1="749.5" x2="1920" y2="749.5" className="stroke-muted-foreground" />
+              <line y1="799.5" x2="1920" y2="799.5" className="stroke-muted-foreground" />
+              <line y1="849.5" x2="1920" y2="849.5" className="stroke-muted-foreground" />
+              <line y1="899.5" x2="1920" y2="899.5" className="stroke-muted-foreground" />
+              <line y1="949.5" x2="1920" y2="949.5" className="stroke-muted-foreground" />
+              <line y1="999.5" x2="1920" y2="999.5" className="stroke-muted-foreground" />
+              <line y1="1049.5" x2="1920" y2="1049.5" className="stroke-muted-foreground" />
               <g clipPath="url(#clip1_4_5)">
                 <line
                   x1="49.6133"
@@ -417,12 +312,7 @@ const Hero10 = () => {
                 <rect width="1920" height="1080" fill="#000000" />
               </clipPath>
               <clipPath id="clip1_4_5">
-                <rect
-                  width="1920"
-                  height="1080"
-                  fill="#000000"
-                  transform="translate(-1 4)"
-                />
+                <rect width="1920" height="1080" fill="#000000" transform="translate(-1 4)" />
               </clipPath>
             </defs>
           </svg>
@@ -436,9 +326,8 @@ const Hero10 = () => {
                 This is a heading for your new project
               </h1>
               <p className="text-muted-foreground lg:text-xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-                doloremque mollitia fugiat omnis! Porro facilis quo animi
-                consequatur. Explicabo.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+                fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
               </p>
             </div>
             <div className="mt-4 flex justify-center">
@@ -486,7 +375,7 @@ const Hero10 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero10;
+export default Hero10

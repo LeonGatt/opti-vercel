@@ -7,8 +7,8 @@ const Feature34 = () => {
             Let&apos;s Make Your Space Beautiful
           </h1>
           <p className="font-medium">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            nisi accusantium voluptate aspernatur minima.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nisi accusantium
+            voluptate aspernatur minima.
           </p>
         </div>
         <div className="mx-auto grid gap-10 lg:grid-cols-3">
@@ -22,9 +22,7 @@ const Feature34 = () => {
                 />
                 <span className="text-lg font-semibold">Build with blocks</span>
               </div>
-              <p className="text-sm">
-                Copy and paste any block into your own design system.
-              </p>
+              <p className="text-sm">Copy and paste any block into your own design system.</p>
             </div>
           </div>
           <div className="order-3 flex h-full items-center rounded-lg bg-muted lg:order-none">
@@ -68,45 +66,36 @@ const Feature34 = () => {
             <p className="mb-6 text-sm text-muted-foreground lg:mb-12">
               Lorem ipsum dolor sit amet.
             </p>
-            <h3 className="mb-3 text-2xl font-medium lg:mb-6">
-              Perfect for Any Space
-            </h3>
+            <h3 className="mb-3 text-2xl font-medium lg:mb-6">Perfect for Any Space</h3>
             <p className="mb-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-              distinctio maiores sint cupiditate ab ullam numquam a similique
-              vel itaque.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi distinctio maiores sint
+              cupiditate ab ullam numquam a similique vel itaque.
             </p>
           </div>
           <div className="order-4 -mt-6 max-w-[412px] lg:order-none">
             <p className="mb-6 text-sm text-muted-foreground lg:mb-12">
               Lorem ipsum dolor sit amet.
             </p>
-            <h3 className="mb-3 text-2xl font-medium lg:mb-6">
-              Modern and Sleek Design
-            </h3>
+            <h3 className="mb-3 text-2xl font-medium lg:mb-6">Modern and Sleek Design</h3>
             <p className="mb-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-              distinctio maiores sint cupiditate ab ullam numquam a similique
-              vel itaque.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi distinctio maiores sint
+              cupiditate ab ullam numquam a similique vel itaque.
             </p>
           </div>
           <div className="order-6 -mt-6 max-w-[412px] lg:order-none">
             <p className="mb-6 text-sm text-muted-foreground lg:mb-12">
               Lorem ipsum dolor sit amet.
             </p>
-            <h3 className="mb-3 text-2xl font-medium lg:mb-6">
-              Many Layouts to Choose From
-            </h3>
+            <h3 className="mb-3 text-2xl font-medium lg:mb-6">Many Layouts to Choose From</h3>
             <p className="mb-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-              distinctio maiores sint cupiditate ab ullam numquam a similique
-              vel itaque.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi distinctio maiores sint
+              cupiditate ab ullam numquam a similique vel itaque.
             </p>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature34;
+export default Feature34

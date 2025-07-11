@@ -1,8 +1,8 @@
-import { ChevronRight, Menu } from "lucide-react";
+import { ChevronRight, Menu } from 'lucide-react'
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 
 const Feature109 = () => {
   return (
@@ -13,13 +13,10 @@ const Feature109 = () => {
             <Badge variant="outline" className="w-fit bg-background">
               Modern Tactics
             </Badge>
-            <h3 className="text-3xl font-semibold lg:text-5xl">
-              Make your site a true standout.
-            </h3>
+            <h3 className="text-3xl font-semibold lg:text-5xl">Make your site a true standout.</h3>
             <p className="text-muted-foreground lg:text-lg">
-              Discover new web trends that help you craft sleek, highly
-              functional sites that drive traffic and convert leads into
-              customers.
+              Discover new web trends that help you craft sleek, highly functional sites that drive
+              traffic and convert leads into customers.
             </p>
             <Button className="mt-2.5 w-fit gap-2" size="lg">
               View Features
@@ -36,10 +33,7 @@ const Feature109 = () => {
             <div className="absolute top-0 flex size-full flex-col justify-between p-7">
               <span className="ml-auto flex w-fit items-center gap-2 rounded-full bg-background/30 px-4 py-2.5 text-sm font-semibold backdrop-blur-xs">
                 <Avatar className="size-7 rounded-full">
-                  <AvatarImage
-                    src="/images/block/avatar-1.webp"
-                    alt="placeholder"
-                  />
+                  <AvatarImage src="/images/block/avatar-1.webp" alt="placeholder" />
                 </Avatar>
                 Tailored for experts
               </span>
@@ -57,7 +51,7 @@ const Feature109 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature109;
+export default Feature109

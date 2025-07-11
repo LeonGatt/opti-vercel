@@ -1,6 +1,6 @@
-import { Blocks, MoveRight, Wrench, Zap } from "lucide-react";
+import { Blocks, MoveRight, Wrench, Zap } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero25 = () => {
   return (
@@ -47,7 +47,7 @@ const Hero25 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero25;
+export default Hero25

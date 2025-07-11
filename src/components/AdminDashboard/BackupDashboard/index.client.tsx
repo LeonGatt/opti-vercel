@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from 'next/navigation'
 
 interface FilterControlsProps {
-  countOtherDb: number;
-  countOtherHostname: number;
-  showOtherDb: boolean;
-  showOtherHostname: boolean;
-  includeMedia: boolean;
+  countOtherDb: number
+  countOtherHostname: number
+  showOtherDb: boolean
+  showOtherHostname: boolean
+  includeMedia: boolean
 }
 
 export const FilterControls: React.FC<FilterControlsProps> = ({
@@ -17,16 +17,16 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
   showOtherHostname,
   includeMedia,
 }) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
   const updateSearchParams = (key: string, value: boolean) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set(key, value.toString());
+    const params = new URLSearchParams(searchParams.toString())
+    params.set(key, value.toString())
     router.replace(`?${params.toString()}`, {
       scroll: false,
-    });
-  };
+    })
+  }
 
   return (
     <div className="backup-filter-group">
@@ -37,7 +37,7 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
           className="checkbox-input__input"
           checked={includeMedia}
           onChange={(e) => {
-            updateSearchParams("includeMedia", e.target.checked);
+            updateSearchParams('includeMedia', e.target.checked)
           }}
         />
         <label htmlFor="includeMedia" className="field-label">
@@ -53,7 +53,7 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
             className="checkbox-input__input"
             checked={showOtherDb}
             onChange={(e) => {
-              updateSearchParams("showOtherDb", e.target.checked);
+              updateSearchParams('showOtherDb', e.target.checked)
             }}
           />
           <label htmlFor="showOtherDb" className="field-label">
@@ -70,7 +70,7 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
             className="checkbox-input__input"
             checked={showOtherHostname}
             onChange={(e) => {
-              updateSearchParams("showOtherHostname", e.target.checked);
+              updateSearchParams('showOtherHostname', e.target.checked)
             }}
           />
           <label htmlFor="showOtherHostname" className="field-label">
@@ -79,5 +79,5 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}

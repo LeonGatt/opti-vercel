@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check } from 'lucide-react'
 
 const Feature68 = () => {
   return (
@@ -20,9 +20,8 @@ const Feature68 = () => {
                 Feature name
               </h2>
               <p className="text-muted-foreground lg:text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-                doloremque mollitia fugiat omnis! Porro facilis quo animi
-                consequatur. Explicabo.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+                fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
               </p>
             </div>
           </div>
@@ -72,7 +71,7 @@ const Feature68 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature68;
+export default Feature68

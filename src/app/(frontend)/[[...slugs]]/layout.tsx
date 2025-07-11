@@ -1,52 +1,49 @@
-import type { Metadata } from "next";
-import type React from "react";
-import { mergeOpenGraph } from "@/utilities/mergeOpenGraph";
-import { serverUrl as NEXT_PUBLIC_SERVER_URL } from "@/config/server";
+import type { Metadata } from 'next'
+import type React from 'react'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { serverUrl as NEXT_PUBLIC_SERVER_URL } from '@/config/server'
 
-import { AdminBar } from "@/components/AdminBar";
-import { Footer } from "@/globals/Footer/Component";
-import { Header } from "@/globals/Header/Component";
-import { LivePreviewListener } from "@/components/LivePreviewListener";
-import { Providers } from "@/providers";
-import { InitTheme } from "@/providers/Theme/InitTheme";
-import { draftMode } from "next/headers";
+import { AdminBar } from '@/components/AdminBar'
+import { Footer } from '@/globals/Footer/Component'
+import { Header } from '@/globals/Header/Component'
+import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { Providers } from '@/providers'
+import { InitTheme } from '@/providers/Theme/InitTheme'
+import { draftMode } from 'next/headers'
 
-import { resolveSlugs } from "@/utilities/resolveSlugs";
-import localization, { type Locale } from "@/localization.config";
-import type { PublicContextProps } from "@/utilities/publicContextProps";
-import { getMessages } from "@/i18n/messages";
+import { resolveSlugs } from '@/utilities/resolveSlugs'
+import localization, { type Locale } from '@/localization.config'
+import type { PublicContextProps } from '@/utilities/publicContextProps'
+import { getMessages } from '@/i18n/messages'
 
-import "./globals.css";
-import {
-  TrackingScriptsBody,
-  TrackingScriptsHead,
-} from "@/providers/TrackingScriptWrapper";
-import { cn } from "@/utilities/cn";
-import { haasGrotText, haasGrotDisplay, haasGrotBody } from "@/fonts";
+import './globals.css'
+import { TrackingScriptsBody, TrackingScriptsHead } from '@/providers/TrackingScriptWrapper'
+import { cn } from '@/utilities/cn'
+import { haasGrotText, haasGrotDisplay, haasGrotBody } from '@/fonts'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(NEXT_PUBLIC_SERVER_URL || "https://trieb.work"),
+  metadataBase: new URL(NEXT_PUBLIC_SERVER_URL || 'https://trieb.work'),
   openGraph: mergeOpenGraph(),
-};
+}
 
 export default async function RootLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
-  params: any;
+  children: React.ReactNode
+  params: any
 }) {
-  const paramsR = await params;
-  const { slugs } = paramsR;
-  const slugData = resolveSlugs(slugs || []);
-  const { isEnabled } = await draftMode();
+  const paramsR = await params
+  const { slugs } = paramsR
+  const slugData = resolveSlugs(slugs || [])
+  const { isEnabled } = await draftMode()
 
   const publicContext: PublicContextProps = {
     ...slugData,
-  };
+  }
 
-  const locale = (slugData.locale || localization.defaultLocale) as Locale;
-  const messages = await getMessages(locale);
+  const locale = (slugData.locale || localization.defaultLocale) as Locale
+  const messages = await getMessages(locale)
 
   return (
     <html
@@ -72,5 +69,5 @@ export default async function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

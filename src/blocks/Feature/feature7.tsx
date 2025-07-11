@@ -1,4 +1,4 @@
-import { CheckCircle, Zap } from "lucide-react";
+import { CheckCircle, Zap } from 'lucide-react'
 
 const Feature7 = () => {
   return (
@@ -18,16 +18,13 @@ const Feature7 = () => {
               Welcome to Our Website
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:max-w-none lg:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi
-              consequatur. Explicabo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
             </p>
             <ul className="ml-4 space-y-4 text-left">
               <li className="flex items-center gap-3">
                 <CheckCircle className="size-6" />
-                <p className="text-muted-foreground lg:text-lg">
-                  Lorem ipsum dolor sit amet.
-                </p>
+                <p className="text-muted-foreground lg:text-lg">Lorem ipsum dolor sit amet.</p>
               </li>
               <li className="flex items-center gap-3">
                 <CheckCircle className="size-6" />
@@ -46,7 +43,7 @@ const Feature7 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature7;
+export default Feature7

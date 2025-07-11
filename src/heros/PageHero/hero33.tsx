@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero33 = () => {
   return (
@@ -13,9 +13,8 @@ const Hero33 = () => {
               Welcome to Our Website
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi
-              consequatur. Explicabo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
             </p>
             <div className="mb-24 flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               <Button className="w-full sm:w-auto">
@@ -34,9 +33,7 @@ const Hero33 = () => {
                   /user
                 </div>
               </div>
-              <p className="text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
+              <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
           </div>
           <img
@@ -47,7 +44,7 @@ const Hero33 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero33;
+export default Hero33

@@ -1,17 +1,17 @@
-import React from "react";
-import { CartFlyOut } from "./Cart";
-import { CartToggleIcon } from "@/components/Icon/old/CartIcon";
-import { cn } from "@/utilities";
+import React from 'react'
+import { CartFlyOut } from './Cart'
+import { CartToggleIcon } from '@/components/Icon/old/CartIcon'
+import { cn } from '@/utilities'
 
 export const CartToggle: React.FC = () => {
-  const [cartOpen, setCartOpen] = React.useState(false);
+  const [cartOpen, setCartOpen] = React.useState(false)
 
   return (
     <>
       <div
         className={cn(
-          "relative text-right transition-transform duration-300",
-          cartOpen ? "translate-x-[100vw]" : "",
+          'relative text-right transition-transform duration-300',
+          cartOpen ? 'translate-x-[100vw]' : '',
         )}
       >
         <input
@@ -31,5 +31,5 @@ export const CartToggle: React.FC = () => {
       </div>
       <CartFlyOut opened={cartOpen} close={() => setCartOpen(false)} />
     </>
-  );
-};
+  )
+}

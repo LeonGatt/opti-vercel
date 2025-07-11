@@ -1,6 +1,6 @@
-import RichText from "@/components/RichText";
-import { StatBlock } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import RichText from '@/components/RichText'
+import { StatBlock } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Stat1: React.FC<StatBlock & { publicContext: PublicContextProps }> = ({
   headline,
@@ -16,10 +16,10 @@ const Stat1: React.FC<StatBlock & { publicContext: PublicContextProps }> = ({
             content={headline}
             withWrapper={false}
             overrideStyle={{
-              h1: "text-center text-4xl font-semibold lg:text-6xl",
-              h2: "text-center text-3xl font-semibold lg:text-5xl",
-              h3: "text-center text-2xl font-semibold lg:text-4xl",
-              h4: "text-center text-1xl font-semibold lg:text-3xl",
+              h1: 'text-center text-4xl font-semibold lg:text-6xl',
+              h2: 'text-center text-3xl font-semibold lg:text-5xl',
+              h3: 'text-center text-2xl font-semibold lg:text-4xl',
+              h4: 'text-center text-1xl font-semibold lg:text-3xl',
             }}
           />
         )}
@@ -32,22 +32,18 @@ const Stat1: React.FC<StatBlock & { publicContext: PublicContextProps }> = ({
                   content={description}
                   withWrapper={false}
                   overrideStyle={{
-                    p: "text-sm font-medium text-muted-foreground",
+                    p: 'text-sm font-medium text-muted-foreground',
                   }}
                 />
               )}
               <p className="pt-4 text-7xl font-semibold lg:pt-10">{counter}</p>
-              {title && (
-                <p className="text-2xl font-semibold text-muted-foreground">
-                  {title}
-                </p>
-              )}
+              {title && <p className="text-2xl font-semibold text-muted-foreground">{title}</p>}
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Stat1;
+export default Stat1

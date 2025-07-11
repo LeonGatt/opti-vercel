@@ -1,17 +1,20 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { FeatureBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Badge } from '@/components/ui/badge'
+import { FeatureBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 /**
  * https://www.shadcnblocks.com/block/feature103/
  * @returns
  */
-const Feature103: React.FC<
-  FeatureBlock & { publicContext: PublicContextProps }
-> = ({ tagline, USPs, richText, publicContext }) => {
+const Feature103: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+  tagline,
+  USPs,
+  richText,
+  publicContext,
+}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -26,7 +29,7 @@ const Feature103: React.FC<
               publicContext={publicContext}
               content={richText}
               withWrapper={false}
-              overrideStyle={{ h2: "text-2xl md:text-4xl" }}
+              overrideStyle={{ h2: 'text-2xl md:text-4xl' }}
             />
           )}
         </div>
@@ -34,7 +37,7 @@ const Feature103: React.FC<
           {USPs?.map((usp, index) => (
             <a
               key={index}
-              href={usp.link?.url || "#"}
+              href={usp.link?.url || '#'}
               className="flex flex-col rounded-xl border p-6 hover:border-primary relative"
             >
               {usp.richText && (
@@ -43,8 +46,8 @@ const Feature103: React.FC<
                   content={usp.richText}
                   withWrapper={false}
                   overrideStyle={{
-                    h3: "text-lg font-medium mb-4 pr-12",
-                    p: "text-muted-foreground",
+                    h3: 'text-lg font-medium mb-4 pr-12',
+                    p: 'text-muted-foreground',
                   }}
                 />
               )}
@@ -56,7 +59,7 @@ const Feature103: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature103;
+export default Feature103

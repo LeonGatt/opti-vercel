@@ -5,17 +5,17 @@ import {
   FaRedditAlien,
   FaTelegramPlane,
   FaTwitter,
-} from "react-icons/fa";
+} from 'react-icons/fa'
 
-import { Separator } from "@/components/ui/separator";
-import { Footer } from "@/payload-types";
-import { Media } from "@/components/Media";
-import { CMSLink } from "@/components/Link";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Separator } from '@/components/ui/separator'
+import { Footer } from '@/payload-types'
+import { Media } from '@/components/Media'
+import { CMSLink } from '@/components/Link'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Footer1: React.FC<{
-  footer: Footer;
-  publicContext: PublicContextProps;
+  footer: Footer
+  publicContext: PublicContextProps
 }> = ({ footer, publicContext }) => {
   return (
     <section className="py-32">
@@ -23,16 +23,10 @@ const Footer1: React.FC<{
         <footer>
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
             {footer.logo && (
-              <Media
-                resource={footer.logo}
-                alt="logo"
-                className="mb-8 mr-auto h-7 md:mb-0"
-              />
+              <Media resource={footer.logo} alt="logo" className="mb-8 mr-auto h-7 md:mb-0" />
             )}
             <div className="flex flex-col gap-4 md:flex-row md:items-center">
-              <p className="text-lg font-medium">
-                Copy the code and make it yours.
-              </p>
+              <p className="text-lg font-medium">Copy the code and make it yours.</p>
               <div className="flex gap-2">
                 <a
                   href="#"
@@ -58,14 +52,8 @@ const Footer1: React.FC<{
                   <ul className="space-y-4 text-muted-foreground">
                     {section.subNavItems &&
                       section.subNavItems.map((subitem) => (
-                        <li
-                          key={subitem.id}
-                          className="font-medium hover:text-primary"
-                        >
-                          <CMSLink
-                            publicContext={publicContext}
-                            {...subitem.link}
-                          />
+                        <li key={subitem.id} className="font-medium hover:text-primary">
+                          <CMSLink publicContext={publicContext} {...subitem.link} />
                         </li>
                       ))}
                   </ul>
@@ -108,13 +96,12 @@ const Footer1: React.FC<{
           </div>
           <Separator className="my-14" />
           <p className="text-sm text-muted-foreground">
-            {footer.copyright &&
-              `© ${new Date().getFullYear()} ${footer.copyright}`}
+            {footer.copyright && `© ${new Date().getFullYear()} ${footer.copyright}`}
           </p>
         </footer>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Footer1;
+export default Footer1

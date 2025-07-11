@@ -1,16 +1,16 @@
-import { FaDiscord, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaTwitter } from 'react-icons/fa'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { Footer } from "@/payload-types";
-import { Media } from "@/components/Media";
-import { CMSLink } from "@/components/Link";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
+import { Footer } from '@/payload-types'
+import { Media } from '@/components/Media'
+import { CMSLink } from '@/components/Link'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Footer4: React.FC<{
-  footer: Footer;
-  publicContext: PublicContextProps;
+  footer: Footer
+  publicContext: PublicContextProps
 }> = ({ footer, publicContext }) => {
   return (
     <section className="py-32">
@@ -18,9 +18,7 @@ const Footer4: React.FC<{
         <footer>
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
             <div className="col-span-2 flex h-full items-center justify-between md:items-start lg:col-span-3 lg:flex-col">
-              {footer.logo && (
-                <Media resource={footer.logo} alt="logo" className="h-7" />
-              )}
+              {footer.logo && <Media resource={footer.logo} alt="logo" className="h-7" />}
               <ul className="flex items-center space-x-6 text-muted-foreground">
                 <li className="font-medium hover:text-primary">
                   <a href="#">
@@ -43,14 +41,8 @@ const Footer4: React.FC<{
                   <ul className="space-y-4 text-muted-foreground">
                     {section.subNavItems &&
                       section.subNavItems.map((link, linkIdx) => (
-                        <li
-                          key={linkIdx}
-                          className="font-medium hover:text-primary"
-                        >
-                          <CMSLink
-                            publicContext={publicContext}
-                            {...link.link}
-                          />
+                        <li key={linkIdx} className="font-medium hover:text-primary">
+                          <CMSLink publicContext={publicContext} {...link.link} />
                         </li>
                       ))}
                   </ul>
@@ -60,12 +52,8 @@ const Footer4: React.FC<{
           <Separator className="my-14 lg:my-20" />
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
             <div>
-              <p className="mb-2 text-3xl font-semibold lg:text-4xl">
-                Join our newsletter
-              </p>
-              <p className="text-muted-foreground">
-                Get exclusive news, features, and updates.
-              </p>
+              <p className="mb-2 text-3xl font-semibold lg:text-4xl">Join our newsletter</p>
+              <p className="text-muted-foreground">Get exclusive news, features, and updates.</p>
             </div>
             <div className="flex w-full max-w-sm items-center space-x-2">
               <Input type="email" placeholder="Email" />
@@ -81,15 +69,12 @@ const Footer4: React.FC<{
                 </li>
               ))}
             </ul>
-            <p>
-              {footer.copyright &&
-                `© ${new Date().getFullYear()} ${footer.copyright}`}
-            </p>
+            <p>{footer.copyright && `© ${new Date().getFullYear()} ${footer.copyright}`}</p>
           </div>
         </footer>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Footer4;
+export default Footer4

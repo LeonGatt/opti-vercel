@@ -1,6 +1,6 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs'
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 
 const Feature95 = () => {
   return (
@@ -29,12 +29,9 @@ const Feature95 = () => {
                     <span className="h-full w-px bg-input lg:hidden"></span>
                   </div>
                   <div>
-                    <h3 className="mb-1 font-medium lg:mt-4">
-                      Set up your data collection
-                    </h3>
+                    <h3 className="mb-1 font-medium lg:mt-4">Set up your data collection</h3>
                     <p className="text-sm">
-                      Configure your input sources and streamline data
-                      management.
+                      Configure your input sources and streamline data management.
                     </p>
                   </div>
                 </div>
@@ -60,12 +57,9 @@ const Feature95 = () => {
                     <span className="h-full w-px bg-input lg:hidden"></span>
                   </div>
                   <div>
-                    <h3 className="mb-1 font-medium lg:mt-4">
-                      Generate custom reports
-                    </h3>
+                    <h3 className="mb-1 font-medium lg:mt-4">Generate custom reports</h3>
                     <p className="text-sm">
-                      Easily create and share detailed analytics reports across
-                      teams.
+                      Easily create and share detailed analytics reports across teams.
                     </p>
                   </div>
                 </div>
@@ -91,12 +85,9 @@ const Feature95 = () => {
                     <span className="h-full w-px bg-input lg:hidden"></span>
                   </div>
                   <div>
-                    <h3 className="mb-1 font-medium lg:mt-4">
-                      Automate your processes
-                    </h3>
+                    <h3 className="mb-1 font-medium lg:mt-4">Automate your processes</h3>
                     <p className="text-sm">
-                      Set up automated workflows for handling and processing
-                      data effortlessly.
+                      Set up automated workflows for handling and processing data effortlessly.
                     </p>
                   </div>
                 </div>
@@ -122,12 +113,9 @@ const Feature95 = () => {
                     <span className="h-full w-px bg-input lg:hidden"></span>
                   </div>
                   <div>
-                    <h3 className="mb-1 font-medium lg:mt-4">
-                      Share insights with stakeholders
-                    </h3>
+                    <h3 className="mb-1 font-medium lg:mt-4">Share insights with stakeholders</h3>
                     <p className="text-sm">
-                      Provide transparent reporting with your custom-built
-                      dashboard.
+                      Provide transparent reporting with your custom-built dashboard.
                     </p>
                   </div>
                 </div>
@@ -176,7 +164,7 @@ const Feature95 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature95;
+export default Feature95

@@ -1,8 +1,8 @@
-import { CMSLink } from "@/components/Link";
-import RichText from "@/components/RichText";
-import { Button } from "@/components/ui/button";
-import { CtaBlock } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { CMSLink } from '@/components/Link'
+import RichText from '@/components/RichText'
+import { Button } from '@/components/ui/button'
+import { CtaBlock } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const CTA10: React.FC<CtaBlock & { publicContext: PublicContextProps }> = ({
   richText,
@@ -20,8 +20,8 @@ const CTA10: React.FC<CtaBlock & { publicContext: PublicContextProps }> = ({
                 content={richText}
                 withWrapper={false}
                 overrideStyle={{
-                  h3: "mb-3 text-2xl font-semibold md:mb-4 md:text-4xl lg:mb-6",
-                  p: "text-muted-foreground lg:text-lg",
+                  h3: 'mb-3 text-2xl font-semibold md:mb-4 md:text-4xl lg:mb-6',
+                  p: 'text-muted-foreground lg:text-lg',
                 }}
               />
             )}
@@ -37,7 +37,7 @@ const CTA10: React.FC<CtaBlock & { publicContext: PublicContextProps }> = ({
                       key={i}
                       {...link}
                     />
-                  );
+                  )
                 })}
               </>
             )}
@@ -45,7 +45,7 @@ const CTA10: React.FC<CtaBlock & { publicContext: PublicContextProps }> = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CTA10;
+export default CTA10

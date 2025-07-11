@@ -1,12 +1,9 @@
-import { backgroundColor } from "@/fields/color";
-import { link } from "@/fields/link";
-import {
-  Page,
-  TestimonialBlock as TestimonialBlockType,
-} from "@/payload-types";
-import { parentLayoutCondition } from "@/utilities/parentLayoutCondition";
-import { HeadingFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
-import { Block } from "payload";
+import { backgroundColor } from '@/fields/color'
+import { link } from '@/fields/link'
+import { Page, TestimonialBlock as TestimonialBlockType } from '@/payload-types'
+import { parentLayoutCondition } from '@/utilities/parentLayoutCondition'
+import { HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
+import { Block } from 'payload'
 
 // Testimonal 2: headline, link, testimonials: { authorAvatar }
 // Testimonal 3: testimonials: { icon, richText, authorName, authorDescription }
@@ -24,9 +21,9 @@ import { Block } from "payload";
 
 export const allTestimonialDesignVersions = [
   // "TESTIMONIAL1",
-  "TESTIMONIAL2",
-  "TESTIMONIAL3",
-  "TESTIMONIAL4",
+  'TESTIMONIAL2',
+  'TESTIMONIAL3',
+  'TESTIMONIAL4',
   // "TESTIMONIAL6",
   // "TESTIMONIAL7",
   // "TESTIMONIAL8",
@@ -41,23 +38,22 @@ export const allTestimonialDesignVersions = [
   // "TESTIMONIAL17",
   // "TESTIMONIAL18",
   // "TESTIMONIAL19",
-] as const;
+] as const
 
-export type TestimonialDesignVersion =
-  (typeof allTestimonialDesignVersions)[number];
+export type TestimonialDesignVersion = (typeof allTestimonialDesignVersions)[number]
 
 export const TestimonialBlock: Block = {
-  slug: "testimonial",
-  interfaceName: "TestimonialBlock",
+  slug: 'testimonial',
+  interfaceName: 'TestimonialBlock',
   labels: {
-    singular: "Testimonial",
-    plural: "Testimonials",
+    singular: 'Testimonial',
+    plural: 'Testimonials',
   },
   fields: [
     backgroundColor,
     {
-      name: "designVersion",
-      type: "select",
+      name: 'designVersion',
+      type: 'select',
       required: true,
       options: allTestimonialDesignVersions.map((version) => ({
         label: version,
@@ -66,42 +62,42 @@ export const TestimonialBlock: Block = {
     },
 
     {
-      name: "headline",
-      type: "richText",
+      name: 'headline',
+      type: 'richText',
       localized: true,
       admin: {
-        condition: (_, { designVersion } = { designVersion: "" }) =>
+        condition: (_, { designVersion } = { designVersion: '' }) =>
           [
-            "TESTIMONIAL2",
-            "TESTIMONIAL6",
-            "TESTIMONIAL7",
-            "TESTIMONIAL13",
-            "TESTIMONIAL16",
-            "TESTIMONIAL17",
-            "TESTIMONIAL18",
-            "TESTIMONIAL19",
+            'TESTIMONIAL2',
+            'TESTIMONIAL6',
+            'TESTIMONIAL7',
+            'TESTIMONIAL13',
+            'TESTIMONIAL16',
+            'TESTIMONIAL17',
+            'TESTIMONIAL18',
+            'TESTIMONIAL19',
           ].includes(designVersion),
       },
       editor: lexicalEditor({
         features: ({ rootFeatures }) => [
           ...rootFeatures,
-          HeadingFeature({ enabledHeadingSizes: ["h2", "h3", "h4"] }),
+          HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
         ],
       }),
     },
 
     {
-      name: "tagline",
-      type: "text",
+      name: 'tagline',
+      type: 'text',
       localized: true,
       admin: {
-        condition: (_, { designVersion } = { designVersion: "" }) =>
+        condition: (_, { designVersion } = { designVersion: '' }) =>
           [
-            "TESTIMONIAL13",
-            "TESTIMONIAL16",
-            "TESTIMONIAL17",
-            "TESTIMONIAL18",
-            "TESTIMONIAL19",
+            'TESTIMONIAL13',
+            'TESTIMONIAL16',
+            'TESTIMONIAL17',
+            'TESTIMONIAL18',
+            'TESTIMONIAL19',
           ].includes(designVersion),
       },
     },
@@ -109,155 +105,135 @@ export const TestimonialBlock: Block = {
     link({
       overrides: {
         admin: {
-          condition: (_, { designVersion } = { designVersion: "" }) =>
-            ["TESTIMONIAL2", "TESTIMONIAL7", "TESTIMONIAL19"].includes(
-              designVersion,
-            ),
+          condition: (_, { designVersion } = { designVersion: '' }) =>
+            ['TESTIMONIAL2', 'TESTIMONIAL7', 'TESTIMONIAL19'].includes(designVersion),
         },
       },
     }),
 
     {
-      name: "testimonial",
+      name: 'testimonial',
       label: {
-        singular: "Testimonial",
-        plural: "Testimonials",
+        singular: 'Testimonial',
+        plural: 'Testimonials',
       },
-      type: "array",
+      type: 'array',
       fields: [
         {
-          name: "authorName",
-          type: "text",
+          name: 'authorName',
+          type: 'text',
           localized: true,
           admin: {
             condition: (parent: Page, { id }) =>
               [
-                "TESTIMONIAL3",
-                "TESTIMONIAL4",
-                "TESTIMONIAL6",
-                "TESTIMONIAL7",
-                "TESTIMONIAL10",
-                "TESTIMONIAL17",
-                "TESTIMONIAL18",
-                "TESTIMONIAL19",
+                'TESTIMONIAL3',
+                'TESTIMONIAL4',
+                'TESTIMONIAL6',
+                'TESTIMONIAL7',
+                'TESTIMONIAL10',
+                'TESTIMONIAL17',
+                'TESTIMONIAL18',
+                'TESTIMONIAL19',
               ].includes(
-                parentLayoutCondition<TestimonialBlockType>(
-                  parent,
-                  id,
-                  "testimonial",
-                )?.designVersion!,
+                parentLayoutCondition<TestimonialBlockType>(parent, id, 'testimonial')
+                  ?.designVersion!,
               ),
           },
         },
         {
-          name: "authorDescription",
-          type: "text",
+          name: 'authorDescription',
+          type: 'text',
           localized: true,
           admin: {
             condition: (parent: Page, { id }) =>
               [
-                "TESTIMONIAL3",
-                "TESTIMONIAL4",
-                "TESTIMONIAL6",
-                "TESTIMONIAL7",
-                "TESTIMONIAL10",
-                "TESTIMONIAL17",
-                "TESTIMONIAL18",
-                "TESTIMONIAL19",
+                'TESTIMONIAL3',
+                'TESTIMONIAL4',
+                'TESTIMONIAL6',
+                'TESTIMONIAL7',
+                'TESTIMONIAL10',
+                'TESTIMONIAL17',
+                'TESTIMONIAL18',
+                'TESTIMONIAL19',
               ].includes(
-                parentLayoutCondition<TestimonialBlockType>(
-                  parent,
-                  id,
-                  "testimonial",
-                )?.designVersion!,
+                parentLayoutCondition<TestimonialBlockType>(parent, id, 'testimonial')
+                  ?.designVersion!,
               ),
           },
         },
         {
-          name: "authorAvatar",
-          type: "upload",
-          relationTo: "media",
+          name: 'authorAvatar',
+          type: 'upload',
+          relationTo: 'media',
           admin: {
             condition: (parent: Page, { id }) =>
               [
-                "TESTIMONIAL2",
-                "TESTIMONIAL4",
-                "TESTIMONIAL6",
-                "TESTIMONIAL7",
-                "TESTIMONIAL13",
-                "TESTIMONIAL10",
-                "TESTIMONIAL16",
-                "TESTIMONIAL17",
-                "TESTIMONIAL18",
-                "TESTIMONIAL19",
+                'TESTIMONIAL2',
+                'TESTIMONIAL4',
+                'TESTIMONIAL6',
+                'TESTIMONIAL7',
+                'TESTIMONIAL13',
+                'TESTIMONIAL10',
+                'TESTIMONIAL16',
+                'TESTIMONIAL17',
+                'TESTIMONIAL18',
+                'TESTIMONIAL19',
               ].includes(
-                parentLayoutCondition<TestimonialBlockType>(
-                  parent,
-                  id,
-                  "testimonial",
-                )?.designVersion!,
+                parentLayoutCondition<TestimonialBlockType>(parent, id, 'testimonial')
+                  ?.designVersion!,
               ),
           },
         },
         {
-          name: "icon",
-          type: "upload",
-          relationTo: "media",
+          name: 'icon',
+          type: 'upload',
+          relationTo: 'media',
           admin: {
             condition: (parent: Page, { id }) =>
-              ["TESTIMONIAL3", "TESTIMONIAL17"].includes(
-                parentLayoutCondition<TestimonialBlockType>(
-                  parent,
-                  id,
-                  "testimonial",
-                )?.designVersion!,
+              ['TESTIMONIAL3', 'TESTIMONIAL17'].includes(
+                parentLayoutCondition<TestimonialBlockType>(parent, id, 'testimonial')
+                  ?.designVersion!,
               ),
           },
         },
         {
-          name: "rating",
-          type: "number",
+          name: 'rating',
+          type: 'number',
           min: 1,
           max: 5,
           admin: {
             condition: (parent: Page, { id }) =>
-              ["TESTIMONIAL18", "TESTIMONIAL19"].includes(
-                parentLayoutCondition<TestimonialBlockType>(
-                  parent,
-                  id,
-                  "testimonial",
-                )?.designVersion!,
+              ['TESTIMONIAL18', 'TESTIMONIAL19'].includes(
+                parentLayoutCondition<TestimonialBlockType>(parent, id, 'testimonial')
+                  ?.designVersion!,
               ),
           },
         },
         {
-          name: "text",
-          type: "richText",
+          name: 'text',
+          type: 'richText',
           localized: true,
           admin: {
             condition: (parent: Page, { id }) =>
               [
-                "TESTIMONIAL3",
-                "TESTIMONIAL4",
-                "TESTIMONIAL6",
-                "TESTIMONIAL7",
-                "TESTIMONIAL10",
-                "TESTIMONIAL16",
-                "TESTIMONIAL17",
-                "TESTIMONIAL18",
-                "TESTIMONIAL19",
+                'TESTIMONIAL3',
+                'TESTIMONIAL4',
+                'TESTIMONIAL6',
+                'TESTIMONIAL7',
+                'TESTIMONIAL10',
+                'TESTIMONIAL16',
+                'TESTIMONIAL17',
+                'TESTIMONIAL18',
+                'TESTIMONIAL19',
               ].includes(
-                parentLayoutCondition<TestimonialBlockType>(
-                  parent,
-                  id,
-                  "testimonial",
-                )?.designVersion!,
+                parentLayoutCondition<TestimonialBlockType>(parent, id, 'testimonial')
+                  ?.designVersion!,
               ),
           },
           editor: lexicalEditor({
             features: ({ rootFeatures }) => [
               ...rootFeatures,
-              HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3"] }),
+              HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3'] }),
             ],
           }),
         },
@@ -265,12 +241,9 @@ export const TestimonialBlock: Block = {
           overrides: {
             admin: {
               condition: (parent: Page, { id }) =>
-                ["TESTIMONIAL19"].includes(
-                  parentLayoutCondition<TestimonialBlockType>(
-                    parent,
-                    id,
-                    "testimonial",
-                  )?.designVersion!,
+                ['TESTIMONIAL19'].includes(
+                  parentLayoutCondition<TestimonialBlockType>(parent, id, 'testimonial')
+                    ?.designVersion!,
                 ),
             },
           },
@@ -278,4 +251,4 @@ export const TestimonialBlock: Block = {
       ],
     },
   ],
-};
+}

@@ -1,145 +1,145 @@
-"use client";
+'use client'
 
-import { useState } from "react";
+import { useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from '@/components/ui/button'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const features = [
   {
-    id: "feature-1",
-    title: "Feature 1",
-    description: "Nam vitae molestie arcu. Quisque eu libero orci.",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-1.svg",
+    id: 'feature-1',
+    title: 'Feature 1',
+    description: 'Nam vitae molestie arcu. Quisque eu libero orci.',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-1.svg',
     subfeatures: [
       {
-        id: "subfeature-1",
-        title: "Subfeature 1",
+        id: 'subfeature-1',
+        title: 'Subfeature 1',
         description:
-          "Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.",
+          'Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.',
       },
       {
-        id: "subfeature-2",
-        title: "Subfeature 2",
+        id: 'subfeature-2',
+        title: 'Subfeature 2',
         description:
-          "Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.",
+          'Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.',
       },
       {
-        id: "subfeature-3",
-        title: "Subfeature 3",
+        id: 'subfeature-3',
+        title: 'Subfeature 3',
         description:
-          "Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.",
+          'Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.',
       },
     ],
   },
   {
-    id: "feature-2",
-    title: "Feature 2",
-    description: "Nam vitae molestie arcu. Quisque eu libero orci.",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-2.svg",
+    id: 'feature-2',
+    title: 'Feature 2',
+    description: 'Nam vitae molestie arcu. Quisque eu libero orci.',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-2.svg',
     subfeatures: [
       {
-        id: "subfeature-1",
-        title: "Subfeature 1",
+        id: 'subfeature-1',
+        title: 'Subfeature 1',
         description:
-          "Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.",
+          'Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.',
       },
       {
-        id: "subfeature-2",
-        title: "Subfeature 2",
+        id: 'subfeature-2',
+        title: 'Subfeature 2',
         description:
-          "Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.",
+          'Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.',
       },
       {
-        id: "subfeature-3",
-        title: "Subfeature 3",
+        id: 'subfeature-3',
+        title: 'Subfeature 3',
         description:
-          "Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.",
+          'Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.',
       },
     ],
   },
   {
-    id: "feature-3",
-    title: "Feature 3",
-    description: "Nam vitae molestie arcu. Quisque eu libero orci.",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-3.svg",
+    id: 'feature-3',
+    title: 'Feature 3',
+    description: 'Nam vitae molestie arcu. Quisque eu libero orci.',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-3.svg',
     subfeatures: [
       {
-        id: "subfeature-1",
-        title: "Subfeature 1",
+        id: 'subfeature-1',
+        title: 'Subfeature 1',
         description:
-          "Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.",
+          'Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.',
       },
       {
-        id: "subfeature-2",
-        title: "Subfeature 2",
+        id: 'subfeature-2',
+        title: 'Subfeature 2',
         description:
-          "Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.",
+          'Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.',
       },
       {
-        id: "subfeature-3",
-        title: "Subfeature 3",
+        id: 'subfeature-3',
+        title: 'Subfeature 3',
         description:
-          "Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.",
+          'Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.',
       },
     ],
   },
   {
-    id: "feature-4",
-    title: "Feature 4",
-    description: "Nam vitae molestie arcu. Quisque eu libero orci.",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-4.svg",
+    id: 'feature-4',
+    title: 'Feature 4',
+    description: 'Nam vitae molestie arcu. Quisque eu libero orci.',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-4.svg',
     subfeatures: [
       {
-        id: "subfeature-1",
-        title: "Subfeature 1",
+        id: 'subfeature-1',
+        title: 'Subfeature 1',
         description:
-          "Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.",
+          'Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.',
       },
       {
-        id: "subfeature-2",
-        title: "Subfeature 2",
+        id: 'subfeature-2',
+        title: 'Subfeature 2',
         description:
-          "Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.",
+          'Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.',
       },
       {
-        id: "subfeature-3",
-        title: "Subfeature 3",
+        id: 'subfeature-3',
+        title: 'Subfeature 3',
         description:
-          "Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.",
+          'Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.',
       },
     ],
   },
   {
-    id: "feature-5",
-    title: "Feature 5",
-    description: "Nam vitae molestie arcu. Quisque eu libero orci.",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-5.svg",
+    id: 'feature-5',
+    title: 'Feature 5',
+    description: 'Nam vitae molestie arcu. Quisque eu libero orci.',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-5.svg',
     subfeatures: [
       {
-        id: "subfeature-1",
-        title: "Subfeature 1",
+        id: 'subfeature-1',
+        title: 'Subfeature 1',
         description:
-          "Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.",
+          'Pellentesque ac commodo sem. Maecenas efficitur dolor quis ex varius, ut volutpat lacus vulputate.',
       },
       {
-        id: "subfeature-2",
-        title: "Subfeature 2",
+        id: 'subfeature-2',
+        title: 'Subfeature 2',
         description:
-          "Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.",
+          'Curabitur tincidunt libero vitae odio ultricies, id cursus velit vehicula. Praesent accumsan, quam non fringilla efficitur.',
       },
       {
-        id: "subfeature-3",
-        title: "Subfeature 3",
+        id: 'subfeature-3',
+        title: 'Subfeature 3',
         description:
-          "Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.",
+          'Praesent placerat risus vel magna pharetra, vitae vestibulum leo sodales. Pellentesque habitant morbi tristique.',
       },
     ],
   },
-];
+]
 
 const Feature54 = () => {
-  const [selection, setSelection] = useState(features[0].id);
+  const [selection, setSelection] = useState(features[0].id)
   return (
     <section className="py-32">
       <div className="flex flex-col items-center gap-16 lg:px-16">
@@ -177,13 +177,8 @@ const Feature54 = () => {
                     </div>
                     <div className="hidden grid-cols-3 gap-6 py-6 md:grid">
                       {feature.subfeatures.map((subfeature) => (
-                        <div
-                          key={subfeature.id}
-                          className="flex flex-col text-left"
-                        >
-                          <p className="mb-2 text-xs font-semibold">
-                            {subfeature.title}
-                          </p>
+                        <div key={subfeature.id} className="flex flex-col text-left">
+                          <p className="mb-2 text-xs font-semibold">{subfeature.title}</p>
                           <p className="mb-8 text-xs text-muted-foreground">
                             {subfeature.description}
                           </p>
@@ -201,11 +196,11 @@ const Feature54 = () => {
                   variant="ghost"
                   size="sm"
                   onClick={() => {
-                    setSelection(feature.id);
+                    setSelection(feature.id)
                   }}
                 >
                   <div
-                    className={`size-2 rounded-full ${feature.id === selection ? "bg-primary" : "bg-input"}`}
+                    className={`size-2 rounded-full ${feature.id === selection ? 'bg-primary' : 'bg-input'}`}
                   />
                 </Button>
               ))}
@@ -214,7 +209,7 @@ const Feature54 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature54;
+export default Feature54

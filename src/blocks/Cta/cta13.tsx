@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 const CTA13 = () => {
   return (
@@ -11,8 +11,8 @@ const CTA13 = () => {
               Call to Action
             </h3>
             <p className="text-muted-foreground lg:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis!
             </p>
           </div>
           <div className="shrink-0">
@@ -21,7 +21,7 @@ const CTA13 = () => {
               <Button>Subscribe</Button>
             </div>
             <p className="mt-2 text-left text-xs text-muted-foreground">
-              View our{" "}
+              View our{' '}
               <a href="#" className="underline hover:text-foreground">
                 privacy policy
               </a>
@@ -31,7 +31,7 @@ const CTA13 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CTA13;
+export default CTA13

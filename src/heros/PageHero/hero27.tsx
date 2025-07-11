@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero27 = () => {
   return (
@@ -20,18 +20,18 @@ const Hero27 = () => {
               <br />
             </p>
             <p className="text-lg text-muted-foreground">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
-              optio quis? Veniam accusamus quaerat illum dolorem eos atque
-              reiciendis numquam. Veniam accusamus quaerat illum
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, optio quis? Veniam
+              accusamus quaerat illum dolorem eos atque reiciendis numquam. Veniam accusamus quaerat
+              illum
             </p>
-            <Button className="mt-6" size={"lg"}>
+            <Button className="mt-6" size={'lg'}>
               Get Started
             </Button>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero27;
+export default Hero27

@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from 'react'
 
 import {
   ArrowUp,
@@ -11,12 +11,12 @@ import {
   Lightbulb,
   Linkedin,
   Twitter,
-} from "lucide-react";
+} from 'lucide-react'
 
-import { cn } from "@/utilities";
-import { DateFormatter } from "@/components/DateFormatter";
-import RichText from "@/components/RichText";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { cn } from '@/utilities'
+import { DateFormatter } from '@/components/DateFormatter'
+import RichText from '@/components/RichText'
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -24,71 +24,56 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Post } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { getAuthorObject } from "@/utilities/authorUtils";
-import { getSideMenuStructure } from "@/utilities/richtext";
+} from '@/components/ui/breadcrumb'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { Post } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { getAuthorObject } from '@/utilities/authorUtils'
+import { getSideMenuStructure } from '@/utilities/richtext'
 
-const Blog18: React.FC<Post & { publicContext: PublicContextProps }> = (
-  props,
-) => {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+const Blog18: React.FC<Post & { publicContext: PublicContextProps }> = (props) => {
+  const [activeSection, setActiveSection] = useState<string | null>(null)
 
-  const {
-    title,
-    content,
-    meta,
-    readTime,
-    publishedAt,
-    authors,
-    publicContext,
-  } = props || {};
+  const { title, content, meta, readTime, publishedAt, authors, publicContext } = props || {}
 
-  const author = getAuthorObject(authors?.[0]);
+  const author = getAuthorObject(authors?.[0])
   // Get side menu structure from content if it exists
   const sideMenuStructure = useMemo(() => {
-    return content
-      ? getSideMenuStructure(content, { headlineLevels: ["h2", "h3"] })
-      : [];
-  }, [content]);
+    return content ? getSideMenuStructure(content, { headlineLevels: ['h2', 'h3'] }) : []
+  }, [content])
 
   useEffect(() => {
     // Only set up observer if we have side menu items
-    if (sideMenuStructure.length === 0) return;
+    if (sideMenuStructure.length === 0) return
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+          setActiveSection(entry.target.id)
         }
-      });
-    };
+      })
+    }
 
-    let observer: IntersectionObserver | null = new IntersectionObserver(
-      observerCallback,
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.2, // Lower threshold to detect headings earlier
-      },
-    );
+    let observer: IntersectionObserver | null = new IntersectionObserver(observerCallback, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2, // Lower threshold to detect headings earlier
+    })
 
     // Observe all heading elements from our side menu structure
     sideMenuStructure.forEach((item) => {
-      const element = document.getElementById(item.id);
+      const element = document.getElementById(item.id)
       if (element) {
-        observer?.observe(element);
+        observer?.observe(element)
       }
-    });
+    })
 
     return () => {
-      observer?.disconnect();
-      observer = null;
-    };
-  }, [sideMenuStructure]);
+      observer?.disconnect()
+      observer = null
+    }
+  }, [sideMenuStructure])
 
   return (
     <section className="py-32">
@@ -110,9 +95,7 @@ const Blog18: React.FC<Post & { publicContext: PublicContextProps }> = (
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-        <h1 className="mt-7 mb-6 max-w-3xl text-3xl font-semibold md:text-5xl">
-          {title}
-        </h1>
+        <h1 className="mt-7 mb-6 max-w-3xl text-3xl font-semibold md:text-5xl">{title}</h1>
         <div className="flex items-center gap-3 text-sm">
           {author && (
             <>
@@ -125,11 +108,7 @@ const Blog18: React.FC<Post & { publicContext: PublicContextProps }> = (
                 </a>
                 {publishedAt && (
                   <span className="ml-1 text-muted-foreground">
-                    on{" "}
-                    <DateFormatter
-                      date={publishedAt}
-                      locale={publicContext?.locale}
-                    />
+                    on <DateFormatter date={publishedAt} locale={publicContext?.locale} />
                   </span>
                 )}
               </span>
@@ -165,13 +144,13 @@ const Blog18: React.FC<Post & { publicContext: PublicContextProps }> = (
                         <a
                           href={`#${item.id}`}
                           className={cn(
-                            "block py-1 transition-colors duration-200",
+                            'block py-1 transition-colors duration-200',
                             // Add padding based on heading level for visual hierarchy
-                            item.level === "h3" && "pl-3",
-                            item.level === "h4" && "pl-5",
+                            item.level === 'h3' && 'pl-3',
+                            item.level === 'h4' && 'pl-5',
                             activeSection === item.id
-                              ? "text-primary"
-                              : "text-muted-foreground hover:text-primary",
+                              ? 'text-primary'
+                              : 'text-muted-foreground hover:text-primary',
                           )}
                         >
                           {item.text}
@@ -226,7 +205,7 @@ const Blog18: React.FC<Post & { publicContext: PublicContextProps }> = (
                 onClick={() =>
                   window.scrollTo({
                     top: 0,
-                    behavior: "smooth",
+                    behavior: 'smooth',
                   })
                 }
               >
@@ -238,7 +217,7 @@ const Blog18: React.FC<Post & { publicContext: PublicContextProps }> = (
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export { Blog18 };
+export { Blog18 }

@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   ArrowUpRight,
@@ -10,13 +10,13 @@ import {
   Lock,
   Menu,
   X,
-} from "lucide-react";
-import { useState } from "react";
+} from 'lucide-react'
+import { useState } from 'react'
 
-import type { Header as HeaderType } from "@/payload-types";
+import type { Header as HeaderType } from '@/payload-types'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -24,123 +24,123 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { Logo } from "@/components/Logo/Logo";
+} from '@/components/ui/navigation-menu'
+import { Logo } from '@/components/Logo/Logo'
 
 const solutions = [
   {
-    title: "First solution",
-    description: "Vestibulum scelerisque quis nisl ut convallis.",
-    href: "#",
+    title: 'First solution',
+    description: 'Vestibulum scelerisque quis nisl ut convallis.',
+    href: '#',
     icon: Cloud,
   },
   {
-    title: "Another solution",
-    description: "Curabitur vehicula malesuada enim a cursus.",
-    href: "#",
+    title: 'Another solution',
+    description: 'Curabitur vehicula malesuada enim a cursus.',
+    href: '#',
     icon: Lock,
   },
   {
-    title: "And a third solution",
-    description: "Proin aliquam feugiat lobortis.",
-    href: "#",
+    title: 'And a third solution',
+    description: 'Proin aliquam feugiat lobortis.',
+    href: '#',
     icon: Fingerprint,
   },
-];
+]
 
 const useCases = [
   {
-    title: "Banking",
-    href: "#",
+    title: 'Banking',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "Healthcare",
-    href: "#",
+    title: 'Healthcare',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "Technology",
-    href: "#",
+    title: 'Technology',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "Education",
-    href: "#",
+    title: 'Education',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "Agriculture",
-    href: "#",
+    title: 'Agriculture',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "BaaS",
-    href: "#",
+    title: 'BaaS',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "Entertainment",
-    href: "#",
+    title: 'Entertainment',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "SaaS",
-    href: "#",
+    title: 'SaaS',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "Crypto",
-    href: "#",
+    title: 'Crypto',
+    href: '#',
     icon: CircleCheckBig,
   },
-];
+]
 
 const documentationLinks = [
   {
-    title: "External link",
-    href: "#",
+    title: 'External link',
+    href: '#',
   },
   {
-    title: "External link",
-    href: "#",
+    title: 'External link',
+    href: '#',
   },
   {
-    title: "External link",
-    href: "#",
+    title: 'External link',
+    href: '#',
   },
   {
-    title: "External link",
-    href: "#",
+    title: 'External link',
+    href: '#',
   },
-];
+]
 
 const resources = [
   {
-    title: "Blog",
-    description: "Vivamus ut risus accumsan, tempus sapien eget.",
-    href: "#",
+    title: 'Blog',
+    description: 'Vivamus ut risus accumsan, tempus sapien eget.',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "Guides",
-    description: "In sapien tellus, sodales in pharetra a, mattis ac turpis.",
-    href: "#",
+    title: 'Guides',
+    description: 'In sapien tellus, sodales in pharetra a, mattis ac turpis.',
+    href: '#',
     icon: CircleCheckBig,
   },
   {
-    title: "News",
-    description: "Maecenas eget orci ac nulla tempor tincidunt.",
-    href: "#",
+    title: 'News',
+    description: 'Maecenas eget orci ac nulla tempor tincidunt.',
+    href: '#',
     icon: CircleCheckBig,
   },
-];
+]
 
 export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   const [submenu, setSubmenu] = useState<
-    "platform" | "usecases" | "developers" | "resources" | null
-  >(null);
+    'platform' | 'usecases' | 'developers' | 'resources' | null
+  >(null)
   return (
     <div className="fixed inset-x-0 top-0 z-50 bg-background">
       <div className="container">
@@ -164,10 +164,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                 <NavigationMenuTrigger>Platform</NavigationMenuTrigger>
                 <NavigationMenuContent className="min-w-[calc(100vw-4rem)] p-12 2xl:min-w-[calc(1400px-4rem)]">
                   <div className="flex items-start justify-between gap-x-12">
-                    <NavigationMenuLink
-                      href="#"
-                      className="group w-1/3 max-w-[398px]"
-                    >
+                    <NavigationMenuLink href="#" className="group w-1/3 max-w-[398px]">
                       <div className="text-clip rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground">
                         <div>
                           <img
@@ -177,9 +174,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                           />
                         </div>
                         <div className="p-5 xl:p-8">
-                          <div className="mb-2 text-base">
-                            Platform Overview
-                          </div>
+                          <div className="mb-2 text-base">Platform Overview</div>
                           <div className="text-sm font-normal text-muted-foreground">
                             Pellentesque nec odio id elit dapibus rutrum.
                           </div>
@@ -200,9 +195,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                             <div className="mb-5 group-hover:opacity-60">
                               <solution.icon className="size-6" />
                             </div>
-                            <div className="mb-1 text-base">
-                              {solution.title}
-                            </div>
+                            <div className="mb-1 text-base">{solution.title}</div>
                             <div className="text-sm font-normal text-muted-foreground">
                               {solution.description}
                             </div>
@@ -236,10 +229,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                         ))}
                       </div>
                     </div>
-                    <NavigationMenuLink
-                      href="#"
-                      className="group max-w-[604px] flex-1"
-                    >
+                    <NavigationMenuLink href="#" className="group max-w-[604px] flex-1">
                       <div className="flex h-full rounded-lg bg-secondary/30 group-hover:bg-secondary/80 group-focus:bg-secondary/80">
                         <div className="w-2/5 max-w-[210px] shrink-0 text-clip rounded-lg">
                           <img
@@ -253,12 +243,9 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                             For user persona
                           </div>
                           <div className="mt-auto">
-                            <div className="mb-4 text-xl">
-                              Call to action for user persona
-                            </div>
+                            <div className="mb-4 text-xl">Call to action for user persona</div>
                             <div className="text-sm font-normal text-muted-foreground">
-                              Etiam ornare venenatis neque, sit amet suscipit
-                              diam pulvinar a.
+                              Etiam ornare venenatis neque, sit amet suscipit diam pulvinar a.
                             </div>
                           </div>
                         </div>
@@ -288,9 +275,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                             <div className="flex size-5 items-center justify-center rounded bg-accent group-hover:bg-primary group-hover:text-primary-foreground">
                               <ArrowUpRight className="size-3" />
                             </div>
-                            <div className="text-sm">
-                              {documentationLink.title}
-                            </div>
+                            <div className="text-sm">{documentationLink.title}</div>
                           </NavigationMenuLink>
                         ))}
                       </div>
@@ -303,8 +288,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                         <div className="flex-1 p-5 xl:p-8">
                           <div className="mb-2 text-base">Showcase link</div>
                           <div className="text-sm font-normal text-muted-foreground">
-                            Fusce neque dolor, sollicitudin sed sodales non,
-                            condimentum vel metus.
+                            Fusce neque dolor, sollicitudin sed sodales non, condimentum vel metus.
                           </div>
                         </div>
                         <div className="h-[154px] max-w-[264px] shrink-0">
@@ -320,12 +304,10 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                         className="flex items-center text-clip rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground"
                       >
                         <div className="flex-1 p-5 xl:p-8">
-                          <div className="mb-2 text-base">
-                            Another showcase link
-                          </div>
+                          <div className="mb-2 text-base">Another showcase link</div>
                           <div className="text-sm font-normal text-muted-foreground">
-                            Duis metus mauris, efficitur imperdiet magna vitae,
-                            accumsan mattis lacus.
+                            Duis metus mauris, efficitur imperdiet magna vitae, accumsan mattis
+                            lacus.
                           </div>
                         </div>
                         <div className="h-[154px] max-w-[264px] shrink-0">
@@ -359,9 +341,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                               <resource.icon className="size-6" />
                             </div>
                             <div className="mt-auto">
-                              <div className="mb-2 text-base">
-                                {resource.title}
-                              </div>
+                              <div className="mb-2 text-base">{resource.title}</div>
                               <div className="text-sm font-normal text-muted-foreground">
                                 {resource.description}
                               </div>
@@ -381,8 +361,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                         <div className="flex-1 p-5 xl:p-8">
                           <div className="mb-2 text-base">Customers</div>
                           <div className="text-sm font-normal text-muted-foreground">
-                            Integer a ipsum quis nisi posuere lobortis at id
-                            tellus.
+                            Integer a ipsum quis nisi posuere lobortis at id tellus.
                           </div>
                         </div>
                         <div className="w-1/3 max-w-[130px] shrink-0">
@@ -421,10 +400,10 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                 aria-label="Main Menu"
                 onClick={() => {
                   if (open) {
-                    setOpen(false);
-                    setSubmenu(null);
+                    setOpen(false)
+                    setSubmenu(null)
                   } else {
-                    setOpen(true);
+                    setOpen(true)
                   }
                 }}
               >
@@ -441,7 +420,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                 <button
                   type="button"
                   className="flex w-full items-center border-b border-border px-8 py-7 text-left"
-                  onClick={() => setSubmenu("platform")}
+                  onClick={() => setSubmenu('platform')}
                 >
                   <span className="flex-1">Platform</span>
                   <span className="shrink-0">
@@ -451,7 +430,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                 <button
                   type="button"
                   className="flex w-full items-center border-b border-border px-8 py-7 text-left"
-                  onClick={() => setSubmenu("usecases")}
+                  onClick={() => setSubmenu('usecases')}
                 >
                   <span className="flex-1">Use cases</span>
                   <span className="shrink-0">
@@ -461,7 +440,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                 <button
                   type="button"
                   className="flex w-full items-center border-b border-border px-8 py-7 text-left"
-                  onClick={() => setSubmenu("developers")}
+                  onClick={() => setSubmenu('developers')}
                 >
                   <span className="flex-1">Developers</span>
                   <span className="shrink-0">
@@ -471,7 +450,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                 <button
                   type="button"
                   className="flex w-full items-center border-b border-border px-8 py-7 text-left"
-                  onClick={() => setSubmenu("resources")}
+                  onClick={() => setSubmenu('resources')}
                 >
                   <span className="flex-1">Resources</span>
                   <span className="shrink-0">
@@ -492,7 +471,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
             </div>
           )}
           {/* Mobile Menu > Platform */}
-          {open && submenu === "platform" && (
+          {open && submenu === 'platform' && (
             <div className="fixed inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-scroll border-t border-border bg-background lg:hidden">
               <a href="#" className="block space-y-6 p-8">
                 <div className="w-full text-clip rounded-lg">
@@ -534,7 +513,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
             </div>
           )}
           {/* Mobile Menu > Use cases */}
-          {open && submenu === "usecases" && (
+          {open && submenu === 'usecases' && (
             <div className="fixed inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-scroll bg-background lg:hidden">
               <div className="px-8 py-3.5 text-xs uppercase tracking-widest text-muted-foreground">
                 Use cases
@@ -566,12 +545,9 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                     />
                   </div>
                   <div>
-                    <div className="mb-1.5 text-base">
-                      Call to action for user persona
-                    </div>
+                    <div className="mb-1.5 text-base">Call to action for user persona</div>
                     <div className="text-sm font-normal text-muted-foreground">
-                      Etiam ornare venenatis neque, sit amet suscipit diam
-                      pulvinar a.
+                      Etiam ornare venenatis neque, sit amet suscipit diam pulvinar a.
                     </div>
                   </div>
                 </a>
@@ -579,7 +555,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
             </div>
           )}
           {/* Mobile Menu > Developers */}
-          {open && submenu === "developers" && (
+          {open && submenu === 'developers' && (
             <div className="fixed inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-scroll border-t border-border bg-background lg:hidden">
               <a href="#" className="block space-y-6 p-8">
                 <div className="w-full text-clip rounded-lg">
@@ -592,15 +568,12 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                 <div>
                   <div className="mb-2 text-base">Start with our API</div>
                   <div className="text-sm font-normal text-muted-foreground">
-                    Head to our developer documentation for all the help you
-                    need to embed our payments API.
+                    Head to our developer documentation for all the help you need to embed our
+                    payments API.
                   </div>
                 </div>
               </a>
-              <a
-                href="#"
-                className="block space-y-6 border-t border-border p-8"
-              >
+              <a href="#" className="block space-y-6 border-t border-border p-8">
                 <div className="w-full text-clip rounded-lg">
                   <img
                     src="https://www.shadcnblocks.com/images/block/placeholder-1.svg"
@@ -611,8 +584,8 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
                 <div>
                   <div className="mb-2 text-base">Quick Start</div>
                   <div className="text-sm font-normal text-muted-foreground">
-                    Check out our quick-start guides, where you&apos;ll find
-                    tips and tricks for everything payments.
+                    Check out our quick-start guides, where you&apos;ll find tips and tricks for
+                    everything payments.
                   </div>
                 </div>
               </a>
@@ -636,7 +609,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
             </div>
           )}
           {/* Mobile Menu > Platform */}
-          {open && submenu === "resources" && (
+          {open && submenu === 'resources' && (
             <div className="fixed inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-scroll bg-background lg:hidden">
               <div className="px-8 py-3.5 text-xs uppercase tracking-widest text-muted-foreground">
                 Resources
@@ -685,7 +658,7 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
         </NavigationMenu>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar3;
+export default Navbar3

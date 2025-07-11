@@ -1,4 +1,4 @@
-import { Footer } from "@/payload-types";
+import { Footer } from '@/payload-types'
 import {
   FaAndroid,
   FaApple,
@@ -7,13 +7,13 @@ import {
   FaLinkedin,
   FaRedditAlien,
   FaTwitter,
-} from "react-icons/fa";
-import { CMSLink } from "@/components/Link";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+} from 'react-icons/fa'
+import { CMSLink } from '@/components/Link'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Footer5: React.FC<{
-  footer: Footer;
-  publicContext: PublicContextProps;
+  footer: Footer
+  publicContext: PublicContextProps
 }> = ({ footer, publicContext }) => {
   return (
     <section className="py-32">
@@ -27,14 +27,8 @@ const Footer5: React.FC<{
                   <ul className="space-y-4 text-muted-foreground">
                     {section.subNavItems &&
                       section.subNavItems.map((link, linkIdx) => (
-                        <li
-                          key={linkIdx}
-                          className="font-medium hover:text-primary"
-                        >
-                          <CMSLink
-                            publicContext={publicContext}
-                            {...link.link}
-                          />
+                        <li key={linkIdx} className="font-medium hover:text-primary">
+                          <CMSLink publicContext={publicContext} {...link.link} />
                         </li>
                       ))}
                   </ul>
@@ -106,14 +100,13 @@ const Footer5: React.FC<{
           </div>
           <div className="mt-24 border-t pt-8">
             <p className="text-center text-sm font-medium text-muted-foreground">
-              {footer.copyright &&
-                `© ${new Date().getFullYear()} ${footer.copyright}`}
+              {footer.copyright && `© ${new Date().getFullYear()} ${footer.copyright}`}
             </p>
           </div>
         </footer>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Footer5;
+export default Footer5

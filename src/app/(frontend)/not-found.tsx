@@ -1,30 +1,30 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
 
-import { Geist_Mono, Geist } from "next/font/google";
-import React from "react";
-import { cn } from "src/utilities/cn";
-import { Footer } from "@/globals/Footer/Component";
-import { Header } from "@/globals/Header/Component";
-import { Providers } from "@/providers";
-import { InitTheme } from "@/providers/Theme/InitTheme";
+import { Geist_Mono, Geist } from 'next/font/google'
+import React from 'react'
+import { cn } from 'src/utilities/cn'
+import { Footer } from '@/globals/Footer/Component'
+import { Header } from '@/globals/Header/Component'
+import { Providers } from '@/providers'
+import { InitTheme } from '@/providers/Theme/InitTheme'
 
-import localization, { Locale } from "@/localization.config";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import "./[[...slugs]]/globals.css";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { getMessages } from '@/i18n/messages';
-import { haasGrotText, haasGrotDisplay, haasGrotBody } from "@/fonts";
+import localization, { Locale } from '@/localization.config'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import './[[...slugs]]/globals.css'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { getMessages } from '@/i18n/messages'
+import { haasGrotText, haasGrotDisplay, haasGrotBody } from '@/fonts'
 
 export default async function NotFound() {
   const publicContext: PublicContextProps = {
     isNotFound: true,
     locale: localization.defaultLocale,
     cleanSlugs: [],
-  };
+  }
 
-  const locale = (localization.defaultLocale) as Locale;
-  const messages = await getMessages(locale);
+  const locale = localization.defaultLocale as Locale
+  const messages = await getMessages(locale)
 
   return (
     <html
@@ -53,5 +53,5 @@ export default async function NotFound() {
         </Providers>
       </body>
     </html>
-  );
+  )
 }

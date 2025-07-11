@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
+import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
 
 const Feature36 = () => {
   return (
@@ -11,21 +11,16 @@ const Feature36 = () => {
               <div className="flex flex-col gap-8">
                 <Badge className="w-fit">Studies</Badge>
                 <div className="flex flex-col gap-6">
-                  <p className="text-base lg:text-lg lg:font-medium">
-                    Case Study
-                  </p>
+                  <p className="text-base lg:text-lg lg:font-medium">Case Study</p>
                   <h3 className="text-xl font-medium lg:text-5xl">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   </h3>
                   <p className="lg:text-lg lg:font-medium">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellat cupiditate dicta accusamus quae nesciunt deserunt
-                    cum deleniti atque consequuntur quis!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat cupiditate
+                    dicta accusamus quae nesciunt deserunt cum deleniti atque consequuntur quis!
                   </p>
                 </div>
-                <p className="font-medium group-hover:underline">
-                  Continue reading
-                </p>
+                <p className="font-medium group-hover:underline">Continue reading</p>
               </div>
             </Card>
           </a>
@@ -38,9 +33,7 @@ const Feature36 = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   </h3>
                 </div>
-                <p className="font-medium group-hover:underline">
-                  Continue reading
-                </p>
+                <p className="font-medium group-hover:underline">Continue reading</p>
               </div>
             </Card>
           </a>
@@ -53,9 +46,7 @@ const Feature36 = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   </h3>
                 </div>
-                <p className="font-medium group-hover:underline">
-                  Continue reading
-                </p>
+                <p className="font-medium group-hover:underline">Continue reading</p>
               </div>
             </Card>
           </a>
@@ -68,9 +59,7 @@ const Feature36 = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   </h3>
                 </div>
-                <p className="font-medium group-hover:underline">
-                  Continue reading
-                </p>
+                <p className="font-medium group-hover:underline">Continue reading</p>
               </div>
             </Card>
           </a>
@@ -83,9 +72,7 @@ const Feature36 = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   </h3>
                 </div>
-                <p className="font-medium group-hover:underline">
-                  Continue reading
-                </p>
+                <p className="font-medium group-hover:underline">Continue reading</p>
               </div>
             </Card>
           </a>
@@ -98,16 +85,14 @@ const Feature36 = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   </h3>
                 </div>
-                <p className="font-medium group-hover:underline">
-                  Continue reading
-                </p>
+                <p className="font-medium group-hover:underline">Continue reading</p>
               </div>
             </Card>
           </a>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature36;
+export default Feature36

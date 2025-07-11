@@ -1,59 +1,55 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
-import { Blocks, PieChart, ChevronRight, Layout, Target } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs'
+import { Blocks, PieChart, ChevronRight, Layout, Target } from 'lucide-react'
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from '@/components/ui/accordion'
 
 const features = [
   {
     id: 1,
-    header: "Task Coordination",
-    excerpt:
-      "Easily manage and organize tasks to improve your workflow efficiency.",
+    header: 'Task Coordination',
+    excerpt: 'Easily manage and organize tasks to improve your workflow efficiency.',
     icon: <Target className="h-auto w-5" />,
-    title: "Master Task Coordination",
+    title: 'Master Task Coordination',
     description:
-      "Learn to easily manage and organize tasks to improve workflow efficiency. Explore how this simplifies task coordination for better results.",
-    image: "/images/block/placeholder-1.svg",
+      'Learn to easily manage and organize tasks to improve workflow efficiency. Explore how this simplifies task coordination for better results.',
+    image: '/images/block/placeholder-1.svg',
   },
   {
     id: 2,
-    header: "Team Collaboration",
-    excerpt:
-      "Boost teamwork with intuitive communication and collaboration tools.",
+    header: 'Team Collaboration',
+    excerpt: 'Boost teamwork with intuitive communication and collaboration tools.',
     icon: <Layout className="h-auto w-5" />,
-    title: "Effective Team Collaboration",
+    title: 'Effective Team Collaboration',
     description:
-      "Improve team collaboration and communication with intuitive tools. Learn how to streamline teamwork and achieve project success with ease.",
-    image: "/images/block/placeholder-2.svg",
+      'Improve team collaboration and communication with intuitive tools. Learn how to streamline teamwork and achieve project success with ease.',
+    image: '/images/block/placeholder-2.svg',
   },
   {
     id: 3,
-    header: "Resource Management",
-    excerpt:
-      "Maximize resource use for greater efficiency and project success.",
+    header: 'Resource Management',
+    excerpt: 'Maximize resource use for greater efficiency and project success.',
     icon: <Blocks className="h-auto w-5" />,
-    title: "Efficient Resource Management",
+    title: 'Efficient Resource Management',
     description:
-      "Maximize resource management and efficiency. Discover how to effectively utilize resources for greater productivity and project outcomes.",
-    image: "/images/block/placeholder-3.svg",
+      'Maximize resource management and efficiency. Discover how to effectively utilize resources for greater productivity and project outcomes.',
+    image: '/images/block/placeholder-3.svg',
   },
   {
     id: 4,
-    header: "System Integration",
-    excerpt:
-      "Integrate your tools seamlessly for a smoother, more efficient workflow.",
+    header: 'System Integration',
+    excerpt: 'Integrate your tools seamlessly for a smoother, more efficient workflow.',
     icon: <PieChart className="h-auto w-5" />,
-    title: "Streamlined System Integration",
+    title: 'Streamlined System Integration',
     description:
-      "Integrate systems and tools seamlessly for smoother workflows. Learn how to improve interoperability for more efficient processes.",
-    image: "/images/block/placeholder-4.svg",
+      'Integrate systems and tools seamlessly for smoother workflows. Learn how to improve interoperability for more efficient processes.',
+    image: '/images/block/placeholder-4.svg',
   },
-];
+]
 
 const Feature106 = () => {
   return (
@@ -74,21 +70,15 @@ const Feature106 = () => {
                 <div className="flex flex-col gap-2.5">
                   <div className="flex items-center gap-1.5">
                     {feature.icon}
-                    <span className="text-sm font-medium">
-                      {feature.header}
-                    </span>
+                    <span className="text-sm font-medium">{feature.header}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    {feature.excerpt}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{feature.excerpt}</p>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="flex flex-col gap-7 rounded-xl border bg-muted/50 p-5 data-[state=inactive]:hidden">
                 <div>
                   <h2 className="mb-2 font-medium">{feature.title}</h2>
-                  <p className="text-sm text-muted-foreground">
-                    {feature.description}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </div>
                 <img
                   src={feature.image}
@@ -118,9 +108,7 @@ const Feature106 = () => {
                   </div>
                   <ChevronRight className="h-auto w-4" />
                 </div>
-                <p className="text-left text-muted-foreground">
-                  {feature.excerpt}
-                </p>
+                <p className="text-left text-muted-foreground">{feature.excerpt}</p>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -144,7 +132,7 @@ const Feature106 = () => {
         </Tabs>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature106;
+export default Feature106

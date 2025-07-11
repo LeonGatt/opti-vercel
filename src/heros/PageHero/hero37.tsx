@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero37 = () => {
   return (
@@ -11,8 +11,7 @@ const Hero37 = () => {
           Welcome to Our Website
         </h1>
         <p className="mb-6 max-w-xl text-muted-foreground md:mb-12 lg:text-xl">
-          Elig doloremque mollitia fugiat omnis! Porro facilis quo animi
-          consequatur.
+          Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur.
         </p>
         <div className="flex w-full flex-col justify-center gap-2 sm:flex-row">
           <Button className="w-full sm:w-auto">
@@ -34,10 +33,10 @@ const Hero37 = () => {
               className="size-full text-muted-foreground opacity-20"
             >
               {Array.from(Array(4000).keys()).map((dot, index, array) => {
-                const angle = 0.2 * index;
-                const scalar = 300 + index * (100 / array.length);
-                const x = Math.round(Math.cos(angle) * scalar);
-                const y = Math.round(Math.sin(angle) * scalar);
+                const angle = 0.2 * index
+                const scalar = 300 + index * (100 / array.length)
+                const x = Math.round(Math.cos(angle) * scalar)
+                const y = Math.round(Math.sin(angle) * scalar)
                 return (
                   <circle
                     key={index}
@@ -47,7 +46,7 @@ const Hero37 = () => {
                     fill="currentColor"
                     opacity={(array.length - index) / array.length}
                   />
-                );
+                )
               })}
             </svg>
           </div>
@@ -57,7 +56,7 @@ const Hero37 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero37;
+export default Hero37

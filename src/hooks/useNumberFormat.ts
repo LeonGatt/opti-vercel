@@ -1,4 +1,4 @@
-import isNumber from "lodash/isNumber";
+import isNumber from 'lodash/isNumber'
 // import { useFormatter } from 'next-intl'
 
 export const usePriceFormat = () => {
@@ -15,14 +15,14 @@ export const usePriceFormat = () => {
   // }
 
   const formatPrice = (price?: number): string => {
-    const safePrice = isNumber(price) ? price : 0;
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
+    const safePrice = isNumber(price) ? price : 0
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
-    }).format(safePrice);
-  };
+    }).format(safePrice)
+  }
 
-  return { formatPrice };
-};
+  return { formatPrice }
+}

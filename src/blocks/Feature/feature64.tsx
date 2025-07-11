@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 
 const Feature64 = () => {
   return (
@@ -12,9 +12,8 @@ const Feature64 = () => {
             Feature group
           </h3>
           <p className="text-muted-foreground lg:max-w-3xl lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis! Porro facilis quo animi
-            consequatur. Explicabo.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+            omnis! Porro facilis quo animi consequatur. Explicabo.
           </p>
         </div>
         <div className="grid w-full gap-6 lg:grid-cols-7">
@@ -51,7 +50,7 @@ const Feature64 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature64;
+export default Feature64

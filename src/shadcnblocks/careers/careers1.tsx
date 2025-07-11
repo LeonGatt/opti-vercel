@@ -1,41 +1,41 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
 const departments = [
   {
-    title: "Sales",
+    title: 'Sales',
     roles: [
       {
-        id: "role-1",
-        title: "Sales Manager",
-        location: "London",
-        href: "#",
+        id: 'role-1',
+        title: 'Sales Manager',
+        location: 'London',
+        href: '#',
       },
       {
-        id: "role-2",
-        title: "Sales Development Representative",
-        location: "London",
-        href: "#",
+        id: 'role-2',
+        title: 'Sales Development Representative',
+        location: 'London',
+        href: '#',
       },
       {
-        id: "role-3",
-        title: "Sales Manager",
-        location: "London",
-        href: "#",
+        id: 'role-3',
+        title: 'Sales Manager',
+        location: 'London',
+        href: '#',
       },
     ],
   },
   {
-    title: "Customer Success",
+    title: 'Customer Success',
     roles: [
       {
-        id: "role-4",
-        title: "Customer Success Associate",
-        location: "London",
-        href: "#",
+        id: 'role-4',
+        title: 'Customer Success Associate',
+        location: 'London',
+        href: '#',
       },
     ],
   },
-];
+]
 
 const Careers1 = () => {
   return (
@@ -47,9 +47,7 @@ const Careers1 = () => {
         </p>
         {departments.map((department) => (
           <div key={department.title} className="mt-12 md:mt-20">
-            <h3 className="mb-8 text-3xl font-medium md:text-4xl">
-              {department.title}
-            </h3>
+            <h3 className="mb-8 text-3xl font-medium md:text-4xl">{department.title}</h3>
             <ul className="divide-y divide-border border-y border-border">
               {department.roles.map((role) => (
                 <li key={role.id} className="group">
@@ -69,7 +67,7 @@ const Careers1 = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Careers1;
+export default Careers1

@@ -1,7 +1,7 @@
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 const Login2 = () => {
   return (
@@ -19,9 +19,7 @@ const Login2 = () => {
                 <p className="text-xl font-bold">Shadcn Blocks</p>
               </span>
               <p className="mb-2 text-2xl font-bold">Log in to your account</p>
-              <p className="text-muted-foreground">
-                Welcome back! Please enter your details.
-              </p>
+              <p className="text-muted-foreground">Welcome back! Please enter your details.</p>
             </div>
             <div>
               <div className="grid gap-4">
@@ -32,11 +30,7 @@ const Login2 = () => {
                     required
                     className="border-b-0"
                   />
-                  <Input
-                    type="password"
-                    placeholder="Enter your password"
-                    required
-                  />
+                  <Input type="password" placeholder="Enter your password" required />
                 </div>
 
                 <Button type="submit" className="mt-2 w-full">
@@ -54,10 +48,7 @@ const Login2 = () => {
                   Log in
                 </a>
               </div>
-              <a
-                href="#"
-                className="mt-3 flex justify-center text-sm font-medium"
-              >
+              <a href="#" className="mt-3 flex justify-center text-sm font-medium">
                 Forgot password
               </a>
             </div>
@@ -65,7 +56,7 @@ const Login2 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Login2;
+export default Login2

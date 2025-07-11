@@ -1,53 +1,50 @@
-import type { Field } from "payload";
+import type { Field } from 'payload'
 
-import deepMerge from "@/utilities/deepMerge";
-import { icon } from "@/components/Icon/config";
+import deepMerge from '@/utilities/deepMerge'
+import { icon } from '@/components/Icon/config'
 
 export type LinkAppearances =
-  | "default"
-  | "outline"
-  | "inline"
-  | "destructive"
-  | "ghost"
-  | "secondary";
+  | 'default'
+  | 'outline'
+  | 'inline'
+  | 'destructive'
+  | 'ghost'
+  | 'secondary'
 
-export const appearanceOptions: Record<
-  LinkAppearances,
-  { label: string; value: string }
-> = {
+export const appearanceOptions: Record<LinkAppearances, { label: string; value: string }> = {
   default: {
-    label: "Default",
-    value: "default",
+    label: 'Default',
+    value: 'default',
   },
   outline: {
-    label: "Outline",
-    value: "outline",
+    label: 'Outline',
+    value: 'outline',
   },
   inline: {
-    label: "Inline",
-    value: "inline",
+    label: 'Inline',
+    value: 'inline',
   },
   destructive: {
-    label: "Destructive",
-    value: "destructive",
+    label: 'Destructive',
+    value: 'destructive',
   },
   ghost: {
-    label: "Ghost",
-    value: "ghost",
+    label: 'Ghost',
+    value: 'ghost',
   },
   secondary: {
-    label: "Secondary",
-    value: "secondary",
+    label: 'Secondary',
+    value: 'secondary',
   },
-};
+}
 
 type LinkType = (options?: {
-  appearances?: LinkAppearances[] | false;
-  disableLabel?: boolean;
-  disableIcon?: boolean;
-  overrides?: Record<string, unknown>;
-  size?: "default" | "sm" | "lg" | "icon" | "clear";
-}) => Field;
+  appearances?: LinkAppearances[] | false
+  disableLabel?: boolean
+  disableIcon?: boolean
+  overrides?: Record<string, unknown>
+  size?: 'default' | 'sm' | 'lg' | 'icon' | 'clear'
+}) => Field
 
 export const link: LinkType = ({
   appearances,
@@ -56,158 +53,156 @@ export const link: LinkType = ({
   overrides = {},
 } = {}) => {
   const linkResult: Field = {
-    name: "link",
-    type: "group",
+    name: 'link',
+    type: 'group',
     admin: {
       hideGutter: true,
     },
     fields: [
       {
-        type: "row",
+        type: 'row',
         fields: [
           {
-            name: "type",
-            type: "radio",
+            name: 'type',
+            type: 'radio',
             admin: {
-              layout: "horizontal",
-              width: "50%",
+              layout: 'horizontal',
+              width: '50%',
             },
-            defaultValue: "reference",
+            defaultValue: 'reference',
             options: [
               {
-                label: "Internal link",
-                value: "reference",
+                label: 'Internal link',
+                value: 'reference',
               },
               {
-                label: "Custom URL",
-                value: "custom",
+                label: 'Custom URL',
+                value: 'custom',
               },
             ],
           },
           {
-            name: "newTab",
-            type: "checkbox",
+            name: 'newTab',
+            type: 'checkbox',
             admin: {
               style: {
-                alignSelf: "flex-end",
+                alignSelf: 'flex-end',
               },
-              width: "50%",
+              width: '50%',
             },
-            label: "Open in new tab",
+            label: 'Open in new tab',
           },
         ],
       },
     ],
-  };
+  }
 
   const linkTypes: Field[] = [
     {
-      name: "reference",
-      type: "relationship",
+      name: 'reference',
+      type: 'relationship',
       admin: {
-        condition: (_, siblingData) => siblingData?.type === "reference",
+        condition: (_, siblingData) => siblingData?.type === 'reference',
       },
-      label: "Document to link to",
+      label: 'Document to link to',
       maxDepth: 1,
-      relationTo: ["pages"],
+      relationTo: ['pages'],
       required: true,
     },
     {
-      name: "section",
-      type: "text", // or 'text' if you have dynamic options
+      name: 'section',
+      type: 'text', // or 'text' if you have dynamic options
       admin: {
-        condition: (_, siblingData) => siblingData?.type === "reference",
+        condition: (_, siblingData) => siblingData?.type === 'reference',
         components: {
           Field: {
-            path: "@/components/AdminDashboard/SectionSelect",
+            path: '@/components/AdminDashboard/SectionSelect',
           },
         },
       },
     },
     {
-      name: "url",
-      type: "text",
+      name: 'url',
+      type: 'text',
       admin: {
-        condition: (_, siblingData) => siblingData?.type === "custom",
+        condition: (_, siblingData) => siblingData?.type === 'custom',
       },
-      label: "Custom URL",
+      label: 'Custom URL',
       required: true,
       localized: true,
     },
-  ];
+  ]
 
   if (!disableLabel) {
     linkTypes.map((linkType) => ({
       ...linkType,
       admin: {
         ...linkType.admin,
-        width: "50%",
+        width: '50%',
       },
-    }));
+    }))
 
     linkResult.fields.push({
-      type: "row",
+      type: 'row',
       fields: [
         ...linkTypes,
         {
-          name: "label",
-          type: "text",
+          name: 'label',
+          type: 'text',
           localized: true,
           admin: {
-            width: "50%",
+            width: '50%',
           },
-          label: "Label",
+          label: 'Label',
           required: true,
         },
       ],
-    });
+    })
   } else {
-    linkResult.fields = [...linkResult.fields, ...linkTypes];
+    linkResult.fields = [...linkResult.fields, ...linkTypes]
   }
 
   if (!disableIcon) {
     linkResult.fields.push({
-      type: "row",
+      type: 'row',
       fields: [
         icon({
-          name: "iconBefore",
+          name: 'iconBefore',
         }),
         icon({
-          name: "iconAfter",
+          name: 'iconAfter',
         }),
       ],
-    });
+    })
   }
 
   if (appearances !== false) {
-    let appearanceOptionsToUse = Object.values(appearanceOptions);
+    let appearanceOptionsToUse = Object.values(appearanceOptions)
 
     if (appearances) {
-      appearanceOptionsToUse = appearances.map(
-        (appearance) => appearanceOptions[appearance],
-      );
+      appearanceOptionsToUse = appearances.map((appearance) => appearanceOptions[appearance])
     }
 
     linkResult.fields.push({
-      type: "row",
+      type: 'row',
       fields: [
         {
-          name: "appearance",
-          type: "select",
+          name: 'appearance',
+          type: 'select',
           admin: {
-            description: "Choose how the link should be rendered.",
+            description: 'Choose how the link should be rendered.',
           },
-          defaultValue: "default",
+          defaultValue: 'default',
           options: appearanceOptionsToUse,
         },
         {
-          name: "size",
-          type: "select",
-          options: ["default", "sm", "lg", "icon", "clear"],
+          name: 'size',
+          type: 'select',
+          options: ['default', 'sm', 'lg', 'icon', 'clear'],
         },
       ],
-    });
+    })
   }
 
-  return deepMerge(linkResult, overrides);
-};
+  return deepMerge(linkResult, overrides)
+}

@@ -1,55 +1,43 @@
-import {
-  Bolt,
-  Building,
-  Cloud,
-  MessagesSquare,
-  Rocket,
-  Star,
-} from "lucide-react";
+import { Bolt, Building, Cloud, MessagesSquare, Rocket, Star } from 'lucide-react'
 
 const features = [
   {
-    id: "feature-1",
-    title: "Feature 1",
-    description:
-      "Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.",
+    id: 'feature-1',
+    title: 'Feature 1',
+    description: 'Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.',
     icon: Cloud,
   },
   {
-    id: "feature-2",
-    title: "Feature 2",
-    description:
-      "Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.",
+    id: 'feature-2',
+    title: 'Feature 2',
+    description: 'Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.',
     icon: Star,
   },
   {
-    id: "feature-3",
-    title: "Feature 3",
-    description:
-      "Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.",
+    id: 'feature-3',
+    title: 'Feature 3',
+    description: 'Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.',
     icon: Bolt,
   },
   {
-    id: "feature-4",
-    title: "Feature 4",
-    description:
-      "Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.",
+    id: 'feature-4',
+    title: 'Feature 4',
+    description: 'Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.',
     icon: MessagesSquare,
   },
   {
-    id: "feature-5",
-    title: "Feature 5",
-    description: "Nam vitae molestie arcu. Quisque eu libero orci.",
+    id: 'feature-5',
+    title: 'Feature 5',
+    description: 'Nam vitae molestie arcu. Quisque eu libero orci.',
     icon: Rocket,
   },
   {
-    id: "feature-6",
-    title: "Feature 6",
-    description:
-      "Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.",
+    id: 'feature-6',
+    title: 'Feature 6',
+    description: 'Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.',
     icon: Building,
   },
-];
+]
 
 const Feature67 = () => {
   return (
@@ -78,7 +66,7 @@ const Feature67 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature67;
+export default Feature67

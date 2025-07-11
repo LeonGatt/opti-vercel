@@ -1,48 +1,48 @@
 const featuredAddons = [
   {
-    id: "addon-1",
-    title: "Add-on option 1",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-    price: "$199",
+    id: 'addon-1',
+    title: 'Add-on option 1',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+    price: '$199',
   },
   {
-    id: "addon-2",
-    title: "Add-on option 2",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-    price: "$199",
+    id: 'addon-2',
+    title: 'Add-on option 2',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+    price: '$199',
   },
   {
-    id: "addon-3",
-    title: "Add-on option 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-    price: "$199",
+    id: 'addon-3',
+    title: 'Add-on option 3',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+    price: '$199',
   },
-];
+]
 
 const otherAddons = [
   {
-    id: "addon-4",
-    title: "Add-on option 4",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-    price: "$9",
-    image: "https://www.shadcnblocks.com/images/block/block-2.svg",
+    id: 'addon-4',
+    title: 'Add-on option 4',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+    price: '$9',
+    image: 'https://www.shadcnblocks.com/images/block/block-2.svg',
   },
   {
-    id: "addon-5",
-    title: "Add-on option 5",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-    price: "$19",
-    image: "https://www.shadcnblocks.com/images/block/block-3.svg",
+    id: 'addon-5',
+    title: 'Add-on option 5',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+    price: '$19',
+    image: 'https://www.shadcnblocks.com/images/block/block-3.svg',
   },
   {
-    id: "addon-6",
-    title: "Add-on option 6",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-    price: "$19",
-    priceFootnote: "This is a footnote.",
-    image: "https://www.shadcnblocks.com/images/block/block-4.svg",
+    id: 'addon-6',
+    title: 'Add-on option 6',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+    price: '$19',
+    priceFootnote: 'This is a footnote.',
+    image: 'https://www.shadcnblocks.com/images/block/block-4.svg',
   },
-];
+]
 
 const Pricing12 = () => {
   return (
@@ -56,9 +56,8 @@ const Pricing12 = () => {
                   Additional add-ons
                 </h1>
                 <p className="text-xs text-muted-foreground md:text-sm lg:text-base">
-                  Curabitur egestas risus risus, consectetur vestibulum ante
-                  commodo quis. Duis aliquam elit sapien, porttitor vehicula
-                  purus convallis in.
+                  Curabitur egestas risus risus, consectetur vestibulum ante commodo quis. Duis
+                  aliquam elit sapien, porttitor vehicula purus convallis in.
                 </p>
               </div>
               <img
@@ -73,22 +72,15 @@ const Pricing12 = () => {
                   key={addon.id}
                   className="flex flex-1 flex-col rounded-lg bg-accent p-6 lg:py-8"
                 >
-                  <h2 className="mb-1.5 text-base font-medium lg:mb-2 lg:text-lg">
-                    {addon.title}
-                  </h2>
+                  <h2 className="mb-1.5 text-base font-medium lg:mb-2 lg:text-lg">{addon.title}</h2>
                   <div className="grid flex-1 grid-cols-1 gap-x-10 md:grid-cols-3 lg:grid-cols-1">
                     <p className="mb-8 max-w-xs text-xs text-muted-foreground md:col-span-2 md:mb-0 lg:mb-10 lg:text-base">
                       {addon.description}
                     </p>
                     <div className="col-span-1 md:ml-auto md:mt-auto lg:ml-0">
                       <p>
-                        <span className="font-medium lg:text-2xl">
-                          {addon.price}
-                        </span>
-                        <span className="text-xs font-medium text-muted-foreground">
-                          {" "}
-                          / Month
-                        </span>
+                        <span className="font-medium lg:text-2xl">{addon.price}</span>
+                        <span className="text-xs font-medium text-muted-foreground"> / Month</span>
                       </p>
                     </div>
                   </div>
@@ -122,10 +114,7 @@ const Pricing12 = () => {
                     <span className="text-2xl font-medium md:text-3xl lg:text-4xl">
                       {addon.price}
                     </span>
-                    <span className="text-xs text-muted-foreground">
-                      {" "}
-                      / Month
-                    </span>
+                    <span className="text-xs text-muted-foreground"> / Month</span>
                     {addon.priceFootnote && (
                       <div className="mt-1 text-xs font-medium text-muted-foreground md:max-w-32 lg:max-w-full">
                         * {addon.priceFootnote}
@@ -139,7 +128,7 @@ const Pricing12 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing12;
+export default Pricing12

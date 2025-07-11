@@ -1,6 +1,6 @@
-import { ArrowUp } from "lucide-react";
+import { ArrowUp } from 'lucide-react'
 
-import { Card } from "@/components/ui/card";
+import { Card } from '@/components/ui/card'
 
 const Stat2 = () => {
   return (
@@ -67,7 +67,7 @@ const Stat2 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Stat2;
+export default Stat2

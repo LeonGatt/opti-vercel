@@ -1,7 +1,7 @@
-import { HandHelping, Users, Zap } from "lucide-react";
+import { HandHelping, Users, Zap } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
 
 const Hero45 = () => {
   return (
@@ -33,8 +33,7 @@ const Hero45 = () => {
             </div>
             <h3 className="mb-2 font-semibold">Flexible Support</h3>
             <p className="text-sm text-muted-foreground">
-              Benefit from around-the-clock assistance to keep your business
-              running smoothly.
+              Benefit from around-the-clock assistance to keep your business running smoothly.
             </p>
           </div>
           <Separator
@@ -47,8 +46,7 @@ const Hero45 = () => {
             </div>
             <h3 className="mb-2 font-semibold">Collaborative Tools</h3>
             <p className="text-sm text-muted-foreground">
-              Enhance teamwork with tools designed to simplify project
-              management and communication.
+              Enhance teamwork with tools designed to simplify project management and communication.
             </p>
           </div>
           <Separator
@@ -61,14 +59,13 @@ const Hero45 = () => {
             </div>
             <h3 className="mb-2 font-semibold">Lightning Fast Speed</h3>
             <p className="text-sm text-muted-foreground">
-              Experience the fastest load times with our high performance
-              servers.
+              Experience the fastest load times with our high performance servers.
             </p>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero45;
+export default Hero45

@@ -1,7 +1,7 @@
-import { CMSLink } from "@/components/Link";
-import RichText from "@/components/RichText";
-import { CtaBlock } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { CMSLink } from '@/components/Link'
+import RichText from '@/components/RichText'
+import { CtaBlock } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const CTA6: React.FC<CtaBlock & { publicContext: PublicContextProps }> = ({
   richText,
@@ -19,9 +19,9 @@ const CTA6: React.FC<CtaBlock & { publicContext: PublicContextProps }> = ({
                 content={richText}
                 withWrapper={false}
                 overrideStyle={{
-                  h2: "mb-3 text-4xl font-semibold md:mb-4 md:text-5xl lg:mb-6",
-                  h3: "mb-3 text-4xl font-semibold md:mb-4 md:text-5xl lg:mb-6",
-                  p: "text-muted-foreground lg:text-lg mb-8",
+                  h2: 'mb-3 text-4xl font-semibold md:mb-4 md:text-5xl lg:mb-6',
+                  h3: 'mb-3 text-4xl font-semibold md:mb-4 md:text-5xl lg:mb-6',
+                  p: 'text-muted-foreground lg:text-lg mb-8',
                 }}
               />
             )}
@@ -36,7 +36,7 @@ const CTA6: React.FC<CtaBlock & { publicContext: PublicContextProps }> = ({
                         key={i}
                         {...link}
                       />
-                    );
+                    )
                   })}
                 </>
               )}
@@ -52,7 +52,7 @@ const CTA6: React.FC<CtaBlock & { publicContext: PublicContextProps }> = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CTA6;
+export default CTA6

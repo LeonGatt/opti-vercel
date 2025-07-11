@@ -14,8 +14,8 @@ const Feature39 = () => {
             />
             <p className="mb-2 mt-8 text-lg font-semibold">Integrations</p>
             <p className="mb-4 text-muted-foreground">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-              eaque corrupti illum sapiente!
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse eaque corrupti illum
+              sapiente!
             </p>
             <a href="#" className="font-medium underline">
               Learn more
@@ -29,8 +29,8 @@ const Feature39 = () => {
             />
             <p className="mb-2 mt-8 text-lg font-semibold">Analytics</p>
             <p className="mb-4 text-muted-foreground">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-              eaque corrupti illum sapiente!
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse eaque corrupti illum
+              sapiente!
             </p>
             <a href="#" className="font-medium underline">
               Learn more
@@ -44,8 +44,8 @@ const Feature39 = () => {
             />
             <p className="mb-2 mt-8 text-lg font-semibold">Search & Filter</p>
             <p className="mb-4 text-muted-foreground">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-              eaque corrupti illum sapiente!
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse eaque corrupti illum
+              sapiente!
             </p>
             <a href="#" className="font-medium underline">
               Learn more
@@ -54,7 +54,7 @@ const Feature39 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature39;
+export default Feature39

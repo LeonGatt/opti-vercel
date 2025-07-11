@@ -1,20 +1,20 @@
-import { Check } from "lucide-react";
+import { Check } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const features = [
-  "Unlimited projects and tasks",
-  "Unlimited users and collaborators",
-  "100GB of storage",
-  "Priority support and assistance",
-  "Custom domain and branding",
-  "Advanced analytics and reporting",
-  "Customization options and flexibility",
-  "Unlimited integrations and connections",
-  "Free setup and onboarding",
-  "Free updates and upgrades",
-  "Custom design and layout",
-];
+  'Unlimited projects and tasks',
+  'Unlimited users and collaborators',
+  '100GB of storage',
+  'Priority support and assistance',
+  'Custom domain and branding',
+  'Advanced analytics and reporting',
+  'Customization options and flexibility',
+  'Unlimited integrations and connections',
+  'Free setup and onboarding',
+  'Free updates and upgrades',
+  'Custom design and layout',
+]
 
 const Pricing15 = () => {
   return (
@@ -26,10 +26,9 @@ const Pricing15 = () => {
               Subsribe to our premium plan
             </h2>
             <p className="mb-4 text-lg text-muted-foreground">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-              ad eveniet esse id ipsa. Tempore voluptatum magni magnam vitae
-              aperiam, explicabo hic asperiores enim quibusdam, tenetur
-              repellendus.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti ad eveniet esse id
+              ipsa. Tempore voluptatum magni magnam vitae aperiam, explicabo hic asperiores enim
+              quibusdam, tenetur repellendus.
             </p>
             <Button variant="outline" size="lg">
               Contact us
@@ -51,7 +50,7 @@ const Pricing15 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing15;
+export default Pricing15

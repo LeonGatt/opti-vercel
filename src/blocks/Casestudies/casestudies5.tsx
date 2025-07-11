@@ -1,49 +1,49 @@
-"use client";
+'use client'
 
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import { AnimatePresence, motion } from 'framer-motion'
+import React, { useState } from 'react'
 
-import type { CarouselApi } from "@/components/ui/carousel";
+import type { CarouselApi } from '@/components/ui/carousel'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { CasestudiesBlock } from "@/payload-types";
-import { Media } from "@/components/Media";
+} from '@/components/ui/carousel'
+import { CasestudiesBlock } from '@/payload-types'
+import { Media } from '@/components/Media'
 
 const Casestudies5: React.FC<CasestudiesBlock> = ({ slides }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>()
 
   React.useEffect(() => {
     if (!carouselApi) {
-      return;
+      return
     }
 
     const onSelect = () => {
-      setCurrentIndex(carouselApi.selectedScrollSnap());
-    };
+      setCurrentIndex(carouselApi.selectedScrollSnap())
+    }
 
-    carouselApi.on("select", onSelect);
+    carouselApi.on('select', onSelect)
     return () => {
-      carouselApi.off("select", onSelect);
-    };
-  }, [carouselApi]);
+      carouselApi.off('select', onSelect)
+    }
+  }, [carouselApi])
 
-  const renderGrid = (images: (typeof slides)[0]["images"]) => {
+  const renderGrid = (images: (typeof slides)[0]['images']) => {
     return (
       <div className="grid h-full w-full grid-cols-3 grid-rows-3 gap-3 p-3">
         {Array.from({ length: 9 }).map((_, index) => {
-          const image = images.find((img) => img.position === index);
-          const isImage = Boolean(image);
+          const image = images.find((img) => img.position === index)
+          const isImage = Boolean(image)
 
           return (
             <div
               key={index}
-              className={`w-full overflow-hidden rounded-lg ${isImage ? "" : "bg-muted"}`}
+              className={`w-full overflow-hidden rounded-lg ${isImage ? '' : 'bg-muted'}`}
             >
               {isImage && image?.src && (
                 <Media
@@ -51,15 +51,15 @@ const Casestudies5: React.FC<CasestudiesBlock> = ({ slides }) => {
                   className="aspect-square h-full w-full object-cover md:aspect-video"
                   priority
                   resource={image.src}
-                  loading={index === 0 ? "eager" : "lazy"}
+                  loading={index === 0 ? 'eager' : 'lazy'}
                 />
               )}
             </div>
-          );
+          )
         })}
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <section className="bg-background py-32">
@@ -89,7 +89,7 @@ const Casestudies5: React.FC<CasestudiesBlock> = ({ slides }) => {
                       exit={{ opacity: 0, y: -20 }}
                       transition={{
                         duration: 0.4,
-                        ease: "easeOut",
+                        ease: 'easeOut',
                       }}
                       className="flex h-12 items-center gap-3"
                     >
@@ -110,7 +110,7 @@ const Casestudies5: React.FC<CasestudiesBlock> = ({ slides }) => {
                       exit={{ opacity: 0, y: -20 }}
                       transition={{
                         duration: 0.4,
-                        ease: "easeOut",
+                        ease: 'easeOut',
                         delay: 0.15,
                       }}
                       className="min-h-[100px] leading-snug tracking-tight text-muted-foreground sm:text-xl xl:mr-8"
@@ -130,7 +130,7 @@ const Casestudies5: React.FC<CasestudiesBlock> = ({ slides }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export { Casestudies5 };
+export { Casestudies5 }

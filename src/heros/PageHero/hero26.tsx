@@ -1,13 +1,7 @@
-import {
-  ArrowRight,
-  Blocks,
-  MessagesSquare,
-  MoveRight,
-  Users,
-} from "lucide-react";
+import { ArrowRight, Blocks, MessagesSquare, MoveRight, Users } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 
 const Hero26 = () => {
   return (
@@ -42,8 +36,7 @@ const Hero26 = () => {
               <MessagesSquare className="mr-1 w-5" />
               Communicate,
             </span>
-            and achieve their goals. Get a head start with our free plan. No
-            credit card required.
+            and achieve their goals. Get a head start with our free plan. No credit card required.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg">
@@ -58,7 +51,7 @@ const Hero26 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero26;
+export default Hero26

@@ -1,26 +1,28 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { TimelineBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import styles from "./index.module.css";
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { TimelineBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import styles from './index.module.css'
 
-const Timeline8: React.FC<
-  TimelineBlock & { publicContext: PublicContextProps }
-> = ({ heading, sections, publicContext }) => {
+const Timeline8: React.FC<TimelineBlock & { publicContext: PublicContextProps }> = ({
+  heading,
+  sections,
+  publicContext,
+}) => {
   const formatDateToReadable = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  }
 
-  if (!sections) return null;
+  if (!sections) return null
 
   return (
     <section className="bg-background py-32">
@@ -29,19 +31,13 @@ const Timeline8: React.FC<
           {heading}
         </h1>
         <div className="relative mx-auto max-w-4xl">
-          <Separator
-            orientation="vertical"
-            className="absolute top-4 left-2 bg-muted"
-          />
+          <Separator orientation="vertical" className="absolute top-4 left-2 bg-muted" />
           {sections?.map((entry, index: number) => (
             <div key={index} className="relative mb-10 pl-8">
               <div className="absolute top-2 left-0 flex size-5 items-center justify-center rounded-full bg-foreground">
                 <div className="size-3 rounded-full bg-white" />
               </div>
-              <Badge
-                variant="secondary"
-                className="mb-4 rounded-xl px-3 py-2 text-sm"
-              >
+              <Badge variant="secondary" className="mb-4 rounded-xl px-3 py-2 text-sm">
                 {entry?.date && formatDateToReadable(entry.date)}
               </Badge>
 
@@ -53,8 +49,8 @@ const Timeline8: React.FC<
                       publicContext={publicContext}
                       withWrapper={false}
                       overrideStyle={{
-                        p: "text-md leading-relaxed text-foreground",
-                        li: "text-md leading-relaxed text-foreground",
+                        p: 'text-md leading-relaxed text-foreground',
+                        li: 'text-md leading-relaxed text-foreground',
                       }}
                       content={entry?.richText}
                     />
@@ -66,7 +62,7 @@ const Timeline8: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Timeline8;
+export default Timeline8

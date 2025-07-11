@@ -1,8 +1,8 @@
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 const Signup3 = () => {
   return (
@@ -16,12 +16,7 @@ const Signup3 = () => {
               className="absolute top-10 -z-10 h-full w-[1250px] mask-[radial-gradient(circle,red,transparent,transparent,transparent)]"
             >
               <defs>
-                <pattern
-                  id="innerGrid"
-                  width="40"
-                  height="40"
-                  patternUnits="userSpaceOnUse"
-                >
+                <pattern id="innerGrid" width="40" height="40" patternUnits="userSpaceOnUse">
                   <path
                     d="M 40 0 L 0 0 0 40"
                     fill="none"
@@ -29,12 +24,7 @@ const Signup3 = () => {
                     strokeWidth="0.5"
                   />
                 </pattern>
-                <pattern
-                  id="grid"
-                  width="160"
-                  height="160"
-                  patternUnits="userSpaceOnUse"
-                >
+                <pattern id="grid" width="160" height="160" patternUnits="userSpaceOnUse">
                   <rect width="160" height="160" fill="url(#innerGrid)" />
                 </pattern>
               </defs>
@@ -46,21 +36,14 @@ const Signup3 = () => {
               className="mb-7 h-10 w-auto"
             />
             <p className="mb-2 text-2xl font-bold">Create an account</p>
-            <p className="text-muted-foreground">
-              Start your 30-day free trial.
-            </p>
+            <p className="text-muted-foreground">Start your 30-day free trial.</p>
           </div>
           <div className="z-10 mx-auto w-full max-w-sm rounded-md bg-background p-6 shadow-sm">
             <div>
               <div className="grid gap-4">
                 <div className="grid w-full max-w-sm items-center gap-1.5">
                   <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Enter your name"
-                    required
-                  />
+                  <Input id="name" type="text" placeholder="Enter your name" required />
                 </div>
 
                 <div className="grid w-full max-w-sm items-center gap-1.5">
@@ -100,7 +83,7 @@ const Signup3 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Signup3;
+export default Signup3

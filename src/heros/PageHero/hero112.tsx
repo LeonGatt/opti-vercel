@@ -1,25 +1,18 @@
-"use client";
+'use client'
 
-import { BookOpen, PenTool, Play } from "lucide-react";
-import { useState } from "react";
+import { BookOpen, PenTool, Play } from 'lucide-react'
+import { useState } from 'react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Page } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Page } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-const Hero112: React.FC<
-  Page["hero"] & { publicContext: PublicContextProps }
-> = ({
+const Hero112: React.FC<Page['hero'] & { publicContext: PublicContextProps }> = ({
   richText,
   links,
   images,
@@ -30,7 +23,7 @@ const Hero112: React.FC<
   statsItems,
   publicContext,
 }) => {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [isVideoOpen, setIsVideoOpen] = useState(false)
 
   return (
     <section className="bg-background py-12 md:py-32">
@@ -44,8 +37,8 @@ const Hero112: React.FC<
                 content={richText}
                 enableGutter={false}
                 overrideStyle={{
-                  h1: "text-4xl leading-tight font-medium lg:text-6xl",
-                  p: "text-lg text-muted-foreground lg:max-w-[80%]",
+                  h1: 'text-4xl leading-tight font-medium lg:text-6xl',
+                  p: 'text-lg text-muted-foreground lg:max-w-[80%]',
                 }}
               />
             )}
@@ -65,7 +58,7 @@ const Hero112: React.FC<
                   <div className="flex h-10 w-10 rounded-full bg-orange-500 transition-transform group-hover:scale-110">
                     <Play className="m-auto h-5 w-5 fill-white stroke-white" />
                   </div>
-                  <div>{presentationVideo.label || "Presentation Video"}</div>
+                  <div>{presentationVideo.label || 'Presentation Video'}</div>
                 </Button>
               )}
             </div>
@@ -92,8 +85,7 @@ const Hero112: React.FC<
                           <AvatarImage alt="" />
                           <Media resource={icon} />
                           <AvatarFallback>
-                            {String.fromCharCode(65 + i) +
-                              String.fromCharCode(66 + i)}
+                            {String.fromCharCode(65 + i) + String.fromCharCode(66 + i)}
                           </AvatarFallback>
                         </Avatar>
                       ))
@@ -103,14 +95,13 @@ const Hero112: React.FC<
                           className="flex h-12 w-12 shrink-0 rounded-full border-4 border-white object-cover"
                         >
                           <AvatarFallback>
-                            {String.fromCharCode(65 + i) +
-                              String.fromCharCode(66 + i)}
+                            {String.fromCharCode(65 + i) + String.fromCharCode(66 + i)}
                           </AvatarFallback>
                         </Avatar>
                       ))}
                 </div>
                 <div className="flex-1 text-sm text-gray-800">
-                  {tagline || "7000+ people already joined"}
+                  {tagline || '7000+ people already joined'}
                 </div>
               </div>
               <div className="absolute top-0 right-0 flex h-25 w-25 rotate-12 rounded-3xl border-8 border-white bg-primary lg:h-27.5 lg:w-27.5">
@@ -129,17 +120,11 @@ const Hero112: React.FC<
                 <div
                   key={index}
                   className={`flex flex-1 flex-col gap-3 p-6 ${
-                    index < statsItems.length - 1
-                      ? "border-b md:border-r md:border-b-0"
-                      : ""
+                    index < statsItems.length - 1 ? 'border-b md:border-r md:border-b-0' : ''
                   }`}
                 >
-                  <div className="text-2xl font-medium text-primary lg:text-4xl">
-                    {item.value}
-                  </div>
-                  <div className="text-muted-foreground lg:text-lg">
-                    {item.title}
-                  </div>
+                  <div className="text-2xl font-medium text-primary lg:text-4xl">{item.value}</div>
+                  <div className="text-muted-foreground lg:text-lg">{item.title}</div>
                 </div>
               ))}
             </div>
@@ -155,11 +140,8 @@ const Hero112: React.FC<
           <div className="aspect-video">
             <iframe
               className="h-full w-full"
-              src={
-                presentationVideo?.videoUrl ||
-                "https://www.youtube.com/embed/your-video-id"
-              }
-              title={presentationVideo?.label || "Presentation Video"}
+              src={presentationVideo?.videoUrl || 'https://www.youtube.com/embed/your-video-id'}
+              title={presentationVideo?.label || 'Presentation Video'}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
@@ -167,7 +149,7 @@ const Hero112: React.FC<
         </DialogContent>
       </Dialog>
     </section>
-  );
-};
+  )
+}
 
-export default Hero112;
+export default Hero112

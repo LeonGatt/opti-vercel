@@ -1,27 +1,27 @@
-import type { Block } from "payload";
+import type { Block } from 'payload'
 
 import {
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
-} from "@payloadcms/richtext-lexical";
-import { backgroundColor } from "@/fields/color";
-import { icon } from "@/components/Icon/config";
+} from '@payloadcms/richtext-lexical'
+import { backgroundColor } from '@/fields/color'
+import { icon } from '@/components/Icon/config'
 
 export const Banner: Block = {
-  slug: "banner",
+  slug: 'banner',
   fields: [
     backgroundColor,
     {
-      name: "style",
-      type: "select",
-      defaultValue: "info",
+      name: 'style',
+      type: 'select',
+      defaultValue: 'info',
       options: [
-        { label: "Info", value: "info" },
-        { label: "Warning", value: "warning" },
-        { label: "Error", value: "error" },
-        { label: "Success", value: "success" },
+        { label: 'Info', value: 'info' },
+        { label: 'Warning', value: 'warning' },
+        { label: 'Error', value: 'error' },
+        { label: 'Success', value: 'success' },
       ],
       required: true,
     },
@@ -29,26 +29,22 @@ export const Banner: Block = {
       required: false,
     }),
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
       required: false,
     },
     {
-      name: "content",
-      type: "richText",
+      name: 'content',
+      type: 'richText',
       localized: true,
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
-          return [
-            ...rootFeatures,
-            FixedToolbarFeature(),
-            InlineToolbarFeature(),
-          ];
+          return [...rootFeatures, FixedToolbarFeature(), InlineToolbarFeature()]
         },
       }),
       label: false,
       required: true,
     },
   ],
-  interfaceName: "BannerBlock",
-};
+  interfaceName: 'BannerBlock',
+}

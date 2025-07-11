@@ -1,7 +1,7 @@
-import { Play } from "lucide-react";
+import { Play } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
 
 const Feature86 = () => {
   return (
@@ -18,16 +18,15 @@ const Feature86 = () => {
                 <span className="text-muted-foreground">less meetings.</span>
               </h2>
               <p className="text-muted-foreground">
-                Shared platforms empower teams and partners to track progress,
-                provide feedback, and approve tasks, reducing meetings and
-                updates, allowing you to focus on the bigger picture.
+                Shared platforms empower teams and partners to track progress, provide feedback, and
+                approve tasks, reducing meetings and updates, allowing you to focus on the bigger
+                picture.
               </p>
             </div>
             <div className="flex flex-col gap-3">
               <Separator />
               <p className="text-muted-foreground">
-                Discover how we operate a remote-first, efficient service team
-                with Flow.
+                Discover how we operate a remote-first, efficient service team with Flow.
               </p>
               <a href="#" className="flex items-center gap-1 hover:underline">
                 <Play className="h-auto w-4" />
@@ -45,7 +44,7 @@ const Feature86 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature86;
+export default Feature86

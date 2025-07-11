@@ -1,6 +1,6 @@
-import { Minus } from "lucide-react";
+import { Minus } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero50 = () => {
   return (
@@ -10,22 +10,18 @@ const Hero50 = () => {
           href="#"
           className="group mx-auto mb-3 w-fit gap-3 rounded-full border px-5 py-2 text-sm"
         >
-          <span className="mr-1 font-medium">
-            Join our Community Collaboration Survey!
-          </span>
+          <span className="mr-1 font-medium">Join our Community Collaboration Survey!</span>
           We’ll donate $20 for each response.
           <Minus className="mx-1 inline-block w-4" />
-          <span className="font-semibold group-hover:underline">
-            Take a tour
-          </span>
+          <span className="font-semibold group-hover:underline">Take a tour</span>
         </a>
         <h1 className="mx-auto max-w-4xl text-balance text-4xl font-semibold lg:text-6xl">
           Community & business data, centralized
         </h1>
         <p className="mx-auto max-w-4xl text-muted-foreground lg:text-xl">
-          Showcase the value of your community to the business. Talkbase sets
-          the stage for successful cross-collaboration among community teams
-          working with customer, marketing, sales, and product development.
+          Showcase the value of your community to the business. Talkbase sets the stage for
+          successful cross-collaboration among community teams working with customer, marketing,
+          sales, and product development.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Button size="lg">Get started for free</Button>
@@ -55,7 +51,7 @@ const Hero50 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero50;
+export default Hero50

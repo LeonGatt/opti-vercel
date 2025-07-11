@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero38 = () => {
   return (
@@ -13,9 +13,8 @@ const Hero38 = () => {
               Welcome to Our Website
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi
-              consequatur. Explicabo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               <Button className="w-full sm:w-auto">
@@ -36,10 +35,10 @@ const Hero38 = () => {
                 className="size-full text-muted-foreground opacity-20"
               >
                 {Array.from(Array(720).keys()).map((dot, index, array) => {
-                  const angle = 0.2 * index;
-                  const scalar = 40 + index * (360 / array.length);
-                  const x = Math.round(Math.cos(angle) * scalar);
-                  const y = Math.round(Math.sin(angle) * scalar);
+                  const angle = 0.2 * index
+                  const scalar = 40 + index * (360 / array.length)
+                  const x = Math.round(Math.cos(angle) * scalar)
+                  const y = Math.round(Math.sin(angle) * scalar)
 
                   return (
                     <circle
@@ -49,7 +48,7 @@ const Hero38 = () => {
                       cy={400 + y}
                       opacity={1 - Math.sin(angle)}
                     />
-                  );
+                  )
                 })}
               </svg>
             </div>
@@ -60,7 +59,7 @@ const Hero38 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero38;
+export default Hero38

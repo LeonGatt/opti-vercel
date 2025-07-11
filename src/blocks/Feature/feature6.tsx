@@ -1,4 +1,4 @@
-import { CheckCircle, MessagesSquare } from "lucide-react";
+import { CheckCircle, MessagesSquare } from 'lucide-react'
 
 const Feature6 = () => {
   return (
@@ -13,15 +13,13 @@ const Feature6 = () => {
               Welcome to Our Website
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis! Porro facilis quo animi.
             </p>
             <ul className="ml-4 space-y-4 text-left">
               <li className="flex items-center gap-3">
                 <CheckCircle className="size-6" />
-                <p className="text-muted-foreground lg:text-lg">
-                  Lorem ipsum dolor sit amet.
-                </p>
+                <p className="text-muted-foreground lg:text-lg">Lorem ipsum dolor sit amet.</p>
               </li>
               <li className="flex items-center gap-3">
                 <CheckCircle className="size-6" />
@@ -45,7 +43,7 @@ const Feature6 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature6;
+export default Feature6

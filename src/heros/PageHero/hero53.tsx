@@ -1,7 +1,7 @@
-import { Globe } from "lucide-react";
+import { Globe } from 'lucide-react'
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
 
 const Hero53 = () => {
   return (
@@ -41,13 +41,13 @@ const Hero53 = () => {
             </div>
           </div>
           <p className="max-w-lg text-xl text-muted-foreground">
-            Our platform streamlines development by automating issue tracking,
-            documentation, and knowledge management.
+            Our platform streamlines development by automating issue tracking, documentation, and
+            knowledge management.
           </p>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero53;
+export default Hero53

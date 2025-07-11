@@ -1,7 +1,7 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 
 const Feature98 = () => {
   return (
@@ -10,17 +10,13 @@ const Feature98 = () => {
         <div className="container">
           <div className="grid gap-8 lg:grid-cols-5 lg:gap-20">
             <div className="lg:col-span-3">
-              <p className="text-lg text-muted-foreground">
-                Comprehensive Investment Solutions
-              </p>
-              <h2 className="mt-6 text-4xl lg:text-7xl">
-                Your all-in-one VC partner
-              </h2>
+              <p className="text-lg text-muted-foreground">Comprehensive Investment Solutions</p>
+              <h2 className="mt-6 text-4xl lg:text-7xl">Your all-in-one VC partner</h2>
             </div>
             <div className="lg:col-span-2">
               <p className="text-lg text-muted-foreground">
-                Every step covered—simplify your investments. We manage fund
-                setup, compliance, taxes, and everything in between.
+                Every step covered—simplify your investments. We manage fund setup, compliance,
+                taxes, and everything in between.
               </p>
               <div className="mt-10 flex gap-2">
                 <Button size="lg">Contact an Advisor</Button>
@@ -33,10 +29,7 @@ const Feature98 = () => {
         </div>
         <Separator className="mb-6 mt-24" />
         <div className="container grid gap-8 lg:grid-cols-3">
-          <a
-            href="#"
-            className="group relative grid overflow-hidden sm:grid-cols-2 lg:grid-cols-1"
-          >
+          <a href="#" className="group relative grid overflow-hidden sm:grid-cols-2 lg:grid-cols-1">
             <div className="absolute left-0 top-0 z-20 flex w-full justify-between gap-2 p-6 text-background sm:bottom-0 sm:left-1/2 sm:w-1/2 sm:flex-col lg:bottom-auto lg:left-0 lg:w-full lg:flex-row lg:items-center">
               <div>
                 <h3 className="text-lg font-medium">Startup Funds</h3>
@@ -53,10 +46,7 @@ const Feature98 = () => {
             />
             <div className="z-10 bg-primary"></div>
           </a>
-          <a
-            href="#"
-            className="group relative grid overflow-hidden sm:grid-cols-2 lg:grid-cols-1"
-          >
+          <a href="#" className="group relative grid overflow-hidden sm:grid-cols-2 lg:grid-cols-1">
             <div className="absolute left-0 top-0 z-20 flex w-full justify-between gap-2 p-6 text-background sm:bottom-0 sm:left-1/2 sm:w-1/2 sm:flex-col lg:bottom-auto lg:left-0 lg:w-full lg:flex-row lg:items-center">
               <div>
                 <h3 className="text-lg font-medium">Flexible Funds</h3>
@@ -73,10 +63,7 @@ const Feature98 = () => {
             />
             <div className="z-10 bg-primary"></div>
           </a>
-          <a
-            href="#"
-            className="group relative grid overflow-hidden sm:grid-cols-2 lg:grid-cols-1"
-          >
+          <a href="#" className="group relative grid overflow-hidden sm:grid-cols-2 lg:grid-cols-1">
             <div className="absolute left-0 top-0 z-20 flex w-full justify-between gap-2 p-6 text-background sm:bottom-0 sm:left-1/2 sm:w-1/2 sm:flex-col lg:bottom-auto lg:left-0 lg:w-full lg:flex-row lg:items-center">
               <div>
                 <h3 className="text-lg font-medium">Capital Syndication</h3>
@@ -96,7 +83,7 @@ const Feature98 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature98;
+export default Feature98

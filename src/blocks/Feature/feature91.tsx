@@ -1,25 +1,24 @@
-import { FeatureBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { Icon } from "@/components/Icon";
-import { CMSLink } from "@/components/Link";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { FeatureBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { Icon } from '@/components/Icon'
+import { CMSLink } from '@/components/Link'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 /**
  * Feature 91 has exactly two USPs
  * @param param0
  * @returns
  */
-const Feature91: React.FC<
-  FeatureBlock & { publicContext: PublicContextProps }
-> = ({ USPs, publicContext }) => {
+const Feature91: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+  USPs,
+  publicContext,
+}) => {
   if (!USPs || USPs.length !== 2) {
     return (
-      <p className="text-red-500">
-        You need to have exactly two USPs for Feature91 block to work
-      </p>
-    );
+      <p className="text-red-500">You need to have exactly two USPs for Feature91 block to work</p>
+    )
   }
-  const [usp1, usp2] = USPs;
+  const [usp1, usp2] = USPs
   return (
     <section className="py-32">
       <div className="container">
@@ -30,9 +29,9 @@ const Feature91: React.FC<
                 publicContext={publicContext}
                 content={usp1.richText}
                 overrideStyle={{
-                  h2: "mb-6 text-3xl font-semibold md:text-4xl",
-                  p: "mb-6 text-lg text-muted-foreground",
-                  li: "mb-6 text-lg text-muted-foreground",
+                  h2: 'mb-6 text-3xl font-semibold md:text-4xl',
+                  p: 'mb-6 text-lg text-muted-foreground',
+                  li: 'mb-6 text-lg text-muted-foreground',
                 }}
               />
             )}
@@ -51,16 +50,11 @@ const Feature91: React.FC<
               {usp1.USPFeatures?.map((feature) => (
                 <div
                   key={feature.id}
-                  className={`flex items-center gap-7 py-6 ${feature.id === usp1.USPFeatures?.[1]?.id ? "border-y border-dashed border-primary" : ""}`}
+                  className={`flex items-center gap-7 py-6 ${feature.id === usp1.USPFeatures?.[1]?.id ? 'border-y border-dashed border-primary' : ''}`}
                 >
-                  {feature.icon && (
-                    <Icon className="h-auto w-8 shrink-0" icon={feature.icon} />
-                  )}
+                  {feature.icon && <Icon className="h-auto w-8 shrink-0" icon={feature.icon} />}
                   {feature.richText && (
-                    <RichText
-                      publicContext={publicContext}
-                      content={feature.richText}
-                    />
+                    <RichText publicContext={publicContext} content={feature.richText} />
                   )}
                 </div>
               ))}
@@ -72,9 +66,9 @@ const Feature91: React.FC<
                 publicContext={publicContext}
                 content={usp2.richText}
                 overrideStyle={{
-                  h2: "mb-6 text-3xl font-semibold md:text-4xl",
-                  p: "mb-6 text-lg text-muted-foreground",
-                  li: "mb-6 text-lg text-muted-foreground",
+                  h2: 'mb-6 text-3xl font-semibold md:text-4xl',
+                  p: 'mb-6 text-lg text-muted-foreground',
+                  li: 'mb-6 text-lg text-muted-foreground',
                 }}
               />
             )}
@@ -93,16 +87,11 @@ const Feature91: React.FC<
               {usp2.USPFeatures?.map((feature) => (
                 <div
                   key={feature.id}
-                  className={`flex items-center gap-7 py-6 ${feature.id === usp2.USPFeatures?.[1]?.id ? "border-y border-dashed border-primary" : ""}`}
+                  className={`flex items-center gap-7 py-6 ${feature.id === usp2.USPFeatures?.[1]?.id ? 'border-y border-dashed border-primary' : ''}`}
                 >
-                  {feature.icon && (
-                    <Icon className="h-auto w-8 shrink-0" icon={feature.icon} />
-                  )}
+                  {feature.icon && <Icon className="h-auto w-8 shrink-0" icon={feature.icon} />}
                   {feature.richText && (
-                    <RichText
-                      publicContext={publicContext}
-                      content={feature.richText}
-                    />
+                    <RichText publicContext={publicContext} content={feature.richText} />
                   )}
                 </div>
               ))}
@@ -111,7 +100,7 @@ const Feature91: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature91;
+export default Feature91

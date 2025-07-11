@@ -1,30 +1,10 @@
 export const CartIcon = () => (
-  <svg
-    width="27"
-    height="26"
-    viewBox="0 0 27 26"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
     <title>Cart Icon</title>
-    <line
-      x1="0.7"
-      y1="25.7"
-      x2="25.7"
-      y2="0.7"
-      stroke="currentColor"
-      strokeWidth="0.84"
-    />
-    <line
-      x1="1.3"
-      y1="0.7"
-      x2="26.3"
-      y2="25.7"
-      stroke="currentColor"
-      strokeWidth="0.84"
-    />
+    <line x1="0.7" y1="25.7" x2="25.7" y2="0.7" stroke="currentColor" strokeWidth="0.84" />
+    <line x1="1.3" y1="0.7" x2="26.3" y2="25.7" stroke="currentColor" strokeWidth="0.84" />
   </svg>
-);
+)
 
 export const CartToggleIcon = () => (
   <svg
@@ -63,4 +43,4 @@ export const CartToggleIcon = () => (
       className="transition-colors duration-300"
     />
   </svg>
-);
+)

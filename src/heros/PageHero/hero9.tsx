@@ -1,8 +1,8 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Page } from "@/payload-types";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Page } from '@/payload-types'
 
 const codeSample = `
 curl 'https://api.example.com/v1/endpoint' \\
@@ -11,9 +11,9 @@ curl 'https://api.example.com/v1/endpoint' \\
     -d param_1=1001 \\
     -d param_3=true \\
     -d param_2="Donec quis lorem ligula."
-`.trim();
+`.trim()
 
-export const Hero9: React.FC<Page["hero"]> = ({}) => {
+export const Hero9: React.FC<Page['hero']> = ({}) => {
   return (
     <section className="relative py-32">
       {/* Background gradient */}
@@ -28,9 +28,8 @@ export const Hero9: React.FC<Page["hero"]> = ({}) => {
             Welcome to Our Website
           </h1>
           <p className="mb-8 max-w-3xl text-muted-foreground lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis! Porro facilis quo animi
-            consequatur. Explicabo.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+            omnis! Porro facilis quo animi consequatur. Explicabo.
           </p>
           <div className="flex w-full flex-col justify-start gap-2 sm:flex-row">
             <Button className="w-full sm:w-auto">
@@ -62,7 +61,7 @@ export const Hero9: React.FC<Page["hero"]> = ({}) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero9;
+export default Hero9

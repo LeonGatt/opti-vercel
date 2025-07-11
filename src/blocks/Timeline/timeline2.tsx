@@ -1,49 +1,51 @@
-"use client";
+'use client'
 
-import { useEffect, useRef, useState } from "react";
-import { cn } from "@/utilities/cn";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { TimelineBlock } from "@/payload-types";
-import { Media } from "@/components/Media";
-import RichText from "@/components/RichText";
+import { useEffect, useRef, useState } from 'react'
+import { cn } from '@/utilities/cn'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { TimelineBlock } from '@/payload-types'
+import { Media } from '@/components/Media'
+import RichText from '@/components/RichText'
 
-const Timeline2: React.FC<
-  TimelineBlock & { publicContext: PublicContextProps }
-> = ({ heading, sections, publicContext }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+const Timeline2: React.FC<TimelineBlock & { publicContext: PublicContextProps }> = ({
+  heading,
+  sections,
+  publicContext,
+}) => {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const handleScroll = () => {
-      const viewportHeight = window.innerHeight;
-      const viewportCenter = viewportHeight / 2;
+      const viewportHeight = window.innerHeight
+      const viewportCenter = viewportHeight / 2
 
-      let closestSection = 0;
-      let closestDistance = Infinity;
+      let closestSection = 0
+      let closestDistance = Infinity
 
       sectionRefs.current.forEach((section, index) => {
         if (section) {
-          const rect = section.getBoundingClientRect();
-          const sectionCenter = rect.top + rect.height / 2;
-          const distance = Math.abs(sectionCenter - viewportCenter);
+          const rect = section.getBoundingClientRect()
+          const sectionCenter = rect.top + rect.height / 2
+          const distance = Math.abs(sectionCenter - viewportCenter)
 
           if (distance < closestDistance) {
-            closestDistance = distance;
-            closestSection = index;
+            closestDistance = distance
+            closestSection = index
           }
         }
-      });
+      })
 
-      setActiveIndex(closestSection);
-    };
+      setActiveIndex(closestSection)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    window.addEventListener('scroll', handleScroll)
+    handleScroll()
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-  if (!sections) return null;
+  if (!sections) return null
 
   return (
     <section className="py-32">
@@ -57,7 +59,7 @@ const Timeline2: React.FC<
               <div
                 key={index}
                 ref={(el) => {
-                  sectionRefs.current[index] = el;
+                  sectionRefs.current[index] = el
                 }}
                 className="flex flex-col gap-4 md:h-[50vh]"
               >
@@ -80,10 +82,10 @@ const Timeline2: React.FC<
                     publicContext={publicContext}
                     withWrapper={false}
                     overrideStyle={{
-                      h2: "text-2xl font-semibold md:text-4xl",
-                      h3: "text-2xl font-semibold md:text-4xl",
-                      p: "text-muted-foreground",
-                      li: "text-muted-foreground",
+                      h2: 'text-2xl font-semibold md:text-4xl',
+                      h3: 'text-2xl font-semibold md:text-4xl',
+                      p: 'text-muted-foreground',
+                      li: 'text-muted-foreground',
                     }}
                     content={section.richText}
                   />
@@ -98,7 +100,7 @@ const Timeline2: React.FC<
                 className="invisible h-full max-h-[550px] w-full max-w-full object-cover"
                 alt={sections?.[sections?.length - 1]?.tagline}
                 priority
-                resource={sections?.[sections?.length - 1]?.image || ""}
+                resource={sections?.[sections?.length - 1]?.image || ''}
               />
             )}
 
@@ -106,8 +108,8 @@ const Timeline2: React.FC<
               <div
                 key={index}
                 className={cn(
-                  "absolute inset-0 flex h-full items-center justify-center rounded-2xl border bg-muted p-4 transition-opacity duration-200",
-                  index === activeIndex ? "opacity-100" : "opacity-0",
+                  'absolute inset-0 flex h-full items-center justify-center rounded-2xl border bg-muted p-4 transition-opacity duration-200',
+                  index === activeIndex ? 'opacity-100' : 'opacity-0',
                 )}
               >
                 {item.image && (
@@ -125,7 +127,7 @@ const Timeline2: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Timeline2;
+export default Timeline2

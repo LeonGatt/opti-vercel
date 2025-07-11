@@ -1,29 +1,29 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
 const webinars = [
   {
-    id: "webinar-1",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'webinar-1',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "webinar-2",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'webinar-2',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
-];
+]
 
 const Blog8 = () => {
   return (
@@ -43,14 +43,11 @@ const Blog8 = () => {
                 <div className="mb-4 md:mb-6">
                   <div className="flex text-xs uppercase tracking-wider text-muted-foreground">
                     <span className="mr-3 md:mr-5 lg:mr-6">Webinar</span>
-                    <span className="mr-3 md:mr-5 lg:mr-6">
-                      Employer of record
-                    </span>
+                    <span className="mr-3 md:mr-5 lg:mr-6">Employer of record</span>
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold md:text-2xl lg:text-3xl">
-                  Engaging Talent, Embracing Change: Uncover the Value of an
-                  Employer of Record
+                  Engaging Talent, Embracing Change: Uncover the Value of an Employer of Record
                 </h3>
                 <div className="mt-4 flex items-center space-x-2 md:mt-5">
                   <span className="font-semibold md:text-base">Read more</span>
@@ -71,7 +68,7 @@ const Blog8 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Blog8;
+export default Blog8

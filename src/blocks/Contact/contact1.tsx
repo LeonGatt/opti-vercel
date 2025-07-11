@@ -1,25 +1,20 @@
-import { Check } from "lucide-react";
+import { Check } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { ContactBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { FormBlock, FormBlockType } from "../Form/Component";
+} from '@/components/ui/select'
+import { ContactBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { FormBlock, FormBlockType } from '../Form/Component'
 
-const Contact1: React.FC<ContactBlock> = ({
-  richText,
-  form,
-  contactBlocks,
-  maps,
-}) => {
+const Contact1: React.FC<ContactBlock> = ({ richText, form, contactBlocks, maps }) => {
   return (
     <section className="relative py-32">
       {/* Background gradients */}
@@ -201,7 +196,7 @@ const Contact1: React.FC<ContactBlock> = ({
       </div>
       */}
     </section>
-  );
-};
+  )
+}
 
-export default Contact1;
+export default Contact1

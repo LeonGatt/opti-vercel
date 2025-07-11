@@ -1,75 +1,75 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select'
 
 const filters = [
-  { name: "Industries", values: ["None", "Beauty", "Car dealerships"] },
-  { name: "Use cases", values: ["None", "HR & Recruiting"] },
-  { name: "Functions", values: ["None", "Automations", "Integrations"] },
-  { name: "Company size", values: ["None", "1-10, 11-50", "51-200", "200+"] },
-];
+  { name: 'Industries', values: ['None', 'Beauty', 'Car dealerships'] },
+  { name: 'Use cases', values: ['None', 'HR & Recruiting'] },
+  { name: 'Functions', values: ['None', 'Automations', 'Integrations'] },
+  { name: 'Company size', values: ['None', '1-10, 11-50', '51-200', '200+'] },
+]
 
 const posts = [
   {
-    id: "post-1",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-1',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-2",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-2',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-3",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-3',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-4",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-4',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-5",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-5',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-6",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-6',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
-];
+]
 
 const Blog1 = () => {
   return (
@@ -132,7 +132,7 @@ const Blog1 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Blog1;
+export default Blog1

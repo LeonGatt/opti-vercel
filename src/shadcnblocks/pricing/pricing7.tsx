@@ -1,23 +1,23 @@
-"use client";
+'use client'
 
-import { Check } from "lucide-react";
-import { useState } from "react";
+import { Check } from 'lucide-react'
+import { useState } from 'react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 const Pricing7 = () => {
-  const [isAnnually, setIsAnnually] = useState(false);
+  const [isAnnually, setIsAnnually] = useState(false)
   return (
     <section className="py-32">
       <div className="container">
         <div className="mx-auto mb-20 max-w-screen-md text-center">
           <h2 className="mb-4 text-4xl font-semibold lg:text-5xl">Pricing</h2>
           <p className="text-muted-foreground lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            dignissimos aliquam delectus, quasi earum veniam?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dignissimos aliquam
+            delectus, quasi earum veniam?
           </p>
         </div>
         <div className="flex flex-col items-center gap-2">
@@ -27,15 +27,11 @@ const Pricing7 = () => {
               defaultValue="monthly"
               className="h-full grid-cols-2"
               onValueChange={(value) => {
-                setIsAnnually(value === "annually");
+                setIsAnnually(value === 'annually')
               }}
             >
               <div className='h-full rounded-md transition-all has-[button[data-state="checked"]]:bg-white'>
-                <RadioGroupItem
-                  value="monthly"
-                  id="monthly"
-                  className="peer sr-only"
-                />
+                <RadioGroupItem value="monthly" id="monthly" className="peer sr-only" />
                 <Label
                   htmlFor="monthly"
                   className="flex h-full cursor-pointer items-center justify-center px-7 font-semibold text-muted-foreground peer-data-[state=checked]:text-primary"
@@ -44,11 +40,7 @@ const Pricing7 = () => {
                 </Label>
               </div>
               <div className='h-full rounded-md transition-all has-[button[data-state="checked"]]:bg-white'>
-                <RadioGroupItem
-                  value="annually"
-                  id="annually"
-                  className="peer sr-only"
-                />
+                <RadioGroupItem value="annually" id="annually" className="peer sr-only" />
                 <Label
                   htmlFor="annually"
                   className="flex h-full cursor-pointer items-center justify-center gap-1 px-7 font-semibold text-muted-foreground peer-data-[state=checked]:text-primary"
@@ -69,9 +61,7 @@ const Pricing7 = () => {
               <div className="flex h-full flex-col justify-between gap-5">
                 <div>
                   <h3 className="mb-4 text-xl font-semibold">Basic Plan</h3>
-                  <span className="text-5xl font-semibold">
-                    {isAnnually ? "$63" : "$79"}
-                  </span>
+                  <span className="text-5xl font-semibold">{isAnnually ? '$63' : '$79'}</span>
                   <span className="mb-4 block font-semibold">per month</span>
                   <p className="text-muted-foreground">
                     Good for small teams, or small businesses just starting out.
@@ -106,17 +96,12 @@ const Pricing7 = () => {
               <div className="flex h-full flex-col justify-between gap-5">
                 <div>
                   <h3 className="mb-4 text-xl font-semibold">Pro Plan</h3>
-                  <span className="text-5xl font-semibold">
-                    {isAnnually ? "$239" : "$299"}
-                  </span>
+                  <span className="text-5xl font-semibold">{isAnnually ? '$239' : '$299'}</span>
                   <span className="mb-4 block font-semibold">per month</span>
                   <p className="text-muted-foreground">
-                    Good for medium to large businesses. Get all the features
-                    you need.
+                    Good for medium to large businesses. Get all the features you need.
                   </p>
-                  <p className="mb-3 mt-6 font-semibold">
-                    Everything in Basic, plus
-                  </p>
+                  <p className="mb-3 mt-6 font-semibold">Everything in Basic, plus</p>
                   <ul className="flex flex-col gap-3">
                     <li className="flex gap-2">
                       <Check className="mt-1 size-4 shrink-0" />
@@ -143,7 +128,7 @@ const Pricing7 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing7;
+export default Pricing7

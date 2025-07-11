@@ -1,18 +1,10 @@
-"use client";
+'use client'
 
-import {
-  ArrowDownToLine,
-  ArrowUpDown,
-  Code,
-  Redo,
-  Repeat,
-  Scaling,
-  Scan,
-} from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowDownToLine, ArrowUpDown, Code, Redo, Repeat, Scaling, Scan } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
 import {
   Carousel,
   type CarouselApi,
@@ -20,74 +12,65 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Progress } from "@/components/ui/progress";
+} from '@/components/ui/carousel'
+import { Progress } from '@/components/ui/progress'
 
 const slides = [
   {
-    title: "Integrations",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!",
+    title: 'Integrations',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!',
     icon: <Code className="size-4" />,
   },
   {
-    title: "Automation",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!",
+    title: 'Automation',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!',
     icon: <ArrowUpDown className="size-4" />,
   },
   {
-    title: "Customization",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!",
+    title: 'Customization',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!',
     icon: <Redo className="size-4" />,
   },
   {
-    title: "Collaboration",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!",
+    title: 'Collaboration',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!',
     icon: <ArrowDownToLine className="size-4" />,
   },
   {
-    title: "Security",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!",
+    title: 'Security',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!',
     icon: <Repeat className="size-4" />,
   },
   {
-    title: "Performance",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!",
+    title: 'Performance',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!',
     icon: <Scan className="size-4" />,
   },
   {
-    title: "Scalability",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!",
+    title: 'Scalability',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!',
     icon: <Scaling className="size-4" />,
   },
-];
+]
 
 const Feature12 = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [progress, setProgress] = useState(Math.floor(100 / slides.length));
+  const [api, setApi] = useState<CarouselApi>()
+  const [progress, setProgress] = useState(Math.floor(100 / slides.length))
 
   useEffect(() => {
     if (!api) {
-      return;
+      return
     }
-    api.on("scroll", ({ scrollProgress }) => {
-      setProgress(
-        Math.max(1 / slides.length, Math.min(1, scrollProgress())) * 100,
-      );
-    });
-  }, [api]);
+    api.on('scroll', ({ scrollProgress }) => {
+      setProgress(Math.max(1 / slides.length, Math.min(1, scrollProgress())) * 100)
+    })
+  }, [api])
 
   return (
     <section className="py-32">
       <div className="container max-w-7xl">
         <div className="mb-10 flex flex-col items-center gap-6 md:mb-20">
-          <Badge variant={"outline"}>Badge</Badge>
+          <Badge variant={'outline'}>Badge</Badge>
           <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">
             This is where your features go
           </h2>
@@ -107,10 +90,7 @@ const Feature12 = () => {
           </div>
           <CarouselContent>
             {slides.map((slide, index) => (
-              <CarouselItem
-                key={index}
-                className="basis-full md:basis-1/2 lg:basis-1/3"
-              >
+              <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
                   <Card>
                     <CardContent className="flex flex-col justify-center p-6">
@@ -121,9 +101,7 @@ const Feature12 = () => {
                         <p className="text-xl font-semibold md:text-2xl lg:text-2xl">
                           {slide.title}
                         </p>
-                        <p className="pt-2 text-muted-foreground">
-                          {slide.description}
-                        </p>
+                        <p className="pt-2 text-muted-foreground">{slide.description}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -134,7 +112,7 @@ const Feature12 = () => {
         </Carousel>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature12;
+export default Feature12

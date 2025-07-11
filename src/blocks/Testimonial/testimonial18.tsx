@@ -1,12 +1,16 @@
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Star, Zap } from "lucide-react";
-import { TestimonialBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import { Star, Zap } from 'lucide-react'
+import { TestimonialBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-const Testimonial18: React.FC<
-  TestimonialBlock & { publicContext: PublicContextProps }
-> = ({ headline, link, tagline, testimonial, publicContext }) => {
+const Testimonial18: React.FC<TestimonialBlock & { publicContext: PublicContextProps }> = ({
+  headline,
+  link,
+  tagline,
+  testimonial,
+  publicContext,
+}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -21,10 +25,10 @@ const Testimonial18: React.FC<
               content={headline}
               withWrapper={false}
               overrideStyle={{
-                h2: "text-center text-3xl font-semibold lg:text-4xl",
-                h3: "text-center text-2xl font-semibold lg:text-3xl",
-                h4: "text-center text-xl font-semibold lg:text-2xl",
-                p: "text-center text-muted-foreground lg:text-lg",
+                h2: 'text-center text-3xl font-semibold lg:text-4xl',
+                h3: 'text-center text-2xl font-semibold lg:text-3xl',
+                h4: 'text-center text-xl font-semibold lg:text-2xl',
+                p: 'text-center text-muted-foreground lg:text-lg',
               }}
             />
           )}
@@ -38,20 +42,16 @@ const Testimonial18: React.FC<
             <Star className="size-5 fill-amber-500 text-amber-500" />
           </div>
           <q className="text-2xl font-semibold md:text-4xl">
-            Joining the Innovators Community has completely transformed my
-            vision for the better
+            Joining the Innovators Community has completely transformed my vision for the better
           </q>
           <p className="mt-6 text-muted-foreground">
-            At the Innovators Community, I have been able to exchange ideas,
-            learn from others, and participate in unique events and discussions.
-            The community has been fantastic for networking with industry peers.
+            At the Innovators Community, I have been able to exchange ideas, learn from others, and
+            participate in unique events and discussions. The community has been fantastic for
+            networking with industry peers.
           </p>
           <div className="mt-6 flex gap-4">
             <Avatar className="size-14 rounded-full ring-1 ring-input">
-              <AvatarImage
-                src="/images/block/avatar-1.webp"
-                alt="placeholder"
-              />
+              <AvatarImage src="/images/block/avatar-1.webp" alt="placeholder" />
             </Avatar>
             <div>
               <p className="font-medium">Emily Johnson</p>
@@ -61,7 +61,7 @@ const Testimonial18: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonial18;
+export default Testimonial18

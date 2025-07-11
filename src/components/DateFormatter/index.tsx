@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 interface DateFormatterProps {
-  date: string | Date;
-  locale?: string;
-  className?: string;
+  date: string | Date
+  locale?: string
+  className?: string
 }
 
 /**
@@ -16,19 +16,19 @@ interface DateFormatterProps {
  */
 export const DateFormatter: React.FC<DateFormatterProps> = ({
   date,
-  locale = "en",
-  className = "",
+  locale = 'en',
+  className = '',
 }) => {
-  if (!date) return null;
+  if (!date) return null
 
-  const dateObj = typeof date === "string" ? new Date(date) : date;
+  const dateObj = typeof date === 'string' ? new Date(date) : date
 
   // Format options based on locale
   const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
 
   // For German (DE), use European format (day-month-year)
   // For English (EN), use US format (month-day-year)
@@ -38,7 +38,7 @@ export const DateFormatter: React.FC<DateFormatterProps> = ({
     <time dateTime={dateObj.toISOString()} className={className}>
       {dateObj.toLocaleDateString(locale, options)}
     </time>
-  );
-};
+  )
+}
 
-export default DateFormatter;
+export default DateFormatter

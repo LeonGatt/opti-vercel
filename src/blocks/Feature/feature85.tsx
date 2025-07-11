@@ -5,60 +5,46 @@ import {
   Layers,
   WandSparkles,
   ZoomIn,
-} from "lucide-react";
+} from 'lucide-react'
 
 const reasons = [
   {
-    title: "Quality",
+    title: 'Quality',
     description:
-      "Our app prioritizes high-quality performance, ensuring a smooth and reliable experience for all users.",
+      'Our app prioritizes high-quality performance, ensuring a smooth and reliable experience for all users.',
     icon: <ZoomIn className="size-7 shrink-0 md:size-8" strokeWidth={1.5} />,
   },
   {
-    title: "Experience",
+    title: 'Experience',
     description:
-      "With years of expertise, we offer a polished platform designed for your success and satisfaction.",
-    icon: (
-      <BarChartHorizontal
-        className="size-7 shrink-0 md:size-8"
-        strokeWidth={1.5}
-      />
-    ),
+      'With years of expertise, we offer a polished platform designed for your success and satisfaction.',
+    icon: <BarChartHorizontal className="size-7 shrink-0 md:size-8" strokeWidth={1.5} />,
   },
   {
-    title: "Support",
+    title: 'Support',
     description:
-      "Our dedicated support team is always available to help you get the most out of the platform.",
-    icon: (
-      <CircleHelp className="size-7 shrink-0 md:size-8" strokeWidth={1.5} />
-    ),
+      'Our dedicated support team is always available to help you get the most out of the platform.',
+    icon: <CircleHelp className="size-7 shrink-0 md:size-8" strokeWidth={1.5} />,
   },
   {
-    title: "Innovation",
+    title: 'Innovation',
     description:
-      "Constantly evolving with the latest technology, we stay ahead of the curve to keep you competitive.",
-    icon: (
-      <WandSparkles className="size-7 shrink-0 md:size-8" strokeWidth={1.5} />
-    ),
+      'Constantly evolving with the latest technology, we stay ahead of the curve to keep you competitive.',
+    icon: <WandSparkles className="size-7 shrink-0 md:size-8" strokeWidth={1.5} />,
   },
   {
-    title: "Results",
+    title: 'Results',
     description:
-      "We focus on delivering measurable results, helping your team meet goals faster and more efficiently.",
+      'We focus on delivering measurable results, helping your team meet goals faster and more efficiently.',
     icon: <Layers className="size-7 shrink-0 md:size-8" strokeWidth={1.5} />,
   },
   {
-    title: "Efficiency",
+    title: 'Efficiency',
     description:
-      "Our platform is built for speed and efficiency, optimizing every task for peak performance.",
-    icon: (
-      <BatteryCharging
-        className="size-7 shrink-0 md:size-8"
-        strokeWidth={1.5}
-      />
-    ),
+      'Our platform is built for speed and efficiency, optimizing every task for peak performance.',
+    icon: <BatteryCharging className="size-7 shrink-0 md:size-8" strokeWidth={1.5} />,
   },
-];
+]
 
 const Feature85 = () => {
   return (
@@ -77,8 +63,7 @@ const Feature85 = () => {
                 className="max-h-64 w-full rounded-xl object-cover"
               />
               <p className="text-center text-xl md:text-3xl">
-                It combines intuitive design with powerful features to help your
-                team thrive.
+                It combines intuitive design with powerful features to help your team thrive.
               </p>
             </div>
           </div>
@@ -92,12 +77,8 @@ const Feature85 = () => {
                   >
                     {reason.icon}
                     <div>
-                      <h3 className="mb-2 md:mt-6 md:text-lg">
-                        {reason.title}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {reason.description}
-                      </p>
+                      <h3 className="mb-2 md:mt-6 md:text-lg">{reason.title}</h3>
+                      <p className="text-muted-foreground">{reason.description}</p>
                     </div>
                   </div>
                 ))}
@@ -112,7 +93,7 @@ const Feature85 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature85;
+export default Feature85

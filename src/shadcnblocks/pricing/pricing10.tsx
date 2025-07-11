@@ -1,40 +1,40 @@
-"use client";
+'use client'
 
-import { Check, X } from "lucide-react";
-import { useState } from "react";
+import { Check, X } from 'lucide-react'
+import { useState } from 'react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import { Switch } from '@/components/ui/switch'
 
 const plans = [
   {
-    title: "Free",
-    description: "For open source projects",
-    price: { monthly: "$9", annually: "$9" },
-    href: "#",
+    title: 'Free',
+    description: 'For open source projects',
+    price: { monthly: '$9', annually: '$9' },
+    href: '#',
     recommended: false,
-    image: "https://www.shadcnblocks.com/images/block/block-1.svg",
+    image: 'https://www.shadcnblocks.com/images/block/block-1.svg',
     featureGroups: [
       {
-        title: "Overview",
+        title: 'Overview',
         features: [
           {
-            title: "3 users",
+            title: '3 users',
             icon: Check,
           },
         ],
       },
       {
-        title: "Highlights",
+        title: 'Highlights',
         features: [
           {
-            title: "Included feature",
+            title: 'Included feature',
             icon: Check,
           },
           {
-            title: "Not included feature",
+            title: 'Not included feature',
             icon: X,
           },
         ],
@@ -42,38 +42,38 @@ const plans = [
     ],
   },
   {
-    title: "Basic",
-    description: "For open source projects",
+    title: 'Basic',
+    description: 'For open source projects',
     price: {
-      monthly: "$50",
+      monthly: '$50',
       annually: (
         <span className="flex items-center">
           $45<Badge className="ml-1">-10%</Badge>
         </span>
       ),
     },
-    href: "#",
+    href: '#',
     recommended: false,
-    image: "https://www.shadcnblocks.com/images/block/block-2.svg",
+    image: 'https://www.shadcnblocks.com/images/block/block-2.svg',
     featureGroups: [
       {
-        title: "Overview",
+        title: 'Overview',
         features: [
           {
-            title: "10 users",
+            title: '10 users',
             icon: Check,
           },
         ],
       },
       {
-        title: "Highlights",
+        title: 'Highlights',
         features: [
           {
-            title: "Included feature",
+            title: 'Included feature',
             icon: Check,
           },
           {
-            title: "Not included feature",
+            title: 'Not included feature',
             icon: X,
           },
         ],
@@ -81,38 +81,38 @@ const plans = [
     ],
   },
   {
-    title: "Team",
-    description: "For open source projects",
+    title: 'Team',
+    description: 'For open source projects',
     price: {
-      monthly: "$100",
+      monthly: '$100',
       annually: (
         <span className="flex items-center">
           $90<Badge className="ml-1">-10%</Badge>
         </span>
       ),
     },
-    href: "#",
+    href: '#',
     recommended: true,
-    image: "https://www.shadcnblocks.com/images/block/block-3.svg",
+    image: 'https://www.shadcnblocks.com/images/block/block-3.svg',
     featureGroups: [
       {
-        title: "Overview",
+        title: 'Overview',
         features: [
           {
-            title: "50 users",
+            title: '50 users',
             icon: Check,
           },
         ],
       },
       {
-        title: "Highlights",
+        title: 'Highlights',
         features: [
           {
-            title: "Included feature",
+            title: 'Included feature',
             icon: Check,
           },
           {
-            title: "Not included feature",
+            title: 'Not included feature',
             icon: X,
           },
         ],
@@ -120,48 +120,48 @@ const plans = [
     ],
   },
   {
-    title: "Enterprise",
-    description: "For open source projects",
+    title: 'Enterprise',
+    description: 'For open source projects',
     price: {
-      monthly: "$200",
+      monthly: '$200',
       annually: (
         <span className="flex items-center">
           $160<Badge className="ml-1">-20%</Badge>
         </span>
       ),
     },
-    href: "#",
+    href: '#',
     recommended: false,
-    image: "https://www.shadcnblocks.com/images/block/block-4.svg",
+    image: 'https://www.shadcnblocks.com/images/block/block-4.svg',
     featureGroups: [
       {
-        title: "Overview",
+        title: 'Overview',
         features: [
           {
-            title: "Unlimited users",
+            title: 'Unlimited users',
             icon: Check,
           },
         ],
       },
       {
-        title: "Highlights",
+        title: 'Highlights',
         features: [
           {
-            title: "Included feature",
+            title: 'Included feature',
             icon: Check,
           },
           {
-            title: "Not included feature",
+            title: 'Not included feature',
             icon: X,
           },
         ],
       },
     ],
   },
-];
+]
 
 const Pricing10 = () => {
-  const [annualBilling, setAnnualBilling] = useState(false);
+  const [annualBilling, setAnnualBilling] = useState(false)
   return (
     <section className="py-32">
       <div className="container mb-8 lg:mb-0">
@@ -192,7 +192,7 @@ const Pricing10 = () => {
         {plans.map((plan) => (
           <article
             key={plan.title}
-            className={`rounded-xl border ${plan.recommended ? "border-primary" : "border-border lg:mt-7"} text-clip`}
+            className={`rounded-xl border ${plan.recommended ? 'border-primary' : 'border-border lg:mt-7'} text-clip`}
           >
             {plan.recommended && (
               <div className="flex h-7 items-center justify-center bg-primary text-center text-xs font-semibold text-primary-foreground">
@@ -203,33 +203,22 @@ const Pricing10 = () => {
               <div className="mb-6 md:flex md:items-center xl:block">
                 <div className="mb-1 flex md:flex-1 md:flex-row-reverse md:items-center xl:mb-6 xl:flex-col-reverse xl:items-start xl:gap-y-4">
                   <div className="flex-1 md:ml-6 xl:ml-0">
-                    <p className="mb-1 text-xl font-medium sm:text-2xl">
-                      {plan.title}
-                    </p>
+                    <p className="mb-1 text-xl font-medium sm:text-2xl">{plan.title}</p>
                     <p className="text-xs text-muted-foreground sm:text-sm 2xl:min-h-10">
                       {plan.description}
                     </p>
                   </div>
-                  <img
-                    src={plan.image}
-                    alt={plan.title}
-                    className="size-16 sm:size-20"
-                  />
+                  <img src={plan.image} alt={plan.title} className="size-16 sm:size-20" />
                 </div>
                 <div>
                   <h2 className="mb-1 flex items-start text-2xl font-medium md:text-3xl 2xl:text-4xl">
                     {annualBilling ? plan.price.annually : plan.price.monthly}
                   </h2>
-                  <p className="text-xs font-medium text-muted-foreground">
-                    / monthly
-                  </p>
+                  <p className="text-xs font-medium text-muted-foreground">/ monthly</p>
                 </div>
               </div>
               <div>
-                <Button
-                  variant={plan.recommended ? "default" : "outline"}
-                  className="w-full"
-                >
+                <Button variant={plan.recommended ? 'default' : 'outline'} className="w-full">
                   Get started for free
                 </Button>
               </div>
@@ -258,7 +247,7 @@ const Pricing10 = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing10;
+export default Pricing10

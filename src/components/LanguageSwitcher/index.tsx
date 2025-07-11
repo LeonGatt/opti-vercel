@@ -1,28 +1,24 @@
-import localization, { locales, localeLabels } from "@/localization.config";
-import { Check, Globe, Icon } from "lucide-react";
+import localization, { locales, localeLabels } from '@/localization.config'
+import { Check, Globe, Icon } from 'lucide-react'
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import Link from "next/link";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { cn } from "@/utilities";
-import {
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
-import { CMSLink } from "../Link";
+} from '@/components/ui/navigation-menu'
+import Link from 'next/link'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { cn } from '@/utilities'
+import { AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
+import { CMSLink } from '../Link'
 
 export const LanguageSwitcher: React.FC<{
-  publicContext: PublicContextProps;
-  className?: string;
-  size?: "default" | "sm" | "lg" | "icon" | "clear";
-}> = ({ publicContext, size = "default", className }) => {
-  const { cleanSlugs, locale: currentLocale } = publicContext;
+  publicContext: PublicContextProps
+  className?: string
+  size?: 'default' | 'sm' | 'lg' | 'icon' | 'clear'
+}> = ({ publicContext, size = 'default', className }) => {
+  const { cleanSlugs, locale: currentLocale } = publicContext
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -30,24 +26,23 @@ export const LanguageSwitcher: React.FC<{
           <NavigationMenuTrigger
             className={cn(
               className,
-              size === "sm" && "h-9 rounded-md px-3 text-sm font-medium",
-              size === "lg" && "h-11 rounded-md px-8",
-              size === "icon" && "h-10 w-10",
-              size === "clear" && "h-auto px-0 py-0",
+              size === 'sm' && 'h-9 rounded-md px-3 text-sm font-medium',
+              size === 'lg' && 'h-11 rounded-md px-8',
+              size === 'icon' && 'h-10 w-10',
+              size === 'clear' && 'h-auto px-0 py-0',
             )}
           >
-            <Globe className={cn("mr-2", size === "sm" ? "h-4 w-4" : "h-4")} />
+            <Globe className={cn('mr-2', size === 'sm' ? 'h-4 w-4' : 'h-4')} />
             {localeLabels[currentLocale]}
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="p-3">
               {locales.map((locale) => {
-                const langPrefix =
-                  locale === localization.defaultLocale ? "" : `/${locale}`;
+                const langPrefix = locale === localization.defaultLocale ? '' : `/${locale}`
                 const href =
-                  (cleanSlugs?.[0] === "home"
+                  (cleanSlugs?.[0] === 'home'
                     ? langPrefix
-                    : `${langPrefix}/${cleanSlugs?.join("/")}`) || "/";
+                    : `${langPrefix}/${cleanSlugs?.join('/')}`) || '/'
                 if (currentLocale === locale) {
                   return (
                     <span
@@ -56,7 +51,7 @@ export const LanguageSwitcher: React.FC<{
                     >
                       {localeLabels[locale]} <Check className="w-4 h-4 ml-2" />
                     </span>
-                  );
+                  )
                 } else {
                   return (
                     <Link
@@ -67,7 +62,7 @@ export const LanguageSwitcher: React.FC<{
                     >
                       {localeLabels[locale]}
                     </Link>
-                  );
+                  )
                 }
               })}
             </ul>
@@ -75,29 +70,27 @@ export const LanguageSwitcher: React.FC<{
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  );
-};
+  )
+}
 
 export const LanguageSwitcherMobile: React.FC<{
-  publicContext: PublicContextProps;
+  publicContext: PublicContextProps
 }> = ({ publicContext }) => {
-  const { cleanSlugs, locale: currentLocale } = publicContext;
+  const { cleanSlugs, locale: currentLocale } = publicContext
   return (
     <AccordionItem value="language-switcher" className="border-b-0">
       <AccordionTrigger className="py-0 font-medium hover:no-underline">
         <span className="inline-flex items-center justify-start">
-          <Globe className={"h-4 -ml-1"} />
+          <Globe className={'h-4 -ml-1'} />
           {localeLabels[currentLocale]}
         </span>
       </AccordionTrigger>
       <AccordionContent className="mt-2">
         {locales.map((locale) => {
-          const langPrefix =
-            locale === localization.defaultLocale ? "" : `/${locale}`;
+          const langPrefix = locale === localization.defaultLocale ? '' : `/${locale}`
           const href =
-            (cleanSlugs?.[0] === "home"
-              ? langPrefix
-              : `${langPrefix}/${cleanSlugs?.join("/")}`) || "/";
+            (cleanSlugs?.[0] === 'home' ? langPrefix : `${langPrefix}/${cleanSlugs?.join('/')}`) ||
+            '/'
           if (currentLocale === locale) {
             return (
               <span
@@ -106,7 +99,7 @@ export const LanguageSwitcherMobile: React.FC<{
               >
                 {localeLabels[locale]} <Check className="w-4 h-4 ml-2" />
               </span>
-            );
+            )
           } else {
             return (
               <Link
@@ -117,10 +110,10 @@ export const LanguageSwitcherMobile: React.FC<{
               >
                 {localeLabels[locale]}
               </Link>
-            );
+            )
           }
         })}
       </AccordionContent>
     </AccordionItem>
-  );
-};
+  )
+}

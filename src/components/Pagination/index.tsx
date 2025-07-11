@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import {
   Pagination as PaginationComponent,
   PaginationContent,
@@ -7,24 +7,24 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
-import { cn } from "@/utilities/cn";
-import React from "react";
+} from '@/components/ui/pagination'
+import { cn } from '@/utilities/cn'
+import React from 'react'
 
 export const Pagination: React.FC<{
-  className?: string;
-  page: number;
-  totalPages: number;
+  className?: string
+  page: number
+  totalPages: number
 }> = (props) => {
-  const { className, page, totalPages } = props;
-  const hasNextPage = page < totalPages;
-  const hasPrevPage = page > 1;
+  const { className, page, totalPages } = props
+  const hasNextPage = page < totalPages
+  const hasPrevPage = page > 1
 
-  const hasExtraPrevPages = page - 1 > 1;
-  const hasExtraNextPages = page + 1 < totalPages;
+  const hasExtraPrevPages = page - 1 > 1
+  const hasExtraNextPages = page + 1 < totalPages
 
   return (
-    <div className={cn("my-12", className)}>
+    <div className={cn('my-12', className)}>
       <PaginationComponent>
         <PaginationContent>
           <PaginationItem>
@@ -42,9 +42,7 @@ export const Pagination: React.FC<{
 
           {hasPrevPage && (
             <PaginationItem>
-              <PaginationLink href={`/posts/page/${page - 1}`}>
-                {page - 1}
-              </PaginationLink>
+              <PaginationLink href={`/posts/page/${page - 1}`}>{page - 1}</PaginationLink>
             </PaginationItem>
           )}
 
@@ -56,9 +54,7 @@ export const Pagination: React.FC<{
 
           {hasNextPage && (
             <PaginationItem>
-              <PaginationLink href={`/posts/page/${page + 1}`}>
-                {page + 1}
-              </PaginationLink>
+              <PaginationLink href={`/posts/page/${page + 1}`}>{page + 1}</PaginationLink>
             </PaginationItem>
           )}
 
@@ -77,5 +73,5 @@ export const Pagination: React.FC<{
         </PaginationContent>
       </PaginationComponent>
     </div>
-  );
-};
+  )
+}

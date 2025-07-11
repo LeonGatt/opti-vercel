@@ -1,5 +1,5 @@
-import type { Access, User } from "payload";
-import { checkRole } from "../utilities/checkRole";
+import type { Access, User } from 'payload'
+import { checkRole } from '../utilities/checkRole'
 
 /**
  * Allow admins and the user themselves to access documents
@@ -8,11 +8,11 @@ import { checkRole } from "../utilities/checkRole";
  */
 export const isAdminOrCreatedBy: Access = ({ req: { user } }) => {
   // If no user, deny access
-  if (!user) return false;
+  if (!user) return false
 
   // Return true if user has role of 'admin'
-  if (checkRole(["admin"], user)) {
-    return true;
+  if (checkRole(['admin'], user)) {
+    return true
   }
 
   // Otherwise, only provide access to documents created by the user
@@ -20,11 +20,11 @@ export const isAdminOrCreatedBy: Access = ({ req: { user } }) => {
     createdBy: {
       equals: user.id,
     },
-  };
-};
+  }
+}
 
 // Field level access control
 export const isAdminOrCreatedByFieldLevel = ({ req: { user } }) => {
-  if (!user) return false;
-  return checkRole(["admin"], user as User) || Boolean(user.id);
-};
+  if (!user) return false
+  return checkRole(['admin'], user as User) || Boolean(user.id)
+}

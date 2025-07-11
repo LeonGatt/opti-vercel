@@ -1,8 +1,8 @@
-import { Sparkles, SquareDashedMousePointer } from "lucide-react";
+import { Sparkles, SquareDashedMousePointer } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 
 const Feature21 = () => {
   return (
@@ -18,8 +18,8 @@ const Feature21 = () => {
             Utilites for every use case and platform you can think of.
           </h2>
           <p className="md:w-1/2">
-            All the tools you need to get the job done. From apps to
-            integrations, we have you covered.
+            All the tools you need to get the job done. From apps to integrations, we have you
+            covered.
           </p>
         </div>
         <div className="mt-11 flex flex-col gap-6 md:flex-row">
@@ -27,8 +27,8 @@ const Feature21 = () => {
             <Card className="p-6">
               <p className="mb-1 font-medium">Apps</p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </Card>
             <Card>
@@ -40,17 +40,16 @@ const Feature21 = () => {
               <div className="p-6">
                 <p className="mb-1 font-medium">Integrations</p>
                 <p className="text-muted-foreground">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Animi laboriosam voluptatibus temporibus doloremque
-                  laudantium.
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                  voluptatibus temporibus doloremque laudantium.
                 </p>
               </div>
             </Card>
             <Card className="p-6">
               <p className="mb-1 font-medium">Utilities</p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </Card>
             <Card className="p-6">
@@ -58,8 +57,8 @@ const Feature21 = () => {
                 Features <Sparkles className="size-4" />
               </p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </Card>
           </div>
@@ -75,17 +74,16 @@ const Feature21 = () => {
                   Integrations <Sparkles className="size-4" />
                 </p>
                 <p className="text-muted-foreground">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Animi laboriosam voluptatibus temporibus doloremque
-                  laudantium.
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                  voluptatibus temporibus doloremque laudantium.
                 </p>
               </div>
             </Card>
             <Card className="p-6">
               <p className="mb-1 font-medium">Features</p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </Card>
             <Card className="p-6">
@@ -93,25 +91,25 @@ const Feature21 = () => {
                 Features <Sparkles className="size-4" />
               </p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </Card>
             <Card className="border-dashed bg-transparent p-6 shadow-none">
               <div className="mb-1 flex items-center gap-2 font-medium">
                 Search
-                <Badge variant={"outline"}>Coming soon</Badge>
+                <Badge variant={'outline'}>Coming soon</Badge>
               </div>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </Card>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature21;
+export default Feature21

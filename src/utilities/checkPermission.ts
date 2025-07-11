@@ -1,18 +1,18 @@
-import type { User } from "payload";
+import type { User } from 'payload'
 
 interface RolePermissions {
-  canManageContent?: boolean;
-  canPublish?: boolean;
-  canManageUsers?: boolean;
-  canManageRedirects?: boolean;
-  [key: string]: boolean | undefined;
+  canManageContent?: boolean
+  canPublish?: boolean
+  canManageUsers?: boolean
+  canManageRedirects?: boolean
+  [key: string]: boolean | undefined
 }
 
 interface Role {
-  id?: string;
-  name?: string;
-  slug?: string;
-  permissions?: RolePermissions;
+  id?: string
+  name?: string
+  slug?: string
+  permissions?: RolePermissions
 }
 
 /**
@@ -23,31 +23,28 @@ interface Role {
  * @param user The user object from the request
  * @returns Boolean indicating if the user has the specified permission
  */
-export const checkPermission = (
-  permissionKey: string,
-  user?: User | null,
-): boolean => {
+export const checkPermission = (permissionKey: string, user?: User | null): boolean => {
   // If no user or no roles, deny access
   if (!user?.roles || !Array.isArray(user.roles) || user.roles.length === 0) {
-    return false;
+    return false
   }
 
   // Check each role for the permission
   return user.roles.some((role) => {
     // Handle both string IDs and populated role objects
-    if (typeof role === "string") {
+    if (typeof role === 'string') {
       // Cannot check permissions on string IDs since we don't have the role data
       // This should be avoided by using proper population in access control functions
       console.warn(
-        "Role ID provided as string, cannot check permissions. Use populated roles instead.",
-      );
-      return false;
+        'Role ID provided as string, cannot check permissions. Use populated roles instead.',
+      )
+      return false
     }
 
     // Check if the role has the specified permission
-    return role.permissions && role.permissions[permissionKey] === true;
-  });
-};
+    return role.permissions && role.permissions[permissionKey] === true
+  })
+}
 
 /**
  * Creates a function that checks if a user has the specified permission.
@@ -58,10 +55,10 @@ export const checkPermission = (
  */
 export const hasPermission = (permissionKey: string) => {
   return ({ req }) => {
-    if (!req.user) return false;
-    return checkPermission(permissionKey, req.user);
-  };
-};
+    if (!req.user) return false
+    return checkPermission(permissionKey, req.user)
+  }
+}
 
 /**
  * Checks if a user has any of the specified permissions by examining all roles
@@ -71,12 +68,9 @@ export const hasPermission = (permissionKey: string) => {
  * @param user The user object from the request
  * @returns Boolean indicating if the user has any of the specified permissions
  */
-export const checkAnyPermission = (
-  permissionKeys: string[],
-  user?: User | null,
-): boolean => {
-  return permissionKeys.some((key) => checkPermission(key, user));
-};
+export const checkAnyPermission = (permissionKeys: string[], user?: User | null): boolean => {
+  return permissionKeys.some((key) => checkPermission(key, user))
+}
 
 /**
  * Checks if a user has all of the specified permissions by examining all roles
@@ -86,9 +80,6 @@ export const checkAnyPermission = (
  * @param user The user object from the request
  * @returns Boolean indicating if the user has all of the specified permissions
  */
-export const checkAllPermissions = (
-  permissionKeys: string[],
-  user?: User | null,
-): boolean => {
-  return permissionKeys.every((key) => checkPermission(key, user));
-};
+export const checkAllPermissions = (permissionKeys: string[], user?: User | null): boolean => {
+  return permissionKeys.every((key) => checkPermission(key, user))
+}

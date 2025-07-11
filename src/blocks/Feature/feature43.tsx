@@ -5,55 +5,53 @@ import {
   Layers,
   WandSparkles,
   ZoomIn,
-} from "lucide-react";
+} from 'lucide-react'
 
 const reasons = [
   {
-    title: "Quality",
+    title: 'Quality',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?',
     icon: <ZoomIn className="size-6" />,
   },
   {
-    title: "Experience",
+    title: 'Experience',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?',
     icon: <BarChartHorizontal className="size-6" />,
   },
   {
-    title: "Support",
+    title: 'Support',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?',
     icon: <CircleHelp className="size-6" />,
   },
   {
-    title: "Innovation",
+    title: 'Innovation',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?',
     icon: <WandSparkles className="size-6" />,
   },
   {
-    title: "Results",
+    title: 'Results',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?',
     icon: <Layers className="size-6" />,
   },
   {
-    title: "Efficiency",
+    title: 'Efficiency',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?",
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe est aliquid exercitationem, quos explicabo repellat?',
     icon: <BatteryCharging className="size-6" />,
   },
-];
+]
 
 const Feature43 = () => {
   return (
     <section className="py-32">
       <div className="container">
         <div className="mb-10 md:mb-20">
-          <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">
-            Why Work With Us?
-          </h2>
+          <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">Why Work With Us?</h2>
         </div>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason, i) => (
@@ -68,7 +66,7 @@ const Feature43 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature43;
+export default Feature43

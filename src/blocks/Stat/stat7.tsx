@@ -1,6 +1,6 @@
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp } from 'lucide-react'
 
-import { Progress } from "@/components/ui/progress";
+import { Progress } from '@/components/ui/progress'
 
 const Stat7 = () => {
   return (
@@ -17,9 +17,7 @@ const Stat7 = () => {
                 </span>
               </div>
               <Progress value={80} />
-              <p className="mt-1 text-sm text-muted-foreground">
-                10% more than last week
-              </p>
+              <p className="mt-1 text-sm text-muted-foreground">10% more than last week</p>
             </div>
             <div>
               <div className="mb-2 flex justify-between">
@@ -29,9 +27,7 @@ const Stat7 = () => {
                 </span>
               </div>
               <Progress value={55} />
-              <p className="mt-1 text-sm text-muted-foreground">
-                29% less than last week
-              </p>
+              <p className="mt-1 text-sm text-muted-foreground">29% less than last week</p>
             </div>
 
             <div>
@@ -42,15 +38,13 @@ const Stat7 = () => {
                 </span>
               </div>
               <Progress value={20} />
-              <p className="mt-1 text-sm text-muted-foreground">
-                5% more than last week
-              </p>
+              <p className="mt-1 text-sm text-muted-foreground">5% more than last week</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Stat7;
+export default Stat7

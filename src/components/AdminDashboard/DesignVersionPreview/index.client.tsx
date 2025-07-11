@@ -1,83 +1,81 @@
-"use client";
-import * as React from "react";
-import { useField, useModal, Button, Drawer, XIcon } from "@payloadcms/ui";
-import { useState, useEffect, useMemo } from "react";
-import { DesignVersionPreviewOptions } from "./config";
-import "./index.scss";
+'use client'
+import * as React from 'react'
+import { useField, useModal, Button, Drawer, XIcon } from '@payloadcms/ui'
+import { useState, useEffect, useMemo } from 'react'
+import { DesignVersionPreviewOptions } from './config'
+import './index.scss'
 
 type DesignVersionPreviewProps = {
-  path: string;
-  options: DesignVersionPreviewOptions;
-};
+  path: string
+  options: DesignVersionPreviewOptions
+}
 
 const DesignVersionPreviewClient: React.FC<DesignVersionPreviewProps> = ({
   path,
   options = [],
 }) => {
-  const { setValue, value } = useField<string>({ path });
-  const [imageLoadErrors, setImageLoadErrors] = useState<
-    Record<string, boolean>
-  >({});
-  const [imagePaths, setImagePaths] = useState<Record<string, string>>({});
+  const { setValue, value } = useField<string>({ path })
+  const [imageLoadErrors, setImageLoadErrors] = useState<Record<string, boolean>>({})
+  const [imagePaths, setImagePaths] = useState<Record<string, string>>({})
 
   // Use the useModal hook instead of local state
-  const { toggleModal } = useModal();
-  const drawerSlug = "design-version-preview-drawer";
+  const { toggleModal } = useModal()
+  const drawerSlug = `design-version-preview-drawer-${path}`
 
   // Ensure options is always an array using useMemo
   const safeOptions = useMemo(() => {
-    return Array.isArray(options) ? options : [];
-  }, [options]);
+    return Array.isArray(options) ? options : []
+  }, [options])
 
   // Load images when component mounts
   useEffect(() => {
     // Create a mapping of design version values to their image paths
-    const paths: Record<string, string> = {};
+    const paths: Record<string, string> = {}
 
     safeOptions.forEach((option) => {
       if (option.image) {
         // For images in the public directory
-        paths[option.value] = option.image;
+        paths[option.value] = option.image
       }
-    });
+    })
 
-    setImagePaths(paths);
-  }, [safeOptions]);
+    setImagePaths(paths)
+  }, [safeOptions])
 
   const handleSelectVersion = (version: string) => {
-    setValue(version);
-    toggleModal(drawerSlug);
-  };
+    setValue(version)
+    toggleModal(drawerSlug)
+  }
 
   const handleImageError = (version: string) => {
     setImageLoadErrors((prev) => ({
       ...prev,
       [version]: true,
-    }));
-  };
+    }))
+  }
 
   // Find the currently selected option
   const selectedOption =
     safeOptions && safeOptions.length > 0
       ? safeOptions.find((opt) => opt.value === value) || safeOptions[0]
-      : { label: "Default", value: "", image: undefined };
+      : { label: 'Default', value: '', image: undefined }
 
   const getImageUrl = (imagePath: string | undefined): string | undefined => {
-    if (!imagePath) return undefined;
+    if (!imagePath) return undefined
 
     // If it's already an absolute URL, return as is
-    if (imagePath.startsWith("http")) return imagePath;
+    if (imagePath.startsWith('http')) return imagePath
 
     // For relative paths, ensure they start with a slash
-    const path = imagePath.startsWith("/") ? imagePath : `/${imagePath}`;
+    const path = imagePath.startsWith('/') ? imagePath : `/${imagePath}`
 
     // Return the full URL for the image
-    return `${window.location.origin}${path}`;
-  };
+    return `${window.location.origin}${path}`
+  }
 
   const handleOpenDrawer = () => {
-    toggleModal(drawerSlug);
-  };
+    toggleModal(drawerSlug)
+  }
 
   return (
     <div className="field-type design-version-preview">
@@ -86,67 +84,66 @@ const DesignVersionPreviewClient: React.FC<DesignVersionPreviewProps> = ({
       </div>
 
       <div className="design-version-preview__container">
-        {/* Selected design version name */}
-        {value && selectedOption && (
-          <div className="design-version-preview__selected-name">
-            {selectedOption.label}
-          </div>
-        )}
+        <div className="design-version-preview__header">
+          {/* Selected design version name and button in one line */}
+          <div className="design-version-preview__header-content">
+            {value && selectedOption && (
+              <div className="design-version-preview__selected">
+                <div className="design-version-preview__selected-name">{selectedOption.label}</div>
+              </div>
+            )}
 
-        {/* Button to open drawer */}
-        <Button
-          className="design-version-preview__button"
-          onClick={handleOpenDrawer}
-          buttonStyle="secondary"
-          size="small"
-        >
-          <div className="design-version-preview__button-content">
-            <span>Preview All</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="design-version-preview__chevron"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
+            {/* Button to open drawer */}
+            <Button
+              className="design-version-preview__button"
+              onClick={handleOpenDrawer}
+              buttonStyle="secondary"
+              size="small"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+              <div className="design-version-preview__button-content">
+                <span>Preview All</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="design-version-preview__chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Button>
           </div>
-        </Button>
+
+          {/* Description below the header */}
+          {value && selectedOption?.description && (
+            <div className="design-version-preview__description">
+              {selectedOption.description}
+            </div>
+          )}
+        </div>
+
+        {/* Preview of selected design */}
+        {value &&
+          selectedOption?.image &&
+          !imageLoadErrors[value] &&
+          safeOptions &&
+          safeOptions.length > 0 && (
+            <div className="design-version-preview__image-preview">
+              <div className="design-version-preview__selected-image-container">
+                <img
+                  src={getImageUrl(imagePaths[value])}
+                  alt={selectedOption.label}
+                  className="design-version-preview__selected-image"
+                  onError={() => handleImageError(value)}
+                />
+              </div>
+            </div>
+          )}
       </div>
 
-      {/* Preview of selected design */}
-      {value &&
-        selectedOption?.image &&
-        !imageLoadErrors[value] &&
-        safeOptions &&
-        safeOptions.length > 0 && (
-          <div className="design-version-preview__selected">
-            <div className="design-version-preview__selected-image-container">
-              <img
-                src={getImageUrl(imagePaths[value])}
-                alt={selectedOption.label}
-                className="design-version-preview__selected-image"
-                onError={() => handleImageError(value)}
-              />
-            </div>
-            <div className="design-version-preview__selected-label">
-              {selectedOption.label}
-            </div>
-          </div>
-        )}
-
       {/* Drawer for selecting design versions */}
-      <Drawer
-        className="design-version-preview-drawer"
-        slug={drawerSlug}
-        Header={null}
-      >
+      <Drawer className="design-version-preview-drawer" slug={drawerSlug} Header={null}>
         <div className="drawer__header">
           <h2 className="drawer__header__title">Select Design Version</h2>
           <button
@@ -165,7 +162,7 @@ const DesignVersionPreviewClient: React.FC<DesignVersionPreviewProps> = ({
               safeOptions.map((option) => (
                 <div
                   key={option.value}
-                  className={`design-version-preview-drawer__item ${value === option.value ? "design-version-preview-drawer__item--selected" : ""}`}
+                  className={`design-version-preview-drawer__item ${value === option.value ? 'design-version-preview-drawer__item--selected' : ''}`}
                   onClick={() => handleSelectVersion(option.value)}
                 >
                   <div className="design-version-preview-drawer__item-image-container">
@@ -207,9 +204,7 @@ const DesignVersionPreviewClient: React.FC<DesignVersionPreviewProps> = ({
                       </div>
                     )}
                   </div>
-                  <div className="design-version-preview-drawer__item-name">
-                    {option.label}
-                  </div>
+                  <div className="design-version-preview-drawer__item-name">{option.label}</div>
                 </div>
               ))
             ) : (
@@ -226,12 +221,11 @@ const DesignVersionPreviewClient: React.FC<DesignVersionPreviewProps> = ({
       </Drawer>
 
       <div className="field-description">
-        Choose a design version to customize the appearance of this block on
-        your website. Click &quot;Preview All&quot; to explore all available
-        design options.
+        Choose a design version to customize the appearance of this block on your website. Click
+        &quot;Preview All&quot; to explore all available design options.
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DesignVersionPreviewClient;
+export default DesignVersionPreviewClient

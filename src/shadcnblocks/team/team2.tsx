@@ -1,71 +1,71 @@
-import { Dribbble, Github, Linkedin } from "lucide-react";
+import { Dribbble, Github, Linkedin } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const people = [
   {
-    id: "person-1",
-    name: "Name",
-    role: "Role",
+    id: 'person-1',
+    name: 'Name',
+    role: 'Role',
     description:
-      "Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-1.webp",
+      'Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-1.webp',
   },
   {
-    id: "person-2",
-    name: "Name",
-    role: "Role",
-    description: "Elig doloremque mollitia fugiat omnis!",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-2.webp",
+    id: 'person-2',
+    name: 'Name',
+    role: 'Role',
+    description: 'Elig doloremque mollitia fugiat omnis!',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-2.webp',
   },
   {
-    id: "person-3",
-    name: "Name",
-    role: "Role",
+    id: 'person-3',
+    name: 'Name',
+    role: 'Role',
     description:
-      "Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-3.webp",
+      'Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-3.webp',
   },
   {
-    id: "person-4",
-    name: "Name",
-    role: "Role",
-    description: "Elig doloremque mollitia fugiat omnis!",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-4.webp",
+    id: 'person-4',
+    name: 'Name',
+    role: 'Role',
+    description: 'Elig doloremque mollitia fugiat omnis!',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-4.webp',
   },
   {
-    id: "person-5",
-    name: "Name",
-    role: "Role",
+    id: 'person-5',
+    name: 'Name',
+    role: 'Role',
     description:
-      "Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-5.webp",
+      'Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-5.webp',
   },
   {
-    id: "person-6",
-    name: "Name",
-    role: "Role",
+    id: 'person-6',
+    name: 'Name',
+    role: 'Role',
     description:
-      "Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-6.webp",
+      'Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-6.webp',
   },
   {
-    id: "person-7",
-    name: "Name",
-    role: "Role",
+    id: 'person-7',
+    name: 'Name',
+    role: 'Role',
     description:
-      "Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-7.webp",
+      'Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-7.webp',
   },
   {
-    id: "person-8",
-    name: "Name",
-    role: "Role",
+    id: 'person-8',
+    name: 'Name',
+    role: 'Role',
     description:
-      "Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-8.webp",
+      'Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-8.webp',
   },
-];
+]
 
 const Team2 = () => {
   return (
@@ -88,9 +88,7 @@ const Team2 = () => {
             </Avatar>
             <p className="font-medium">{person.name}</p>
             <p className="text-muted-foreground">{person.role}</p>
-            <p className="py-3 text-sm text-muted-foreground">
-              {person.description}
-            </p>
+            <p className="py-3 text-sm text-muted-foreground">{person.description}</p>
             <div className="mt-2 flex gap-4">
               <a href="#">
                 <Github className="size-5 text-muted-foreground" />
@@ -106,7 +104,7 @@ const Team2 = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Team2;
+export default Team2

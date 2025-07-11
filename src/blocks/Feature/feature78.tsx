@@ -1,39 +1,39 @@
-"use client";
+'use client'
 
-import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight } from 'lucide-react'
+import { useState } from 'react'
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const features = [
   {
-    id: "feature-1",
-    tabLabel: "Feature 1",
-    title: "Cras sagittis sollicitudin lobortis.",
+    id: 'feature-1',
+    tabLabel: 'Feature 1',
+    title: 'Cras sagittis sollicitudin lobortis.',
     description:
-      "Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-1.svg",
+      'Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-1.svg',
   },
   {
-    id: "feature-2",
-    tabLabel: "Feature 2",
-    title: "Nunc facilisis elit sed erat egestas fringilla.",
+    id: 'feature-2',
+    tabLabel: 'Feature 2',
+    title: 'Nunc facilisis elit sed erat egestas fringilla.',
     description:
-      "Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-2.svg",
+      'Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur.',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-2.svg',
   },
   {
-    id: "feature-3",
-    tabLabel: "Feature 3",
-    title: "Morbi finibus est diam.",
+    id: 'feature-3',
+    tabLabel: 'Feature 3',
+    title: 'Morbi finibus est diam.',
     description:
-      "Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-3.svg",
+      'Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-3.svg',
   },
-];
+]
 
 const Feature78 = () => {
-  const [selection, setSelection] = useState(features[0].id);
+  const [selection, setSelection] = useState(features[0].id)
   return (
     <section className="py-32">
       <div className="flex flex-col gap-12 md:gap-16">
@@ -46,7 +46,7 @@ const Feature78 = () => {
               href="#"
               className="group flex items-center text-xs font-medium md:text-base lg:text-lg"
             >
-              Book a demo{" "}
+              Book a demo{' '}
               <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
@@ -82,9 +82,7 @@ const Feature78 = () => {
                       <h3 className="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">
                         {feature.title}
                       </h3>
-                      <p className="text-muted-foreground lg:text-lg">
-                        {feature.description}
-                      </p>
+                      <p className="text-muted-foreground lg:text-lg">{feature.description}</p>
                     </div>
                   </div>
                 </TabsContent>
@@ -94,7 +92,7 @@ const Feature78 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature78;
+export default Feature78

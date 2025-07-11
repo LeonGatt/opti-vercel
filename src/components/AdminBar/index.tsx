@@ -1,57 +1,55 @@
-"use client";
+'use client'
 
-import type { PayloadAdminBarProps } from "payload-admin-bar";
+import type { PayloadAdminBarProps } from 'payload-admin-bar'
 
-import { cn } from "@/utilities/cn";
-import { useSelectedLayoutSegments } from "next/navigation";
-import { PayloadAdminBar } from "payload-admin-bar";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { cn } from '@/utilities/cn'
+import { useSelectedLayoutSegments } from 'next/navigation'
+import { PayloadAdminBar } from 'payload-admin-bar'
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
-import "./index.scss";
-import { serverUrl as NEXT_PUBLIC_SERVER_URL } from "@/config/server";
-import { ThemeColorHelper } from "./ThemeColorHelper";
+import './index.scss'
+import { serverUrl as NEXT_PUBLIC_SERVER_URL } from '@/config/server'
+import { ThemeColorHelper } from './ThemeColorHelper'
 
-const baseClass = "admin-bar";
+const baseClass = 'admin-bar'
 
 const collectionLabels = {
   pages: {
-    plural: "Pages",
-    singular: "Page",
+    plural: 'Pages',
+    singular: 'Page',
   },
   posts: {
-    plural: "Posts",
-    singular: "Post",
+    plural: 'Posts',
+    singular: 'Post',
   },
   projects: {
-    plural: "Projects",
-    singular: "Project",
+    plural: 'Projects',
+    singular: 'Project',
   },
-};
+}
 
-const Title: React.FC = () => <span>Dashboard</span>;
+const Title: React.FC = () => <span>Dashboard</span>
 
 export const AdminBar: React.FC<{
-  adminBarProps?: PayloadAdminBarProps;
+  adminBarProps?: PayloadAdminBarProps
 }> = (props) => {
-  const { adminBarProps } = props || {};
-  const segments = useSelectedLayoutSegments();
-  const [show, setShow] = useState(false);
-  const collection = collectionLabels?.[segments?.[1]]
-    ? segments?.[1]
-    : "pages";
-  const router = useRouter();
+  const { adminBarProps } = props || {}
+  const segments = useSelectedLayoutSegments()
+  const [show, setShow] = useState(false)
+  const collection = collectionLabels?.[segments?.[1]] ? segments?.[1] : 'pages'
+  const router = useRouter()
 
   const onAuthChange = React.useCallback((user) => {
-    setShow(user?.id);
-  }, []);
+    setShow(user?.id)
+  }, [])
 
   // Theme Color Picker on right side of screen
-  const [showThemeColorPicker, setShowThemeColorPicker] = useState(false);
+  const [showThemeColorPicker, setShowThemeColorPicker] = useState(false)
 
   return (
     <div
-      className={cn(baseClass, "py-2 bg-black text-white", {
+      className={cn(baseClass, 'py-2 bg-black text-white', {
         block: show,
         hidden: !show,
       })}
@@ -61,32 +59,32 @@ export const AdminBar: React.FC<{
           {...adminBarProps}
           className="py-2 text-white"
           classNames={{
-            controls: "font-medium text-white",
-            logo: "text-white",
-            user: "text-white",
+            controls: 'font-medium text-white',
+            logo: 'text-white',
+            user: 'text-white',
           }}
           cmsURL={NEXT_PUBLIC_SERVER_URL}
           collection={collection}
           collectionLabels={{
-            plural: collectionLabels[collection]?.plural || "Pages",
-            singular: collectionLabels[collection]?.singular || "Page",
+            plural: collectionLabels[collection]?.plural || 'Pages',
+            singular: collectionLabels[collection]?.singular || 'Page',
           }}
           logo={<Title />}
           onAuthChange={onAuthChange}
           onPreviewExit={() => {
-            fetch("/next/exit-preview").then(() => {
-              router.push("/");
-              router.refresh();
-            });
+            fetch('/next/exit-preview').then(() => {
+              router.push('/')
+              router.refresh()
+            })
           }}
           style={{
-            backgroundColor: "transparent",
+            backgroundColor: 'transparent',
             padding: 0,
-            position: "relative",
-            zIndex: "unset",
+            position: 'relative',
+            zIndex: 'unset',
           }}
         />
       </div>
     </div>
-  );
-};
+  )
+}

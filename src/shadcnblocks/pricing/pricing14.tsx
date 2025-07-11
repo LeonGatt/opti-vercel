@@ -1,8 +1,8 @@
-import { Check } from "lucide-react";
+import { Check } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 
 const Pricing14 = () => {
   return (
@@ -11,10 +11,7 @@ const Pricing14 = () => {
         <div className="mx-auto max-w-screen-lg rounded-lg bg-muted p-6 md:p-10">
           <div className="mb-12 flex items-center gap-3">
             <span className="text-2xl font-bold">Standard Plan</span>
-            <Badge
-              variant="outline"
-              className="border-green-200 bg-green-100 text-green-600"
-            >
+            <Badge variant="outline" className="border-green-200 bg-green-100 text-green-600">
               20% off
             </Badge>
           </div>
@@ -24,9 +21,7 @@ const Pricing14 = () => {
             </h2>
             <div className="md:text-right">
               <span className="text-3xl font-bold md:text-5xl">$1999</span>
-              <p className="text-muted-foreground">
-                Starting price per project
-              </p>
+              <p className="text-muted-foreground">Starting price per project</p>
             </div>
           </div>
           <Separator className="my-8" />
@@ -72,7 +67,7 @@ const Pricing14 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing14;
+export default Pricing14

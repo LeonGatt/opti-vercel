@@ -7,8 +7,8 @@ const Feature31 = () => {
             Let&apos;s Make Your Space Beautiful
           </h1>
           <p className="font-medium md:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            nisi accusantium voluptate aspernatur minima.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nisi accusantium
+            voluptate aspernatur minima.
           </p>
         </div>
         <div className="mx-auto grid max-w-screen-lg gap-10 md:grid-cols-2">
@@ -30,13 +30,10 @@ const Feature31 = () => {
             <p className="mb-6 text-sm text-muted-foreground md:mb-12">
               Lorem ipsum dolor sit amet.
             </p>
-            <h3 className="mb-3 text-2xl font-medium md:mb-6">
-              Perfect for Any Space
-            </h3>
+            <h3 className="mb-3 text-2xl font-medium md:mb-6">Perfect for Any Space</h3>
             <p className="mb-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-              distinctio maiores sint cupiditate ab ullam numquam a similique
-              vel itaque.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi distinctio maiores sint
+              cupiditate ab ullam numquam a similique vel itaque.
             </p>
             <a href="#" className="font-medium hover:underline">
               Learn how to get started
@@ -46,13 +43,10 @@ const Feature31 = () => {
             <p className="mb-6 text-sm text-muted-foreground md:mb-12">
               Lorem ipsum dolor sit amet.
             </p>
-            <h3 className="mb-3 text-2xl font-medium md:mb-6">
-              Modern and Sleek Design
-            </h3>
+            <h3 className="mb-3 text-2xl font-medium md:mb-6">Modern and Sleek Design</h3>
             <p className="mb-6">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-              distinctio maiores sint cupiditate ab ullam numquam a similique
-              vel itaque.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi distinctio maiores sint
+              cupiditate ab ullam numquam a similique vel itaque.
             </p>
             <a href="#" className="font-medium hover:underline">
               Learn to customize your space
@@ -61,7 +55,7 @@ const Feature31 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature31;
+export default Feature31

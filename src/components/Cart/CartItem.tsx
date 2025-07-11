@@ -1,25 +1,25 @@
-import Link from "next/link";
-import { useCart } from "@/hooks/cart/useCart";
-import type { CartItem as CartItemType } from "@/types/cart";
-import { X as CloseIcon } from "lucide-react";
-import { usePriceFormat } from "@/hooks/useNumberFormat";
-import { useTranslations } from "next-intl";
+import Link from 'next/link'
+import { useCart } from '@/hooks/cart/useCart'
+import type { CartItem as CartItemType } from '@/types/cart'
+import { X as CloseIcon } from 'lucide-react'
+import { usePriceFormat } from '@/hooks/useNumberFormat'
+import { useTranslations } from 'next-intl'
 
 export const CartItem: React.FC<CartItemType> = ({
   id,
-  url = "/",
-  thumbnail = "/placeholder-image.png",
-  name = "",
-  part_number_with_options = "",
+  url = '/',
+  thumbnail = '/placeholder-image.png',
+  name = '',
+  part_number_with_options = '',
   options = [],
   quantity = 1,
   unit_price = 0,
   total_price = 0,
 }) => {
-  const { removeItem, updateQuantity } = useCart();
-  const { formatPrice } = usePriceFormat();
+  const { removeItem, updateQuantity } = useCart()
+  const { formatPrice } = usePriceFormat()
 
-  const t = useTranslations("cart")
+  const t = useTranslations('cart')
 
   return (
     <div className="flex relative py-5 text-sm border-t first:border-t-0 border-gray-200  last:mb-20">
@@ -43,13 +43,11 @@ export const CartItem: React.FC<CartItemType> = ({
           {name}
         </Link>
         <div className="text-[11px] mb-2 text-gray-500">
-          {t("product.partNumber")}: {part_number_with_options}
+          {t('product.partNumber')}: {part_number_with_options}
         </div>
         <div className="mb-5 text-gray-500 text-xs">
           <ul className="list-disc pl-4">
-            {options?.map((option) => (
-              <li key={option.id}>{option.item_name}</li>
-            ))}
+            {options?.map((option) => <li key={option.id}>{option.item_name}</li>)}
           </ul>
         </div>
 
@@ -66,11 +64,11 @@ export const CartItem: React.FC<CartItemType> = ({
               max="9999"
               value={quantity}
               onChange={(e) => {
-                const newQuantity = Number.parseInt(e.target.value, 10);
+                const newQuantity = Number.parseInt(e.target.value, 10)
                 if (newQuantity > 0) {
-                  updateQuantity(id, newQuantity);
+                  updateQuantity(id, newQuantity)
                 } else {
-                  removeItem(id);
+                  removeItem(id)
                 }
               }}
             />
@@ -79,19 +77,17 @@ export const CartItem: React.FC<CartItemType> = ({
             </span>
           </div>
           {/* Add rounding */}
-          <span className="text-black text-[13px]">
-            {formatPrice(total_price)}
-          </span>
+          <span className="text-black text-[13px]">{formatPrice(total_price)}</span>
         </div>
       </div>
       <button
         type="button"
         className="absolute top-4 right-0 text-button-primary  cursor-pointer"
         onClick={() => removeItem(id)}
-        aria-label={t("items.remove")}
+        aria-label={t('items.remove')}
       >
         <CloseIcon className="w-4 h-4" />
       </button>
     </div>
-  );
-};
+  )
+}

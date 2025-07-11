@@ -1,37 +1,34 @@
-"use client";
-import * as React from "react";
-import { SelectInput, useField } from "@payloadcms/ui";
-import * as lucide from "lucide-react";
-import { Icon } from "@/components/Icon";
-import { OptionObject } from "payload";
+'use client'
+import * as React from 'react'
+import { SelectInput, useField } from '@payloadcms/ui'
+import * as lucide from 'lucide-react'
+import { Icon } from '@/components/Icon'
+import { OptionObject } from 'payload'
 
 export type OptionsData = Record<
   string,
   {
-    label: string;
-    value: string;
+    label: string
+    value: string
   }[]
->;
+>
 
 type CustomSelectProps = {
-  path: string;
-  options: OptionsData;
+  path: string
+  options: OptionsData
   field?: {
-    label?: string;
-    description?: string;
-  };
-};
+    label?: string
+    description?: string
+  }
+}
 
 const keys = Object.keys(lucide).filter(
-  (v) =>
-    !["default", "icons"].includes(v) &&
-    !v.startsWith("Lucide") &&
-    !v.endsWith("Icon"),
-);
+  (v) => !['default', 'icons'].includes(v) && !v.startsWith('Lucide') && !v.endsWith('Icon'),
+)
 
 const IconSelect: React.FC<CustomSelectProps> = (props) => {
-  const { path, field } = props;
-  const { value, setValue } = useField<string>({ path });
+  const { path, field } = props
+  const { value, setValue } = useField<string>({ path })
 
   return (
     <div className="field-type select">
@@ -50,13 +47,11 @@ const IconSelect: React.FC<CustomSelectProps> = (props) => {
           })) as any as OptionObject[]
         }
         value={value}
-        onChange={(e) => setValue((e as any)?.value || "")}
+        onChange={(e) => setValue((e as any)?.value || '')}
       />
-      {field?.description && (
-        <div className="field-description">{field?.description}</div>
-      )}
+      {field?.description && <div className="field-description">{field?.description}</div>}
     </div>
-  );
-};
+  )
+}
 
-export default IconSelect;
+export default IconSelect

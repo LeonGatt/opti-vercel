@@ -1,38 +1,38 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { cn } from "@/utilities/cn";
-import { TestimonialBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import type { CarouselApi } from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { cn } from '@/utilities/cn'
+import { TestimonialBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-const Testimonial17: React.FC<
-  TestimonialBlock & { publicContext: PublicContextProps }
-> = ({ headline, link, tagline, testimonial, publicContext }) => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+const Testimonial17: React.FC<TestimonialBlock & { publicContext: PublicContextProps }> = ({
+  headline,
+  link,
+  tagline,
+  testimonial,
+  publicContext,
+}) => {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
     if (!api) {
-      return;
+      return
     }
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
 
   return (
     <section className="py-32">
@@ -44,10 +44,10 @@ const Testimonial17: React.FC<
               content={headline}
               withWrapper={false}
               overrideStyle={{
-                h2: "text-center text-3xl font-bold lg:text-left lg:text-4xl",
-                h3: "text-center text-2xl font-bold lg:text-left lg:text-3xl",
-                h4: "text-center text-xl font-bold lg:text-left lg:text-2xl",
-                p: "text-muted-foreground lg:text-lg",
+                h2: 'text-center text-3xl font-bold lg:text-left lg:text-4xl',
+                h3: 'text-center text-2xl font-bold lg:text-left lg:text-3xl',
+                h4: 'text-center text-xl font-bold lg:text-left lg:text-2xl',
+                p: 'text-muted-foreground lg:text-lg',
               }}
             />
           )}
@@ -61,8 +61,8 @@ const Testimonial17: React.FC<
                     className="mb-6 h-6 lg:h-8"
                   />
                   <p className="mb-10 text-xl font-semibold">
-                    Our team has seen an incredible boost in productivity since
-                    adopting this platform. It&apos;s a game-changer.
+                    Our team has seen an incredible boost in productivity since adopting this
+                    platform. It&apos;s a game-changer.
                   </p>
                   <div className="mb-3 flex gap-4">
                     <Avatar className="size-12 rounded-full ring-1 ring-input">
@@ -73,9 +73,7 @@ const Testimonial17: React.FC<
                     </Avatar>
                     <div>
                       <p className="font-medium">Sarah Williams</p>
-                      <p className="text-muted-foreground">
-                        Head of Product, @company
-                      </p>
+                      <p className="text-muted-foreground">Head of Product, @company</p>
                     </div>
                   </div>
                 </div>
@@ -88,8 +86,8 @@ const Testimonial17: React.FC<
                     className="mb-6 h-8 lg:h-10"
                   />
                   <p className="mb-10 text-xl font-semibold">
-                    This tool has streamlined our development process and
-                    improved team collaboration like never before.
+                    This tool has streamlined our development process and improved team
+                    collaboration like never before.
                   </p>
                   <div className="mb-3 flex gap-4">
                     <Avatar className="size-12 rounded-full ring-1 ring-input">
@@ -113,8 +111,8 @@ const Testimonial17: React.FC<
                     className="mb-6 h-4 lg:h-5"
                   />
                   <p className="mb-10 text-xl font-semibold">
-                    We have reduced our development cycles by 33.2% thanks to
-                    the efficiency this platform brings to us.
+                    We have reduced our development cycles by 33.2% thanks to the efficiency this
+                    platform brings to us.
                   </p>
                   <div className="mb-3 flex gap-4">
                     <Avatar className="size-12 rounded-full ring-1 ring-input">
@@ -125,9 +123,7 @@ const Testimonial17: React.FC<
                     </Avatar>
                     <div>
                       <p className="font-medium">Maria Gonzalez</p>
-                      <p className="text-muted-foreground">
-                        Lead Developer, @company
-                      </p>
+                      <p className="text-muted-foreground">Lead Developer, @company</p>
                     </div>
                   </div>
                 </div>
@@ -138,8 +134,8 @@ const Testimonial17: React.FC<
                 <span
                   key={index}
                   className={cn(
-                    "mx-2 inline-block size-3 cursor-pointer rounded-full border-2",
-                    index + 1 === current && "border-primary bg-primary",
+                    'mx-2 inline-block size-3 cursor-pointer rounded-full border-2',
+                    index + 1 === current && 'border-primary bg-primary',
                   )}
                   onClick={() => api && api.scrollTo(index)}
                 />
@@ -154,8 +150,8 @@ const Testimonial17: React.FC<
                 className="mb-6 h-6 sm:h-8"
               />
               <p className="mb-10 text-xl font-semibold">
-                Our team has seen an incredible boost in productivity since
-                adopting this platform. It&apos;s a game-changer for us!
+                Our team has seen an incredible boost in productivity since adopting this platform.
+                It&apos;s a game-changer for us!
               </p>
               <div className="mb-3 flex gap-4">
                 <Avatar className="size-12 rounded-full ring-1 ring-input">
@@ -166,9 +162,7 @@ const Testimonial17: React.FC<
                 </Avatar>
                 <div>
                   <p className="font-medium">Sarah Williams</p>
-                  <p className="text-muted-foreground">
-                    Head of Product, @company
-                  </p>
+                  <p className="text-muted-foreground">Head of Product, @company</p>
                 </div>
               </div>
             </div>
@@ -180,8 +174,8 @@ const Testimonial17: React.FC<
                   className="mb-6 h-8 sm:h-10"
                 />
                 <p className="mb-10 text-xl font-semibold">
-                  This tool has streamlined our development process and improved
-                  team collaboration like never before.
+                  This tool has streamlined our development process and improved team collaboration
+                  like never before.
                 </p>
                 <div className="mb-3 flex gap-4">
                   <Avatar className="size-12 rounded-full ring-1 ring-input">
@@ -203,8 +197,8 @@ const Testimonial17: React.FC<
                   className="mb-6 h-4 sm:h-5"
                 />
                 <p className="mb-10 text-xl font-semibold">
-                  We’ve reduced our development cycles by 30% thanks to the
-                  efficiency this platform brings.
+                  We’ve reduced our development cycles by 30% thanks to the efficiency this platform
+                  brings.
                 </p>
                 <div className="mb-3 flex gap-4">
                   <Avatar className="size-12 rounded-full ring-1 ring-input">
@@ -215,9 +209,7 @@ const Testimonial17: React.FC<
                   </Avatar>
                   <div>
                     <p className="font-medium">Maria Gonzalez</p>
-                    <p className="text-muted-foreground">
-                      Lead Developer, @company
-                    </p>
+                    <p className="text-muted-foreground">Lead Developer, @company</p>
                   </div>
                 </div>
               </div>
@@ -226,7 +218,7 @@ const Testimonial17: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonial17;
+export default Testimonial17

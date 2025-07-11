@@ -1,4 +1,4 @@
-import localFont from "next/font/local";
+import localFont from 'next/font/local'
 
 // HaasGrot Text - for general text
 export const haasGrotText = localFont({
@@ -21,7 +21,7 @@ export const haasGrotText = localFont({
   ],
   variable: '--font-sans',
   display: 'swap',
-});
+})
 
 // HaasGrot Display - for headings
 export const haasGrotDisplay = localFont({
@@ -44,7 +44,7 @@ export const haasGrotDisplay = localFont({
   ],
   variable: '--font-heading',
   display: 'swap',
-});
+})
 
 // HaasGrot Body - same as sans but with different variable name
 export const haasGrotBody = localFont({
@@ -67,4 +67,4 @@ export const haasGrotBody = localFont({
   ],
   variable: '--font-body',
   display: 'swap',
-});
+})

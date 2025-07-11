@@ -1,5 +1,5 @@
-import { Media } from "@/components/Media";
-import { FeatureBlock } from "@/payload-types";
+import { Media } from '@/components/Media'
+import { FeatureBlock } from '@/payload-types'
 
 /**
  * A grid of USPs with images and titles
@@ -16,7 +16,7 @@ const Feature53: React.FC<FeatureBlock> = ({ USPs }) => {
             >
               <div className="relative flex min-h-[150px] flex-col md:mx-4 lg:min-h-[280px] lg:pl-8">
                 <p className="text-center font-mono text-xs md:text-left">
-                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  <span>{String(i + 1).padStart(2, '0')}</span>
                   <span className="ml-2">{usp.tagline}</span>
                 </p>
                 {usp.image && (
@@ -31,7 +31,7 @@ const Feature53: React.FC<FeatureBlock> = ({ USPs }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature53;
+export default Feature53

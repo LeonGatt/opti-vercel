@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { Check } from "lucide-react";
-import { useState } from "react";
+import { Check } from 'lucide-react'
+import { useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { Switch } from '@/components/ui/switch'
 
 const Pricing3 = () => {
-  const [isYearly, setIsYearly] = useState(false);
+  const [isYearly, setIsYearly] = useState(false)
   return (
     <section className="py-32">
       <div className="container">
@@ -20,10 +20,7 @@ const Pricing3 = () => {
             Check out our pricing plans to find the best fit for you.
           </p>
           <div className="mt-10 flex items-center gap-3 font-medium">
-            <Switch
-              onCheckedChange={() => setIsYearly(!isYearly)}
-              checked={isYearly}
-            />
+            <Switch onCheckedChange={() => setIsYearly(!isYearly)} checked={isYearly} />
             Annual billing
           </div>
         </div>
@@ -34,8 +31,7 @@ const Pricing3 = () => {
                 <p className="mb-2 text-lg font-semibold">Basic Plan</p>
                 <p className="mb-4 text-4xl font-semibold">$0</p>
                 <p className="text-sm text-muted-foreground">
-                  Ideal for individuals getting started with our service. No
-                  credit card required.
+                  Ideal for individuals getting started with our service. No credit card required.
                 </p>
               </div>
               <Button variant="outline" className="w-full">
@@ -56,9 +52,7 @@ const Pricing3 = () => {
               <li className="flex gap-2">
                 <Check className="w-4" />
                 <p className="text-sm text-muted-foreground">
-                  <span className="mr-1 font-semibold text-primary">
-                    Basic support:
-                  </span>
+                  <span className="mr-1 font-semibold text-primary">Basic support:</span>
                   Email support only for 30 days after signup
                 </p>
               </li>
@@ -69,14 +63,11 @@ const Pricing3 = () => {
               <div>
                 <p className="mb-2 text-lg font-semibold">Standard Plan</p>
                 <p className="mb-4 text-4xl font-semibold">
-                  {isYearly ? "$199" : "$20"}
-                  <span className="ml-1 text-sm font-normal text-muted-foreground">
-                    per user
-                  </span>
+                  {isYearly ? '$199' : '$20'}
+                  <span className="ml-1 text-sm font-normal text-muted-foreground">per user</span>
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Perfect for small businesses looking to grow. Start with a
-                  30-day free trial.
+                  Perfect for small businesses looking to grow. Start with a 30-day free trial.
                 </p>
               </div>
               <Button className="w-full">Try for Free</Button>
@@ -95,9 +86,7 @@ const Pricing3 = () => {
               <li className="flex gap-2">
                 <Check className="w-4" />
                 <p className="text-sm text-muted-foreground">
-                  <span className="mr-1 font-semibold text-primary">
-                    Priority support:
-                  </span>
+                  <span className="mr-1 font-semibold text-primary">Priority support:</span>
                   Email and phone support for 30 days after signup
                 </p>
               </li>
@@ -109,8 +98,7 @@ const Pricing3 = () => {
                 <p className="mb-2 text-lg font-semibold">Premium Plan</p>
                 <p className="mb-4 text-4xl font-semibold">Custom</p>
                 <p className="text-sm text-muted-foreground">
-                  Best for large organizations with advanced needs. Contact us
-                  for a custom quote.
+                  Best for large organizations with advanced needs. Contact us for a custom quote.
                 </p>
               </div>
               <Button variant="outline" className="w-full">
@@ -121,9 +109,7 @@ const Pricing3 = () => {
               <li className="flex gap-2">
                 <Check className="w-4" />
                 <p className="text-sm text-muted-foreground">
-                  <span className="mr-1 font-semibold text-primary">
-                    Dedicated support:
-                  </span>
+                  <span className="mr-1 font-semibold text-primary">Dedicated support:</span>
                   24/7 email and phone support
                 </p>
               </li>
@@ -131,9 +117,7 @@ const Pricing3 = () => {
               <li className="flex gap-2">
                 <Check className="w-4" />
                 <p className="text-sm text-muted-foreground">
-                  <span className="mr-1 font-semibold text-primary">
-                    Custom integrations:
-                  </span>
+                  <span className="mr-1 font-semibold text-primary">Custom integrations:</span>
                   Tailored to your organization&apos;s needs
                 </p>
               </li>
@@ -142,7 +126,7 @@ const Pricing3 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing3;
+export default Pricing3

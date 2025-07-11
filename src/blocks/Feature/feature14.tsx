@@ -1,4 +1,4 @@
-import { CheckCircle } from "lucide-react";
+import { CheckCircle } from 'lucide-react'
 
 const Feature14 = () => {
   return (
@@ -11,9 +11,8 @@ const Feature14 = () => {
                 Secure Payments
               </h3>
               <div className="mb-8 text-sm text-muted-foreground sm:mb-10 md:text-base">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Pariatur modi et recusandae ducimus eligendi eveniet soluta
-                reprehenderit nostrum expedita omnis.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur modi et
+                recusandae ducimus eligendi eveniet soluta reprehenderit nostrum expedita omnis.
               </div>
               <ul className="mt-auto space-y-2 sm:space-y-3">
                 <li className="flex gap-x-3">
@@ -24,9 +23,7 @@ const Feature14 = () => {
                 </li>
                 <li className="flex gap-x-3">
                   <CheckCircle className="mt-0.5 size-4 shrink-0 sm:mt-1" />
-                  <p className="text-sm md:text-base">
-                    SSL encryption for secure transactions
-                  </p>
+                  <p className="text-sm md:text-base">SSL encryption for secure transactions</p>
                 </li>
               </ul>
             </div>
@@ -47,16 +44,13 @@ const Feature14 = () => {
                 Automated Invoicing
               </h3>
               <div className="mb-8 text-sm text-muted-foreground sm:mb-10 md:text-base">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Pariatur modi et recusandae ducimus eligendi eveniet soluta
-                reprehenderit nostrum expedita omnis.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur modi et
+                recusandae ducimus eligendi eveniet soluta reprehenderit nostrum expedita omnis.
               </div>
               <ul className="mt-auto space-y-2 sm:space-y-3">
                 <li className="flex gap-x-3">
                   <CheckCircle className="mt-0.5 size-4 shrink-0 sm:mt-1" />
-                  <p className="text-sm md:text-base">
-                    Automated invoicing for easy billing
-                  </p>
+                  <p className="text-sm md:text-base">Automated invoicing for easy billing</p>
                 </li>
               </ul>
             </div>
@@ -74,7 +68,7 @@ const Feature14 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature14;
+export default Feature14

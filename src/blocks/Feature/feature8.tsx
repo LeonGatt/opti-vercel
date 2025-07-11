@@ -1,16 +1,16 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { cn } from "@/utilities/cn";
+import { Badge } from '@/components/ui/badge'
+import { buttonVariants } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { cn } from '@/utilities/cn'
 
 const Feature8 = () => {
   return (
     <section className="py-32">
       <div className="container max-w-6xl">
         <div className="flex flex-col items-center gap-4 md:gap-6">
-          <Badge variant={"outline"}>Studies</Badge>
+          <Badge variant={'outline'}>Studies</Badge>
           <h1 className="max-w-2xl text-center text-3xl font-light md:text-5xl">
             Welcome to our innovative training platform
           </h1>
@@ -20,8 +20,8 @@ const Feature8 = () => {
             <a
               href="#"
               className={cn(
-                buttonVariants({ variant: "outline" }),
-                "ml-auto hidden w-fit cursor-pointer transition-all duration-200 group-hover:opacity-100 md:flex lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0",
+                buttonVariants({ variant: 'outline' }),
+                'ml-auto hidden w-fit cursor-pointer transition-all duration-200 group-hover:opacity-100 md:flex lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0',
               )}
             >
               Learn more
@@ -29,17 +29,16 @@ const Feature8 = () => {
             </a>
             <div className="mt-6 flex gap-4">
               <p className="text-lg font-light lg:text-2xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta,
-                deserunt.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, deserunt.
               </p>
               <a
                 href="#"
                 className={cn(
                   buttonVariants({
-                    variant: "outline",
-                    size: "icon",
+                    variant: 'outline',
+                    size: 'icon',
                   }),
-                  "shrink-0 cursor-pointer md:hidden",
+                  'shrink-0 cursor-pointer md:hidden',
                 )}
               >
                 <ChevronRight className="h-4" />
@@ -58,8 +57,8 @@ const Feature8 = () => {
             <a
               href="#"
               className={cn(
-                buttonVariants({ variant: "outline" }),
-                "ml-auto hidden w-fit cursor-pointer transition-all duration-200 group-hover:opacity-100 md:flex lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0",
+                buttonVariants({ variant: 'outline' }),
+                'ml-auto hidden w-fit cursor-pointer transition-all duration-200 group-hover:opacity-100 md:flex lg:translate-y-2 lg:opacity-0 lg:group-hover:translate-y-0',
               )}
             >
               Learn more
@@ -67,17 +66,16 @@ const Feature8 = () => {
             </a>
             <div className="mt-6 flex gap-4">
               <p className="text-lg font-light lg:text-2xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta,
-                deserunt.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta, deserunt.
               </p>
               <a
                 href="#"
                 className={cn(
                   buttonVariants({
-                    variant: "outline",
-                    size: "icon",
+                    variant: 'outline',
+                    size: 'icon',
                   }),
-                  "shrink-0 cursor-pointer md:hidden",
+                  'shrink-0 cursor-pointer md:hidden',
                 )}
               >
                 <ChevronRight className="h-4" />
@@ -95,7 +93,7 @@ const Feature8 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature8;
+export default Feature8

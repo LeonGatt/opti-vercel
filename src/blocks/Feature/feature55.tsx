@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Feature55 = () => {
   return (
@@ -9,15 +9,14 @@ const Feature55 = () => {
             This is a feature
           </h3>
           <p className="mb-8 text-muted-foreground lg:max-w-3xl lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis! Porro facilis quo animi
-            consequatur. Explicabo.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+            omnis! Porro facilis quo animi consequatur. Explicabo.
           </p>
           <Button variant="outline">Learn More</Button>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature55;
+export default Feature55

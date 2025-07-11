@@ -1,29 +1,29 @@
-import type { CollectionConfig } from "payload";
+import type { CollectionConfig } from 'payload'
 
-import { authenticated } from "@/access/authenticated";
-import { authenticatedOrPublished } from "@/access/authenticatedOrPublished";
+import { authenticated } from '@/access/authenticated'
+import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
 
-import { Archive } from "@/blocks/ArchiveBlock/config";
-import { FormBlock } from "@/blocks/Form/config";
-import { FeatureBlock } from "@/blocks/Feature/config";
-import { CtaBlock } from "@/blocks/Cta/config";
-import { AboutBlock } from "@/blocks/About/config";
-import { LogosBlock } from "@/blocks/Logos/config";
-import { Gallery } from "@/blocks/Gallery/config";
-import { TestimonialBlock } from "@/blocks/Testimonial/config";
-import { FaqBlock } from "@/blocks/Faq/config";
-import { StatBlock } from "@/blocks/Stat/config";
-import { SplitViewBlock } from "@/blocks/SplitView/config";
-import { TextBlock } from "@/blocks/TextBlock/config";
-import { MediaBlock } from "@/blocks/MediaBlock/config";
-import { hero } from "@/heros/config";
-import { CustomBlock } from "@/blocks/CustomBlock/config";
-import { ChangelogBlock } from "@/blocks/Changelog/config";
+import { Archive } from '@/blocks/ArchiveBlock/config'
+import { FormBlock } from '@/blocks/Form/config'
+import { FeatureBlock } from '@/blocks/Feature/config'
+import { CtaBlock } from '@/blocks/Cta/config'
+import { AboutBlock } from '@/blocks/About/config'
+import { LogosBlock } from '@/blocks/Logos/config'
+import { Gallery } from '@/blocks/Gallery/config'
+import { TestimonialBlock } from '@/blocks/Testimonial/config'
+import { FaqBlock } from '@/blocks/Faq/config'
+import { StatBlock } from '@/blocks/Stat/config'
+import { SplitViewBlock } from '@/blocks/SplitView/config'
+import { TextBlock } from '@/blocks/TextBlock/config'
+import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { hero } from '@/heros/config'
+import { CustomBlock } from '@/blocks/CustomBlock/config'
+import { ChangelogBlock } from '@/blocks/Changelog/config'
 
-import { slugField } from "@/fields/slug";
-import { populatePublishedAt } from "@/hooks/populatePublishedAt";
-import { generatePreviewPath } from "@/utilities/generatePreviewPath";
-import { revalidatePage } from "./hooks/revalidatePage";
+import { slugField } from '@/fields/slug'
+import { populatePublishedAt } from '@/hooks/populatePublishedAt'
+import { generatePreviewPath } from '@/utilities/generatePreviewPath'
+import { revalidatePage } from './hooks/revalidatePage'
 
 import {
   MetaDescriptionField,
@@ -31,25 +31,27 @@ import {
   MetaTitleField,
   OverviewField,
   PreviewField,
-} from "@payloadcms/plugin-seo/fields";
-import { serverUrl as NEXT_PUBLIC_SERVER_URL } from "@/config/server";
-import { ContactBlock } from "@/blocks/Contact/config";
-import { Breadcrumb } from "@payloadcms/plugin-nested-docs/types";
-import { Blog } from "@/blocks/Blog/config";
-import { BannerBlock } from "@/blocks/Banner/config";
-import { CasestudiesBlock } from "@/blocks/Casestudies/config";
-import { TimelineBlock } from "@/blocks/Timeline/config";
+} from '@payloadcms/plugin-seo/fields'
+import { serverUrl as NEXT_PUBLIC_SERVER_URL } from '@/config/server'
+import { ContactBlock } from '@/blocks/Contact/config'
+import { Breadcrumb } from '@payloadcms/plugin-nested-docs/types'
+import { Blog } from '@/blocks/Blog/config'
+import { BannerBlock } from '@/blocks/Banner/config'
+import { CasestudiesBlock } from '@/blocks/Casestudies/config'
+import { TimelineBlock } from '@/blocks/Timeline/config'
+import { LoginBlock } from '@/blocks/Login/config'
+import { SignupBlock } from '@/blocks/Signup/config'
 
 export const Pages: CollectionConfig = {
-  slug: "pages",
+  slug: 'pages',
   labels: {
     plural: {
-      en: "Pages",
-      de: "Seiten",
+      en: 'Pages',
+      de: 'Seiten',
     },
     singular: {
-      en: "Page",
-      de: "Seite",
+      en: 'Page',
+      de: 'Seite',
     },
   },
   access: {
@@ -59,49 +61,49 @@ export const Pages: CollectionConfig = {
     update: authenticated,
   },
   admin: {
-    defaultColumns: ["title", "slug", "updatedAt"],
+    defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, locale }) => {
         const path = generatePreviewPath({
-          slug: typeof data?.slug === "string" ? data.slug : "",
+          slug: typeof data?.slug === 'string' ? data.slug : '',
           breadcrumbs: data?.breadcrumbs,
-          collection: "pages",
+          collection: 'pages',
           locale: locale.code,
-        });
+        })
 
-        return `${NEXT_PUBLIC_SERVER_URL}${path}`;
+        return `${NEXT_PUBLIC_SERVER_URL}${path}`
       },
     },
     preview: (data, options) => {
       const path = generatePreviewPath({
-        slug: typeof data?.slug === "string" ? data.slug : "",
+        slug: typeof data?.slug === 'string' ? data.slug : '',
         breadcrumbs: data?.breadcrumbs as Breadcrumb[],
-        collection: "pages",
+        collection: 'pages',
         locale: options.locale,
-      });
+      })
 
-      return `${NEXT_PUBLIC_SERVER_URL}${path}`;
+      return `${NEXT_PUBLIC_SERVER_URL}${path}`
     },
-    useAsTitle: "title",
+    useAsTitle: 'title',
   },
   fields: [
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
       required: true,
     },
     {
-      type: "tabs",
+      type: 'tabs',
       tabs: [
         {
           fields: [hero],
-          label: "Hero",
+          label: 'Hero',
         },
         {
           fields: [
             {
-              name: "layout",
-              type: "blocks",
+              name: 'layout',
+              type: 'blocks',
               blocks: [
                 FeatureBlock,
                 Archive,
@@ -123,26 +125,28 @@ export const Pages: CollectionConfig = {
                 BannerBlock,
                 CasestudiesBlock,
                 TimelineBlock,
+                LoginBlock,
+                SignupBlock,
               ],
               required: true,
             },
           ],
-          label: "Content",
+          label: 'Content',
         },
         {
-          name: "meta",
-          label: "SEO",
+          name: 'meta',
+          label: 'SEO',
           fields: [
             OverviewField({
-              titlePath: "meta.title",
-              descriptionPath: "meta.description",
-              imagePath: "meta.image",
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+              imagePath: 'meta.image',
             }),
             MetaTitleField({
               hasGenerateFn: true,
             }),
             MetaImageField({
-              relationTo: "media",
+              relationTo: 'media',
             }),
 
             MetaDescriptionField({}),
@@ -151,35 +155,35 @@ export const Pages: CollectionConfig = {
               hasGenerateFn: true,
 
               // field paths to match the target field for data
-              titlePath: "meta.title",
-              descriptionPath: "meta.description",
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
             }),
           ],
         },
       ],
     },
     {
-      name: "publishedAt",
-      type: "date",
+      name: 'publishedAt',
+      type: 'date',
       admin: {
-        position: "sidebar",
+        position: 'sidebar',
       },
     },
 
     ...slugField(),
     {
-      name: "enableBreadcrumbs",
-      type: "checkbox",
+      name: 'enableBreadcrumbs',
+      type: 'checkbox',
       defaultValue: false,
       label: {
-        en: "Breadcrumbs",
-        de: "Breadcumbs",
+        en: 'Breadcrumbs',
+        de: 'Breadcumbs',
       },
       admin: {
-        position: "sidebar",
+        position: 'sidebar',
         description: {
-          en: "Enable breadcrumbs for the page",
-          de: "Breadcumbs für die Seite aktivieren",
+          en: 'Enable breadcrumbs for the page',
+          de: 'Breadcumbs für die Seite aktivieren',
         },
       },
     },
@@ -196,4 +200,4 @@ export const Pages: CollectionConfig = {
     },
     maxPerDoc: 50,
   },
-};
+}

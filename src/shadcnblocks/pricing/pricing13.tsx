@@ -10,9 +10,8 @@ const Pricing13 = () => {
                   Additional add-ons
                 </h1>
                 <p className="text-xs text-muted-foreground md:text-sm lg:text-base">
-                  Curabitur egestas risus risus, consectetur vestibulum ante
-                  commodo quis. Duis aliquam elit sapien, porttitor vehicula
-                  purus convallis in.
+                  Curabitur egestas risus risus, consectetur vestibulum ante commodo quis. Duis
+                  aliquam elit sapien, porttitor vehicula purus convallis in.
                 </p>
               </div>
               <img
@@ -23,9 +22,7 @@ const Pricing13 = () => {
             </div>
             <div className="flex flex-col gap-x-8 gap-y-3 xl:flex-row">
               <div className="flex flex-1 flex-col rounded-lg bg-accent p-6 lg:py-8">
-                <h2 className="mb-1.5 text-base font-medium lg:mb-2 lg:text-lg">
-                  Addon Option 1
-                </h2>
+                <h2 className="mb-1.5 text-base font-medium lg:mb-2 lg:text-lg">Addon Option 1</h2>
                 <div className="grid flex-1 grid-cols-1 gap-x-10 md:grid-cols-3 lg:grid-cols-1">
                   <p className="mb-8 max-w-xs text-xs text-muted-foreground md:col-span-2 md:mb-0 lg:mb-10 lg:text-base">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -33,18 +30,13 @@ const Pricing13 = () => {
                   <div className="col-span-1 md:ml-auto md:mt-auto lg:ml-0">
                     <p>
                       <span className="font-medium lg:text-2xl">9</span>
-                      <span className="text-xs font-medium text-muted-foreground">
-                        {" "}
-                        / Month
-                      </span>
+                      <span className="text-xs font-medium text-muted-foreground"> / Month</span>
                     </p>
                   </div>
                 </div>
               </div>
               <div className="flex flex-1 flex-col rounded-lg bg-accent p-6 lg:py-8">
-                <h2 className="mb-1.5 text-base font-medium lg:mb-2 lg:text-lg">
-                  Addon Option 2
-                </h2>
+                <h2 className="mb-1.5 text-base font-medium lg:mb-2 lg:text-lg">Addon Option 2</h2>
                 <div className="grid flex-1 grid-cols-1 gap-x-10 md:grid-cols-3 lg:grid-cols-1">
                   <p className="mb-8 max-w-xs text-xs text-muted-foreground md:col-span-2 md:mb-0 lg:mb-10 lg:text-base">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -52,27 +44,20 @@ const Pricing13 = () => {
                   <div className="col-span-1 md:ml-auto md:mt-auto lg:ml-0">
                     <p>
                       <span className="font-medium lg:text-2xl">99</span>
-                      <span className="text-xs font-medium text-muted-foreground">
-                        {" "}
-                        / Month
-                      </span>
+                      <span className="text-xs font-medium text-muted-foreground"> / Month</span>
                     </p>
                   </div>
                 </div>
               </div>
               <div className="flex flex-1 flex-col rounded-lg bg-accent p-6 lg:py-8">
-                <h2 className="mb-1.5 text-base font-medium lg:mb-2 lg:text-lg">
-                  Addon Option 3
-                </h2>
+                <h2 className="mb-1.5 text-base font-medium lg:mb-2 lg:text-lg">Addon Option 3</h2>
                 <div className="grid flex-1 grid-cols-1 gap-x-10 md:grid-cols-3 lg:grid-cols-1">
                   <p className="mb-8 max-w-xs text-xs text-muted-foreground md:col-span-2 md:mb-0 lg:mb-10 lg:text-base">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   </p>
                   <div className="col-span-1 md:ml-auto md:mt-auto lg:ml-0">
                     <p>
-                      <span className="font-medium lg:text-2xl">
-                        Contact Sales
-                      </span>
+                      <span className="font-medium lg:text-2xl">Contact Sales</span>
                     </p>
                   </div>
                 </div>
@@ -82,7 +67,7 @@ const Pricing13 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing13;
+export default Pricing13

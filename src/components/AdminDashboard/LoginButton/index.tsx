@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import { FcGoogle } from "react-icons/fc";
-import "./index.scss";
-import Link from "next/link";
+import { FcGoogle } from 'react-icons/fc'
+import './index.scss'
+import Link from 'next/link'
 
 const LoginButton = () => {
   return (
@@ -14,7 +14,7 @@ const LoginButton = () => {
       <FcGoogle className="login-button__icon" />
       Sign in with Google
     </Link>
-  );
-};
+  )
+}
 
-export default LoginButton;
+export default LoginButton

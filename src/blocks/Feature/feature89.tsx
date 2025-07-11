@@ -1,4 +1,4 @@
-import { DollarSign, KeyRound, Timer } from "lucide-react";
+import { DollarSign, KeyRound, Timer } from 'lucide-react'
 
 const Feature89 = () => {
   return (
@@ -9,16 +9,13 @@ const Feature89 = () => {
           <div className="pointer-events-none absolute inset-0 hidden bg-linear-to-t from-background via-transparent to-transparent lg:block"></div>
 
           <div className="w-full max-w-96 shrink-0 justify-between">
-            <p className="font-mono text-xs text-muted-foreground">
-              What’s the solution?
-            </p>
+            <p className="font-mono text-xs text-muted-foreground">What’s the solution?</p>
             <h2 className="mb-3 mt-6 text-3xl font-medium lg:text-4xl">
               Let Streamline handle the details
             </h2>
             <p className="text-sm text-muted-foreground">
-              Streamline optimizes your workflow from start to finish. It
-              gathers information, generates reports, automates tasks, and
-              delivers results—all in one seamless system.
+              Streamline optimizes your workflow from start to finish. It gathers information,
+              generates reports, automates tasks, and delivers results—all in one seamless system.
             </p>
           </div>
           <div className="hidden w-full max-w-3xl shrink-0 lg:block">
@@ -35,9 +32,8 @@ const Feature89 = () => {
             <div>
               <h3 className="text-lg font-medium">Maximize efficiency</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Skip the manual tasks and complex setups. With Streamline, you
-                can focus on what matters most while the system handles the
-                rest.
+                Skip the manual tasks and complex setups. With Streamline, you can focus on what
+                matters most while the system handles the rest.
               </p>
             </div>
           </div>
@@ -46,9 +42,8 @@ const Feature89 = () => {
             <div>
               <h3 className="text-lg font-medium">Optimize resources</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Don’t overspend on unnecessary tools or teams. Keep your
-                operations lean and efficient by automating your workflows with
-                Streamline.
+                Don’t overspend on unnecessary tools or teams. Keep your operations lean and
+                efficient by automating your workflows with Streamline.
               </p>
             </div>
           </div>
@@ -57,9 +52,8 @@ const Feature89 = () => {
             <div>
               <h3 className="text-lg font-medium">Simplify operations</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Say goodbye to managing multiple platforms. Streamline takes
-                care of all the heavy lifting, ensuring consistent results with
-                minimal hassle.
+                Say goodbye to managing multiple platforms. Streamline takes care of all the heavy
+                lifting, ensuring consistent results with minimal hassle.
               </p>
             </div>
           </div>
@@ -77,7 +71,7 @@ const Feature89 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature89;
+export default Feature89

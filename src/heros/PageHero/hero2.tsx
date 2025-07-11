@@ -1,14 +1,19 @@
-import { Badge } from "@/components/ui/badge";
-import { CMSLink } from "@/components/Link";
-import RichText from "@/components/RichText";
-import { Page } from "@/payload-types";
-import { Media } from "@/components/Media";
-import { Icon } from "@/components/Icon";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Badge } from '@/components/ui/badge'
+import { CMSLink } from '@/components/Link'
+import RichText from '@/components/RichText'
+import { Page } from '@/payload-types'
+import { Media } from '@/components/Media'
+import { Icon } from '@/components/Icon'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-export const Hero2: React.FC<
-  Page["hero"] & { publicContext: PublicContextProps }
-> = ({ links, images, badgeIcon, badge, richText, publicContext }) => {
+export const Hero2: React.FC<Page['hero'] & { publicContext: PublicContextProps }> = ({
+  links,
+  images,
+  badgeIcon,
+  badge,
+  richText,
+  publicContext,
+}) => {
   return (
     <section className="py-32">
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
@@ -24,8 +29,7 @@ export const Hero2: React.FC<
         <div className="flex flex-col items-center text-center lg:max-w-3xl lg:items-start lg:text-left">
           {badge && (
             <Badge variant="outline">
-              {badge}{" "}
-              {badgeIcon && <Icon icon={badgeIcon} className="ml-2 size-4" />}
+              {badge} {badgeIcon && <Icon icon={badgeIcon} className="ml-2 size-4" />}
             </Badge>
           )}
           {richText && (
@@ -35,8 +39,8 @@ export const Hero2: React.FC<
               content={richText}
               enableGutter={false}
               overrideStyle={{
-                h1: "my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl",
-                p: "mb-8 max-w-xl text-muted-foreground lg:text-2xl",
+                h1: 'my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl',
+                p: 'mb-8 max-w-xl text-muted-foreground lg:text-2xl',
               }}
             />
           )}
@@ -50,12 +54,12 @@ export const Hero2: React.FC<
                     key={i}
                     {...link}
                   />
-                );
+                )
               })}
             </div>
           )}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

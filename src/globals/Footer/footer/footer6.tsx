@@ -1,13 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Footer } from "@/payload-types";
-import { Media } from "@/components/Media";
-import { CMSLink } from "@/components/Link";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Footer } from '@/payload-types'
+import { Media } from '@/components/Media'
+import { CMSLink } from '@/components/Link'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Footer6: React.FC<{
-  footer: Footer;
-  publicContext: PublicContextProps;
+  footer: Footer
+  publicContext: PublicContextProps
 }> = ({ footer, publicContext }) => {
   return (
     <footer className="py-16">
@@ -54,18 +54,12 @@ const Footer6: React.FC<{
                 ))}
             </div>
             <div className="w-full shrink-0 sm:w-fit">
-              <div className="mb-6 text-base font-semibold">
-                Stay up to date
-              </div>
+              <div className="mb-6 text-base font-semibold">Stay up to date</div>
               <form className="flex w-full flex-col justify-center gap-2 sm:flex-row">
                 <label htmlFor="email" className="sr-only">
                   Email
                 </label>
-                <Input
-                  id="email"
-                  placeholder="Enter your email"
-                  className="lg:min-w-72"
-                />
+                <Input id="email" placeholder="Enter your email" className="lg:min-w-72" />
                 <Button>Subscribe</Button>
               </form>
             </div>
@@ -73,8 +67,7 @@ const Footer6: React.FC<{
         </div>
         <div className="flex flex-col items-baseline justify-between gap-8 border-t border-border pt-8 md:flex-row md:gap-16">
           <div className="text-xs text-muted-foreground sm:text-sm">
-            {footer.copyright &&
-              `© ${new Date().getFullYear()} ${footer.copyright}`}
+            {footer.copyright && `© ${new Date().getFullYear()} ${footer.copyright}`}
           </div>
           <div className="flex flex-col items-start gap-4 text-xs text-muted-foreground sm:text-sm md:flex-row lg:items-center">
             {footer.legalLinks?.map((item, index) => (
@@ -89,7 +82,7 @@ const Footer6: React.FC<{
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer6;
+export default Footer6

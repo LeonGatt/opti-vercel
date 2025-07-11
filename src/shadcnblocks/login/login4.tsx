@@ -1,9 +1,9 @@
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc'
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 const Login4 = () => {
   return (
@@ -17,12 +17,7 @@ const Login4 = () => {
               className="absolute top-10 -z-10 h-full w-[1250px] mask-[radial-gradient(circle,red,transparent,transparent,transparent)]"
             >
               <defs>
-                <pattern
-                  id="innerGrid"
-                  width="40"
-                  height="40"
-                  patternUnits="userSpaceOnUse"
-                >
+                <pattern id="innerGrid" width="40" height="40" patternUnits="userSpaceOnUse">
                   <path
                     d="M 40 0 L 0 0 0 40"
                     fill="none"
@@ -30,12 +25,7 @@ const Login4 = () => {
                     strokeWidth="0.5"
                   />
                 </pattern>
-                <pattern
-                  id="grid"
-                  width="160"
-                  height="160"
-                  patternUnits="userSpaceOnUse"
-                >
+                <pattern id="grid" width="160" height="160" patternUnits="userSpaceOnUse">
                   <rect width="160" height="160" fill="url(#innerGrid)" />
                 </pattern>
               </defs>
@@ -47,9 +37,7 @@ const Login4 = () => {
               className="mb-7 h-10 w-auto"
             />
             <p className="mb-2 text-2xl font-bold">Log in to your account</p>
-            <p className="text-muted-foreground">
-              Welcome back! Please enter your details.
-            </p>
+            <p className="text-muted-foreground">Welcome back! Please enter your details.</p>
           </div>
           <div className="z-10 mx-auto w-full max-w-sm rounded-md bg-background p-6 shadow-sm">
             <div>
@@ -71,10 +59,7 @@ const Login4 = () => {
                 </div>
                 <div className="flex justify-between">
                   <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="remember"
-                      className="border-muted-foreground"
-                    />
+                    <Checkbox id="remember" className="border-muted-foreground" />
                     <label
                       htmlFor="remember"
                       className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -105,7 +90,7 @@ const Login4 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Login4;
+export default Login4

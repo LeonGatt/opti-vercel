@@ -1,66 +1,58 @@
-"use client";
+'use client'
 
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowRight, ChevronDown } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { FeatureBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { splitRichText } from "@/utilities/richtext";
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
+import type { CarouselApi } from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { FeatureBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { splitRichText } from '@/utilities/richtext'
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
 
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-const Feature70: React.FC<
-  FeatureBlock & { publicContext: PublicContextProps }
-> = ({ USPs, richText, publicContext }) => {
-  const [selection, setSelection] = useState(0);
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+const Feature70: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+  USPs,
+  richText,
+  publicContext,
+}) => {
+  const [selection, setSelection] = useState(0)
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>()
   useEffect(() => {
     if (!carouselApi) {
-      return;
+      return
     }
-    carouselApi.scrollTo(selection);
-  }, [carouselApi, selection]);
+    carouselApi.scrollTo(selection)
+  }, [carouselApi, selection])
   useEffect(() => {
     if (!carouselApi) {
-      return;
+      return
     }
     const updateSelection = () => {
-      setSelection(carouselApi.selectedScrollSnap());
-    };
-    carouselApi.on("select", updateSelection);
+      setSelection(carouselApi.selectedScrollSnap())
+    }
+    carouselApi.on('select', updateSelection)
     return () => {
-      carouselApi.off("select", updateSelection);
-    };
-  }, [carouselApi]);
+      carouselApi.off('select', updateSelection)
+    }
+  }, [carouselApi])
   return (
     <section className="py-32">
       <div className="container">
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="aspect-5/6 text-clip rounded-3xl bg-accent">
-            <Carousel
-              setApi={setCarouselApi}
-              className="size-full [&>div]:h-full"
-            >
+            <Carousel setApi={setCarouselApi} className="size-full [&>div]:h-full">
               <CarouselContent className="mx-0 size-full">
                 {USPs &&
                   USPs?.map((usp) => {
                     if (!usp.image) {
                       return (
-                        <CarouselItem
-                          key={usp.id}
-                          className="px-0 text-red-500"
-                        >
+                        <CarouselItem key={usp.id} className="px-0 text-red-500">
                           USPs need to have a image set.
                         </CarouselItem>
-                      );
+                      )
                     }
                     return (
                       <CarouselItem key={usp.id} className="px-0">
@@ -70,7 +62,7 @@ const Feature70: React.FC<
                           className="size-full rounded-3xl"
                         />
                       </CarouselItem>
-                    );
+                    )
                   })}
               </CarouselContent>
             </Carousel>
@@ -82,11 +74,11 @@ const Feature70: React.FC<
                 withWrapper={false}
                 content={richText}
                 overrideStyle={{
-                  h1: "mb-6 text-pretty text-3xl font-bold lg:text-5xl",
-                  h2: "mb-6 text-pretty text-3xl font-bold lg:text-5xl",
-                  h3: "mb-6 text-pretty text-2xl font-bold lg:text-4xl",
-                  h4: "mb-6 text-pretty text-xl font-bold lg:text-3xl",
-                  p: "mb-16 text-muted-foreground lg:text-xl",
+                  h1: 'mb-6 text-pretty text-3xl font-bold lg:text-5xl',
+                  h2: 'mb-6 text-pretty text-3xl font-bold lg:text-5xl',
+                  h3: 'mb-6 text-pretty text-2xl font-bold lg:text-4xl',
+                  h4: 'mb-6 text-pretty text-xl font-bold lg:text-3xl',
+                  p: 'mb-16 text-muted-foreground lg:text-xl',
                 }}
               />
             )}
@@ -98,24 +90,24 @@ const Feature70: React.FC<
                       <div key={usp.id} className="text-red-500">
                         USPs need to have richText set
                       </div>
-                    );
+                    )
                   }
                   const { firstNode, rest } = splitRichText(usp.richText, {
-                    splitOn: ["h2", "h3", "h4"],
+                    splitOn: ['h2', 'h3', 'h4'],
                     takeFirst: true,
-                  });
+                  })
                   if (!firstNode || !rest) {
                     return (
                       <div key={usp.id} className="text-red-500">
                         USPs need to have richText with a heading and text set
                       </div>
-                    );
+                    )
                   }
                   return (
                     <li
                       key={usp.id}
                       className="group relative w-full cursor-pointer px-6 py-3 transition data-open:bg-accent"
-                      data-open={selection === i ? "true" : undefined}
+                      data-open={selection === i ? 'true' : undefined}
                       onClick={() => setSelection(i)}
                     >
                       <div className="flex items-center justify-between gap-x-2">
@@ -132,7 +124,7 @@ const Feature70: React.FC<
                           withWrapper={false}
                           content={rest}
                           overrideStyle={{
-                            p: "my-4 text-muted-foreground lg:my-6",
+                            p: 'my-4 text-muted-foreground lg:my-6',
                           }}
                         />
                         {usp.links?.map((link) => (
@@ -146,14 +138,14 @@ const Feature70: React.FC<
                         ))}
                       </div>
                     </li>
-                  );
+                  )
                 })}
             </ul>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature70;
+export default Feature70

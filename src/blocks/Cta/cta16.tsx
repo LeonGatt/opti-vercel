@@ -1,6 +1,6 @@
-import { Zap } from "lucide-react";
+import { Zap } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Cta16 = () => {
   return (
@@ -13,10 +13,7 @@ const Cta16 = () => {
             </div>
             <h2 className="text-5xl font-bold">Build your website faster.</h2>
             <div className="flex flex-col justify-center gap-2 sm:flex-row">
-              <Button
-                size="lg"
-                className="bg-background text-primary hover:bg-background"
-              >
+              <Button size="lg" className="bg-background text-primary hover:bg-background">
                 Get Started
               </Button>
               <Button
@@ -31,7 +28,7 @@ const Cta16 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Cta16;
+export default Cta16

@@ -1,15 +1,9 @@
-import { Globe, UserRound } from "lucide-react";
+import { Globe, UserRound } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 const Login1 = () => {
   return (
@@ -40,12 +34,7 @@ const Login1 = () => {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="m@example.com"
-                    required
-                  />
+                  <Input id="email" type="email" placeholder="m@example.com" required />
                 </div>
                 <div className="grid gap-2">
                   <div className="flex justify-between">
@@ -54,12 +43,7 @@ const Login1 = () => {
                       Forgot password
                     </a>
                   </div>
-                  <Input
-                    id="password"
-                    type="password"
-                    placeholder="Enter your password"
-                    required
-                  />
+                  <Input id="password" type="password" placeholder="Enter your password" required />
                 </div>
                 <Button type="submit" className="w-full">
                   Log in
@@ -76,7 +60,7 @@ const Login1 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Login1;
+export default Login1

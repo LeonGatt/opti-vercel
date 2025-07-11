@@ -1,40 +1,40 @@
-import { ChevronRight, SquareDashedMousePointer } from "lucide-react";
+import { ChevronRight, SquareDashedMousePointer } from 'lucide-react'
 
-import { Card } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 
 const utilities = [
   {
-    title: "Integrations",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    image: "/images/block/placeholder-1.svg",
+    title: 'Integrations',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    image: '/images/block/placeholder-1.svg',
   },
   {
-    title: "Apps",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    image: "/images/block/placeholder-2.svg",
+    title: 'Apps',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    image: '/images/block/placeholder-2.svg',
   },
   {
-    title: "APIs",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    image: "/images/block/placeholder-3.svg",
+    title: 'APIs',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    image: '/images/block/placeholder-3.svg',
   },
   {
-    title: "Plugins",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    image: "/images/block/placeholder-4.svg",
+    title: 'Plugins',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    image: '/images/block/placeholder-4.svg',
   },
   {
-    title: "Extensions",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    image: "/images/block/placeholder-5.svg",
+    title: 'Extensions',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    image: '/images/block/placeholder-5.svg',
   },
   {
-    title: "Widgets",
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    image: "/images/block/placeholder-6.svg",
+    title: 'Widgets',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    image: '/images/block/placeholder-6.svg',
   },
-];
+]
 
 const Feature20 = () => {
   return (
@@ -52,13 +52,10 @@ const Feature20 = () => {
         </div>
         <Separator className="mb-8 mt-3" />
         <div className="flex flex-col justify-between gap-6 md:flex-row">
-          <h2 className="text-3xl font-medium md:w-1/2">
-            What you can do with our utilities?
-          </h2>
+          <h2 className="text-3xl font-medium md:w-1/2">What you can do with our utilities?</h2>
           <p className="md:w-1/2">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae
-            praesent, ad ullam quis cupiditate atque maxime alias eaque
-            repellendus perferendis, nemo repudiandae.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae praesent, ad ullam
+            quis cupiditate atque maxime alias eaque repellendus perferendis, nemo repudiandae.
           </p>
         </div>
         <div className="mt-11 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -78,7 +75,7 @@ const Feature20 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature20;
+export default Feature20

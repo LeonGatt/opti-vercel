@@ -1,6 +1,6 @@
-import { HandHelping, Users } from "lucide-react";
+import { HandHelping, Users } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 
 const Feature83 = () => {
   return (
@@ -14,8 +14,7 @@ const Feature83 = () => {
               </div>
               <h3 className="mb-2 font-semibold">Flexible Support</h3>
               <p className="text-sm text-muted-foreground">
-                Benefit from around-the-clock assistance to keep your business
-                running smoothly.
+                Benefit from around-the-clock assistance to keep your business running smoothly.
               </p>
             </div>
             <div className="flex flex-col rounded-md border bg-background p-4">
@@ -24,8 +23,8 @@ const Feature83 = () => {
               </div>
               <h3 className="mb-2 font-semibold">Collaborative Tools</h3>
               <p className="text-sm text-muted-foreground">
-                Enhance teamwork with tools designed to simplify project
-                management and communication.
+                Enhance teamwork with tools designed to simplify project management and
+                communication.
               </p>
             </div>
             <div className="absolute -bottom-28 -z-10 size-full opacity-25 bg-size-[12px_12px] mask-[radial-gradient(ellipse_50%_50%_at_50%_50%,#000_20%,transparent_100%)] sm:bg-[radial-gradient(hsl(from_var(--muted-foreground)_h_s_l)_1px,transparent_1px)]"></div>
@@ -36,14 +35,14 @@ const Feature83 = () => {
             </Badge>
             <h2 className="text-4xl font-bold">Simplified Solutions</h2>
             <p className="text-lg text-muted-foreground">
-              Access comprehensive solutions for managing payments,
-              collaboration, and support—all in one unified platform.
+              Access comprehensive solutions for managing payments, collaboration, and support—all
+              in one unified platform.
             </p>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature83;
+export default Feature83

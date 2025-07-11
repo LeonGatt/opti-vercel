@@ -1,55 +1,53 @@
-"use client";
+'use client'
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { GalleryBlock } from "@/payload-types";
-import { Media } from "@/components/Media";
-import RichText from "@/components/RichText";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { Icon } from "@/components/Icon";
+import { Button } from '@/components/ui/button'
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
+import { GalleryBlock } from '@/payload-types'
+import { Media } from '@/components/Media'
+import RichText from '@/components/RichText'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { Icon } from '@/components/Icon'
 
 // Default icons to use as fallbacks if no icon is specified
-const defaultIcons = ["CheckSquare", "Clock", "Users", "Target", "Focus"];
+const defaultIcons = ['CheckSquare', 'Clock', 'Users', 'Target', 'Focus']
 
-const Gallery5: React.FC<
-  GalleryBlock & { publicContext: PublicContextProps }
-> = ({ richText, tagline, elements, publicContext }) => {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
-  const [selection, setSelection] = useState(0);
+const Gallery5: React.FC<GalleryBlock & { publicContext: PublicContextProps }> = ({
+  richText,
+  tagline,
+  elements,
+  publicContext,
+}) => {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>()
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(false)
+  const [selection, setSelection] = useState(0)
 
   useEffect(() => {
     if (!carouselApi) {
-      return;
+      return
     }
-    carouselApi.scrollTo(selection);
-  }, [carouselApi, selection]);
+    carouselApi.scrollTo(selection)
+  }, [carouselApi, selection])
 
   useEffect(() => {
     if (!carouselApi) {
-      return;
+      return
     }
     const updateSelection = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev());
-      setCanScrollNext(carouselApi.canScrollNext());
-      setSelection(carouselApi.selectedScrollSnap());
-    };
-    updateSelection();
-    carouselApi.on("select", updateSelection);
+      setCanScrollPrev(carouselApi.canScrollPrev())
+      setCanScrollNext(carouselApi.canScrollNext())
+      setSelection(carouselApi.selectedScrollSnap())
+    }
+    updateSelection()
+    carouselApi.on('select', updateSelection)
     return () => {
-      carouselApi.off("select", updateSelection);
-    };
-  }, [carouselApi]);
+      carouselApi.off('select', updateSelection)
+    }
+  }, [carouselApi])
 
   return (
     <section className="py-32">
@@ -61,8 +59,8 @@ const Gallery5: React.FC<
               content={richText}
               withWrapper={true}
               overrideStyle={{
-                h2: "mb-3 text-2xl font-semibold md:mb-4 md:text-4xl lg:mb-6",
-                p: "text-muted-foreground lg:text-lg",
+                h2: 'mb-3 text-2xl font-semibold md:mb-4 md:text-4xl lg:mb-6',
+                p: 'text-muted-foreground lg:text-lg',
               }}
             />
           )}
@@ -72,7 +70,7 @@ const Gallery5: React.FC<
             size="icon"
             variant="ghost"
             onClick={() => {
-              carouselApi?.scrollPrev();
+              carouselApi?.scrollPrev()
             }}
             disabled={!canScrollPrev}
             className="disabled:pointer-events-auto"
@@ -83,7 +81,7 @@ const Gallery5: React.FC<
             size="icon"
             variant="ghost"
             onClick={() => {
-              carouselApi?.scrollNext();
+              carouselApi?.scrollNext()
             }}
             disabled={!canScrollNext}
             className="disabled:pointer-events-auto"
@@ -98,19 +96,16 @@ const Gallery5: React.FC<
               variant="outline"
               size="lg"
               className="flex-wrap"
-              value={elements[selection]?.id || ""}
+              value={elements[selection]?.id || ''}
               onValueChange={(newValue) => {
                 if (newValue) {
-                  setSelection(
-                    elements.findIndex((item) => item.id === newValue),
-                  );
+                  setSelection(elements.findIndex((item) => item.id === newValue))
                 }
               }}
             >
               {elements.map((item, index) => {
                 // Get the icon from the item or use a default icon
-                const iconName =
-                  item.icon || defaultIcons[index % defaultIcons.length];
+                const iconName = item.icon || defaultIcons[index % defaultIcons.length]
 
                 return (
                   <ToggleGroupItem
@@ -120,7 +115,7 @@ const Gallery5: React.FC<
                   >
                     <Icon icon={iconName} className="size-4" />
                   </ToggleGroupItem>
-                );
+                )
               })}
             </ToggleGroup>
           </div>
@@ -131,7 +126,7 @@ const Gallery5: React.FC<
           setApi={setCarouselApi}
           opts={{
             breakpoints: {
-              "(max-width: 768px)": {
+              '(max-width: 768px)': {
                 dragFree: true,
               },
             },
@@ -141,18 +136,14 @@ const Gallery5: React.FC<
             {elements &&
               elements.map((item, index) => {
                 // Get the icon from the item or use a default icon
-                const iconName =
-                  item.icon || defaultIcons[index % defaultIcons.length];
+                const iconName = item.icon || defaultIcons[index % defaultIcons.length]
 
                 return (
-                  <CarouselItem
-                    key={item.id || `item-${index}`}
-                    className="pl-[40px]"
-                  >
+                  <CarouselItem key={item.id || `item-${index}`} className="pl-[40px]">
                     <a
-                      href={item.link?.url || "#"}
+                      href={item.link?.url || '#'}
                       className="group rounded-xl"
-                      target={item.link?.newTab ? "_blank" : "_self"}
+                      target={item.link?.newTab ? '_blank' : '_self'}
                     >
                       <div className="flex flex-col overflow-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                         <div className="md:min-h-96 lg:min-h-112 xl:min-h-128">
@@ -171,9 +162,9 @@ const Gallery5: React.FC<
                               publicContext={publicContext}
                               content={item.richText}
                               overrideStyle={{
-                                h3: "mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6",
-                                h4: "mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6",
-                                p: "text-muted-foreground lg:text-lg",
+                                h3: 'mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6',
+                                h4: 'mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6',
+                                p: 'text-muted-foreground lg:text-lg',
                               }}
                             />
                           ) : (
@@ -182,8 +173,7 @@ const Gallery5: React.FC<
                                 Feature Item
                               </h3>
                               <p className="text-muted-foreground lg:text-lg">
-                                This is a placeholder description for the
-                                feature item.
+                                This is a placeholder description for the feature item.
                               </p>
                             </>
                           )}
@@ -191,13 +181,13 @@ const Gallery5: React.FC<
                       </div>
                     </a>
                   </CarouselItem>
-                );
+                )
               })}
           </CarouselContent>
         </Carousel>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Gallery5;
+export default Gallery5

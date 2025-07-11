@@ -1,13 +1,13 @@
-import RichText from "@/components/RichText";
+import RichText from '@/components/RichText'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { FaqBlock } from "@/payload-types";
-import FaqStructuredData from "@/blocks/Faq/FaqStructuredData";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+} from '@/components/ui/accordion'
+import { FaqBlock } from '@/payload-types'
+import FaqStructuredData from '@/blocks/Faq/FaqStructuredData'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Faq1: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
   headline,
@@ -26,10 +26,10 @@ const Faq1: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
             content={headline}
             withWrapper={false}
             overrideStyle={{
-              h1: "mb-4 text-3xl font-semibold md:mb-11 md:text-5xl",
-              h2: "mb-4 text-2xl font-semibold md:mb-11 md:text-4xl",
-              h3: "mb-4 text-xl font-semibold md:mb-11 md:text-3xl",
-              h4: "mb-4 text-l font-semibold md:mb-11 md:text-2xl",
+              h1: 'mb-4 text-3xl font-semibold md:mb-11 md:text-5xl',
+              h2: 'mb-4 text-2xl font-semibold md:mb-11 md:text-4xl',
+              h3: 'mb-4 text-xl font-semibold md:mb-11 md:text-3xl',
+              h4: 'mb-4 text-l font-semibold md:mb-11 md:text-2xl',
             }}
           />
         )}
@@ -45,7 +45,7 @@ const Faq1: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
                     publicContext={publicContext}
                     content={answer}
                     withWrapper={false}
-                    overrideStyle={{ p: "font-normal text-sm" }}
+                    overrideStyle={{ p: 'font-normal text-sm' }}
                   />
                 </AccordionContent>
               )}
@@ -54,7 +54,7 @@ const Faq1: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Faq1;
+export default Faq1

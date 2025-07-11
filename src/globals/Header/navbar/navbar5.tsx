@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { MenuIcon } from "lucide-react";
-import { Media } from "@/components/Media";
-import { CMSLink } from "@/components/Link";
-import { Icon } from "@/components/Icon";
-import { cn } from "@/utilities/cn";
+import { MenuIcon } from 'lucide-react'
+import { Media } from '@/components/Media'
+import { CMSLink } from '@/components/Link'
+import { Icon } from '@/components/Icon'
+import { cn } from '@/utilities/cn'
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button, buttonVariants } from "@/components/ui/button";
+} from '@/components/ui/accordion'
+import { Button, buttonVariants } from '@/components/ui/button'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -21,28 +21,19 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import type { Header as HeaderType } from "@/payload-types";
+} from '@/components/ui/navigation-menu'
+import type { Header as HeaderType } from '@/payload-types'
 
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import Link from "next/link";
-import {
-  LanguageSwitcher,
-  LanguageSwitcherMobile,
-} from "@/components/LanguageSwitcher";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { Logo } from "@/components/Logo/Logo";
-import { CartToggle } from "@/components/Cart/CartToggle";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import Link from 'next/link'
+import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/LanguageSwitcher'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { Logo } from '@/components/Logo/Logo'
+import { CartToggle } from '@/components/Cart/CartToggle'
 
 const Navbar5: React.FC<{
-  header: HeaderType;
-  publicContext: PublicContextProps;
+  header: HeaderType
+  publicContext: PublicContextProps
 }> = ({ header, publicContext }) => {
   return (
     <section className="py-4 z-50 bg-secondary text-black">
@@ -68,13 +59,9 @@ const Navbar5: React.FC<{
                 </SheetHeader>
                 {/* Mobile Navigation Links */}
                 <div className="my-8 flex flex-col gap-6">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="flex flex-col gap-4"
-                  >
+                  <Accordion type="single" collapsible className="flex flex-col gap-4">
                     {header.items?.map((item) => {
-                      if (item.blockType === "link") {
+                      if (item.blockType === 'link') {
                         return (
                           <div key={item.id} className="flex flex-col">
                             <CMSLink
@@ -83,8 +70,8 @@ const Navbar5: React.FC<{
                               className="font-medium"
                             />
                           </div>
-                        );
-                      } else if (item.blockType === "sub") {
+                        )
+                      } else if (item.blockType === 'sub') {
                         return (
                           <AccordionItem
                             key={item.id}
@@ -93,9 +80,7 @@ const Navbar5: React.FC<{
                           >
                             <AccordionTrigger className="mb-4 py-0 font-medium hover:no-underline">
                               <span className="inline-flex">
-                                {item.icon && (
-                                  <Icon className="mr-2 h-6" icon={item.icon} />
-                                )}
+                                {item.icon && <Icon className="mr-2 h-6" icon={item.icon} />}
                                 {item.label}
                               </span>
                             </AccordionTrigger>
@@ -105,7 +90,7 @@ const Navbar5: React.FC<{
                                   publicContext={publicContext}
                                   key={subitem.id}
                                   className={cn(
-                                    "flex select-none gap-4 rounded-md p-3 leading-none outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                                    'flex select-none gap-4 rounded-md p-3 leading-none outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                                   )}
                                   {...subitem.link}
                                   label=""
@@ -127,7 +112,7 @@ const Navbar5: React.FC<{
                               ))}
                             </AccordionContent>
                           </AccordionItem>
-                        );
+                        )
                       }
                     })}
                     <LanguageSwitcherMobile publicContext={publicContext} />
@@ -136,11 +121,7 @@ const Navbar5: React.FC<{
                 {/* Mobile Buttons */}
                 <div className="flex flex-col gap-2">
                   {header?.buttons?.map((btn) => (
-                    <CMSLink
-                      publicContext={publicContext}
-                      key={btn.id}
-                      {...btn.link}
-                    />
+                    <CMSLink publicContext={publicContext} key={btn.id} {...btn.link} />
                   ))}
                 </div>
               </SheetContent>
@@ -154,29 +135,24 @@ const Navbar5: React.FC<{
           <NavigationMenu className="hidden lg:block z-50">
             <NavigationMenuList>
               {header.items?.map((item) => {
-                if (item.blockType === "link") {
+                if (item.blockType === 'link') {
                   return (
                     <CMSLink
                       publicContext={publicContext}
                       key={item.id}
                       {...item.link}
                       className={cn(
-                        "text-muted-foreground",
+                        'text-muted-foreground',
                         navigationMenuTriggerStyle,
-                        buttonVariants({ variant: "ghost" }),
+                        buttonVariants({ variant: 'ghost' }),
                       )}
                     />
-                  );
-                } else if (item.blockType === "sub") {
+                  )
+                } else if (item.blockType === 'sub') {
                   return (
-                    <NavigationMenuItem
-                      key={item.id}
-                      className="text-muted-foreground"
-                    >
+                    <NavigationMenuItem key={item.id} className="text-muted-foreground">
                       <NavigationMenuTrigger className="bg-transparent">
-                        {item.icon && (
-                          <Icon className="mr-2 h-6" icon={item.icon} />
-                        )}
+                        {item.icon && <Icon className="mr-2 h-6" icon={item.icon} />}
                         <span>{item.label}</span>
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -213,7 +189,7 @@ const Navbar5: React.FC<{
                         </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
-                  );
+                  )
                 }
               })}
             </NavigationMenuList>
@@ -223,27 +199,18 @@ const Navbar5: React.FC<{
           {header?.buttons?.length ? (
             <div className="hidden lg:flex gap-2 z-50">
               {header?.buttons?.map((btn) => (
-                <CMSLink
-                  publicContext={publicContext}
-                  key={btn.id}
-                  {...btn.link}
-                  size="sm"
-                />
+                <CMSLink publicContext={publicContext} key={btn.id} {...btn.link} size="sm" />
               ))}
             </div>
           ) : null}
           <div className="flex items-center gap-2 z-50">
-            <LanguageSwitcher
-              publicContext={publicContext}
-              size="sm"
-              className="hidden lg:flex"
-            />
+            <LanguageSwitcher publicContext={publicContext} size="sm" className="hidden lg:flex" />
             <CartToggle />
           </div>
         </nav>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Navbar5;
+export default Navbar5

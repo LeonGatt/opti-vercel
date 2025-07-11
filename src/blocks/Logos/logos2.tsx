@@ -1,8 +1,8 @@
-import RichText from "@/components/RichText";
-import type { LogosBlock, Media as MediaType } from "@/payload-types";
-import { Media } from "@/components/Media";
-import { CMSLink } from "@/components/Link";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import RichText from '@/components/RichText'
+import type { LogosBlock, Media as MediaType } from '@/payload-types'
+import { Media } from '@/components/Media'
+import { CMSLink } from '@/components/Link'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Logos2: React.FC<LogosBlock & { publicContext: PublicContextProps }> = ({
   richText,
@@ -22,19 +22,15 @@ const Logos2: React.FC<LogosBlock & { publicContext: PublicContextProps }> = ({
                   content={richText}
                   withWrapper={false}
                   overrideStyle={{
-                    h2: "mb-4 text-2xl font-semibold lg:text-3xl",
-                    h3: "mb-4 text-2xl font-semibold lg:text-2xl",
-                    h4: "mb-4 text-2xl font-semibold lg:text-xl",
-                    p: "mb-6 text-lg",
+                    h2: 'mb-4 text-2xl font-semibold lg:text-3xl',
+                    h3: 'mb-4 text-2xl font-semibold lg:text-2xl',
+                    h4: 'mb-4 text-2xl font-semibold lg:text-xl',
+                    p: 'mb-6 text-lg',
                   }}
                 />
               )}
               {link && (
-                <CMSLink
-                  publicContext={publicContext}
-                  className="w-full md:w-fit"
-                  {...link}
-                />
+                <CMSLink publicContext={publicContext} className="w-full md:w-fit" {...link} />
               )}
             </div>
           </div>
@@ -56,7 +52,7 @@ const Logos2: React.FC<LogosBlock & { publicContext: PublicContextProps }> = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Logos2;
+export default Logos2

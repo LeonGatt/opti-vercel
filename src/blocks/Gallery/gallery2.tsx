@@ -1,37 +1,37 @@
-"use client";
-import { useState } from "react";
+'use client'
+import { useState } from 'react'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+} from '@/components/ui/carousel'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
+import { X } from 'lucide-react'
 
 const images = [
   {
-    url: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
-    alt: "Group discussion",
+    url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30',
+    alt: 'Group discussion',
   },
   {
-    url: "https://images.unsplash.com/photo-1519741497674-611481863552",
-    alt: "Evening event",
+    url: 'https://images.unsplash.com/photo-1519741497674-611481863552',
+    alt: 'Evening event',
   },
   {
-    url: "https://images.unsplash.com/photo-1511632765486-a01980e01a18",
-    alt: "Group photo",
+    url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18',
+    alt: 'Group photo',
   },
   {
-    url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
-    alt: "Night event",
+    url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87',
+    alt: 'Night event',
   },
-];
+]
 
 export default function Gallery2() {
-  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null)
 
   return (
     <div className="px-6 py-12">
@@ -44,11 +44,7 @@ export default function Gallery2() {
                   className="overflow-hidden rounded-lg cursor-pointer transition-transform hover:scale-105"
                   onClick={() => setFullscreenImage(image.url)}
                 >
-                  <img
-                    src={image.url}
-                    alt={image.alt}
-                    className="w-full h-[300px] object-cover"
-                  />
+                  <img src={image.url} alt={image.alt} className="w-full h-[300px] object-cover" />
                 </div>
               </div>
             </CarouselItem>
@@ -58,10 +54,7 @@ export default function Gallery2() {
         <CarouselNext />
       </Carousel>
 
-      <Dialog
-        open={!!fullscreenImage}
-        onOpenChange={() => setFullscreenImage(null)}
-      >
+      <Dialog open={!!fullscreenImage} onOpenChange={() => setFullscreenImage(null)}>
         <DialogContent className="max-w-[90vw] h-[90vh] p-0">
           <Button
             variant="ghost"
@@ -73,7 +66,7 @@ export default function Gallery2() {
           </Button>
           <div className="w-full h-full flex items-center justify-center bg-black">
             <img
-              src={fullscreenImage || ""}
+              src={fullscreenImage || ''}
               alt="Fullscreen view"
               className="max-w-full max-h-full object-contain"
               onClick={() => setFullscreenImage(null)}
@@ -82,5 +75,5 @@ export default function Gallery2() {
         </DialogContent>
       </Dialog>
     </div>
-  );
+  )
 }

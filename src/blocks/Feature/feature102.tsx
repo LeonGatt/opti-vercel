@@ -1,11 +1,13 @@
-import { Media } from "@/components/Media";
-import RichText from "@/components/RichText";
-import { FeatureBlock } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Media } from '@/components/Media'
+import RichText from '@/components/RichText'
+import { FeatureBlock } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-const Feature102: React.FC<
-  FeatureBlock & { publicContext: PublicContextProps }
-> = ({ USPs, richText, publicContext }) => {
+const Feature102: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+  USPs,
+  richText,
+  publicContext,
+}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -16,11 +18,11 @@ const Feature102: React.FC<
               withWrapper={false}
               content={richText}
               overrideStyle={{
-                h1: "text-2xl md:text-4xl",
-                h2: "text-2xl md:text-4xl",
-                h3: "text-xl md:text-2xl",
-                h4: "text-xl md:text-2xl",
-                p: "text-sm text-muted-foreground md:text-base",
+                h1: 'text-2xl md:text-4xl',
+                h2: 'text-2xl md:text-4xl',
+                h3: 'text-xl md:text-2xl',
+                h4: 'text-xl md:text-2xl',
+                p: 'text-sm text-muted-foreground md:text-base',
               }}
             />
           )}
@@ -72,10 +74,10 @@ const Feature102: React.FC<
                           withWrapper={false}
                           content={usp.richText}
                           overrideStyle={{
-                            h2: "text-2xl min-[960px]:text-3xl",
-                            h3: "text-xl min-[960px]:text-2xl",
-                            h4: "text-xl min-[960px]:text-2xl",
-                            p: "text-sm text-muted-foreground min-[960px]:text-base",
+                            h2: 'text-2xl min-[960px]:text-3xl',
+                            h3: 'text-xl min-[960px]:text-2xl',
+                            h4: 'text-xl min-[960px]:text-2xl',
+                            p: 'text-sm text-muted-foreground min-[960px]:text-base',
                           }}
                         />
                       )}
@@ -91,7 +93,7 @@ const Feature102: React.FC<
                     <div className="text-red-500">USP image is required</div>
                   )}
                 </div>
-              );
+              )
             })}
           {/*
           <div className="flex flex-col items-center justify-between min-[960px]:flex-row min-[960px]:gap-10">
@@ -145,7 +147,7 @@ const Feature102: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature102;
+export default Feature102

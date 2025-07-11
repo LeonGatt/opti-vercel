@@ -1,8 +1,8 @@
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc'
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
 
 const Login3 = () => {
   return (
@@ -17,26 +17,17 @@ const Login3 = () => {
                 className="mb-7 h-10 w-auto"
               />
               <p className="mb-2 text-2xl font-bold">Welcome back</p>
-              <p className="text-muted-foreground">
-                Please enter your details.
-              </p>
+              <p className="text-muted-foreground">Please enter your details.</p>
             </div>
             <div>
               <div className="grid gap-4">
                 <Input type="email" placeholder="Enter your email" required />
                 <div>
-                  <Input
-                    type="password"
-                    placeholder="Enter your password"
-                    required
-                  />
+                  <Input type="password" placeholder="Enter your password" required />
                 </div>
                 <div className="flex justify-between">
                   <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="remember"
-                      className="border-muted-foreground"
-                    />
+                    <Checkbox id="remember" className="border-muted-foreground" />
                     <label
                       htmlFor="remember"
                       className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -67,7 +58,7 @@ const Login3 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Login3;
+export default Login3

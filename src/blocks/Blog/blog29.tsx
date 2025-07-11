@@ -1,76 +1,71 @@
-import { ArrowUpRightIcon } from "lucide-react";
-import React from "react";
+import { ArrowUpRightIcon } from 'lucide-react'
+import React from 'react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { BlogBlock, Post, Category } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import RichText from "@/components/RichText";
-import { CMSLink } from "@/components/Link";
-import { extractPlainText } from "@/utilities/richtext";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { BlogBlock, Post, Category } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import RichText from '@/components/RichText'
+import { CMSLink } from '@/components/Link'
+import { extractPlainText } from '@/utilities/richtext'
 
 // Extended props interface to include posts array
 interface Blog29Props extends BlogBlock {
-  publicContext: PublicContextProps;
-  posts?: Post[]; // Add posts property for server-fetched posts
+  publicContext: PublicContextProps
+  posts?: Post[] // Add posts property for server-fetched posts
 }
 
 // Define a type for sample blog posts
 interface SamplePost {
-  id: string;
-  slug: string;
-  title: string;
-  content: string;
-  publishedAt: string;
-  createdAt: string;
-  tags: string[];
-  readTime?: number;
+  id: string
+  slug: string
+  title: string
+  content: string
+  publishedAt: string
+  createdAt: string
+  tags: string[]
+  readTime?: number
 }
 
 /**
  * Format date for display
  */
 function formatDate(dateString: string | null | undefined): string {
-  if (!dateString) return "";
-  const date = new Date(dateString);
+  if (!dateString) return ''
+  const date = new Date(dateString)
   const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return date.toLocaleDateString("en-US", options);
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
+  return date.toLocaleDateString('en-US', options)
 }
 
 /**
  * Blog29 component for displaying blog posts in a card layout
  */
 const Blog29: React.FC<Blog29Props> = (props) => {
-  const {
-    publicContext,
-    richText,
-    populateBy = "collection",
-    selectedPosts,
-  } = props;
+  const { publicContext, richText, populateBy = 'collection', selectedPosts } = props
 
   // For compatibility with previous code, map the new structure
-  const featuredPosts = populateBy === "selection" ? selectedPosts : undefined;
+  const featuredPosts = populateBy === 'selection' ? selectedPosts : undefined
 
   // Get posts from props or use sample data if none available
   const posts = React.useMemo(() => {
     // If featuredPosts are provided (from manual selection), use them
     if (featuredPosts && featuredPosts.length > 0) {
       return featuredPosts
-        .map((post) => (typeof post === "string" ? null : post))
-        .filter(Boolean) as Post[];
+        .map((post) => (typeof post === 'string' ? null : post))
+        .filter(Boolean) as Post[]
     }
 
     // If posts were fetched from the server and passed via props, use them
     if (props.posts && Array.isArray(props.posts) && props.posts.length > 0) {
-      return props.posts as Post[];
+      return props.posts as Post[]
     }
-  }, [featuredPosts, props.posts]);
+  }, [featuredPosts, props.posts])
 
   return (
     <section className="bg-background py-16">
@@ -81,8 +76,8 @@ const Blog29: React.FC<Blog29Props> = (props) => {
             content={richText}
             publicContext={publicContext}
             overrideStyle={{
-              h1: "mb-10 px-6 text-left text-4xl font-bold tracking-tighter text-foreground sm:text-6xl",
-              h2: "mb-10 px-6 text-left text-4xl font-bold tracking-tighter text-foreground sm:text-6xl",
+              h1: 'mb-10 px-6 text-left text-4xl font-bold tracking-tighter text-foreground sm:text-6xl',
+              h2: 'mb-10 px-6 text-left text-4xl font-bold tracking-tighter text-foreground sm:text-6xl',
             }}
           />
         )}
@@ -98,23 +93,21 @@ const Blog29: React.FC<Blog29Props> = (props) => {
           {Array.isArray(posts) &&
             posts.map((post, index) => {
               // For real posts from Payload
-              const postUrl = post.slug ? `/posts/${post.slug}` : "#";
+              const postUrl = post.slug ? `/posts/${post.slug}` : '#'
 
               // Handle content which might be a string or rich text
               const postContent =
-                typeof post.content === "string"
-                  ? post.content
-                  : extractPlainText(post.content);
+                typeof post.content === 'string' ? post.content : extractPlainText(post.content)
 
               // Format the date for display
-              const postDate = formatDate(post.publishedAt || post.createdAt);
+              const postDate = formatDate(post.publishedAt || post.createdAt)
 
               // Handle categories for Payload posts
-              let categories: Category[] = [];
-              if ("categories" in post && Array.isArray(post.categories)) {
+              let categories: Category[] = []
+              if ('categories' in post && Array.isArray(post.categories)) {
                 categories = post.categories
-                  .map((cat) => (typeof cat === "string" ? null : cat))
-                  .filter(Boolean) as Category[];
+                  .map((cat) => (typeof cat === 'string' ? null : cat))
+                  .filter(Boolean) as Category[]
               }
 
               return (
@@ -122,9 +115,7 @@ const Blog29: React.FC<Blog29Props> = (props) => {
                   <Card className="border-none shadow-none">
                     <CardContent className="">
                       <div className="relative w-full">
-                        <p className="text-sm tracking-tight text-muted-foreground">
-                          {postDate}
-                        </p>
+                        <p className="text-sm tracking-tight text-muted-foreground">{postDate}</p>
 
                         <h2 className="mt-2 text-lg font-medium tracking-tight text-foreground md:text-2xl">
                           {post.title}
@@ -138,11 +129,7 @@ const Blog29: React.FC<Blog29Props> = (props) => {
                           {/* Show categories for Payload posts */}
                           {categories.length > 0 &&
                             categories.map((category, tagIndex) => (
-                              <Badge
-                                key={tagIndex}
-                                variant="secondary"
-                                className="h-6 rounded-md"
-                              >
+                              <Badge key={tagIndex} variant="secondary" className="h-6 rounded-md">
                                 <span className="text-md font-medium text-muted-foreground">
                                   {category.title}
                                 </span>
@@ -150,14 +137,10 @@ const Blog29: React.FC<Blog29Props> = (props) => {
                             ))}
 
                           {/* Show tags for sample posts */}
-                          {"tags" in post &&
+                          {'tags' in post &&
                             Array.isArray(post.tags) &&
                             post.tags.map((tag, tagIndex) => (
-                              <Badge
-                                key={tagIndex}
-                                variant="secondary"
-                                className="h-6 rounded-md"
-                              >
+                              <Badge key={tagIndex} variant="secondary" className="h-6 rounded-md">
                                 <span className="text-md font-medium text-muted-foreground">
                                   {tag}
                                 </span>
@@ -166,10 +149,7 @@ const Blog29: React.FC<Blog29Props> = (props) => {
 
                           {/* Show read time if available */}
                           {post.readTime && (
-                            <Badge
-                              variant="secondary"
-                              className="h-6 rounded-md"
-                            >
+                            <Badge variant="secondary" className="h-6 rounded-md">
                               <span className="text-md font-medium text-muted-foreground">
                                 {post.readTime} min read
                               </span>
@@ -190,16 +170,14 @@ const Blog29: React.FC<Blog29Props> = (props) => {
                     </CardContent>
                   </Card>
 
-                  {index < posts.length - 1 && (
-                    <Separator className="h-px w-full" />
-                  )}
+                  {index < posts.length - 1 && <Separator className="h-px w-full" />}
                 </React.Fragment>
-              );
+              )
             })}
         </section>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export { Blog29 };
+export { Blog29 }

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero16 = () => {
   return (
@@ -8,8 +8,7 @@ const Hero16 = () => {
           Welcome to Our Website
         </h1>
         <p className="mb-6 max-w-xl text-muted-foreground md:mb-12 lg:text-xl">
-          Elig doloremque mollitia fugiat omnis! Porro facilis quo animi
-          consequatur.
+          Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur.
         </p>
         <div>
           <Button>Primary</Button>
@@ -25,7 +24,7 @@ const Hero16 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero16;
+export default Hero16

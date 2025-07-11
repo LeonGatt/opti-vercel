@@ -18,68 +18,68 @@
  * />
  */
 
-import { cn } from "@/utilities/cn";
-import React from "react";
+import { cn } from '@/utilities/cn'
+import React from 'react'
 
-import { OverrideStyle, serializeLexical } from "./serialize";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { tagsSizes } from "../Heading";
+import { OverrideStyle, serializeLexical } from './serialize'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { tagsSizes } from '../Heading'
 
 type BaseRichTextProps = {
   /** Raw content object from Lexical editor */
-  content: Record<string, any>;
+  content: Record<string, any>
   /** Optional style overrides for specific elements */
-  overrideStyle?: OverrideStyle;
-  publicContext: PublicContextProps;
-};
+  overrideStyle?: OverrideStyle
+  publicContext: PublicContextProps
+}
 
 type WithWrapperProps = BaseRichTextProps & {
   /** Set to true to wrap content in a div with styling options */
-  withWrapper: true;
+  withWrapper: true
   /** Optional className for the wrapper div */
-  className?: string;
+  className?: string
   /** Enables container padding/margin. Default: true */
-  enableGutter?: boolean;
+  enableGutter?: boolean
   /** Enables Tailwind prose styling. Default: true */
-  enableProse?: boolean;
-};
+  enableProse?: boolean
+}
 
 type WithoutWrapperProps = BaseRichTextProps & {
   /** Set to false to render content without a wrapper div */
-  withWrapper?: false;
+  withWrapper?: false
   /** Optional className for the fragment wrapper */
-  className?: string;
-};
+  className?: string
+}
 
-type RichTextProps = WithWrapperProps | WithoutWrapperProps;
+type RichTextProps = WithWrapperProps | WithoutWrapperProps
 
 const defaultOverrideStyle: OverrideStyle = {
   ...tagsSizes,
-  p: "text-base",
-};
+  p: 'text-base',
+}
 
 const RichText: React.FC<RichTextProps> = (props) => {
   if (!props.content) {
-    return null;
+    return null
   }
 
   const content =
     props.content &&
     !Array.isArray(props.content) &&
-    typeof props.content === "object" &&
-    "root" in props.content &&
+    typeof props.content === 'object' &&
+    'root' in props.content &&
     serializeLexical({
       nodes: props.content?.root?.children,
       overrideStyle: { ...defaultOverrideStyle, ...props.overrideStyle },
       publicContext: props.publicContext,
-    });
+    })
 
   if (!props.withWrapper) {
     // If className is provided, wrap in a span for styling
     if (props.className) {
-      return <span className={props.className}>{content}</span>;
+      return <span className={props.className}>{content}</span>
     }
-    return <>{content}</>;
+    return <>{content}</>
   }
 
   return (
@@ -87,15 +87,15 @@ const RichText: React.FC<RichTextProps> = (props) => {
       className={cn(
         {
           container: props.enableGutter,
-          "max-w-none": !props.enableGutter,
-          "mx-auto prose dark:prose-invert": props.enableProse,
+          'max-w-none': !props.enableGutter,
+          'mx-auto prose dark:prose-invert': props.enableProse,
         },
         props.className,
       )}
     >
       {content}
     </div>
-  );
-};
+  )
+}
 
-export default RichText;
+export default RichText

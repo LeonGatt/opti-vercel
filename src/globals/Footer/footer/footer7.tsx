@@ -1,12 +1,12 @@
-import { Footer } from "@/payload-types";
-import { Media } from "@/components/Media";
-import { CMSLink } from "@/components/Link";
-import { SocialIcon } from "@/components/SocialIcon";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Footer } from '@/payload-types'
+import { Media } from '@/components/Media'
+import { CMSLink } from '@/components/Link'
+import { SocialIcon } from '@/components/SocialIcon'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Footer7: React.FC<{
-  footer: Footer;
-  publicContext: PublicContextProps;
+  footer: Footer
+  publicContext: PublicContextProps
 }> = ({ footer, publicContext }) => {
   return (
     <section className="py-32">
@@ -17,11 +17,7 @@ const Footer7: React.FC<{
               <div>
                 <span className="flex items-center justify-center gap-4 lg:justify-start">
                   {footer.logo && (
-                    <Media
-                      resource={footer.logo}
-                      alt="logo"
-                      imgClassName="h-11 w-auto"
-                    />
+                    <Media resource={footer.logo} alt="logo" imgClassName="h-11 w-auto" />
                   )}
                   {/* <p className="text-3xl font-semibold">Shadcnblocks</p> */}
                 </span>
@@ -47,14 +43,8 @@ const Footer7: React.FC<{
                     <ul className="space-y-4 text-sm text-muted-foreground">
                       {section.subNavItems &&
                         section.subNavItems.map((link, linkIdx) => (
-                          <li
-                            key={linkIdx}
-                            className="font-medium hover:text-primary"
-                          >
-                            <CMSLink
-                              publicContext={publicContext}
-                              {...link.link}
-                            />
+                          <li key={linkIdx} className="font-medium hover:text-primary">
+                            <CMSLink publicContext={publicContext} {...link.link} />
                           </li>
                         ))}
                     </ul>
@@ -63,10 +53,7 @@ const Footer7: React.FC<{
             </div>
           </div>
           <div className="mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
-            <p>
-              {footer.copyright &&
-                `© ${new Date().getFullYear()} ${footer.copyright}`}
-            </p>
+            <p>{footer.copyright && `© ${new Date().getFullYear()} ${footer.copyright}`}</p>
             <ul className="flex justify-center gap-4 lg:justify-start">
               {footer.legalLinks?.map((item, index) => (
                 <li key={index} className="hover:text-primary">
@@ -78,7 +65,7 @@ const Footer7: React.FC<{
         </footer>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Footer7;
+export default Footer7

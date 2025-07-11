@@ -1,5 +1,5 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+import { createEnv } from '@t3-oss/env-nextjs'
+import { z } from 'zod'
 
 export const env = createEnv({
   emptyStringAsUndefined: true,
@@ -11,10 +11,10 @@ export const env = createEnv({
   server: {
     // Required environment variables
     SERVER_URL: z.string().url(),
-    CRON_SECRET: z.string().min(1, "CRON_SECRET is required"),
+    CRON_SECRET: z.string().min(1, 'CRON_SECRET is required'),
     DATABASE_URI: z.string().url(),
-    PAYLOAD_SECRET: z.string().min(1, "PAYLOAD_SECRET is required"),
-    PREVIEW_SECRET: z.string().min(1, "PREVIEW_SECRET is required"),
+    PAYLOAD_SECRET: z.string().min(1, 'PAYLOAD_SECRET is required'),
+    PREVIEW_SECRET: z.string().min(1, 'PREVIEW_SECRET is required'),
 
     SENTRY_AUTH_TOKEN: z.string().optional(),
     SENTRY_ORG: z.string().optional(),
@@ -45,7 +45,7 @@ export const env = createEnv({
   },
   shared: {
     // NODE_ENV makes app to behave as it's in production mode (optimized builds, no dev-only behavior, etc.)
-    NODE_ENV: z.enum(["development", "production"]).optional(),
+    NODE_ENV: z.enum(['development', 'production']).optional(),
     CI: z.string().optional(),
     isDevelopment: z.boolean().optional(),
     isProduction: z.boolean().optional(),
@@ -62,7 +62,7 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_SERVER_URL ||
       (process.env.NEXT_PUBLIC_VERCEL_URL
         ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-        : "http://localhost:3000"),
+        : 'http://localhost:3000'),
     CRON_SECRET: process.env.CRON_SECRET,
     DATABASE_URI: process.env.DATABASE_URI,
     PAYLOAD_SECRET: process.env.PAYLOAD_SECRET,
@@ -81,9 +81,8 @@ export const env = createEnv({
     NEXT_PUBLIC_SENTRY_PROJECT: process.env.NEXT_PUBLIC_SENTRY_PROJECT,
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
     NEXT_PUBLIC_VERCEL_URL: process.env.NEXT_PUBLIC_VERCEL_URL,
-    NEXT_PUBLIC_CART_NAME: process.env.NEXT_PUBLIC_CART_NAME || "opticart",
-    NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID:
-      process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID,
+    NEXT_PUBLIC_CART_NAME: process.env.NEXT_PUBLIC_CART_NAME || 'opticart',
+    NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID,
     NEXT_PUBLIC_GTM_AUTH: process.env.NEXT_PUBLIC_GTM_AUTH,
     NEXT_PUBLIC_CART_API_URL: process.env.NEXT_PUBLIC_CART_API_URL,
 
@@ -91,8 +90,8 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     CI: process.env.CI,
 
-    isDevelopment: process.env.NODE_ENV === "development",
-    isProduction: process.env.NODE_ENV === "production",
+    isDevelopment: process.env.NODE_ENV === 'development',
+    isProduction: process.env.NODE_ENV === 'production',
     isVercel: !!process.env.VERCEL,
   },
-});
+})

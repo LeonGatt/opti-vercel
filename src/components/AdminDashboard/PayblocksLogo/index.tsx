@@ -16,5 +16,5 @@ export default function PayblocksLogo() {
         fill="black"
       />
     </svg>
-  );
+  )
 }

@@ -1,23 +1,26 @@
-"use client";
+'use client'
 
-import { useState } from "react";
+import { useState } from 'react'
 
-import { cn } from "@/utilities/cn";
+import { cn } from '@/utilities/cn'
 
-import { BorderBeam } from "@/components/magicui/border-beam";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { Page } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
-import { Icon } from "@/components/Icon";
-const Hero195: React.FC<
-  Page["hero"] & { publicContext: PublicContextProps }
-> = ({ richText, links, tabs, publicContext }) => {
-  const [activeTab, setActiveTab] = useState(tabs?.[0]?.title || "");
+import { BorderBeam } from '@/components/magicui/border-beam'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { Page } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import { Icon } from '@/components/Icon'
+const Hero195: React.FC<Page['hero'] & { publicContext: PublicContextProps }> = ({
+  richText,
+  links,
+  tabs,
+  publicContext,
+}) => {
+  const [activeTab, setActiveTab] = useState(tabs?.[0]?.title || '')
 
-  if (!tabs) return null;
+  if (!tabs) return null
   return (
     <section className="overflow-x-hidden overflow-y-hidden">
       <div className="container">
@@ -30,17 +33,15 @@ const Hero195: React.FC<
                 content={richText}
                 enableGutter={false}
                 overrideStyle={{
-                  h1: "mx-1 mt-6 text-center text-5xl font-bold tracking-tighter md:text-7xl",
-                  p: "mx-2 mt-6 max-w-xl text-center text-lg font-medium text-muted-foreground md:text-xl",
+                  h1: 'mx-1 mt-6 text-center text-5xl font-bold tracking-tighter md:text-7xl',
+                  p: 'mx-2 mt-6 max-w-xl text-center text-lg font-medium text-muted-foreground md:text-xl',
                 }}
               />
             )}
             {Array.isArray(links) && links.length > 0 && (
               <div className="mx-2 mt-6 flex justify-center gap-2">
                 {links.map(({ link }, i) => {
-                  return (
-                    <CMSLink publicContext={publicContext} key={i} {...link} />
-                  );
+                  return <CMSLink publicContext={publicContext} key={i} {...link} />
                 })}
               </div>
             )}
@@ -67,13 +68,10 @@ const Hero195: React.FC<
                     <TabsContent
                       key={index}
                       value={title}
-                      className={cn(
-                        "-mx-px bg-background transition-opacity duration-500",
-                        {
-                          "animate-in opacity-100 fade-in": activeTab === title,
-                          "opacity-0": activeTab !== title,
-                        },
-                      )}
+                      className={cn('-mx-px bg-background transition-opacity duration-500', {
+                        'animate-in opacity-100 fade-in': activeTab === title,
+                        'opacity-0': activeTab !== title,
+                      })}
                     >
                       <Media
                         imgClassName="aspect-[16/10] w-full border border-border object-top shadow-[0_6px_20px_rgb(0,0,0,0.12)]"
@@ -98,7 +96,7 @@ const Hero195: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero195;
+export default Hero195

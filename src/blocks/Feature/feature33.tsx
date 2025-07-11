@@ -7,8 +7,8 @@ const Feature33 = () => {
             Get Started With Blocks Today
           </h2>
           <p className="font-medium text-muted-foreground lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-            sint eos voluptatem, commodi hic ab ad maxime adipisci.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum sint eos voluptatem,
+            commodi hic ab ad maxime adipisci.
           </p>
         </div>
         <div className="mx-auto max-w-screen-xl rounded-lg bg-muted pr-10 pt-10 lg:pr-32 lg:pt-28">
@@ -24,9 +24,8 @@ const Feature33 = () => {
               One Click Copy Paste from the Block Library
             </h3>
             <p className="text-muted-foreground">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Accusantium nesciunt alias facere vitae necessitatibus quam
-              obcaecati? Culpa praesentium consequuntur quasi.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium nesciunt alias
+              facere vitae necessitatibus quam obcaecati? Culpa praesentium consequuntur quasi.
             </p>
           </li>
           <li>
@@ -34,9 +33,8 @@ const Feature33 = () => {
               Build Your Website in Minutes with Blocks
             </h3>
             <p className="text-muted-foreground">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Accusantium nesciunt alias facere vitae necessitatibus quam
-              obcaecati? Culpa praesentium consequuntur quasi.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium nesciunt alias
+              facere vitae necessitatibus quam obcaecati? Culpa praesentium consequuntur quasi.
             </p>
           </li>
           <li>
@@ -44,9 +42,8 @@ const Feature33 = () => {
               Get Started with Blocks Today and Save Time
             </h3>
             <p className="mb-6 text-muted-foreground">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Accusantium nesciunt alias facere vitae necessitatibus quam
-              obcaecati? Culpa praesentium consequuntur quasi.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium nesciunt alias
+              facere vitae necessitatibus quam obcaecati? Culpa praesentium consequuntur quasi.
             </p>
             <a href="#" className="font-semibold hover:underline">
               Try Blocks Now
@@ -55,7 +52,7 @@ const Feature33 = () => {
         </ul>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature33;
+export default Feature33

@@ -6,26 +6,22 @@ export const findParentBlockVersion = (
   data: any,
   siblingData: any,
   options: {
-    blockType?: string; // The type of block to search for (e.g., 'feature', 'gallery')
-    itemsField?: string; // The field name in the block that contains the nested items (e.g., 'USPs')
-    designVersionField?: string; // The field name for the design version (default: 'designVersion')
+    blockType?: string // The type of block to search for (e.g., 'feature', 'gallery')
+    itemsField?: string // The field name in the block that contains the nested items (e.g., 'USPs')
+    designVersionField?: string // The field name for the design version (default: 'designVersion')
   } = {},
 ): string => {
   // Set default options
-  const {
-    blockType,
-    itemsField,
-    designVersionField = "designVersion",
-  } = options;
+  const { blockType, itemsField, designVersionField = 'designVersion' } = options
 
   if (!data?.layout || !Array.isArray(data.layout)) {
-    return "";
+    return ''
   }
 
   // Get the item ID from siblingData if available
-  const itemId = siblingData?.id;
+  const itemId = siblingData?.id
   if (!itemId) {
-    return "";
+    return ''
   }
 
   // Try to infer the block type from context if not provided
@@ -34,43 +30,39 @@ export const findParentBlockVersion = (
     // Look for clues in the data structure
     data.blockType ||
     data.parentBlockType ||
-    null;
+    null
 
   // Build a list of blocks to search through
-  let blocksToSearch = data.layout;
+  let blocksToSearch = data.layout
 
   // If we know the block type, filter to just those blocks
   if (inferredBlockType) {
-    blocksToSearch = blocksToSearch.filter(
-      (block: any) => block.blockType === inferredBlockType,
-    );
+    blocksToSearch = blocksToSearch.filter((block: any) => block.blockType === inferredBlockType)
   }
 
   // For each block, search for our item
   for (const block of blocksToSearch) {
     // If itemsField is specified, check just that field
     if (itemsField && block[itemsField] && Array.isArray(block[itemsField])) {
-      const foundItem = block[itemsField].find(
-        (item: any) => item.id === itemId,
-      );
+      const foundItem = block[itemsField].find((item: any) => item.id === itemId)
       if (foundItem) {
-        return block[designVersionField] || "";
+        return block[designVersionField] || ''
       }
     } else {
       // Otherwise, check all array fields in the block
       for (const key in block) {
         if (Array.isArray(block[key])) {
-          const foundItem = block[key].find((item: any) => item.id === itemId);
+          const foundItem = block[key].find((item: any) => item.id === itemId)
           if (foundItem) {
-            return block[designVersionField] || "";
+            return block[designVersionField] || ''
           }
         }
       }
     }
   }
 
-  return "";
-};
+  return ''
+}
 
 /**
  * Creates a condition function that checks if a nested item's parent block
@@ -82,13 +74,13 @@ export const findParentBlockVersion = (
 export const createBlockItemCondition = (
   supportedVersions: string[],
   options: {
-    blockType?: string;
-    itemsField?: string;
-    designVersionField?: string;
+    blockType?: string
+    itemsField?: string
+    designVersionField?: string
   } = {},
 ) => {
   return (data: any, siblingData: any) => {
-    const designVersion = findParentBlockVersion(data, siblingData, options);
-    return supportedVersions.includes(designVersion);
-  };
-};
+    const designVersion = findParentBlockVersion(data, siblingData, options)
+    return supportedVersions.includes(designVersion)
+  }
+}

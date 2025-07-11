@@ -1,6 +1,6 @@
-import { Lightbulb, ListChecks, MessageCircleMore } from "lucide-react";
+import { Lightbulb, ListChecks, MessageCircleMore } from 'lucide-react'
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const Feature51 = () => {
   return (
@@ -16,9 +16,7 @@ const Feature51 = () => {
                 <span className="flex size-8 items-center justify-center rounded-full bg-accent lg:size-10">
                   <MessageCircleMore className="size-4 text-primary" />
                 </span>
-                <p className="text-lg font-semibold md:text-2xl lg:text-xl">
-                  Get Started
-                </p>
+                <p className="text-lg font-semibold md:text-2xl lg:text-xl">Get Started</p>
               </div>
               <p className="font-normal text-muted-foreground md:block">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -32,9 +30,7 @@ const Feature51 = () => {
                 <span className="flex size-8 items-center justify-center rounded-full bg-accent lg:size-10">
                   <Lightbulb className="size-4 text-primary" />
                 </span>
-                <p className="text-lg font-semibold md:text-2xl lg:text-xl">
-                  Get Ideas
-                </p>
+                <p className="text-lg font-semibold md:text-2xl lg:text-xl">Get Ideas</p>
               </div>
               <p className="font-normal text-muted-foreground md:block">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -48,9 +44,7 @@ const Feature51 = () => {
                 <span className="flex size-8 items-center justify-center rounded-full bg-accent lg:size-10">
                   <ListChecks className="size-4 text-primary" />
                 </span>
-                <p className="text-lg font-semibold md:text-2xl lg:text-xl">
-                  Build
-                </p>
+                <p className="text-lg font-semibold md:text-2xl lg:text-xl">Build</p>
               </div>
               <p className="font-normal text-muted-foreground md:block">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -81,7 +75,7 @@ const Feature51 = () => {
         </Tabs>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature51;
+export default Feature51

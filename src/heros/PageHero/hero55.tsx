@@ -1,7 +1,7 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 
 const Hero55 = () => {
   return (
@@ -29,7 +29,7 @@ const Hero55 = () => {
       </div>
       <div className="absolute inset-0 -z-10 bg-[url('/images/block/shadow-overlay.png')] bg-[50%_0] bg-no-repeat"></div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero55;
+export default Hero55

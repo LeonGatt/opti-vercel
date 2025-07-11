@@ -1,68 +1,58 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import { Button, useWatchForm, toast, useDocumentInfo } from "@payloadcms/ui";
-import "./index.scss";
-import { fetchGithubChangelogAction } from "./actions";
+import React, { useState } from 'react'
+import { Button, useWatchForm, toast, useDocumentInfo } from '@payloadcms/ui'
+import './index.scss'
+import { fetchGithubChangelogAction } from './actions'
 
 type Props = {
-  path: string;
-};
+  path: string
+}
 
 const FetchButton: React.FC<Props> = ({ path }) => {
-  const [loading, setLoading] = useState(false);
-  const { getDataByPath } = useWatchForm();
-  const { id: pageId } = useDocumentInfo();
+  const [loading, setLoading] = useState(false)
+  const { getDataByPath } = useWatchForm()
+  const { id: pageId } = useDocumentInfo()
 
   // Get paths for data access
-  const parentPath = path.split(".").slice(0, -1).join(".");
-  const blockPath = parentPath.split(".").slice(0, -1).join(".");
+  const parentPath = path.split('.').slice(0, -1).join('.')
+  const blockPath = parentPath.split('.').slice(0, -1).join('.')
 
   const githubSettings: {
-    repository?: string;
-    githubToken?: string;
-  } = getDataByPath(parentPath);
+    repository?: string
+    githubToken?: string
+  } = getDataByPath(parentPath)
 
   // Get the block id to hand it to the server action.
-  const blockId = (getDataByPath(blockPath) as any)?.id;
+  const blockId = (getDataByPath(blockPath) as any)?.id
 
   const handleFetch = async () => {
     if (!githubSettings?.repository) {
-      toast.error("Please configure a GitHub repository first");
-      return;
+      toast.error('Please configure a GitHub repository first')
+      return
     }
 
     try {
-      setLoading(true);
+      setLoading(true)
 
-      if (
-        !pageId ||
-        !blockId ||
-        typeof pageId !== "string" ||
-        typeof blockId !== "string"
-      ) {
-        throw new Error("Page or block not found");
+      if (!pageId || !blockId || typeof pageId !== 'string' || typeof blockId !== 'string') {
+        throw new Error('Page or block not found')
       }
 
       // call the server action
-      const { success, status } = await fetchGithubChangelogAction(
-        pageId,
-        blockId,
-      );
+      const { success, status } = await fetchGithubChangelogAction(pageId, blockId)
 
-      if (status === "No new releases found") {
-        toast.info("No new releases found");
-        return;
+      if (status === 'No new releases found') {
+        toast.info('No new releases found')
+        return
       }
-      toast.success("Fetched changelog successfully");
+      toast.success('Fetched changelog successfully')
     } catch (err) {
-      toast.error(
-        err instanceof Error ? err.message : "Failed to fetch changelog",
-      );
+      toast.error(err instanceof Error ? err.message : 'Failed to fetch changelog')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <Button
@@ -71,9 +61,9 @@ const FetchButton: React.FC<Props> = ({ path }) => {
       disabled={loading || !githubSettings?.repository}
       buttonStyle="secondary"
     >
-      {loading ? "Fetching..." : "Fetch from GitHub"}
+      {loading ? 'Fetching...' : 'Fetch from GitHub'}
     </Button>
-  );
-};
+  )
+}
 
-export default FetchButton;
+export default FetchButton

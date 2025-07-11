@@ -1,34 +1,30 @@
-import { backgroundColor } from "@/fields/color";
-import { link } from "@/fields/link";
-import {
-  HeadingFeature,
-  lexicalEditor,
-  UnorderedListFeature,
-} from "@payloadcms/richtext-lexical";
-import { Block } from "payload";
+import { backgroundColor } from '@/fields/color'
+import { link } from '@/fields/link'
+import { HeadingFeature, lexicalEditor, UnorderedListFeature } from '@payloadcms/richtext-lexical'
+import { Block } from 'payload'
 
 export const allFaqDesignVersions = [
-  "FAQ1",
+  'FAQ1',
   // 'FAQ2',
   // 'FAQ3',
-  "FAQ4",
-  "FAQ5",
-] as const;
+  'FAQ4',
+  'FAQ5',
+] as const
 
-export type FaqDesignVersion = (typeof allFaqDesignVersions)[number];
+export type FaqDesignVersion = (typeof allFaqDesignVersions)[number]
 
 export const FaqBlock: Block = {
-  slug: "faq",
-  interfaceName: "FaqBlock",
+  slug: 'faq',
+  interfaceName: 'FaqBlock',
   labels: {
-    singular: "FAQ",
-    plural: "FAQs",
+    singular: 'FAQ',
+    plural: 'FAQs',
   },
   fields: [
     backgroundColor,
     {
-      name: "designVersion",
-      type: "select",
+      name: 'designVersion',
+      type: 'select',
       required: true,
       options: allFaqDesignVersions.map((version) => ({
         label: version,
@@ -36,56 +32,53 @@ export const FaqBlock: Block = {
       })),
     },
     {
-      name: "badge",
-      type: "text",
+      name: 'badge',
+      type: 'text',
       localized: true,
-      defaultValue: "FAQ",
+      defaultValue: 'FAQ',
       admin: {
-        condition: (_, { designVersion } = { designVersion: "" }) =>
-          ["FAQ4", "FAQ5", "FAQ6"].includes(designVersion),
+        condition: (_, { designVersion } = { designVersion: '' }) =>
+          ['FAQ4', 'FAQ5', 'FAQ6'].includes(designVersion),
       },
     },
     {
-      name: "headline",
-      type: "richText",
+      name: 'headline',
+      type: 'richText',
       localized: true,
       editor: lexicalEditor({
         features: ({ rootFeatures }) => [
           ...rootFeatures,
-          HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
+          HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
         ],
       }),
     },
     {
-      name: "faqs",
-      type: "array",
+      name: 'faqs',
+      type: 'array',
       fields: [
         {
-          name: "question",
-          type: "text",
+          name: 'question',
+          type: 'text',
           localized: true,
           required: true,
         },
         {
-          name: "answer",
-          type: "richText",
+          name: 'answer',
+          type: 'richText',
           localized: true,
           editor: lexicalEditor({
-            features: ({ rootFeatures }) => [
-              ...rootFeatures,
-              UnorderedListFeature(),
-            ],
+            features: ({ rootFeatures }) => [...rootFeatures, UnorderedListFeature()],
           }),
         },
       ],
     },
     {
-      name: "calloutText",
-      type: "richText",
+      name: 'calloutText',
+      type: 'richText',
       localized: true,
       admin: {
-        condition: (_, { designVersion } = { designVersion: "" }) =>
-          ["FAQ3", "FAQ4"].includes(designVersion),
+        condition: (_, { designVersion } = { designVersion: '' }) =>
+          ['FAQ3', 'FAQ4'].includes(designVersion),
       },
       editor: lexicalEditor({
         features: ({ rootFeatures }) => rootFeatures,
@@ -93,12 +86,12 @@ export const FaqBlock: Block = {
     },
     link({
       overrides: {
-        name: "calloutLink",
+        name: 'calloutLink',
         admin: {
-          condition: (_, { designVersion } = { designVersion: "" }) =>
-            ["FAQ3", "FAQ4"].includes(designVersion),
+          condition: (_, { designVersion } = { designVersion: '' }) =>
+            ['FAQ3', 'FAQ4'].includes(designVersion),
         },
       },
     }),
   ],
-};
+}

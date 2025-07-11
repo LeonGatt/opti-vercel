@@ -1,6 +1,6 @@
-import { CheckCircle2, Globe, Lock, Star, Zap } from "lucide-react";
+import { CheckCircle2, Globe, Lock, Star, Zap } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero57 = () => {
   return (
@@ -32,18 +32,16 @@ const Hero57 = () => {
           </div>
         </h1>
         <p className="mx-auto mb-10 max-w-screen-md text-center font-medium text-muted-foreground md:text-xl">
-          Penna let you build high-converting, website-style proposals with AI,
-          helping you win better customers without wasting time
+          Penna let you build high-converting, website-style proposals with AI, helping you win
+          better customers without wasting time
         </p>
         <div className="flex flex-col items-center justify-center gap-3 pb-12 pt-3">
           <Button size="lg">Start free 14-day trial</Button>
-          <div className="text-sm text-muted-foreground md:text-balance">
-            Powered by GPT-4
-          </div>
+          <div className="text-sm text-muted-foreground md:text-balance">Powered by GPT-4</div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero57;
+export default Hero57

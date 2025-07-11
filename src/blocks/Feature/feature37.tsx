@@ -10,12 +10,10 @@ const Feature37 = () => {
               className="aspect-video size-full max-h-72"
             />
             <div className="p-6">
-              <p className="mb-3 text-lg font-semibold">
-                Lorem ipsum dolor sit.
-              </p>
+              <p className="mb-3 text-lg font-semibold">Lorem ipsum dolor sit.</p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </div>
           </div>
@@ -26,12 +24,10 @@ const Feature37 = () => {
               className="aspect-video size-full max-h-72"
             />
             <div className="p-6">
-              <p className="mb-3 text-lg font-semibold">
-                Lorem ipsum dolor sit.
-              </p>
+              <p className="mb-3 text-lg font-semibold">Lorem ipsum dolor sit.</p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </div>
           </div>
@@ -42,12 +38,10 @@ const Feature37 = () => {
               className="aspect-video size-full max-h-72"
             />
             <div className="p-6">
-              <p className="mb-3 text-lg font-semibold">
-                Lorem ipsum dolor sit.
-              </p>
+              <p className="mb-3 text-lg font-semibold">Lorem ipsum dolor sit.</p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </div>
           </div>
@@ -58,19 +52,17 @@ const Feature37 = () => {
               className="aspect-video size-full max-h-72"
             />
             <div className="p-6">
-              <p className="mb-3 text-lg font-semibold">
-                Lorem ipsum dolor sit.
-              </p>
+              <p className="mb-3 text-lg font-semibold">Lorem ipsum dolor sit.</p>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-                laboriosam voluptatibus temporibus doloremque laudantium.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi laboriosam
+                voluptatibus temporibus doloremque laudantium.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature37;
+export default Feature37

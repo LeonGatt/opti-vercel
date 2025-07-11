@@ -1,7 +1,7 @@
-import RichText from "@/components/RichText";
-import { Badge } from "@/components/ui/badge";
-import { FaqBlock } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import RichText from '@/components/RichText'
+import { Badge } from '@/components/ui/badge'
+import { FaqBlock } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Faq5: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
   faqs,
@@ -20,11 +20,11 @@ const Faq5: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
               content={headline}
               withWrapper={false}
               overrideStyle={{
-                h1: "mt-4 text-4xl font-semibold",
-                h2: "mt-4 text-3xl font-semibold",
-                h3: "mt-4 text-2xl font-semibold",
-                h4: "mt-4 text-1xl font-semibold",
-                p: "mt-6 font-medium text-muted-foreground",
+                h1: 'mt-4 text-4xl font-semibold',
+                h2: 'mt-4 text-3xl font-semibold',
+                h3: 'mt-4 text-2xl font-semibold',
+                h4: 'mt-4 text-1xl font-semibold',
+                p: 'mt-6 font-medium text-muted-foreground',
               }}
             />
           )}
@@ -45,8 +45,8 @@ const Faq5: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
                       publicContext={publicContext}
                       content={faq.answer}
                       overrideStyle={{
-                        p: "text-sm text-muted-foreground",
-                        li: "text-sm text-muted-foreground",
+                        p: 'text-sm text-muted-foreground',
+                        li: 'text-sm text-muted-foreground',
                       }}
                     />
                   )}
@@ -56,7 +56,7 @@ const Faq5: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Faq5;
+export default Faq5

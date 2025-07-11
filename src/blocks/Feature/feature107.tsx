@@ -1,6 +1,6 @@
-import { ArrowRight, GitCompare } from "lucide-react";
+import { ArrowRight, GitCompare } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 
 const Feature107 = () => {
   return (
@@ -8,10 +8,7 @@ const Feature107 = () => {
       <div className="container">
         <div className="gap grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <div className="mx-auto flex flex-col gap-4 md:col-span-2">
-            <Badge
-              variant="outline"
-              className="flex w-fit gap-1 px-2.5 py-1.5 text-sm"
-            >
+            <Badge variant="outline" className="flex w-fit gap-1 px-2.5 py-1.5 text-sm">
               <GitCompare className="h-auto w-4" />
               Integrations
             </Badge>
@@ -19,8 +16,8 @@ const Feature107 = () => {
               Unlock Synergy, Seamless Integrations with SAP
             </h2>
             <p className="text-muted-foreground">
-              Explore SAP seamless integrations with other tools and platforms,
-              enhancing productivity and workflow efficiency.
+              Explore SAP seamless integrations with other tools and platforms, enhancing
+              productivity and workflow efficiency.
             </p>
           </div>
           <a
@@ -29,11 +26,7 @@ const Feature107 = () => {
           >
             <div className="flex items-center justify-between">
               <span className="grid size-12 shrink-0 place-content-center rounded-md border">
-                <img
-                  src="/images/block/block-1.svg"
-                  alt="placeholder"
-                  className="h-auto w-7"
-                />
+                <img src="/images/block/block-1.svg" alt="placeholder" className="h-auto w-7" />
               </span>
               <span className="flex items-center gap-1 rounded-full border px-3 py-2.5 text-sm">
                 Visit Website
@@ -53,11 +46,7 @@ const Feature107 = () => {
           >
             <div className="flex items-center justify-between">
               <span className="grid size-12 shrink-0 place-content-center rounded-md border">
-                <img
-                  src="/images/block/block-2.svg"
-                  alt="placeholder"
-                  className="h-auto w-7"
-                />
+                <img src="/images/block/block-2.svg" alt="placeholder" className="h-auto w-7" />
               </span>
               <span className="flex items-center gap-1 rounded-full border px-3 py-2.5 text-sm">
                 Visit Website
@@ -77,11 +66,7 @@ const Feature107 = () => {
           >
             <div className="flex items-center justify-between">
               <span className="grid size-12 shrink-0 place-content-center rounded-md border">
-                <img
-                  src="/images/block/block-3.svg"
-                  alt="placeholder"
-                  className="h-auto w-7"
-                />
+                <img src="/images/block/block-3.svg" alt="placeholder" className="h-auto w-7" />
               </span>
               <span className="flex items-center gap-1 rounded-full border px-3 py-2.5 text-sm">
                 Visit Website
@@ -101,11 +86,7 @@ const Feature107 = () => {
           >
             <div className="flex items-center justify-between">
               <span className="grid size-12 shrink-0 place-content-center rounded-md border">
-                <img
-                  src="/images/block/block-4.svg"
-                  alt="placeholder"
-                  className="h-auto w-7"
-                />
+                <img src="/images/block/block-4.svg" alt="placeholder" className="h-auto w-7" />
               </span>
               <span className="flex items-center gap-1 rounded-full border px-3 py-2.5 text-sm">
                 Visit Website
@@ -125,11 +106,7 @@ const Feature107 = () => {
           >
             <div className="flex items-center justify-between">
               <span className="grid size-12 shrink-0 place-content-center rounded-md border">
-                <img
-                  src="/images/block/block-5.svg"
-                  alt="placeholder"
-                  className="h-auto w-7"
-                />
+                <img src="/images/block/block-5.svg" alt="placeholder" className="h-auto w-7" />
               </span>
               <span className="flex items-center gap-1 rounded-full border px-3 py-2.5 text-sm">
                 Visit Website
@@ -149,11 +126,7 @@ const Feature107 = () => {
           >
             <div className="flex items-center justify-between">
               <span className="grid size-12 shrink-0 place-content-center rounded-md border">
-                <img
-                  src="/images/block/block-6.svg"
-                  alt="placeholder"
-                  className="h-auto w-7"
-                />
+                <img src="/images/block/block-6.svg" alt="placeholder" className="h-auto w-7" />
               </span>
               <span className="flex items-center gap-1 rounded-full border px-3 py-2.5 text-sm">
                 Visit Website
@@ -170,7 +143,7 @@ const Feature107 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature107;
+export default Feature107

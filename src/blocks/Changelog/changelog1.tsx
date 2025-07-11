@@ -1,16 +1,19 @@
-import { Zap } from "lucide-react";
+import { Zap } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Changelogblock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { Media } from "@/components/Media";
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Changelogblock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { Media } from '@/components/Media'
 
-const Changelog1: React.FC<
-  Changelogblock & { publicContext: PublicContextProps }
-> = ({ richText, publicContext, entries, tagline }) => {
+const Changelog1: React.FC<Changelogblock & { publicContext: PublicContextProps }> = ({
+  richText,
+  publicContext,
+  entries,
+  tagline,
+}) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -21,8 +24,8 @@ const Changelog1: React.FC<
               content={richText}
               withWrapper={false}
               overrideStyle={{
-                h1: "mb-4 text-3xl font-semibold md:text-5xl",
-                p: "mb-6 text-muted-foreground md:text-lg",
+                h1: 'mb-4 text-3xl font-semibold md:text-5xl',
+                p: 'mb-6 text-muted-foreground md:text-lg',
               }}
             />
           )}
@@ -37,7 +40,7 @@ const Changelog1: React.FC<
                 className="ml-2 flex items-center font-semibold hover:underline"
                 href={`#${entries?.[0]?.id}`}
               >
-                {entries?.[0]?.version ? `v${entries?.[0]?.version}` : ""}
+                {entries?.[0]?.version ? `v${entries?.[0]?.version}` : ''}
                 <Zap className="h-3.5" />
               </a>
             </div>
@@ -67,11 +70,11 @@ const Changelog1: React.FC<
                       content={entry.description}
                       withWrapper={false}
                       overrideStyle={{
-                        p: "text-muted-foreground mb-2 md:text-lg",
-                        li: "text-muted-foreground md:text-lg",
-                        h2: "text-xl font-semibold text-muted-foreground mb-2 mt-4",
-                        h3: "text-base font-semibold md:text-xl text-muted-foreground mb-2 mt-3",
-                        h4: "text-base font-semibold md:text-xl text-muted-foreground mb-2 mt-2",
+                        p: 'text-muted-foreground mb-2 md:text-lg',
+                        li: 'text-muted-foreground md:text-lg',
+                        h2: 'text-xl font-semibold text-muted-foreground mb-2 mt-4',
+                        h3: 'text-base font-semibold md:text-xl text-muted-foreground mb-2 mt-3',
+                        h4: 'text-base font-semibold md:text-xl text-muted-foreground mb-2 mt-2',
                       }}
                     />
                   )}
@@ -87,7 +90,7 @@ const Changelog1: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export { Changelog1 };
+export { Changelog1 }

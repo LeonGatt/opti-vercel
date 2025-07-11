@@ -1,6 +1,6 @@
-import { ChevronRight, CircleCheckBig } from "lucide-react";
+import { ChevronRight, CircleCheckBig } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Feature11 = () => {
   return (
@@ -17,11 +17,10 @@ const Feature11 = () => {
               Built with the latest technology stack
             </h2>
             <p className="mt-1 text-muted-foreground md:mt-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-              alias unde et doloremque dignissimos error temporibus quisquam
-              porro ducimus esse quod, a officiis.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum alias unde et
+              doloremque dignissimos error temporibus quisquam porro ducimus esse quod, a officiis.
             </p>
-            <Button variant={"outline"} className="mt-6">
+            <Button variant={'outline'} className="mt-6">
               Learn more <ChevronRight className="ml-2 size-4" />
             </Button>
             <ul className="mt-10 flex-wrap items-center gap-6 space-y-6 md:flex md:space-y-0">
@@ -43,7 +42,7 @@ const Feature11 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature11;
+export default Feature11

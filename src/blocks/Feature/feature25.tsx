@@ -1,9 +1,9 @@
-import { Check } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import RichText from "@/components/RichText";
-import { FeatureBlock } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Check } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
+import RichText from '@/components/RichText'
+import { FeatureBlock } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Feature25: React.FC<
   FeatureBlock & { tagline?: string; publicContext: PublicContextProps }
@@ -18,8 +18,8 @@ const Feature25: React.FC<
               publicContext={publicContext}
               content={richText}
               overrideStyle={{
-                h2: "mb-2 text-center text-3xl font-semibold lg:text-4xl",
-                p: "text-center text-muted-foreground lg:text-lg",
+                h2: 'mb-2 text-center text-3xl font-semibold lg:text-4xl',
+                p: 'text-center text-muted-foreground lg:text-lg',
               }}
             />
           )}
@@ -35,7 +35,7 @@ const Feature25: React.FC<
                     content={usp.richText}
                     withWrapper={true}
                     overrideStyle={{
-                      h3: "mb-4 text-2xl font-semibold lg:text-3xl",
+                      h3: 'mb-4 text-2xl font-semibold lg:text-3xl',
                     }}
                   />
                 )}
@@ -59,7 +59,7 @@ const Feature25: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature25;
+export default Feature25

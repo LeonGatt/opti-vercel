@@ -1,31 +1,31 @@
-"use client";
+'use client'
 
-import { ArrowRight } from "lucide-react";
-import { NavigationMenuLink } from "@/components/ui/navigation-menu";
-import { Icon } from "@/components/Icon";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { ArrowRight } from 'lucide-react'
+import { NavigationMenuLink } from '@/components/ui/navigation-menu'
+import { Icon } from '@/components/Icon'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 export type FeatureListProps = {
-  title?: string;
+  title?: string
   features?: Array<{
-    id?: string;
-    title?: string;
-    description?: string;
-    icon?: string;
+    id?: string
+    title?: string
+    description?: string
+    icon?: string
     link?: {
-      label: string;
-      url?: string;
-      newTab?: boolean;
-      type?: "reference" | "custom";
+      label: string
+      url?: string
+      newTab?: boolean
+      type?: 'reference' | 'custom'
       reference?: {
-        value: string;
-        relationTo: string;
-      };
-      section?: string;
-    };
-  }>;
-  publicContext: PublicContextProps;
-};
+        value: string
+        relationTo: string
+      }
+      section?: string
+    }
+  }>
+  publicContext: PublicContextProps
+}
 
 export const FeatureList: React.FC<FeatureListProps> = ({
   title,
@@ -45,7 +45,7 @@ export const FeatureList: React.FC<FeatureListProps> = ({
         {features?.map((feature, index) => (
           <NavigationMenuLink
             key={feature.id || index}
-            href={feature.link?.url || "#"}
+            href={feature.link?.url || '#'}
             className="group flex flex-row items-center space-x-4 border-b border-border py-5 text-left sm:py-7 lg:border-0 lg:py-0"
           >
             {feature.icon && (
@@ -68,5 +68,5 @@ export const FeatureList: React.FC<FeatureListProps> = ({
         ))}
       </menu>
     </div>
-  );
-};
+  )
+}

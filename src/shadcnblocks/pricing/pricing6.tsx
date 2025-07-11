@@ -1,7 +1,7 @@
-import { Check } from "lucide-react";
+import { Check } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 
 const Pricing6 = () => {
   return (
@@ -11,8 +11,7 @@ const Pricing6 = () => {
           Very affordable pricing
         </h2>
         <p className="mx-auto max-w-sm text-center text-muted-foreground md:text-lg">
-          Our pricing is very affordable and we offer a 30-day money back
-          guarantee.
+          Our pricing is very affordable and we offer a 30-day money back guarantee.
         </p>
         <div className="mx-auto mt-8 w-full rounded-lg border p-6 sm:w-fit sm:min-w-80 md:mt-12">
           <div className="flex justify-center">
@@ -68,7 +67,7 @@ const Pricing6 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing6;
+export default Pricing6

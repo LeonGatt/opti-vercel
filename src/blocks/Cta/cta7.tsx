@@ -1,6 +1,6 @@
-import { Check } from "lucide-react";
+import { Check } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const CTA7 = () => {
   return (
@@ -17,21 +17,8 @@ const CTA7 = () => {
               className="absolute left-full top-full -translate-x-2/3 -translate-y-1/2 rotate-60"
             >
               <defs>
-                <pattern
-                  x={0}
-                  y={0}
-                  id="dots"
-                  width={16}
-                  height={16}
-                  patternUnits="userSpaceOnUse"
-                >
-                  <circle
-                    cx={2}
-                    cy={2}
-                    r={2}
-                    fill="currentColor"
-                    className="text-border"
-                  />
+                <pattern x={0} y={0} id="dots" width={16} height={16} patternUnits="userSpaceOnUse">
+                  <circle cx={2} cy={2} r={2} fill="currentColor" className="text-border" />
                 </pattern>
               </defs>
               <rect fill="url(#dots)" width={400} height={400} />
@@ -69,7 +56,7 @@ const CTA7 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CTA7;
+export default CTA7

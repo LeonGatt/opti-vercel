@@ -1,44 +1,42 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 
 const posts = [
   {
-    id: "post-1",
-    title: "Duis sem sem",
+    id: 'post-1',
+    title: 'Duis sem sem',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Design",
-    readTime: "8 min read",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Design',
+    readTime: '8 min read',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-2",
-    title: "Gravida vel porttitor eu",
+    id: 'post-2',
+    title: 'Gravida vel porttitor eu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Design",
-    readTime: "8 min read",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Design',
+    readTime: '8 min read',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
-];
+]
 
 const Blog5 = () => {
   return (
     <section className="py-32">
       <div className="container flex flex-col gap-8 lg:flex-row lg:gap-16">
         <div className="mb-8 md:mb-14 lg:min-w-[30%]">
-          <p className="text-wider mb-4 text-sm font-medium text-muted-foreground">
-            Eyebrow
-          </p>
+          <p className="text-wider mb-4 text-sm font-medium text-muted-foreground">Eyebrow</p>
           <h2 className="mb-4 w-full text-4xl font-medium md:mb-5 md:text-5xl lg:mb-6 lg:max-w-xs lg:text-6xl">
             Blog
           </h2>
@@ -79,9 +77,7 @@ const Blog5 = () => {
                 </Avatar>
                 <div className="flex flex-col gap-px">
                   <span className="text-xs font-medium">{post.author}</span>
-                  <span className="text-xs text-muted-foreground">
-                    {post.published}
-                  </span>
+                  <span className="text-xs text-muted-foreground">{post.published}</span>
                 </div>
               </div>
             </a>
@@ -92,7 +88,7 @@ const Blog5 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Blog5;
+export default Blog5

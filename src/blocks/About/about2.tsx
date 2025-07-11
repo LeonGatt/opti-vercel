@@ -7,9 +7,8 @@ const About2 = () => {
           <div className="mx-auto flex max-w-3xl flex-col gap-6">
             <h1 className="text-4xl font-medium md:text-6xl">Our Background</h1>
             <p className="text-lg text-muted-foreground md:text-xl">
-              Discover how our solution simplifies complex processes, making it
-              easier to manage key operations and deliver exceptional
-              experiences.
+              Discover how our solution simplifies complex processes, making it easier to manage key
+              operations and deliver exceptional experiences.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-12">
@@ -149,8 +148,7 @@ const About2 = () => {
                 <p className="mb-2 text-4xl font-medium">21M</p>
                 <p className="mb-6 font-semibold">Global Users</p>
                 <p className="text-muted-foreground">
-                  Streamline tasks and boost efficiency by up to 80% using our
-                  tools.
+                  Streamline tasks and boost efficiency by up to 80% using our tools.
                 </p>
               </div>
             </div>
@@ -170,14 +168,11 @@ const About2 = () => {
                   <span className="text-lg font-semibold">Acme.</span>
                 </div>
                 <p className="mb-6 text-sm">
-                  Our solution helps you reduce costs by half with improved
-                  operations.
+                  Our solution helps you reduce costs by half with improved operations.
                 </p>
                 <div className="flex items-baseline gap-1">
                   <span className="font-medium">John Doe,</span>
-                  <span className="text-sm text-muted-foreground">
-                    CEO at Acme.
-                  </span>
+                  <span className="text-sm text-muted-foreground">CEO at Acme.</span>
                 </div>
               </div>
             </div>
@@ -186,8 +181,7 @@ const About2 = () => {
                 <p className="mb-2 text-4xl font-medium">97%</p>
                 <p className="mb-6 font-semibold">Minimized Errors</p>
                 <p className="text-muted-foreground">
-                  Achieve greater accuracy and efficiency with our advanced
-                  toolkit.
+                  Achieve greater accuracy and efficiency with our advanced toolkit.
                 </p>
               </div>
               <img
@@ -200,7 +194,7 @@ const About2 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About2;
+export default About2

@@ -1,27 +1,24 @@
-import {
-  DefaultNodeTypes,
-  SerializedHeadingNode,
-} from "@payloadcms/richtext-lexical";
+import { DefaultNodeTypes, SerializedHeadingNode } from '@payloadcms/richtext-lexical'
 
 export type RichTextNode<T = DefaultNodeTypes> = {
-  type?: string;
-  tag?: string;
-  children?: RichTextNode<T>[];
-  [key: string]: any;
-} & T;
+  type?: string
+  tag?: string
+  children?: RichTextNode<T>[]
+  [key: string]: any
+} & T
 
 export type RichTextContent<T = DefaultNodeTypes> = {
   root?: {
-    children?: RichTextNode<T>[];
-    [key: string]: any;
-  };
-  [key: string]: any;
-};
+    children?: RichTextNode<T>[]
+    [key: string]: any
+  }
+  [key: string]: any
+}
 
 type SplitOptions = {
-  splitOn?: string[] | string; // e.g., ['heading', 'h1', 'h2'] or 'heading'
-  takeFirst?: boolean; // if true, takes first matching node, if false takes first node regardless of type
-};
+  splitOn?: string[] | string // e.g., ['heading', 'h1', 'h2'] or 'heading'
+  takeFirst?: boolean // if true, takes first matching node, if false takes first node regardless of type
+}
 
 /**
  * Splits a RichText content object into two parts: the first matching node and the rest.
@@ -69,87 +66,82 @@ type SplitOptions = {
  */
 export const splitRichText = <T extends { root?: { children?: any[] } }>(
   content: T | null | undefined,
-  options: SplitOptions = {}
+  options: SplitOptions = {},
 ): {
-  firstNode: T | null;
-  rest: T | null;
+  firstNode: T | null
+  rest: T | null
 } => {
   if (!content?.root?.children?.length) {
-    return { firstNode: null, rest: null };
+    return { firstNode: null, rest: null }
   }
 
-  const { splitOn = [], takeFirst = false } = options;
-  const children = content.root.children;
-  const splitTypes = Array.isArray(splitOn) ? splitOn : [splitOn];
+  const { splitOn = [], takeFirst = false } = options
+  const children = content.root.children
+  const splitTypes = Array.isArray(splitOn) ? splitOn : [splitOn]
 
-  let splitIndex = 0;
+  let splitIndex = 0
   if (takeFirst && splitTypes.length > 0) {
     // Find the first node that matches any of the split types
     splitIndex = children.findIndex(
       (node) =>
         (node.type && splitTypes.includes(node.type)) ||
-        (node.tag && splitTypes.includes(node.tag))
-    );
-    if (splitIndex === -1) splitIndex = 0;
+        (node.tag && splitTypes.includes(node.tag)),
+    )
+    if (splitIndex === -1) splitIndex = 0
   }
 
-  const firstNodeContent = children[splitIndex];
-  const restNodes = children.slice(splitIndex + 1);
+  const firstNodeContent = children[splitIndex]
+  const restNodes = children.slice(splitIndex + 1)
 
   return {
     firstNode: firstNodeContent
       ? { ...content, root: { ...content.root, children: [firstNodeContent] } }
       : null,
-    rest: restNodes.length
-      ? { ...content, root: { ...content.root, children: restNodes } }
-      : null,
-  };
-};
+    rest: restNodes.length ? { ...content, root: { ...content.root, children: restNodes } } : null,
+  }
+}
 
 /**
  * Extracts text content from a node and its children recursively
  */
 const extractTextContent = (node: any): string => {
-  if (!node) return "";
+  if (!node) return ''
 
   // If it's a text node, return its text content
-  if (node.type === "text") {
-    return node.text || "";
+  if (node.type === 'text') {
+    return node.text || ''
   }
 
   // If it has children, recursively extract text from them
   if (node.children && node.children.length > 0) {
-    return node.children.map(extractTextContent).join("");
+    return node.children.map(extractTextContent).join('')
   }
 
-  return "";
-};
+  return ''
+}
 
 /**
  * Generates a consistent id for a headline based on the text content of the node
  * Allows to use an additional index to handle duplicates.
  */
-export const getHeadlineId = (
-  node: SerializedHeadingNode,
-  additionalIndex?: string
-): string => {
+export const getHeadlineId = (node: SerializedHeadingNode, additionalIndex?: string): string => {
   // Extract all text from the heading node and its children
-  const text = extractTextContent(node);
+  const text = extractTextContent(node)
 
   // Create slug in a consistent way
   return `text-${text
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")}${additionalIndex ? `-${additionalIndex}` : ""}`;
-};
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')}${additionalIndex ? `-${additionalIndex}` : ''}`
+}
 
 /**
  * Interface for the menu item returned by getSideMenuStructure
  */
 export interface SideMenuItem {
-  id: string;
-  text: string;
-  level: string;
+  id: string
+  text: string
+  level: string
 }
 
 /**
@@ -163,73 +155,63 @@ export interface SideMenuItem {
  */
 export const getSideMenuStructure = (
   content: any,
-  options?: { headlineLevels?: ("h1" | "h2" | "h3" | "h4" | "h5" | "h6")[] }
+  options?: { headlineLevels?: ('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6')[] },
 ): SideMenuItem[] => {
   // Handle the case where options is undefined
-  const headlineLevels = options?.headlineLevels ?? [
-    "h1",
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-  ];
+  const headlineLevels = options?.headlineLevels ?? ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
 
   if (!content?.root?.children?.length) {
-    return [];
+    return []
   }
 
-  const children = content.root.children;
-  const menuItems: SideMenuItem[] = [];
+  const children = content.root.children
+  const menuItems: SideMenuItem[] = []
 
   // Function to recursively search for heading nodes
   const processNodes = (nodes: any[]): void => {
     nodes.forEach((node, index) => {
-      if (node.type === "heading" && headlineLevels.includes(node.tag)) {
+      if (node.type === 'heading' && headlineLevels.includes(node.tag)) {
         menuItems.push({
           id: getHeadlineId(node, index.toString()),
           text: extractTextContent(node),
           level: node.tag,
-        });
+        })
       }
 
       // Process child nodes if they exist
       if (node.children && node.children.length > 0) {
-        processNodes(node.children);
+        processNodes(node.children)
       }
-    });
-  };
+    })
+  }
 
-  processNodes(children);
-  return menuItems;
-};
+  processNodes(children)
+  return menuItems
+}
 
 /**
  * Extract plain text from rich text content
  */
-export function extractPlainText(
-  content: any,
-  maxLength: number = 200
-): string {
-  if (!content || !content.root || !content.root.children) return "";
+export function extractPlainText(content: any, maxLength: number = 200): string {
+  if (!content || !content.root || !content.root.children) return ''
 
-  let text = "";
+  let text = ''
   const traverse = (nodes: any[]) => {
     for (const node of nodes) {
-      if (node.type === "text" && typeof node.text === "string") {
-        text += node.text;
+      if (node.type === 'text' && typeof node.text === 'string') {
+        text += node.text
       } else if (node.children && Array.isArray(node.children)) {
-        traverse(node.children);
+        traverse(node.children)
       }
     }
-  };
-
-  try {
-    traverse(content.root.children);
-  } catch (error) {
-    console.error("Error parsing rich text content:", error);
-    return "";
   }
 
-  return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+  try {
+    traverse(content.root.children)
+  } catch (error) {
+    console.error('Error parsing rich text content:', error)
+    return ''
+  }
+
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text
 }

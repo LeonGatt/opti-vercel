@@ -1,16 +1,16 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from 'lucide-react'
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { FaqBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+} from '@/components/ui/accordion'
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
+import { FaqBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 const Faq4: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
   headline,
@@ -28,10 +28,10 @@ const Faq4: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
               publicContext={publicContext}
               content={headline}
               overrideStyle={{
-                h1: "mt-4 text-4xl font-semibold",
-                h2: "mt-4 text-4xl font-semibold",
-                h3: "mt-4 text-2xl font-semibold",
-                p: "mt-6 font-medium text-muted-foreground",
+                h1: 'mt-4 text-4xl font-semibold',
+                h2: 'mt-4 text-4xl font-semibold',
+                h3: 'mt-4 text-2xl font-semibold',
+                p: 'mt-6 font-medium text-muted-foreground',
               }}
             />
           )}
@@ -39,11 +39,7 @@ const Faq4: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
         <div className="mt-12">
           <Accordion type="single" collapsible>
             {faqs?.map(({ question, answer, id }, index) => (
-              <AccordionItem
-                key={id}
-                value={`item-${index}`}
-                className="border-b-0"
-              >
+              <AccordionItem key={id} value={`item-${index}`} className="border-b-0">
                 <AccordionTrigger className="hover:text-foreground/60 hover:no-underline text-left">
                   {question}
                 </AccordionTrigger>
@@ -53,8 +49,8 @@ const Faq4: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
                       publicContext={publicContext}
                       content={answer}
                       overrideStyle={{
-                        p: "",
-                        li: "",
+                        p: '',
+                        li: '',
                       }}
                       withWrapper={false}
                     />
@@ -67,12 +63,9 @@ const Faq4: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
         <Separator className="my-12" />
         <div className="flex flex-col justify-between gap-12 md:flex-row md:items-end">
           <div className="lg:col-span-2">
-            <h1 className="mt-4 text-2xl font-semibold">
-              Still have questions?
-            </h1>
+            <h1 className="mt-4 text-2xl font-semibold">Still have questions?</h1>
             <p className="mt-6 font-medium text-muted-foreground">
-              We&apos;re here to provide clarity and assist with any queries you
-              may have.
+              We&apos;re here to provide clarity and assist with any queries you may have.
             </p>
           </div>
           <div className="flex md:justify-end">
@@ -84,7 +77,7 @@ const Faq4: React.FC<FaqBlock & { publicContext: PublicContextProps }> = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Faq4;
+export default Faq4

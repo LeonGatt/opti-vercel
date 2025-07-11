@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const CTA11 = () => {
   return (
@@ -9,8 +9,8 @@ const CTA11 = () => {
             Call to Action
           </h3>
           <p className="mb-8 max-w-3xl text-muted-foreground lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+            omnis!
           </p>
           <div className="flex w-full flex-col justify-center gap-2 sm:flex-row">
             <Button variant="outline" className="w-full sm:w-auto">
@@ -21,7 +21,7 @@ const CTA11 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CTA11;
+export default CTA11

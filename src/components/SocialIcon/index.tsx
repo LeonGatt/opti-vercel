@@ -12,9 +12,9 @@ import {
   FaTiktok,
   FaTwitter,
   FaYoutube,
-} from "react-icons/fa";
+} from 'react-icons/fa'
 
-import { SocialIconType } from "./config";
+import { SocialIconType } from './config'
 
 const iconMap = {
   facebook: FaFacebook,
@@ -30,11 +30,11 @@ const iconMap = {
   apple: FaApple,
   android: FaAndroid,
   googleplay: FaGooglePlay,
-};
+}
 
 export interface SocialIconProps {
-  type: SocialIconType;
-  className?: string;
+  type: SocialIconType
+  className?: string
 }
 
 /**
@@ -42,12 +42,9 @@ export interface SocialIconProps {
  * @param param0
  * @returns
  */
-export const SocialIcon: React.FC<SocialIconProps> = ({
-  type,
-  className = "size-6",
-}) => {
-  const Icon = iconMap[type];
-  if (!Icon) return null;
+export const SocialIcon: React.FC<SocialIconProps> = ({ type, className = 'size-6' }) => {
+  const Icon = iconMap[type]
+  if (!Icon) return null
 
-  return <Icon className={className} />;
-};
+  return <Icon className={className} />
+}

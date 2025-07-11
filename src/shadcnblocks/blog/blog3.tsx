@@ -1,7 +1,7 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Badge } from '@/components/ui/badge'
 import {
   Pagination,
   PaginationContent,
@@ -9,126 +9,124 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+} from '@/components/ui/pagination'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from '@/components/ui/select'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const posts = [
   {
-    id: "post-1",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-1',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-2",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-2',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-3",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-3',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-4",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-4',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-5",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-5',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-6",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-6',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-7",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-7',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-8",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-8',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
   {
-    id: "post-9",
-    title: "Duis sem sem, gravida vel porttitor eu, volutpat ut arcu",
+    id: 'post-9',
+    title: 'Duis sem sem, gravida vel porttitor eu, volutpat ut arcu',
     summary:
-      "Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.",
-    label: "Ut varius dolor turpis",
-    author: "Jane Doe",
-    published: "1 Jan 2024",
-    href: "#",
-    image: "https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg",
+      'Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.',
+    label: 'Ut varius dolor turpis',
+    author: 'Jane Doe',
+    published: '1 Jan 2024',
+    href: '#',
+    image: 'https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg',
   },
-];
+]
 
 const Blog3 = () => {
   return (
     <section className="py-32">
       <div className="container">
         <div className="mb-8 md:mb-14 lg:mb-16">
-          <p className="text-wider mb-4 text-sm font-medium text-muted-foreground">
-            Eyebrow
-          </p>
+          <p className="text-wider mb-4 text-sm font-medium text-muted-foreground">Eyebrow</p>
           <h1 className="mb-4 w-full text-4xl font-medium md:mb-5 md:text-5xl lg:mb-6 lg:text-6xl">
             Blog
           </h1>
@@ -159,9 +157,8 @@ const Blog3 = () => {
                 <ArrowUpRight className="size-6" />
               </div>
               <div className="text-sm md:text-base">
-                Pellentesque eget quam ligula. Sed felis ante, consequat nec
-                ultrices ut, ornare quis metus. Vivamus sit amet tortor vel enim
-                sollicitudin hendrerit.
+                Pellentesque eget quam ligula. Sed felis ante, consequat nec ultrices ut, ornare
+                quis metus. Vivamus sit amet tortor vel enim sollicitudin hendrerit.
               </div>
             </div>
             <div className="flex items-center gap-6">
@@ -190,9 +187,7 @@ const Blog3 = () => {
                 </Avatar>
                 <div className="flex flex-col gap-px">
                   <span className="text-xs font-medium">Jane Doe</span>
-                  <span className="text-xs text-muted-foreground">
-                    1 Jan 2024
-                  </span>
+                  <span className="text-xs text-muted-foreground">1 Jan 2024</span>
                 </div>
               </div>
               <div className="hidden flex-col md:flex">
@@ -213,12 +208,8 @@ const Blog3 = () => {
                 <TabsTrigger value="all">View all</TabsTrigger>
                 <TabsTrigger value="design">Design</TabsTrigger>
                 <TabsTrigger value="product">Product</TabsTrigger>
-                <TabsTrigger value="softwareEngineering">
-                  Software Engineering
-                </TabsTrigger>
-                <TabsTrigger value="customerSuccess">
-                  Customer Success
-                </TabsTrigger>
+                <TabsTrigger value="softwareEngineering">Software Engineering</TabsTrigger>
+                <TabsTrigger value="customerSuccess">Customer Success</TabsTrigger>
               </TabsList>
             </div>
             <div className="shrink-0 md:w-52 lg:w-56">
@@ -260,9 +251,7 @@ const Blog3 = () => {
                   </Avatar>
                   <div className="flex flex-col gap-px">
                     <span className="text-xs font-medium">{post.author}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {post.published}
-                    </span>
+                    <span className="text-xs text-muted-foreground">{post.published}</span>
                   </div>
                 </div>
               </a>
@@ -294,7 +283,7 @@ const Blog3 = () => {
         </Tabs>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Blog3;
+export default Blog3

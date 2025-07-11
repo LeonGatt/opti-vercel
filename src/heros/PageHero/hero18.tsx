@@ -1,16 +1,13 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero18 = () => {
   return (
     <section className="py-32">
       <div className="container flex flex-col items-center text-center">
-        <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
-          Welcome to Our Website
-        </h1>
+        <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">Welcome to Our Website</h1>
         <p className="mb-8 max-w-3xl text-muted-foreground lg:text-xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-          doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur.
-          Explicabo.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+          omnis! Porro facilis quo animi consequatur. Explicabo.
         </p>
         <div className="flex w-full flex-col justify-center gap-2 sm:flex-row">
           <Button className="w-full sm:w-auto">Primary</Button>
@@ -129,7 +126,7 @@ const Hero18 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero18;
+export default Hero18

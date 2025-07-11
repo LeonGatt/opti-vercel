@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 
 const Feature27 = () => {
   return (
@@ -10,9 +10,8 @@ const Feature27 = () => {
             Built awesome websites with our blocks
           </h2>
           <p className="text-center text-muted-foreground lg:text-lg">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores
-            itaque modi quos hic placeat laudantium inventore reiciendis
-            cupiditate, facilis aliquam.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores itaque modi quos hic
+            placeat laudantium inventore reiciendis cupiditate, facilis aliquam.
           </p>
         </div>
         <div className="mt-20 grid gap-10 md:grid-cols-2">
@@ -25,9 +24,8 @@ const Feature27 = () => {
             <div className="px-4 pt-10">
               <h3 className="font-medium">Fully responsive</h3>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-                itaque modi quos hic placeat laudantium inventore reiciendis
-                cupiditate, facilis aliquam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores itaque modi quos
+                hic placeat laudantium inventore reiciendis cupiditate, facilis aliquam.
               </p>
             </div>
           </div>
@@ -40,9 +38,8 @@ const Feature27 = () => {
             <div className="px-4 pt-10">
               <h3 className="font-medium">Beautiful</h3>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-                itaque modi quos hic placeat laudantium inventore reiciendis
-                cupiditate, facilis aliquam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores itaque modi quos
+                hic placeat laudantium inventore reiciendis cupiditate, facilis aliquam.
               </p>
             </div>
           </div>
@@ -55,16 +52,15 @@ const Feature27 = () => {
             <div className="px-4 pt-10">
               <h3 className="font-medium">Fully customizable</h3>
               <p className="text-muted-foreground">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-                itaque modi quos hic placeat laudantium inventore reiciendis
-                cupiditate, facilis aliquam.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores itaque modi quos
+                hic placeat laudantium inventore reiciendis cupiditate, facilis aliquam.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature27;
+export default Feature27

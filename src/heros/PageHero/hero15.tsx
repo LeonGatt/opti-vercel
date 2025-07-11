@@ -1,9 +1,9 @@
-import { ArrowRight } from "lucide-react";
-import { BiLogoPlayStore } from "react-icons/bi";
-import { FaApple } from "react-icons/fa";
-import { SiTrustpilot } from "react-icons/si";
+import { ArrowRight } from 'lucide-react'
+import { BiLogoPlayStore } from 'react-icons/bi'
+import { FaApple } from 'react-icons/fa'
+import { SiTrustpilot } from 'react-icons/si'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero15 = () => {
   return (
@@ -20,8 +20,8 @@ const Hero15 = () => {
           Efficient tools that simplify your workflow.
         </h1>
         <p className="mx-auto mb-6 max-w-2xl text-center text-muted-foreground lg:text-xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolor
-          assumenda voluptatem nemo magni a maiores aspernatur.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dolor assumenda
+          voluptatem nemo magni a maiores aspernatur.
         </p>
         <div className="flex justify-center">
           <Button size="lg" className="w-full sm:w-auto lg:mt-10">
@@ -46,7 +46,7 @@ const Hero15 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero15;
+export default Hero15

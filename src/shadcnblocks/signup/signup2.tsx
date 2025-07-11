@@ -1,7 +1,7 @@
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from 'react-icons/fc'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 const Signup2 = () => {
   return (
@@ -16,20 +16,14 @@ const Signup2 = () => {
                 className="mb-7 h-10 w-auto"
               />
               <p className="mb-2 text-2xl font-bold">Start your free trial</p>
-              <p className="text-muted-foreground">
-                Sign up in less than 2 minutes.
-              </p>
+              <p className="text-muted-foreground">Sign up in less than 2 minutes.</p>
             </div>
             <div>
               <div className="grid gap-4">
                 <Input type="text" placeholder="Enter your name" required />
                 <Input type="email" placeholder="Enter your email" required />
                 <div>
-                  <Input
-                    type="password"
-                    placeholder="Enter your password"
-                    required
-                  />
+                  <Input type="password" placeholder="Enter your password" required />
                   <p className="mt-1 text-sm text-muted-foreground">
                     Must be at least 8 characters.
                   </p>
@@ -53,7 +47,7 @@ const Signup2 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Signup2;
+export default Signup2

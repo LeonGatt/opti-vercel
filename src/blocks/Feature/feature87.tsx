@@ -1,7 +1,7 @@
-import { CheckCircle, Edit, List, MessagesSquare, Timer } from "lucide-react";
+import { CheckCircle, Edit, List, MessagesSquare, Timer } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
 
 const Feature87 = () => {
   return (
@@ -18,9 +18,9 @@ const Feature87 = () => {
                 <span className="text-muted-foreground">less meetings.</span>
               </h2>
               <p className="text-muted-foreground">
-                Shared platforms empower teams and partners to track progress,
-                provide feedback, and approve tasks, reducing meetings and
-                updates, allowing you to focus on the bigger picture.
+                Shared platforms empower teams and partners to track progress, provide feedback, and
+                approve tasks, reducing meetings and updates, allowing you to focus on the bigger
+                picture.
               </p>
             </div>
             <div className="flex flex-col gap-3">
@@ -61,7 +61,7 @@ const Feature87 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature87;
+export default Feature87

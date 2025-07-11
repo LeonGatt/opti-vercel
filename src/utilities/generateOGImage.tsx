@@ -1,9 +1,9 @@
-import { ImageResponse } from "next/og";
-import { loadGoogleFont } from "./loadGoogleFont";
-import { getCachedGlobal } from "./getGlobals";
-import { DataFromGlobalSlug } from "payload";
-import { Media } from "@/payload-types";
-import { serverUrl as NEXT_PUBLIC_SERVER_URL } from "@/config/server";
+import { ImageResponse } from 'next/og'
+import { loadGoogleFont } from './loadGoogleFont'
+import { getCachedGlobal } from './getGlobals'
+import { DataFromGlobalSlug } from 'payload'
+import { Media } from '@/payload-types'
+import { serverUrl as NEXT_PUBLIC_SERVER_URL } from '@/config/server'
 
 /**
  * OG Image generation. PayloadCMS can'T be run on edge routes, so prevent setting the open graph routes to edge.
@@ -13,9 +13,9 @@ import { serverUrl as NEXT_PUBLIC_SERVER_URL } from "@/config/server";
 export const size = {
   width: 1200,
   height: 630,
-};
+}
 
-export const contentType = "image/png";
+export const contentType = 'image/png'
 
 /**
  * Generates an Open Graph image with a background image and title.
@@ -27,48 +27,43 @@ export const contentType = "image/png";
  * @param {string} [options.title] - Title to render on the image. Defaults to "Payblocks".
  * @returns {Promise<ImageResponse>} - A promise that resolves to an `ImageResponse` object.
  */
-export default async function generateOGImage({
-  title,
-}: {
-  title?: string | null;
-}) {
+export default async function generateOGImage({ title }: { title?: string | null }) {
   const pageConfig = (await getCachedGlobal(
-    "page-config",
+    'page-config',
     3,
-  )()) as DataFromGlobalSlug<"page-config">;
+  )()) as DataFromGlobalSlug<'page-config'>
 
-  const backgroundImageUrl = (pageConfig.openGraph?.backgroundImage as Media)
-    ?.url;
+  const backgroundImageUrl = (pageConfig.openGraph?.backgroundImage as Media)?.url
 
-  const pageTitle = title || pageConfig.defaultMeta.title;
+  const pageTitle = title || pageConfig.defaultMeta.title
 
-  const textColor = pageConfig.openGraph?.textColor;
+  const textColor = pageConfig.openGraph?.textColor
 
   if (!backgroundImageUrl) {
-    return new Response("No background image found", { status: 404 });
+    return new Response('No background image found', { status: 404 })
   }
 
   if (!textColor) {
-    return new Response("No text color found", { status: 404 });
+    return new Response('No text color found', { status: 404 })
   }
 
-  const backgroundImage = `${NEXT_PUBLIC_SERVER_URL}${backgroundImageUrl}`;
+  const backgroundImage = `${NEXT_PUBLIC_SERVER_URL}${backgroundImageUrl}`
 
   try {
     // Load the font
-    const fontData = await loadGoogleFont("Inter", pageTitle);
+    const fontData = await loadGoogleFont('Inter', pageTitle)
 
     return new ImageResponse(
       (
         <div
           style={{
-            background: "#fff",
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            justifyContent: "center",
+            background: '#fff',
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
           }}
         >
           {/* Background image */}
@@ -78,35 +73,35 @@ export default async function generateOGImage({
             width={size.width}
             height={size.height}
             style={{
-              position: "absolute",
+              position: 'absolute',
               top: 0,
               left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
             }}
           />
           {/* Title container with fixed height */}
           <div
             style={{
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              padding: "60px",
-              maxWidth: "70%",
-              minHeight: "200px",
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              padding: '60px',
+              maxWidth: '70%',
+              minHeight: '200px',
             }}
           >
             <h1
               style={{
-                fontSize: "48px",
-                lineHeight: "1.4",
-                fontWeight: "600",
+                fontSize: '48px',
+                lineHeight: '1.4',
+                fontWeight: '600',
                 color: textColor,
-                textAlign: "left",
-                margin: "0",
-                fontFamily: "Inter",
+                textAlign: 'left',
+                margin: '0',
+                fontFamily: 'Inter',
               }}
             >
               {pageTitle}
@@ -118,15 +113,15 @@ export default async function generateOGImage({
         ...size,
         fonts: [
           {
-            name: "Inter",
+            name: 'Inter',
             data: fontData,
-            style: "normal",
+            style: 'normal',
           },
         ],
       },
-    );
+    )
   } catch (error) {
-    console.error("Error generating OG image:", error);
-    return new Response("Failed to generate image", { status: 500 });
+    console.error('Error generating OG image:', error)
+    return new Response('Failed to generate image', { status: 500 })
   }
 }

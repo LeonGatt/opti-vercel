@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 const CTA12 = () => {
   return (
@@ -10,8 +10,8 @@ const CTA12 = () => {
             Call to Action
           </h3>
           <p className="mb-8 max-w-3xl text-muted-foreground lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+            omnis!
           </p>
           <div className="w-full md:max-w-lg">
             <div className="flex flex-col justify-center gap-2 sm:flex-row">
@@ -19,7 +19,7 @@ const CTA12 = () => {
               <Button>Subscribe</Button>
             </div>
             <p className="mt-2 text-left text-xs text-muted-foreground">
-              View our{" "}
+              View our{' '}
               <a href="#" className="underline hover:text-foreground">
                 privacy policy
               </a>
@@ -29,7 +29,7 @@ const CTA12 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CTA12;
+export default CTA12

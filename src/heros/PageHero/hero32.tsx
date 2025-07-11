@@ -1,148 +1,73 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const integrations = [
   [
     {
-      id: "integration-1",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-1.svg"
-        />
-      ),
+      id: 'integration-1',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-1.svg" />,
     },
     {
-      id: "integration-2",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-2.svg"
-        />
-      ),
+      id: 'integration-2',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-2.svg" />,
     },
     {
-      id: "integration-3",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-3.svg"
-        />
-      ),
+      id: 'integration-3',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-3.svg" />,
     },
     {
-      id: "integration-4",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-4.svg"
-        />
-      ),
+      id: 'integration-4',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-4.svg" />,
     },
     {
-      id: "integration-5",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-5.svg"
-        />
-      ),
+      id: 'integration-5',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-5.svg" />,
     },
   ],
   [
     {
-      id: "integration-6",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-6.svg"
-        />
-      ),
+      id: 'integration-6',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-6.svg" />,
     },
     {
-      id: "integration-7",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-1.svg"
-        />
-      ),
+      id: 'integration-7',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-1.svg" />,
     },
     {
-      id: "integration-8",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-2.svg"
-        />
-      ),
+      id: 'integration-8',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-2.svg" />,
     },
     {
-      id: "integration-9",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-3.svg"
-        />
-      ),
+      id: 'integration-9',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-3.svg" />,
     },
     {
-      id: "integration-10",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-4.svg"
-        />
-      ),
+      id: 'integration-10',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-4.svg" />,
     },
   ],
   [
     {
-      id: "integration-11",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-5.svg"
-        />
-      ),
+      id: 'integration-11',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-5.svg" />,
     },
     {
-      id: "integration-12",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-6.svg"
-        />
-      ),
+      id: 'integration-12',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-6.svg" />,
     },
     {
-      id: "integration-13",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-1.svg"
-        />
-      ),
+      id: 'integration-13',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-1.svg" />,
     },
     {
-      id: "integration-14",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-2.svg"
-        />
-      ),
+      id: 'integration-14',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-2.svg" />,
     },
     {
-      id: "integration-15",
-      icon: (
-        <img
-          alt="Integration"
-          src="https://www.shadcnblocks.com/images/block/block-3.svg"
-        />
-      ),
+      id: 'integration-15',
+      icon: <img alt="Integration" src="https://www.shadcnblocks.com/images/block/block-3.svg" />,
     },
   ],
-];
+]
 
 const Hero32 = () => {
   return (
@@ -154,12 +79,7 @@ const Hero32 = () => {
           className="min-h-full min-w-full"
         >
           <defs>
-            <pattern
-              id="grid"
-              width="24"
-              height="24"
-              patternUnits="userSpaceOnUse"
-            >
+            <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
               <path
                 d="M 24 0 L 0 0 0 24"
                 fill="none"
@@ -194,9 +114,7 @@ const Hero32 = () => {
                       key={integration.id}
                       className="size-24 rounded-xl border border-background bg-background shadow-xl"
                     >
-                      <div className="size-full bg-muted/20 p-4">
-                        {integration.icon}
-                      </div>
+                      <div className="size-full bg-muted/20 p-4">{integration.icon}</div>
                     </div>
                   ))}
                 </div>
@@ -206,7 +124,7 @@ const Hero32 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero32;
+export default Hero32

@@ -1,14 +1,12 @@
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Page } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
-import { Stars } from "@/components/uiCustom/stars";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import { Page } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import { Stars } from '@/components/uiCustom/stars'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-export const Hero3: React.FC<
-  Page["hero"] & { publicContext: PublicContextProps }
-> = ({
+export const Hero3: React.FC<Page['hero'] & { publicContext: PublicContextProps }> = ({
   links,
   images,
   icons,
@@ -29,8 +27,8 @@ export const Hero3: React.FC<
               content={richText}
               enableGutter={false}
               overrideStyle={{
-                h1: "my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl",
-                p: "mb-8 max-w-xl text-muted-foreground lg:text-xl",
+                h1: 'my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl',
+                p: 'mb-8 max-w-xl text-muted-foreground lg:text-xl',
               }}
             />
           )}
@@ -45,7 +43,7 @@ export const Hero3: React.FC<
                         <AvatarImage alt="placeholder" />
                         <Media priority resource={icon} />
                       </Avatar>
-                    );
+                    )
                   })}
               </span>
               <div>
@@ -54,9 +52,7 @@ export const Hero3: React.FC<
                   <span className="font-semibold">{rating?.toFixed(1)}</span>
                 </div>
                 {tagline && (
-                  <p className="text-left font-medium text-muted-foreground">
-                    {tagline}
-                  </p>
+                  <p className="text-left font-medium text-muted-foreground">{tagline}</p>
                 )}
               </div>
             </div>
@@ -72,7 +68,7 @@ export const Hero3: React.FC<
                     key={i}
                     {...link}
                   />
-                );
+                )
               })}
             </div>
           )}
@@ -88,5 +84,5 @@ export const Hero3: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

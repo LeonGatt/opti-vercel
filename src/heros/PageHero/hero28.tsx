@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Hero28 = () => {
   return (
@@ -18,20 +18,10 @@ const Hero28 = () => {
               </radialGradient>
               <linearGradient id="icon-backgroud" x1="0" y1="0" x2="1" y2="1">
                 <stop stopColor="hsl(from_var(--accent)_h_s_l)" offset={0} />
-                <stop
-                  stopColor="hsl(from_var(--background)_h_s_l)"
-                  offset={1}
-                />
+                <stop stopColor="hsl(from_var(--background)_h_s_l)" offset={1} />
               </linearGradient>
               <mask id="mask">
-                <rect
-                  x="0"
-                  y="0"
-                  width="100%"
-                  height="100%"
-                  stroke="none"
-                  fill="black"
-                />
+                <rect x="0" y="0" width="100%" height="100%" stroke="none" fill="black" />
                 <rect
                   x="80"
                   y="40"
@@ -140,19 +130,16 @@ const Hero28 = () => {
         </div>
       </div>
       <div className="container relative flex flex-col items-center text-center">
-        <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">
-          Welcome to Our Website
-        </h1>
+        <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl">Welcome to Our Website</h1>
         <p className="mb-8 max-w-3xl text-muted-foreground lg:text-xl">
-          Elig doloremque mollitia fugiat omnis! Porro facilis quo animi
-          consequatur.
+          Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur.
         </p>
         <div>
           <Button>Primary</Button>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero28;
+export default Hero28

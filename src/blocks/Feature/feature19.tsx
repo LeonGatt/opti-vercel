@@ -1,59 +1,59 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const slides = [
   {
     id: 1,
-    tabName: "Product",
-    title: "Ready to use blocks",
+    tabName: 'Product',
+    title: 'Ready to use blocks',
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.",
-    features: ["Integrations", "Components", "Blocks", "Templates"],
-    link: "#",
-    image: "/images/block/placeholder-1.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.',
+    features: ['Integrations', 'Components', 'Blocks', 'Templates'],
+    link: '#',
+    image: '/images/block/placeholder-1.svg',
   },
   {
     id: 2,
-    tabName: "Services",
-    title: "Customize and build",
+    tabName: 'Services',
+    title: 'Customize and build',
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.",
-    features: ["A block for everything", "Easy to use", "Ready to use"],
-    link: "#",
-    image: "/images/block/placeholder-2.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.',
+    features: ['A block for everything', 'Easy to use', 'Ready to use'],
+    link: '#',
+    image: '/images/block/placeholder-2.svg',
   },
   {
     id: 3,
-    tabName: "Company",
-    title: "Easy to use",
+    tabName: 'Company',
+    title: 'Easy to use',
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.",
-    features: ["Highly customizable", "Zero configuration", "Modern design"],
-    link: "#",
-    image: "/images/block/placeholder-3.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.',
+    features: ['Highly customizable', 'Zero configuration', 'Modern design'],
+    link: '#',
+    image: '/images/block/placeholder-3.svg',
   },
   {
     id: 4,
-    tabName: "Portfolio",
-    title: "Ready to use blocks",
+    tabName: 'Portfolio',
+    title: 'Ready to use blocks',
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.",
-    features: ["Just add your content", "Easy to customize", "One click away"],
-    link: "#",
-    image: "/images/block/placeholder-4.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.',
+    features: ['Just add your content', 'Easy to customize', 'One click away'],
+    link: '#',
+    image: '/images/block/placeholder-4.svg',
   },
   {
     id: 5,
-    tabName: "Blog",
-    title: "Customize and build",
+    tabName: 'Blog',
+    title: 'Customize and build',
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.",
-    features: ["Variety of options", "Keep it simple", "Get creative"],
-    link: "#",
-    image: "/images/block/placeholder-5.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, voluptatibus.',
+    features: ['Variety of options', 'Keep it simple', 'Get creative'],
+    link: '#',
+    image: '/images/block/placeholder-5.svg',
   },
-];
+]
 
 const Feature19 = () => {
   return (
@@ -64,8 +64,8 @@ const Feature19 = () => {
             This is where your feature goes
           </h2>
           <p className="text-balance text-center text-muted-foreground lg:text-2xl">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae aut
-            doloribus voluptatum distinctio! Eum
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae aut doloribus voluptatum
+            distinctio! Eum
           </p>
         </div>
         <div className="mt-24">
@@ -85,19 +85,11 @@ const Feature19 = () => {
               ))}
             </TabsList>
             {slides.map((slide) => (
-              <TabsContent
-                value={slide.id.toString()}
-                key={slide.id}
-                className="max-w-screen-lg"
-              >
+              <TabsContent value={slide.id.toString()} key={slide.id} className="max-w-screen-lg">
                 <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
                   <div>
-                    <h2 className="mb-4 text-2xl font-semibold md:text-4xl">
-                      {slide.title}
-                    </h2>
-                    <p className="text-xl text-muted-foreground">
-                      {slide.description}
-                    </p>
+                    <h2 className="mb-4 text-2xl font-semibold md:text-4xl">{slide.title}</h2>
+                    <p className="text-xl text-muted-foreground">{slide.description}</p>
                     <ul className="mt-8 grid grid-cols-1 gap-2 lg:grid-cols-2">
                       {slide.features.map((feature) => (
                         <li key={feature} className="flex items-center gap-2">
@@ -126,7 +118,7 @@ const Feature19 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature19;
+export default Feature19

@@ -1,14 +1,14 @@
-import type { CollectionConfig } from "payload";
-import { isAdmin } from "@/access/isAdmin";
-import { authenticated } from "@/access/authenticated";
+import type { CollectionConfig } from 'payload'
+import { isAdmin } from '@/access/isAdmin'
+import { authenticated } from '@/access/authenticated'
 
 const Roles: CollectionConfig = {
-  slug: "roles",
+  slug: 'roles',
   admin: {
-    useAsTitle: "name",
+    useAsTitle: 'name',
     description: {
-      en: "Manage user roles and their permissions",
-      de: "Verwalten Sie Benutzerrollen und deren Berechtigungen",
+      en: 'Manage user roles and their permissions',
+      de: 'Verwalten Sie Benutzerrollen und deren Berechtigungen',
     },
   },
   access: {
@@ -19,26 +19,26 @@ const Roles: CollectionConfig = {
   },
   fields: [
     {
-      name: "name",
-      type: "text",
+      name: 'name',
+      type: 'text',
       required: true,
       unique: true,
       admin: {
         description: {
-          en: "The name of the role (e.g., Admin, Editor)",
-          de: "Der Name der Rolle (z.B. Admin, Editor)",
+          en: 'The name of the role (e.g., Admin, Editor)',
+          de: 'Der Name der Rolle (z.B. Admin, Editor)',
         },
       },
     },
     {
-      name: "slug",
-      type: "text",
+      name: 'slug',
+      type: 'text',
       required: true,
       unique: true,
       admin: {
         description: {
-          en: "The identifier for the role (e.g., admin, editor)",
-          de: "Die Kennung für die Rolle (z.B. admin, editor)",
+          en: 'The identifier for the role (e.g., admin, editor)',
+          de: 'Die Kennung für die Rolle (z.B. admin, editor)',
         },
       },
       hooks: {
@@ -47,64 +47,64 @@ const Roles: CollectionConfig = {
             if (!value && data?.name) {
               return data.name
                 .toLowerCase()
-                .replace(/\s+/g, "-")
-                .replace(/[^a-z0-9-]/g, "");
+                .replace(/\s+/g, '-')
+                .replace(/[^a-z0-9-]/g, '')
             }
-            return value;
+            return value
           },
         ],
       },
     },
     {
-      name: "description",
-      type: "textarea",
+      name: 'description',
+      type: 'textarea',
       admin: {
         description: {
-          en: "A description of what this role can do",
-          de: "Eine Beschreibung der Berechtigungen dieser Rolle",
+          en: 'A description of what this role can do',
+          de: 'Eine Beschreibung der Berechtigungen dieser Rolle',
         },
       },
     },
     {
-      name: "permissions",
-      type: "group",
+      name: 'permissions',
+      type: 'group',
       admin: {
         description: {
-          en: "Role permissions",
-          de: "Rollenberechtigungen",
+          en: 'Role permissions',
+          de: 'Rollenberechtigungen',
         },
       },
       fields: [
         {
-          name: "canManageContent",
-          type: "checkbox",
+          name: 'canManageContent',
+          type: 'checkbox',
           defaultValue: false,
           admin: {
             description: {
-              en: "Can create and edit content",
-              de: "Kann Inhalte erstellen und bearbeiten",
+              en: 'Can create and edit content',
+              de: 'Kann Inhalte erstellen und bearbeiten',
             },
           },
         },
         {
-          name: "canPublish",
-          type: "checkbox",
+          name: 'canPublish',
+          type: 'checkbox',
           defaultValue: false,
           admin: {
             description: {
-              en: "Can publish content",
-              de: "Kann Inhalte veröffentlichen",
+              en: 'Can publish content',
+              de: 'Kann Inhalte veröffentlichen',
             },
           },
         },
         {
-          name: "canManageUsers",
-          type: "checkbox",
+          name: 'canManageUsers',
+          type: 'checkbox',
           defaultValue: false,
           admin: {
             description: {
-              en: "Can manage users",
-              de: "Kann Benutzer verwalten",
+              en: 'Can manage users',
+              de: 'Kann Benutzer verwalten',
             },
           },
         },
@@ -112,13 +112,13 @@ const Roles: CollectionConfig = {
           /**
            * Redirects can be misused, so we adding a separate permission for it.
            */
-          name: "canManageRedirects",
-          type: "checkbox",
+          name: 'canManageRedirects',
+          type: 'checkbox',
           defaultValue: false,
           admin: {
             description: {
-              en: "Can manage redirects",
-              de: "Kann Redirects verwalten.",
+              en: 'Can manage redirects',
+              de: 'Kann Redirects verwalten.',
             },
           },
         },
@@ -126,6 +126,6 @@ const Roles: CollectionConfig = {
     },
   ],
   timestamps: true,
-};
+}
 
-export default Roles;
+export default Roles

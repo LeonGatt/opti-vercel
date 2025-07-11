@@ -1,11 +1,6 @@
-import { Code, GitBranch } from "lucide-react";
+import { Code, GitBranch } from 'lucide-react'
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 
 const Feature4 = () => {
   return (
@@ -22,12 +17,10 @@ const Feature4 = () => {
                 <Code className="size-5" strokeWidth={1.5} />
               </CardHeader>
               <CardContent className="text-left">
-                <h2 className="mb-1 text-lg font-semibold">
-                  Collaborate or co-edit together
-                </h2>
+                <h2 className="mb-1 text-lg font-semibold">Collaborate or co-edit together</h2>
                 <p className="leading-snug text-muted-foreground">
-                  Allow others to comment or suggest edits. Just type the @ key
-                  to get their attention.
+                  Allow others to comment or suggest edits. Just type the @ key to get their
+                  attention.
                 </p>
               </CardContent>
               <CardFooter className="justify-end pb-0">
@@ -67,8 +60,8 @@ const Feature4 = () => {
                 </CardHeader>
                 <CardContent className="text-left">
                   <q className="text-2xl md:text-3xl">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-                    sint, porro consequatur illo itaque rem dolor.
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. A sint, porro
+                    consequatur illo itaque rem dolor.
                   </q>
                 </CardContent>
                 <CardFooter className="flex-col items-start text-xs">
@@ -81,7 +74,7 @@ const Feature4 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature4;
+export default Feature4

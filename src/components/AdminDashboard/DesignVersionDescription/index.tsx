@@ -1,4 +1,4 @@
-import { Condition, Field } from "payload";
+import { Condition, Field } from 'payload'
 
 /**
  * Creates a conditional description field for feature design versions in the Payload CMS admin interface.
@@ -13,17 +13,17 @@ export const designVersionDescription = (
   name: string,
   condition: Condition<any, any>,
   description: {
-    en: string;
-    de?: string;
+    en: string
+    de?: string
   },
 ): Field => ({
-  type: "ui",
+  type: 'ui',
   name,
   admin: {
     condition,
     components: {
       Field: {
-        path: "@/components/AdminDashboard/DesignVersionDescription",
+        path: '@/components/AdminDashboard/DesignVersionDescription',
         serverProps: {
           description: {
             en: description?.en,
@@ -39,7 +39,7 @@ export const designVersionDescription = (
       },
     },
   },
-});
+})
 
 /**
  * A React component that displays a design version description.
@@ -49,12 +49,8 @@ export const designVersionDescription = (
  * @returns {JSX.Element} A paragraph element with the localized description.
  */
 const DesignVersionDescription: React.FC<any> = ({ description, i18n }) => {
-  const lang = i18n?.language || i18n?.fallbackLanguage || "en";
-  return (
-    <p style={{ color: "red", marginBottom: 10 }}>
-      {description?.[lang] || description?.en}
-    </p>
-  );
-};
+  const lang = i18n?.language || i18n?.fallbackLanguage || 'en'
+  return <p style={{ color: 'red', marginBottom: 10 }}>{description?.[lang] || description?.en}</p>
+}
 
-export default DesignVersionDescription;
+export default DesignVersionDescription

@@ -1,14 +1,8 @@
-import { Check, Minus } from "lucide-react";
+import { Check, Minus } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 import {
   Table,
   TableBody,
@@ -16,44 +10,44 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table'
 
 type PlanFeature = {
-  feature: string;
-  pro: string | boolean;
-  entreprise: string | boolean;
-};
+  feature: string
+  pro: string | boolean
+  entreprise: string | boolean
+}
 
 const planData: PlanFeature[] = [
   {
-    feature: "Projects",
-    pro: "Unlimited",
-    entreprise: "Unlimited",
+    feature: 'Projects',
+    pro: 'Unlimited',
+    entreprise: 'Unlimited',
   },
   {
-    feature: "Integrations",
-    pro: "Unlimited",
-    entreprise: "Unlimited",
+    feature: 'Integrations',
+    pro: 'Unlimited',
+    entreprise: 'Unlimited',
   },
-  { feature: "Live Collaboration", pro: true, entreprise: true },
+  { feature: 'Live Collaboration', pro: true, entreprise: true },
   {
-    feature: "Custom permissions",
+    feature: 'Custom permissions',
     pro: true,
     entreprise: true,
   },
   {
-    feature: "Team members",
-    pro: "$5/month per member",
-    entreprise: "$5/month per member",
+    feature: 'Team members',
+    pro: '$5/month per member',
+    entreprise: '$5/month per member',
   },
   {
-    feature: "Basic reports",
+    feature: 'Basic reports',
     pro: true,
     entreprise: true,
   },
-  { feature: "Advanced reports", pro: false, entreprise: true },
-  { feature: "Export data", pro: false, entreprise: true },
-];
+  { feature: 'Advanced reports', pro: false, entreprise: true },
+  { feature: 'Export data', pro: false, entreprise: true },
+]
 const Pricing5 = () => {
   return (
     <section className="py-32">
@@ -78,10 +72,7 @@ const Pricing5 = () => {
               <Button className="w-full">Get Started</Button>
             </CardFooter>
           </Card>
-          <Separator
-            orientation="vertical"
-            className="hidden h-auto lg:block"
-          />
+          <Separator orientation="vertical" className="hidden h-auto lg:block" />
           <Card className="flex w-full flex-col justify-between gap-8 rounded-l-none border-l-0 text-center">
             <CardHeader>
               <CardTitle>Entreprise</CardTitle>
@@ -92,7 +83,7 @@ const Pricing5 = () => {
               <p className="mt-3 text-muted-foreground">Get in touch with us</p>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" variant={"outline"}>
+              <Button className="w-full" variant={'outline'}>
                 Get Started
               </Button>
             </CardFooter>
@@ -103,9 +94,7 @@ const Pricing5 = () => {
             <TableRow className="hover:bg-background">
               <TableHead></TableHead>
               <TableHead className="font-bold text-primary">Pro</TableHead>
-              <TableHead className="font-bold text-primary">
-                Entreprise
-              </TableHead>
+              <TableHead className="font-bold text-primary">Entreprise</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -113,7 +102,7 @@ const Pricing5 = () => {
               <TableRow key={item.feature} className="hover:bg-background">
                 <TableCell>{item.feature}</TableCell>
                 <TableCell>
-                  {typeof item.pro === "boolean" ? (
+                  {typeof item.pro === 'boolean' ? (
                     item.pro ? (
                       <Check className="size-6" />
                     ) : (
@@ -124,7 +113,7 @@ const Pricing5 = () => {
                   )}
                 </TableCell>
                 <TableCell>
-                  {typeof item.entreprise === "boolean" ? (
+                  {typeof item.entreprise === 'boolean' ? (
                     item.entreprise ? (
                       <Check className="size-6" />
                     ) : (
@@ -140,7 +129,7 @@ const Pricing5 = () => {
         </Table>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing5;
+export default Pricing5

@@ -6,19 +6,16 @@ import {
   Monitor,
   Target,
   TrendingUp,
-} from "lucide-react";
+} from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 
 const Feature104 = () => {
   return (
     <section className="py-32">
       <div className="container">
         <div className="mx-auto flex max-w-screen-md flex-col items-center gap-4">
-          <Badge
-            variant="outline"
-            className="flex items-center gap-1 px-2.5 py-1.5 text-sm"
-          >
+          <Badge variant="outline" className="flex items-center gap-1 px-2.5 py-1.5 text-sm">
             <Medal className="h-auto w-4" />
             Highlights
           </Badge>
@@ -26,8 +23,8 @@ const Feature104 = () => {
             Unlock Your Workflow Potential
           </h2>
           <p className="text-center text-muted-foreground lg:text-lg">
-            Experience the benefits of streamlined processes, designed to
-            enhance productivity and success.
+            Experience the benefits of streamlined processes, designed to enhance productivity and
+            success.
           </p>
         </div>
         <div className="gap mt-14 grid gap-2.5 lg:grid-cols-3">
@@ -40,8 +37,7 @@ const Feature104 = () => {
                 <h3 className="font-medium">Targeted Solutions</h3>
               </div>
               <p className="text-sm text-muted-foreground md:text-base">
-                Tailored features designed to tackle specific project challenges
-                with precision.
+                Tailored features designed to tackle specific project challenges with precision.
               </p>
             </div>
             <div className="gap flex flex-col gap-3 rounded-lg border p-6">
@@ -52,8 +48,8 @@ const Feature104 = () => {
                 <h3 className="font-medium">Seamless Integration</h3>
               </div>
               <p className="text-sm text-muted-foreground md:text-base">
-                Effortlessly merge new technologies into existing systems to
-                maintain continuity and performance.
+                Effortlessly merge new technologies into existing systems to maintain continuity and
+                performance.
               </p>
             </div>
             <div className="gap flex flex-col gap-3 rounded-lg border p-6">
@@ -64,8 +60,7 @@ const Feature104 = () => {
                 <h3 className="font-medium">Real-Time Data Insights</h3>
               </div>
               <p className="text-sm text-muted-foreground md:text-base">
-                Monitor data in real-time for better decision-making and faster
-                adjustments.
+                Monitor data in real-time for better decision-making and faster adjustments.
               </p>
             </div>
           </div>
@@ -84,8 +79,7 @@ const Feature104 = () => {
                 <h3 className="font-medium">Strategic Growth</h3>
               </div>
               <p className="text-sm text-muted-foreground md:text-base">
-                Leverage strategic tools to scale your business and meet
-                evolving market demands.
+                Leverage strategic tools to scale your business and meet evolving market demands.
               </p>
             </div>
             <div className="gap flex flex-col gap-3 rounded-lg border p-6">
@@ -96,8 +90,7 @@ const Feature104 = () => {
                 <h3 className="font-medium">Advanced Analytics</h3>
               </div>
               <p className="text-sm text-muted-foreground md:text-base">
-                Gain deeper insights through advanced analytics to stay ahead in
-                decision-making.
+                Gain deeper insights through advanced analytics to stay ahead in decision-making.
               </p>
             </div>
             <div className="gap flex flex-col gap-3 rounded-lg border p-6">
@@ -108,15 +101,14 @@ const Feature104 = () => {
                 <h3 className="font-medium">Unified Control</h3>
               </div>
               <p className="text-sm text-muted-foreground md:text-base">
-                Centralize management and control all aspects of your workflow
-                from one platform.
+                Centralize management and control all aspects of your workflow from one platform.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature104;
+export default Feature104

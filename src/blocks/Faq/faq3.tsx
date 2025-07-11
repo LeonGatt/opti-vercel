@@ -3,55 +3,55 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { FaqBlock } from "@/payload-types";
+} from '@/components/ui/accordion'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { FaqBlock } from '@/payload-types'
 
 const data = [
   {
-    id: "faq-1",
-    question: "Can it do X?",
+    id: 'faq-1',
+    question: 'Can it do X?',
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
   },
   {
-    id: "faq-2",
-    question: "Can it do Y?",
+    id: 'faq-2',
+    question: 'Can it do Y?',
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
   },
   {
-    id: "faq-3",
-    question: "Can it do Z?",
+    id: 'faq-3',
+    question: 'Can it do Z?',
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
   },
   {
-    id: "faq-4",
-    question: "Can it do X?",
+    id: 'faq-4',
+    question: 'Can it do X?',
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
   },
   {
-    id: "faq-5",
-    question: "Can it do Y?",
+    id: 'faq-5',
+    question: 'Can it do Y?',
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
   },
   {
-    id: "faq-6",
-    question: "Can it do Z?",
+    id: 'faq-6',
+    question: 'Can it do Z?',
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
   },
   {
-    id: "faq-7",
-    question: "Can it do X?",
+    id: 'faq-7',
+    question: 'Can it do X?',
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
   },
-];
+]
 
 const FAQ3: React.FC<FaqBlock> = () => {
   return (
@@ -62,26 +62,18 @@ const FAQ3: React.FC<FaqBlock> = () => {
             Frequently asked questions
           </h2>
           <p className="max-w-3xl text-muted-foreground lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+            omnis!
           </p>
         </div>
-        <Accordion
-          type="single"
-          collapsible
-          className="mx-auto w-full lg:max-w-3xl"
-        >
+        <Accordion type="single" collapsible className="mx-auto w-full lg:max-w-3xl">
           {data.map((item) => (
             <AccordionItem key={item.id} value={item.id}>
               <AccordionTrigger>
-                <div className="font-medium sm:py-1 lg:py-2 lg:text-lg">
-                  {item.question}
-                </div>
+                <div className="font-medium sm:py-1 lg:py-2 lg:text-lg">{item.question}</div>
               </AccordionTrigger>
               <AccordionContent className="sm:mb-1 lg:mb-2">
-                <div className="text-muted-foreground lg:text-lg">
-                  {item.answer}
-                </div>
+                <div className="text-muted-foreground lg:text-lg">{item.answer}</div>
               </AccordionContent>
             </AccordionItem>
           ))}
@@ -101,12 +93,10 @@ const FAQ3: React.FC<FaqBlock> = () => {
               <AvatarFallback>SU</AvatarFallback>
             </Avatar>
           </div>
-          <h3 className="mb-2 max-w-3xl font-semibold lg:text-lg">
-            Need more support?
-          </h3>
+          <h3 className="mb-2 max-w-3xl font-semibold lg:text-lg">Need more support?</h3>
           <p className="mb-8 max-w-3xl text-muted-foreground lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+            omnis!
           </p>
           <div className="flex w-full flex-col justify-center gap-2 sm:flex-row">
             <Button className="w-full sm:w-auto">Call us</Button>
@@ -114,7 +104,7 @@ const FAQ3: React.FC<FaqBlock> = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default FAQ3;
+export default FAQ3

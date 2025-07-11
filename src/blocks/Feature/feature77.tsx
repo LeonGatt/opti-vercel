@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
 const Feature77 = () => {
   return (
@@ -6,9 +6,7 @@ const Feature77 = () => {
       <div className="container relative flex flex-col items-center">
         <div className="absolute top-0 -mx-[calc(24px+theme(container.padding))] h-px w-screen bg-border" />
         <div className="relative py-24 text-center lg:py-32">
-          <p className="mb-6 text-xs font-medium uppercase tracking-wider">
-            Tag Line
-          </p>
+          <p className="mb-6 text-xs font-medium uppercase tracking-wider">Tag Line</p>
           <h3 className="text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
             Feature group
           </h3>
@@ -30,10 +28,9 @@ const Feature77 = () => {
             </div>
             <h3 className="mb-4 text-lg font-semibold md:mb-5">Product</h3>
             <p className="mb-auto text-sm text-muted-foreground">
-              Maecenas egestas leo nec risus viverra accumsan. Interdum et
-              malesuada fames ac ante ipsum primis in faucibus. Donec ultricies,
-              nisi non elementum convallis, lacus justo eleifend dolor, nec
-              imperdiet nisi sem vel nisi.
+              Maecenas egestas leo nec risus viverra accumsan. Interdum et malesuada fames ac ante
+              ipsum primis in faucibus. Donec ultricies, nisi non elementum convallis, lacus justo
+              eleifend dolor, nec imperdiet nisi sem vel nisi.
             </p>
             <div className="mt-4 flex items-center md:mt-6">
               <span>See more</span>
@@ -54,10 +51,9 @@ const Feature77 = () => {
             </div>
             <h3 className="mb-4 text-lg font-semibold md:mb-5">Product</h3>
             <p className="mb-auto text-sm text-muted-foreground">
-              Maecenas egestas leo nec risus viverra accumsan. Interdum et
-              malesuada fames ac ante ipsum primis in faucibus. Donec ultricies,
-              nisi non elementum convallis, lacus justo eleifend dolor, nec
-              imperdiet nisi sem vel nisi.
+              Maecenas egestas leo nec risus viverra accumsan. Interdum et malesuada fames ac ante
+              ipsum primis in faucibus. Donec ultricies, nisi non elementum convallis, lacus justo
+              eleifend dolor, nec imperdiet nisi sem vel nisi.
             </p>
             <div className="mt-4 flex items-center md:mt-6">
               <span>See more</span>
@@ -86,7 +82,7 @@ const Feature77 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature77;
+export default Feature77

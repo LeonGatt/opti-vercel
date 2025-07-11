@@ -1,135 +1,124 @@
-"use client";
+'use client'
 
-import { CheckIcon, Info, MinusIcon } from "lucide-react";
-import { Fragment, useState } from "react";
+import { CheckIcon, Info, MinusIcon } from 'lucide-react'
+import { Fragment, useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { cn } from "@/utilities/cn";
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Switch } from '@/components/ui/switch'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { cn } from '@/utilities/cn'
 
-type TierName = "Free" | "Pro" | "Premium";
+type TierName = 'Free' | 'Pro' | 'Premium'
 
 interface Tier {
-  name: string;
-  price: string;
-  annualPrice: string;
-  description: string;
+  name: string
+  price: string
+  annualPrice: string
+  description: string
 }
 
 interface Feature {
-  name: string;
-  tiers: Partial<Record<TierName, boolean>>;
-  tooltip?: string;
+  name: string
+  tiers: Partial<Record<TierName, boolean>>
+  tooltip?: string
 }
 
 interface Section {
-  name: string;
-  features: Feature[];
+  name: string
+  features: Feature[]
 }
 
 const tiers: Tier[] = [
   {
-    name: "Free",
-    price: "$0",
-    annualPrice: "$0",
-    description: "Quis suspendisse ut fermentum neque vivamus.",
+    name: 'Free',
+    price: '$0',
+    annualPrice: '$0',
+    description: 'Quis suspendisse ut fermentum neque vivamus.',
   },
   {
-    name: "Pro",
-    price: "$10",
-    annualPrice: "$100",
-    description: "Quis eleifend a tincidunt pellentesque.",
+    name: 'Pro',
+    price: '$10',
+    annualPrice: '$100',
+    description: 'Quis eleifend a tincidunt pellentesque.',
   },
   {
-    name: "Premium",
-    price: "$15",
-    annualPrice: "$150",
-    description: "Orci volutpat ut sed sed neque, dui eget.",
+    name: 'Premium',
+    price: '$15',
+    annualPrice: '$150',
+    description: 'Orci volutpat ut sed sed neque, dui eget.',
   },
-];
+]
 const sections: Section[] = [
   {
-    name: "Key Features",
+    name: 'Key Features',
     features: [
       {
-        name: "Live Collaboration",
+        name: 'Live Collaboration',
         tiers: { Free: true, Pro: true, Premium: true },
-        tooltip: "Lorem ipsum dolor sit amet, consectetur",
+        tooltip: 'Lorem ipsum dolor sit amet, consectetur',
       },
       {
-        name: "Unlimited projects",
+        name: 'Unlimited projects',
         tiers: { Free: true, Pro: true, Premium: true },
-        tooltip: "Lorem ipsum dolor sit amet, consectetur",
+        tooltip: 'Lorem ipsum dolor sit amet, consectetur',
       },
       {
-        name: "Custom permissions",
+        name: 'Custom permissions',
         tiers: { Pro: true, Premium: true },
-        tooltip: "Lorem ipsum dolor sit amet, consectetur",
+        tooltip: 'Lorem ipsum dolor sit amet, consectetur',
       },
       {
-        name: "Team members",
+        name: 'Team members',
         tiers: {
           Premium: true,
         },
-        tooltip: "Lorem ipsum dolor sit amet, consectetur",
+        tooltip: 'Lorem ipsum dolor sit amet, consectetur',
       },
     ],
   },
   {
-    name: "Reporting",
+    name: 'Reporting',
     features: [
       {
-        name: "Basic reports",
+        name: 'Basic reports',
         tiers: { Free: true, Pro: true, Premium: true },
-        tooltip: "Lorem ipsum dolor sit amet, consectetur",
+        tooltip: 'Lorem ipsum dolor sit amet, consectetur',
       },
       {
-        name: "Advanced reports",
+        name: 'Advanced reports',
         tiers: { Pro: true, Premium: true },
-        tooltip: "Lorem ipsum dolor sit amet, consectetur",
+        tooltip: 'Lorem ipsum dolor sit amet, consectetur',
       },
       {
-        name: "Custom reports",
+        name: 'Custom reports',
         tiers: { Premium: true },
-        tooltip: "Lorem ipsum dolor sit amet, consectetur",
+        tooltip: 'Lorem ipsum dolor sit amet, consectetur',
       },
       {
-        name: "Export data",
+        name: 'Export data',
         tiers: { Premium: true },
-        tooltip: "Lorem ipsum dolor sit amet, consectetur",
+        tooltip: 'Lorem ipsum dolor sit amet, consectetur',
       },
     ],
   },
-];
+]
 
 const Pricing9 = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
+  const [isAnnual, setIsAnnual] = useState(false)
   return (
     <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
-            Choose Your Plan
-          </p>
+          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">Choose Your Plan</p>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-muted-foreground">
-          Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et
-          quasi.
+          Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi.
         </p>
         <div className="mt-10 flex flex-col items-center gap-2 lg:hidden">
           <span className="flex items-center gap-3 text-base font-medium">
             Annual
-            <Switch
-              checked={isAnnual}
-              onCheckedChange={() => setIsAnnual(!isAnnual)}
-            />
+            <Switch checked={isAnnual} onCheckedChange={() => setIsAnnual(!isAnnual)} />
             Monthly
           </span>
         </div>
@@ -150,9 +139,7 @@ const Pricing9 = () => {
                   <span className="text-4xl font-bold">
                     {isAnnual ? tier.annualPrice : tier.price}
                   </span>
-                  <span className="text-sm leading-6 text-muted-foreground">
-                    /month
-                  </span>
+                  <span className="text-sm leading-6 text-muted-foreground">/month</span>
                 </div>
               </CardHeader>
               <Button className="mt-8 w-full">Buy plan</Button>
@@ -177,9 +164,7 @@ const Pricing9 = () => {
                                     <TooltipTrigger>
                                       <Info className="ml-1 size-4 text-muted-foreground" />
                                     </TooltipTrigger>
-                                    <TooltipContent>
-                                      {feature.tooltip}
-                                    </TooltipContent>
+                                    <TooltipContent>{feature.tooltip}</TooltipContent>
                                   </Tooltip>
                                 </li>
                               ),
@@ -197,10 +182,7 @@ const Pricing9 = () => {
         <div className="isolate mt-20 hidden lg:block">
           <div className="relative -mx-8">
             {tiers.map((tier, idx) => (
-              <div
-                className="absolute inset-x-4 inset-y-0 -z-10 flex"
-                key={tier.name}
-              >
+              <div className="absolute inset-x-4 inset-y-0 -z-10 flex" key={tier.name}>
                 <div
                   className="flex w-1/4 px-4"
                   style={{
@@ -218,9 +200,7 @@ const Pricing9 = () => {
                   {tiers.map((tier) => (
                     <th key={tier.name} className="px-6 pt-6 xl:px-8 xl:pt-8">
                       <div className="flex flex-col gap-2 text-center">
-                        <span className="text-xl font-bold uppercase leading-7">
-                          {tier.name}
-                        </span>
+                        <span className="text-xl font-bold uppercase leading-7">{tier.name}</span>
                         <span className="text-sm font-normal text-muted-foreground">
                           {tier.description}
                         </span>
@@ -233,15 +213,10 @@ const Pricing9 = () => {
                 <tr>
                   <th>
                     <div className="flex flex-col gap-2">
-                      <p className="text-sm font-normal text-muted-foreground">
-                        Billings
-                      </p>
+                      <p className="text-sm font-normal text-muted-foreground">Billings</p>
                       <span className="flex items-center gap-3 text-base font-medium">
                         Annual
-                        <Switch
-                          checked={isAnnual}
-                          onCheckedChange={() => setIsAnnual(!isAnnual)}
-                        />
+                        <Switch checked={isAnnual} onCheckedChange={() => setIsAnnual(!isAnnual)} />
                         Monthly
                       </span>
                     </div>
@@ -252,9 +227,7 @@ const Pricing9 = () => {
                         <span className="text-4xl font-bold">
                           {isAnnual ? tier.annualPrice : tier.price}
                         </span>
-                        <span className="text-sm leading-6 text-muted-foreground">
-                          /month
-                        </span>
+                        <span className="text-sm leading-6 text-muted-foreground">/month</span>
                       </div>
                       <Button className="mt-8 w-full">Get Started</Button>
                     </td>
@@ -265,8 +238,8 @@ const Pricing9 = () => {
                     <tr>
                       <th
                         className={cn(
-                          "pb-4 text-sm font-semibold leading-6",
-                          sectionIdx === 0 ? "pt-8" : "pt-16",
+                          'pb-4 text-sm font-semibold leading-6',
+                          sectionIdx === 0 ? 'pt-8' : 'pt-16',
                         )}
                       >
                         {section.name}
@@ -306,6 +279,6 @@ const Pricing9 = () => {
         </div>
       </div>
     </div>
-  );
-};
-export default Pricing9;
+  )
+}
+export default Pricing9

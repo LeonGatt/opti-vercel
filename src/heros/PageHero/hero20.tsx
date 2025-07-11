@@ -1,64 +1,60 @@
-"use client";
+'use client'
 
-import Fade from "embla-carousel-fade";
-import { CopyCheck, DollarSign, MessagesSquare } from "lucide-react";
-import { useEffect, useState } from "react";
+import Fade from 'embla-carousel-fade'
+import { CopyCheck, DollarSign, MessagesSquare } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+} from '@/components/ui/accordion'
+import { Badge } from '@/components/ui/badge'
+import type { CarouselApi } from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 
-const DURATION = 8000;
+const DURATION = 8000
 
 const accordions = [
   {
-    id: "1",
-    question: "Can I use this for commercial projects?",
+    id: '1',
+    question: 'Can I use this for commercial projects?',
     icon: <CopyCheck className="w-5" />,
-    answer: "Yes, All blocks are yours to use.",
-    image: "/images/block/placeholder-4.svg",
+    answer: 'Yes, All blocks are yours to use.',
+    image: '/images/block/placeholder-4.svg',
   },
   {
-    id: "2",
-    question: "Are there any hidden fees?",
+    id: '2',
+    question: 'Are there any hidden fees?',
     icon: <DollarSign className="w-5" />,
-    answer: "No, there are no hidden fees.",
-    image: "/images/block/placeholder-2.svg",
+    answer: 'No, there are no hidden fees.',
+    image: '/images/block/placeholder-2.svg',
   },
   {
-    id: "3",
-    question: "Do you provide support?",
+    id: '3',
+    question: 'Do you provide support?',
     icon: <MessagesSquare className="w-5" />,
-    answer: "Yes, we provide support via email.",
-    image: "/images/block/placeholder-5.svg",
+    answer: 'Yes, we provide support via email.',
+    image: '/images/block/placeholder-5.svg',
   },
-];
+]
 
 const Hero20 = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [currentAccordion, setCurrentAccordion] = useState("1");
+  const [api, setApi] = useState<CarouselApi>()
+  const [currentAccordion, setCurrentAccordion] = useState('1')
 
   useEffect(() => {
-    api?.scrollTo(+currentAccordion - 1);
+    api?.scrollTo(+currentAccordion - 1)
     const interval = setInterval(() => {
       setCurrentAccordion((prev) => {
-        const next = parseInt(prev) + 1;
-        return next > 3 ? "1" : next.toString();
-      });
-    }, DURATION);
+        const next = parseInt(prev) + 1
+        return next > 3 ? '1' : next.toString()
+      })
+    }, DURATION)
 
-    return () => clearInterval(interval);
-  }, [api, currentAccordion]);
+    return () => clearInterval(interval)
+  }, [api, currentAccordion])
 
   return (
     <section className="py-32">
@@ -68,38 +64,30 @@ const Hero20 = () => {
             <Badge variant="outline" className="mb-4">
               Platform
             </Badge>
-            <h1 className="mb-8 text-3xl font-medium lg:text-5xl">
-              Build your own platform
-            </h1>
+            <h1 className="mb-8 text-3xl font-medium lg:text-5xl">Build your own platform</h1>
             <Accordion
               type="single"
               value={currentAccordion}
               onValueChange={(value) => {
-                setCurrentAccordion(value);
-                api?.scrollTo(+value - 1);
+                setCurrentAccordion(value)
+                api?.scrollTo(+value - 1)
               }}
             >
               {accordions.map((accordion) => (
-                <AccordionItem
-                  key={accordion.id}
-                  value={accordion.id}
-                  className="border-b-0"
-                >
+                <AccordionItem key={accordion.id} value={accordion.id} className="border-b-0">
                   <AccordionTrigger className="text-left data-[state=closed]:text-muted-foreground">
                     <div className="flex items-center justify-between gap-2">
                       <span className="flex size-9 items-center justify-center rounded-lg bg-muted">
                         {accordion.icon}
                       </span>
-                      <span className="font-medium lg:text-lg">
-                        {accordion.question}
-                      </span>
+                      <span className="font-medium lg:text-lg">{accordion.question}</span>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground lg:text-base">
                     {accordion.answer}
                     <div className="mt-8 h-px bg-muted">
                       <div
-                        className={"h-px animate-progress bg-primary"}
+                        className={'h-px animate-progress bg-primary'}
                         style={{
                           animationDuration: `${DURATION}ms`,
                         }}
@@ -136,7 +124,7 @@ const Hero20 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero20;
+export default Hero20

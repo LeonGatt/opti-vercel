@@ -1,65 +1,56 @@
-"use client";
+'use client'
 
-import { Star } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Star } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { TestimonialBlock } from "@/payload-types";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import type { CarouselApi } from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { TestimonialBlock } from '@/payload-types'
 
 const testimonials = [
   {
-    id: "testimonial-1",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    name: "Customer Name",
-    role: "Position at Company",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-1.webp",
+    id: 'testimonial-1',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    name: 'Customer Name',
+    role: 'Position at Company',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-1.webp',
   },
   {
-    id: "testimonial-2",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    name: "Customer Name",
-    role: "Position at Company",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-2.webp",
+    id: 'testimonial-2',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    name: 'Customer Name',
+    role: 'Position at Company',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-2.webp',
   },
   {
-    id: "testimonial-3",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.",
-    name: "Customer Name",
-    role: "Position at Company",
-    avatar: "https://www.shadcnblocks.com/images/block/avatar-3.webp",
+    id: 'testimonial-3',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.',
+    name: 'Customer Name',
+    role: 'Position at Company',
+    avatar: 'https://www.shadcnblocks.com/images/block/avatar-3.webp',
   },
-];
+]
 
-const Testimonial14: React.FC<TestimonialBlock> = ({
-  headline,
-  link,
-  tagline,
-  testimonial,
-}) => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
+const Testimonial14: React.FC<TestimonialBlock> = ({ headline, link, tagline, testimonial }) => {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
 
   useEffect(() => {
     if (!api) {
-      return;
+      return
     }
 
     const updateCurrent = () => {
-      setCurrent(api.selectedScrollSnap());
-    };
+      setCurrent(api.selectedScrollSnap())
+    }
 
-    api.on("select", updateCurrent);
+    api.on('select', updateCurrent)
     return () => {
-      api.off("select", updateCurrent);
-    };
-  }, [api]);
+      api.off('select', updateCurrent)
+    }
+  }, [api])
 
   return (
     <section className="py-32">
@@ -75,12 +66,8 @@ const Testimonial14: React.FC<TestimonialBlock> = ({
                   <AvatarImage src={testimonial.avatar} />
                   <AvatarFallback>{testimonial.name}</AvatarFallback>
                 </Avatar>
-                <p className="mb-1 text-sm font-medium md:text-lg">
-                  {testimonial.name}
-                </p>
-                <p className="mb-2 text-sm text-muted-foreground md:text-lg">
-                  {testimonial.role}
-                </p>
+                <p className="mb-1 text-sm font-medium md:text-lg">{testimonial.name}</p>
+                <p className="mb-2 text-sm text-muted-foreground md:text-lg">{testimonial.role}</p>
                 <div className="mt-2 flex items-center gap-0.5">
                   <Star className="size-5 fill-primary stroke-none" />
                   <Star className="size-5 fill-primary stroke-none" />
@@ -100,17 +87,17 @@ const Testimonial14: React.FC<TestimonialBlock> = ({
             variant="ghost"
             size="sm"
             onClick={() => {
-              api?.scrollTo(index);
+              api?.scrollTo(index)
             }}
           >
             <div
-              className={`size-2.5 rounded-full ${index === current ? "bg-primary" : "bg-input"}`}
+              className={`size-2.5 rounded-full ${index === current ? 'bg-primary' : 'bg-input'}`}
             />
           </Button>
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonial14;
+export default Testimonial14

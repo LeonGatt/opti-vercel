@@ -49,7 +49,7 @@ const Feature66 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature66;
+export default Feature66

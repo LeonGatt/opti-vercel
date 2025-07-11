@@ -1,50 +1,49 @@
-"use client";
+'use client'
 
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
-import RichText from "@/components/RichText";
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import RichText from '@/components/RichText'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
-import type { FeatureBlock, Media as MediaType } from "@/payload-types";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { splitRichText } from "@/utilities/richtext";
-import { useState } from "react";
+} from '@/components/ui/accordion'
+import { Badge } from '@/components/ui/badge'
+import type { FeatureBlock, Media as MediaType } from '@/payload-types'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { splitRichText } from '@/utilities/richtext'
+import { useState } from 'react'
 
-const Feature126: React.FC<
-  FeatureBlock & { publicContext: PublicContextProps }
-> = ({ badge, richText, publicContext, links, USPs }) => {
+const Feature126: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+  badge,
+  richText,
+  publicContext,
+  links,
+  USPs,
+}) => {
   const tabsData = USPs?.filter((usp) => usp.id).map((usp) => {
     const { firstNode, rest } = splitRichText(usp.richText, {
-      splitOn: ["h2", "h3", "h4", "h5", "h6"],
+      splitOn: ['h2', 'h3', 'h4', 'h5', 'h6'],
       takeFirst: true,
-    });
+    })
     return {
       id: usp.id as string,
       headline: firstNode,
       richtext: rest,
       image: usp.image as MediaType,
-    };
-  });
+    }
+  })
 
-  const [activeTabId, setActiveTabId] = useState<string | null>(
-    tabsData?.[0]?.id || null,
-  );
-  const [activeImage, setActiveImage] = useState<MediaType | null>(
-    tabsData?.[0]?.image || null,
-  );
+  const [activeTabId, setActiveTabId] = useState<string | null>(tabsData?.[0]?.id || null)
+  const [activeImage, setActiveImage] = useState<MediaType | null>(tabsData?.[0]?.image || null)
 
   if (!tabsData?.length || !activeTabId || !activeImage)
     return (
       <div className="text-red-500">
-        You need to add USPs for the component to work, all USPs need to have an
-        image set as well
+        You need to add USPs for the component to work, all USPs need to have an image set as well
       </div>
-    );
+    )
 
   return (
     <section className="py-32">
@@ -55,8 +54,8 @@ const Feature126: React.FC<
             publicContext={publicContext}
             content={richText}
             overrideStyle={{
-              h2: "mb-5 mt-4 text-3xl font-extrabold",
-              p: "text-muted-foreground lg:text-lg",
+              h2: 'mb-5 mt-4 text-3xl font-extrabold',
+              p: 'text-muted-foreground lg:text-lg',
             }}
           />
         )}
@@ -83,21 +82,17 @@ const Feature126: React.FC<
 
         <div className="mb-12 flex w-full items-center justify-between gap-28">
           <div className="w-full md:max-w-[400px]">
-            <Accordion
-              type="single"
-              className="w-full"
-              defaultValue={tabsData[0].id}
-            >
+            <Accordion type="single" className="w-full" defaultValue={tabsData[0].id}>
               {tabsData.map((tab) => (
                 <AccordionItem
                   key={tab.id}
                   value={tab.id}
-                  className={`border-b-0 border-t-2 px-2 transition hover:bg-accent ${tab.id === activeTabId && "border-foreground"}`}
+                  className={`border-b-0 border-t-2 px-2 transition hover:bg-accent ${tab.id === activeTabId && 'border-foreground'}`}
                 >
                   <AccordionTrigger
                     onClick={() => {
-                      setActiveImage(tab.image);
-                      setActiveTabId(tab.id);
+                      setActiveImage(tab.image)
+                      setActiveTabId(tab.id)
                     }}
                     className={`cursor-pointer py-5 no-underline! transition`}
                   >
@@ -107,7 +102,7 @@ const Feature126: React.FC<
                         content={tab.headline}
                         withWrapper={false}
                         overrideStyle={{
-                          h3: `text-xl font-semibold text-muted-foreground ${tab.id === activeTabId ? "text-black" : "text-muted-foreground"}`,
+                          h3: `text-xl font-semibold text-muted-foreground ${tab.id === activeTabId ? 'text-black' : 'text-muted-foreground'}`,
                         }}
                       />
                     )}
@@ -118,7 +113,7 @@ const Feature126: React.FC<
                         publicContext={publicContext}
                         content={tab.richtext}
                         overrideStyle={{
-                          p: "mt-3 text-muted-foreground",
+                          p: 'mt-3 text-muted-foreground',
                         }}
                       />
                     )}
@@ -154,7 +149,7 @@ const Feature126: React.FC<
           ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature126;
+export default Feature126

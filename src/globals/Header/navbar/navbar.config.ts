@@ -1,88 +1,88 @@
-import type { Field, Block } from "payload";
-import { link, LinkAppearances } from "@/fields/link";
-import { icon } from "@/components/Icon/config";
+import type { Field, Block } from 'payload'
+import { link, LinkAppearances } from '@/fields/link'
+import { icon } from '@/components/Icon/config'
 
 // Block types for navigation submenus (only for navbar4)
 const navSubmenuBlocks: Block[] = [
   // Featured Banner Block
   {
-    slug: "featuredBanner",
-    imageURL: "/admin/previews/header/navbar4/featuredBanner.jpeg",
+    slug: 'featuredBanner',
+    imageURL: '/admin/previews/header/navbar4/featuredBanner.jpeg',
     labels: {
-      plural: "Featured Banners",
-      singular: "Featured Banner",
+      plural: 'Featured Banners',
+      singular: 'Featured Banner',
     },
     fields: [
       {
-        type: "text",
-        name: "title",
-        label: "Title",
+        type: 'text',
+        name: 'title',
+        label: 'Title',
         localized: true,
       },
       {
-        type: "text",
-        name: "subtitle",
-        label: "Subtitle",
+        type: 'text',
+        name: 'subtitle',
+        label: 'Subtitle',
         localized: true,
       },
       {
-        type: "text",
-        name: "description",
-        label: "Description",
+        type: 'text',
+        name: 'description',
+        label: 'Description',
         localized: true,
       },
       {
-        name: "image",
-        type: "upload",
-        relationTo: "media",
+        name: 'image',
+        type: 'upload',
+        relationTo: 'media',
       },
       {
-        name: "backgroundColor",
-        type: "select",
+        name: 'backgroundColor',
+        type: 'select',
         options: [
-          { label: "Primary", value: "primary" },
-          { label: "Secondary", value: "secondary" },
-          { label: "Accent", value: "accent" },
-          { label: "Muted", value: "muted" },
+          { label: 'Primary', value: 'primary' },
+          { label: 'Secondary', value: 'secondary' },
+          { label: 'Accent', value: 'accent' },
+          { label: 'Muted', value: 'muted' },
         ],
-        defaultValue: "primary",
+        defaultValue: 'primary',
       },
       link({
-        appearances: ["default", "outline", "ghost", "secondary"],
+        appearances: ['default', 'outline', 'ghost', 'secondary'],
       }),
     ],
   },
   // Category Grid Block
   {
-    slug: "categoryGrid",
+    slug: 'categoryGrid',
     labels: {
-      plural: "Category Grids",
-      singular: "Category Grid",
+      plural: 'Category Grids',
+      singular: 'Category Grid',
     },
-    imageURL: "/admin/previews/header/navbar4/categoryGrid.jpeg",
+    imageURL: '/admin/previews/header/navbar4/categoryGrid.jpeg',
 
     fields: [
       {
-        type: "text",
-        name: "title",
-        label: "Title",
+        type: 'text',
+        name: 'title',
+        label: 'Title',
         localized: true,
       },
       {
-        type: "array",
-        name: "items",
-        label: "Items",
+        type: 'array',
+        name: 'items',
+        label: 'Items',
         fields: [
           {
-            type: "text",
-            name: "title",
-            label: "Title",
+            type: 'text',
+            name: 'title',
+            label: 'Title',
             localized: true,
           },
           {
-            type: "text",
-            name: "description",
-            label: "Description",
+            type: 'text',
+            name: 'description',
+            label: 'Description',
             localized: true,
           },
           icon(),
@@ -95,40 +95,40 @@ const navSubmenuBlocks: Block[] = [
   },
   // Card Grid Block
   {
-    slug: "cardGrid",
+    slug: 'cardGrid',
     labels: {
-      plural: "Card Grids",
-      singular: "Card Grid",
+      plural: 'Card Grids',
+      singular: 'Card Grid',
     },
-    imageURL: "/admin/previews/header/navbar4/cardGrid.jpeg",
+    imageURL: '/admin/previews/header/navbar4/cardGrid.jpeg',
     fields: [
       {
-        type: "text",
-        name: "title",
-        label: "Title",
+        type: 'text',
+        name: 'title',
+        label: 'Title',
         localized: true,
       },
       {
-        type: "array",
-        name: "cards",
-        label: "Cards",
+        type: 'array',
+        name: 'cards',
+        label: 'Cards',
         fields: [
           {
-            type: "text",
-            name: "title",
-            label: "Title",
+            type: 'text',
+            name: 'title',
+            label: 'Title',
             localized: true,
           },
           {
-            type: "text",
-            name: "description",
-            label: "Description",
+            type: 'text',
+            name: 'description',
+            label: 'Description',
             localized: true,
           },
           {
-            type: "array",
-            name: "links",
-            label: "Links",
+            type: 'array',
+            name: 'links',
+            label: 'Links',
             fields: [
               link({
                 appearances: false,
@@ -142,33 +142,33 @@ const navSubmenuBlocks: Block[] = [
   },
   // Feature List Block
   {
-    slug: "featureList",
+    slug: 'featureList',
     labels: {
-      plural: "Feature Lists",
-      singular: "Feature List",
+      plural: 'Feature Lists',
+      singular: 'Feature List',
     },
     fields: [
       {
-        type: "text",
-        name: "title",
-        label: "Title",
+        type: 'text',
+        name: 'title',
+        label: 'Title',
         localized: true,
       },
       {
-        type: "array",
-        name: "features",
-        label: "Features",
+        type: 'array',
+        name: 'features',
+        label: 'Features',
         fields: [
           {
-            type: "text",
-            name: "title",
-            label: "Title",
+            type: 'text',
+            name: 'title',
+            label: 'Title',
             localized: true,
           },
           {
-            type: "text",
-            name: "description",
-            label: "Description",
+            type: 'text',
+            name: 'description',
+            label: 'Description',
             localized: true,
           },
           icon(),
@@ -181,22 +181,22 @@ const navSubmenuBlocks: Block[] = [
   },
   // Simple Links Block
   {
-    slug: "simpleLinks",
+    slug: 'simpleLinks',
     labels: {
-      plural: "Simple Links",
-      singular: "Simple Links",
+      plural: 'Simple Links',
+      singular: 'Simple Links',
     },
     fields: [
       {
-        type: "text",
-        name: "title",
-        label: "Title",
+        type: 'text',
+        name: 'title',
+        label: 'Title',
         localized: true,
       },
       {
-        type: "array",
-        name: "links",
-        label: "Links",
+        type: 'array',
+        name: 'links',
+        label: 'Links',
         fields: [
           link({
             appearances: false,
@@ -204,9 +204,9 @@ const navSubmenuBlocks: Block[] = [
           }),
           icon(),
           {
-            type: "text",
-            name: "description",
-            label: "Description",
+            type: 'text',
+            name: 'description',
+            label: 'Description',
             localized: true,
           },
         ],
@@ -215,46 +215,46 @@ const navSubmenuBlocks: Block[] = [
   },
   // Featured Image Block
   {
-    slug: "featuredImage",
-    imageURL: "/admin/previews/header/navbar4/featuredImage.jpeg",
+    slug: 'featuredImage',
+    imageURL: '/admin/previews/header/navbar4/featuredImage.jpeg',
     labels: {
-      plural: "Featured Images",
-      singular: "Featured Image",
+      plural: 'Featured Images',
+      singular: 'Featured Image',
     },
     fields: [
       {
-        type: "text",
-        name: "title",
-        label: "Title",
+        type: 'text',
+        name: 'title',
+        label: 'Title',
         localized: true,
       },
       {
-        type: "text",
-        name: "subtitle",
-        label: "Subtitle",
+        type: 'text',
+        name: 'subtitle',
+        label: 'Subtitle',
         localized: true,
       },
       {
-        type: "text",
-        name: "description",
-        label: "Description",
+        type: 'text',
+        name: 'description',
+        label: 'Description',
         localized: true,
       },
       {
-        name: "image",
-        type: "upload",
-        relationTo: "media",
+        name: 'image',
+        type: 'upload',
+        relationTo: 'media',
       },
       {
-        name: "backgroundColor",
-        type: "select",
+        name: 'backgroundColor',
+        type: 'select',
         options: [
-          { label: "Primary", value: "primary" },
-          { label: "Secondary", value: "secondary" },
-          { label: "Accent", value: "accent" },
-          { label: "Muted", value: "muted" },
+          { label: 'Primary', value: 'primary' },
+          { label: 'Secondary', value: 'secondary' },
+          { label: 'Accent', value: 'accent' },
+          { label: 'Muted', value: 'muted' },
         ],
-        defaultValue: "primary",
+        defaultValue: 'primary',
       },
 
       link({
@@ -264,35 +264,35 @@ const navSubmenuBlocks: Block[] = [
       }),
     ],
   },
-];
+]
 
 export const navbar: Field[] = [
   {
     /**
      * Simple sub navigation block structure for navbars 1, 3, and 5
      */
-    type: "blocks",
-    name: "items",
+    type: 'blocks',
+    name: 'items',
 
     blocks: [
       {
-        slug: "sub",
+        slug: 'sub',
         labels: {
-          plural: "Sub Navigation Menus",
-          singular: "Sub Navigation Menu",
+          plural: 'Sub Navigation Menus',
+          singular: 'Sub Navigation Menu',
         },
         fields: [
           icon(),
           {
-            type: "text",
-            name: "label",
+            type: 'text',
+            name: 'label',
             localized: true,
             required: true,
           },
           {
-            type: "array",
-            name: "subitems",
-            label: "Sub Navigation Items",
+            type: 'array',
+            name: 'subitems',
+            label: 'Sub Navigation Items',
             required: true,
             minRows: 2,
             maxRows: 10,
@@ -301,19 +301,19 @@ export const navbar: Field[] = [
                 appearances: false,
               }),
               {
-                type: "text",
+                type: 'text',
                 localized: true,
-                name: "Description",
+                name: 'Description',
               },
             ],
           },
         ],
       },
       {
-        slug: "link",
+        slug: 'link',
         labels: {
-          plural: "Links",
-          singular: "Link",
+          plural: 'Links',
+          singular: 'Link',
         },
         fields: [
           link({
@@ -327,15 +327,15 @@ export const navbar: Field[] = [
     /**
      * Block-based navigation structure for navbar4
      */
-    type: "blocks",
-    name: "richItems",
-    label: "Items",
+    type: 'blocks',
+    name: 'richItems',
+    label: 'Items',
     blocks: [
       {
-        slug: "link",
+        slug: 'link',
         labels: {
-          plural: "Links",
-          singular: "Link",
+          plural: 'Links',
+          singular: 'Link',
         },
         fields: [
           link({
@@ -344,24 +344,24 @@ export const navbar: Field[] = [
         ],
       },
       {
-        slug: "submenu",
+        slug: 'submenu',
         labels: {
-          plural: "Submenu Blocks",
-          singular: "Submenu Block",
+          plural: 'Submenu Blocks',
+          singular: 'Submenu Block',
         },
         fields: [
           icon(),
           {
-            type: "text",
-            name: "label",
-            label: "Menu Label",
+            type: 'text',
+            name: 'label',
+            label: 'Menu Label',
             localized: true,
             required: true,
           },
           {
-            type: "blocks",
-            name: "blocks",
-            label: "Submenu Blocks",
+            type: 'blocks',
+            name: 'blocks',
+            label: 'Submenu Blocks',
             blocks: navSubmenuBlocks,
             required: true,
             minRows: 1,
@@ -371,15 +371,15 @@ export const navbar: Field[] = [
     ],
   },
   {
-    type: "array",
-    name: "buttons",
+    type: 'array',
+    name: 'buttons',
     fields: [link()],
   },
   {
-    type: "text",
-    name: "copyright",
-    label: "Copyright",
+    type: 'text',
+    name: 'copyright',
+    label: 'Copyright',
     localized: true,
-    defaultValue: "Copyright © All Rights Reserved.",
+    defaultValue: 'Copyright © All Rights Reserved.',
   },
-];
+]

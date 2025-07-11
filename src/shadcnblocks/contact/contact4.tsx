@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import Fade from "embla-carousel-fade";
+import Fade from 'embla-carousel-fade'
 
 import {
   Carousel,
@@ -8,16 +8,14 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from '@/components/ui/carousel'
 
 const Contact4 = () => {
   return (
     <section className="py-32">
       <div className="container">
         <div className="max-w-screen-sm">
-          <h1 className="mb-3 text-xl font-medium text-muted-foreground">
-            Contact us
-          </h1>
+          <h1 className="mb-3 text-xl font-medium text-muted-foreground">Contact us</h1>
           <p className="text-balance text-4xl font-medium md:text-5xl">
             Get in touch with us today to learn more
           </p>
@@ -27,8 +25,8 @@ const Contact4 = () => {
             <div>
               <h2 className="mb-4 text-xl font-medium md:text-2xl">Sales</h2>
               <p className="text-muted-foreground">
-                Interested in learning more about our platform? Contact our
-                sales team for more information.
+                Interested in learning more about our platform? Contact our sales team for more
+                information.
               </p>
             </div>
             <a href="#" className="hover:underline">
@@ -39,8 +37,7 @@ const Contact4 = () => {
             <div>
               <h2 className="mb-4 text-xl font-medium md:text-2xl">Support</h2>
               <p className="text-muted-foreground">
-                We’re here to help with any platform questions. Check out our
-                FAQs and learn more.
+                We’re here to help with any platform questions. Check out our FAQs and learn more.
               </p>
             </div>
             <a href="#" className="hover:underline">
@@ -49,12 +46,9 @@ const Contact4 = () => {
           </div>
           <div className="flex flex-col justify-between gap-6 rounded-lg border p-6">
             <div>
-              <h2 className="mb-4 text-xl font-medium md:text-2xl">
-                General Inquiries
-              </h2>
+              <h2 className="mb-4 text-xl font-medium md:text-2xl">General Inquiries</h2>
               <p className="text-muted-foreground">
-                For general inquiries, please reach out to us using the form
-                below.
+                For general inquiries, please reach out to us using the form below.
               </p>
             </div>
             <a href="#" className="hover:underline">
@@ -101,9 +95,7 @@ const Contact4 = () => {
                   />
                   <div className="bottom-8 left-8 flex flex-col justify-between gap-6 rounded-b-lg border-x border-b bg-background p-6 md:absolute md:max-w-96 md:rounded-lg md:border">
                     <div>
-                      <h2 className="mb-4 text-xl font-medium md:text-2xl">
-                        New York, USA
-                      </h2>
+                      <h2 className="mb-4 text-xl font-medium md:text-2xl">New York, USA</h2>
                       <p className="text-muted-foreground">
                         1 Liberty Plaza, 165 Broadway, New York, NY 10006
                       </p>
@@ -123,12 +115,8 @@ const Contact4 = () => {
                   />
                   <div className="bottom-8 left-8 flex flex-col justify-between gap-6 rounded-b-lg border-x border-b bg-background p-6 md:absolute md:max-w-96 md:rounded-lg md:border">
                     <div>
-                      <h2 className="mb-4 text-xl font-medium md:text-2xl">
-                        Paris, France
-                      </h2>
-                      <p className="text-muted-foreground">
-                        10 Rue de la Paix, 75002 Paris
-                      </p>
+                      <h2 className="mb-4 text-xl font-medium md:text-2xl">Paris, France</h2>
+                      <p className="text-muted-foreground">10 Rue de la Paix, 75002 Paris</p>
                     </div>
                     <a href="#" className="hover:underline">
                       See on Google Maps
@@ -145,12 +133,8 @@ const Contact4 = () => {
                   />
                   <div className="bottom-8 left-8 flex flex-col justify-between gap-6 rounded-b-lg border-x border-b bg-background p-6 md:absolute md:max-w-96 md:rounded-lg md:border">
                     <div>
-                      <h2 className="mb-4 text-xl font-medium md:text-2xl">
-                        Kyiv, Ukraine
-                      </h2>
-                      <p className="text-muted-foreground">
-                        1A Sportyvna Square, 01023 Kyiv
-                      </p>
+                      <h2 className="mb-4 text-xl font-medium md:text-2xl">Kyiv, Ukraine</h2>
+                      <p className="text-muted-foreground">1A Sportyvna Square, 01023 Kyiv</p>
                     </div>
                     <a href="#" className="hover:underline">
                       See on Google Maps
@@ -167,12 +151,8 @@ const Contact4 = () => {
                   />
                   <div className="bottom-8 left-8 flex flex-col justify-between gap-6 rounded-b-lg border-x border-b bg-background p-6 md:absolute md:max-w-96 md:rounded-lg md:border">
                     <div>
-                      <h2 className="mb-4 text-xl font-medium md:text-2xl">
-                        Singapore, Singapore
-                      </h2>
-                      <p className="text-muted-foreground">
-                        One Raffles Place, Singapore 048616
-                      </p>
+                      <h2 className="mb-4 text-xl font-medium md:text-2xl">Singapore, Singapore</h2>
+                      <p className="text-muted-foreground">One Raffles Place, Singapore 048616</p>
                     </div>
                     <a href="#" className="hover:underline">
                       See on Google Maps
@@ -189,7 +169,7 @@ const Contact4 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact4;
+export default Contact4

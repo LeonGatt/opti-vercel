@@ -1,42 +1,42 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Heading } from "./index";
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { Heading } from './index'
 
 const meta: Meta<typeof Heading> = {
-  title: "Components/Heading",
+  title: 'Components/Heading',
   component: Heading,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
   },
   argTypes: {
     size: {
-      control: "select",
-      options: ["sm", "md", "lg", "xl", "xxl"],
+      control: 'select',
+      options: ['sm', 'md', 'lg', 'xl', 'xxl'],
     },
     tag: {
-      control: "select",
-      options: ["h1", "h2", "h3", "h4", "h5", "h6"],
+      control: 'select',
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
     },
     children: {
-      control: "text",
+      control: 'text',
     },
     className: {
-      control: "text",
+      control: 'text',
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Heading>;
+type Story = StoryObj<typeof Heading>
 
 export const Default: Story = {
   args: {
-    children: "Heading Component",
-    tag: "h2",
-    size: "lg",
-    className: "",
+    children: 'Heading Component',
+    tag: 'h2',
+    size: 'lg',
+    className: '',
   },
-};
+}
 
 export const AllTags: Story = {
   render: ({ children }) => (
@@ -50,6 +50,6 @@ export const AllTags: Story = {
     </div>
   ),
   args: {
-    children: "Welcome to the Heading Component",
+    children: 'Welcome to the Heading Component',
   },
-};
+}

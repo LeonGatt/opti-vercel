@@ -1,16 +1,22 @@
-import { Star } from "lucide-react";
+import { Star } from 'lucide-react'
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Page } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
-import { Stars } from "@/components/uiCustom/stars";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import { Page } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import { Stars } from '@/components/uiCustom/stars'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-export const Hero4: React.FC<
-  Page["hero"] & { publicContext: PublicContextProps }
-> = ({ links, images, rating, icons, tagline, richText, publicContext }) => {
+export const Hero4: React.FC<Page['hero'] & { publicContext: PublicContextProps }> = ({
+  links,
+  images,
+  rating,
+  icons,
+  tagline,
+  richText,
+  publicContext,
+}) => {
   return (
     <section className="py-32">
       <div className="container grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
@@ -31,8 +37,8 @@ export const Hero4: React.FC<
               content={richText}
               enableGutter={false}
               overrideStyle={{
-                h1: "my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl",
-                p: "mb-8 max-w-xl text-muted-foreground lg:text-xl",
+                h1: 'my-6 text-pretty text-4xl font-bold lg:text-6xl xl:text-7xl',
+                p: 'mb-8 max-w-xl text-muted-foreground lg:text-xl',
               }}
             />
           )}
@@ -48,7 +54,7 @@ export const Hero4: React.FC<
                         <AvatarImage alt="placeholder" />
                         <Media priority resource={icon} />
                       </Avatar>
-                    );
+                    )
                   })}
               </span>
               <div>
@@ -57,9 +63,7 @@ export const Hero4: React.FC<
                   <span className="font-semibold">{rating?.toFixed(1)}</span>
                 </div>
                 {tagline && (
-                  <p className="text-left font-medium text-muted-foreground">
-                    {tagline}
-                  </p>
+                  <p className="text-left font-medium text-muted-foreground">{tagline}</p>
                 )}
               </div>
             </div>
@@ -74,12 +78,12 @@ export const Hero4: React.FC<
                     key={i}
                     {...link}
                   />
-                );
+                )
               })}
             </div>
           )}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

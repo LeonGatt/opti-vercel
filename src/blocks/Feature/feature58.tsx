@@ -1,28 +1,28 @@
-import { Bolt, Cloud, Star } from "lucide-react";
+import { Bolt, Cloud, Star } from 'lucide-react'
 
 const features = [
   {
-    id: "feature-1",
-    title: "Feature 1",
+    id: 'feature-1',
+    title: 'Feature 1',
     description:
-      "Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.",
+      'Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.',
     icon: Cloud,
   },
   {
-    id: "feature-2",
-    title: "Feature 2",
+    id: 'feature-2',
+    title: 'Feature 2',
     description:
-      "Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.",
+      'Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.',
     icon: Star,
   },
   {
-    id: "feature-3",
-    title: "Feature 3",
+    id: 'feature-3',
+    title: 'Feature 3',
     description:
-      "Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.",
+      'Nam vitae molestie arcu. Quisque eu libero orci. Aliquam imperdiet magna nec massa consectetur, id interdum ante congue.',
     icon: Bolt,
   },
-];
+]
 
 const Feature58 = () => {
   return (
@@ -56,7 +56,7 @@ const Feature58 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature58;
+export default Feature58

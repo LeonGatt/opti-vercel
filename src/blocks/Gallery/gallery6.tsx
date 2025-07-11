@@ -1,59 +1,57 @@
-"use client";
+'use client'
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { GalleryBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
-import { splitRichText } from "@/utilities/richtext";
+import { Button } from '@/components/ui/button'
+import type { CarouselApi } from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { GalleryBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import { splitRichText } from '@/utilities/richtext'
 
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-const Gallery6: React.FC<
-  GalleryBlock & { publicContext: PublicContextProps }
-> = ({ richText, tagline, link, elements, publicContext }) => {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
+const Gallery6: React.FC<GalleryBlock & { publicContext: PublicContextProps }> = ({
+  richText,
+  tagline,
+  link,
+  elements,
+  publicContext,
+}) => {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>()
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(false)
   useEffect(() => {
     if (!carouselApi) {
-      return;
+      return
     }
     const updateSelection = () => {
-      setCanScrollPrev(carouselApi.canScrollPrev());
-      setCanScrollNext(carouselApi.canScrollNext());
-    };
-    updateSelection();
-    carouselApi.on("select", updateSelection);
+      setCanScrollPrev(carouselApi.canScrollPrev())
+      setCanScrollNext(carouselApi.canScrollNext())
+    }
+    updateSelection()
+    carouselApi.on('select', updateSelection)
     return () => {
-      carouselApi.off("select", updateSelection);
-    };
-  }, [carouselApi]);
+      carouselApi.off('select', updateSelection)
+    }
+  }, [carouselApi])
   return (
     <section className="py-32">
       <div className="container">
         <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
           <div>
-            <p className="mb-6 text-xs font-medium uppercase tracking-wider">
-              {tagline}
-            </p>
+            <p className="mb-6 text-xs font-medium uppercase tracking-wider">{tagline}</p>
 
             {richText && (
               <RichText
                 publicContext={publicContext}
                 content={richText}
                 overrideStyle={{
-                  h2: "mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6",
-                  h3: "mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6",
+                  h2: 'mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6',
+                  h3: 'mb-3 text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6',
                 }}
                 withWrapper={false}
               />
@@ -73,7 +71,7 @@ const Gallery6: React.FC<
               size="icon"
               variant="outline"
               onClick={() => {
-                carouselApi?.scrollPrev();
+                carouselApi?.scrollPrev()
               }}
               disabled={!canScrollPrev}
               className="disabled:pointer-events-auto"
@@ -84,7 +82,7 @@ const Gallery6: React.FC<
               size="icon"
               variant="outline"
               onClick={() => {
-                carouselApi?.scrollNext();
+                carouselApi?.scrollNext()
               }}
               disabled={!canScrollNext}
               className="disabled:pointer-events-auto"
@@ -99,7 +97,7 @@ const Gallery6: React.FC<
           setApi={setCarouselApi}
           opts={{
             breakpoints: {
-              "(max-width: 768px)": {
+              '(max-width: 768px)': {
                 dragFree: true,
               },
             },
@@ -114,18 +112,12 @@ const Gallery6: React.FC<
                  * - the rest is the summary
                  */
                 const { firstNode, rest } = splitRichText(item.richText, {
-                  splitOn: ["h2", "h3", "h4"],
+                  splitOn: ['h2', 'h3', 'h4'],
                   takeFirst: true,
-                });
+                })
                 return (
-                  <CarouselItem
-                    key={item.id}
-                    className="pl-[20px] md:max-w-[452px]"
-                  >
-                    <a
-                      href={item.link.url || "#"}
-                      className="group flex flex-col justify-between"
-                    >
+                  <CarouselItem key={item.id} className="pl-[20px] md:max-w-[452px]">
+                    <a href={item.link?.url || '#'} className="group flex flex-col justify-between">
                       <div>
                         <div className="flex aspect-3/2 text-clip rounded-xl">
                           <div className="flex-1">
@@ -146,10 +138,10 @@ const Gallery6: React.FC<
                           publicContext={publicContext}
                           content={firstNode}
                           overrideStyle={{
-                            h2: "mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl",
-                            h3: "mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl",
-                            h4: "mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl",
-                            p: "mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9",
+                            h2: 'mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl',
+                            h3: 'mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl',
+                            h4: 'mb-2 line-clamp-3 break-words pt-4 text-lg font-medium md:mb-3 md:pt-4 md:text-xl lg:pt-4 lg:text-2xl',
+                            p: 'mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9',
                           }}
                           withWrapper={false}
                         />
@@ -159,24 +151,24 @@ const Gallery6: React.FC<
                           publicContext={publicContext}
                           content={rest}
                           overrideStyle={{
-                            p: "mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9",
+                            p: 'mb-8 line-clamp-2 text-sm text-muted-foreground md:mb-12 md:text-base lg:mb-9',
                           }}
                           withWrapper={false}
                         />
                       )}
                       <div className="flex items-center text-sm">
-                        Read more{" "}
+                        Read more{' '}
                         <ArrowRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                       </div>
                     </a>
                   </CarouselItem>
-                );
+                )
               })}
           </CarouselContent>
         </Carousel>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Gallery6;
+export default Gallery6

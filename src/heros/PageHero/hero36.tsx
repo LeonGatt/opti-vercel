@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
 const Hero36 = () => {
   return (
@@ -23,10 +23,9 @@ const Hero36 = () => {
           </div>
           <h3 className="mb-4 text-lg font-semibold md:mb-5">Product</h3>
           <p className="mb-auto text-sm text-muted-foreground">
-            Maecenas egestas leo nec risus viverra accumsan. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus. Donec ultricies,
-            nisi non elementum convallis, lacus justo eleifend dolor, nec
-            imperdiet nisi sem vel nisi.
+            Maecenas egestas leo nec risus viverra accumsan. Interdum et malesuada fames ac ante
+            ipsum primis in faucibus. Donec ultricies, nisi non elementum convallis, lacus justo
+            eleifend dolor, nec imperdiet nisi sem vel nisi.
           </p>
           <div className="mt-10 flex items-center md:mt-16">
             <span>See more</span>
@@ -46,10 +45,9 @@ const Hero36 = () => {
           </div>
           <h3 className="mb-4 text-lg font-semibold md:mb-5">Product</h3>
           <p className="mb-auto text-sm text-muted-foreground">
-            Maecenas egestas leo nec risus viverra accumsan. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus. Donec ultricies,
-            nisi non elementum convallis, lacus justo eleifend dolor, nec
-            imperdiet nisi sem vel nisi.
+            Maecenas egestas leo nec risus viverra accumsan. Interdum et malesuada fames ac ante
+            ipsum primis in faucibus. Donec ultricies, nisi non elementum convallis, lacus justo
+            eleifend dolor, nec imperdiet nisi sem vel nisi.
           </p>
           <div className="mt-10 flex items-center md:mt-16">
             <span>See more</span>
@@ -69,10 +67,9 @@ const Hero36 = () => {
           </div>
           <h3 className="mb-4 text-lg font-semibold md:mb-5">Product</h3>
           <p className="mb-auto text-sm text-muted-foreground">
-            Maecenas egestas leo nec risus viverra accumsan. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus. Donec ultricies,
-            nisi non elementum convallis, lacus justo eleifend dolor, nec
-            imperdiet nisi sem vel nisi.
+            Maecenas egestas leo nec risus viverra accumsan. Interdum et malesuada fames ac ante
+            ipsum primis in faucibus. Donec ultricies, nisi non elementum convallis, lacus justo
+            eleifend dolor, nec imperdiet nisi sem vel nisi.
           </p>
           <div className="mt-10 flex items-center md:mt-16">
             <span>See more</span>
@@ -81,7 +78,7 @@ const Hero36 = () => {
         </a>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero36;
+export default Hero36

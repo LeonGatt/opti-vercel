@@ -21,19 +21,16 @@ const Feature30 = () => {
             <p className="mb-6 text-sm text-muted-foreground md:mb-12">
               Lorem ipsum dolor sit amet.
             </p>
-            <h3 className="mb-3 text-2xl font-medium md:mb-6">
-              Quality and Durability
-            </h3>
+            <h3 className="mb-3 text-2xl font-medium md:mb-6">Quality and Durability</h3>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
-              distinctio maiores sint cupiditate ab ullam numquam a similique
-              vel itaque.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi distinctio maiores sint
+              cupiditate ab ullam numquam a similique vel itaque.
             </p>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature30;
+export default Feature30

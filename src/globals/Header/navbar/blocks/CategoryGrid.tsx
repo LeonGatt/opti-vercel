@@ -1,38 +1,34 @@
-"use client";
+'use client'
 
-import { ArrowRight } from "lucide-react";
-import { NavigationMenuLink } from "@/components/ui/navigation-menu";
-import { Icon } from "@/components/Icon";
-import { CMSLink } from "@/components/Link";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { ArrowRight } from 'lucide-react'
+import { NavigationMenuLink } from '@/components/ui/navigation-menu'
+import { Icon } from '@/components/Icon'
+import { CMSLink } from '@/components/Link'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
 export type CategoryGridProps = {
-  title?: string;
+  title?: string
   items?: Array<{
-    id?: string;
-    title?: string;
-    description?: string;
-    icon?: string;
+    id?: string
+    title?: string
+    description?: string
+    icon?: string
     link?: {
-      label: string;
-      url?: string;
-      newTab?: boolean;
-      type?: "reference" | "custom";
+      label: string
+      url?: string
+      newTab?: boolean
+      type?: 'reference' | 'custom'
       reference?: {
-        value: string;
-        relationTo: string;
-      };
-      section?: string;
-    };
-  }>;
-  publicContext: PublicContextProps;
-};
+        value: string
+        relationTo: string
+      }
+      section?: string
+    }
+  }>
+  publicContext: PublicContextProps
+}
 
-export const CategoryGrid: React.FC<CategoryGridProps> = ({
-  title,
-  items = [],
-  publicContext,
-}) => {
+export const CategoryGrid: React.FC<CategoryGridProps> = ({ title, items = [], publicContext }) => {
   return (
     <div className="order-last mt-3 sm:order-none sm:mt-0 sm:py-2 md:p-6">
       {title && (
@@ -46,7 +42,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
         {items?.map((item, index) => (
           <NavigationMenuLink
             key={item.id || index}
-            href={item.link?.url || "#"}
+            href={item.link?.url || '#'}
             className="group flex flex-row items-center"
           >
             {item.icon && <Icon icon={item.icon} className="size-4 mr-2" />}
@@ -56,5 +52,5 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
         ))}
       </div>
     </div>
-  );
-};
+  )
+}

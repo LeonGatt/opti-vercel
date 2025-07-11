@@ -1,74 +1,69 @@
-"use client";
+'use client'
 
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Card } from "@/components/ui/card";
-import { TestimonialBlock } from "@/payload-types";
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import { Card } from '@/components/ui/card'
+import { TestimonialBlock } from '@/payload-types'
 
 const testimonials = [
   {
-    name: "John Doe",
-    role: "CEO & Founder",
-    avatar: "/images/block/avatar-1.webp",
+    name: 'John Doe',
+    role: 'CEO & Founder',
+    avatar: '/images/block/avatar-1.webp',
     content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur odio, maxime corporis, ducimus dolorem possimus aspernatur blanditiis.",
-    link: "#",
-    icon: "/images/block/logos/instagram-icon.svg",
+      'Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur odio, maxime corporis, ducimus dolorem possimus aspernatur blanditiis.',
+    link: '#',
+    icon: '/images/block/logos/instagram-icon.svg',
   },
   {
-    name: "Jane Doe",
-    role: "CTO",
-    avatar: "/images/block/avatar-2.webp",
+    name: 'Jane Doe',
+    role: 'CTO',
+    avatar: '/images/block/avatar-2.webp',
     content:
-      "Lorem ipsum dolor adipisicing elit. Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur odio, maxime corporis.",
-    link: "#",
-    icon: "/images/block/logos/twitter-icon.svg",
+      'Lorem ipsum dolor adipisicing elit. Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur odio, maxime corporis.',
+    link: '#',
+    icon: '/images/block/logos/twitter-icon.svg',
   },
   {
-    name: "John Smith",
-    role: "COO",
-    avatar: "/images/block/avatar-3.webp",
+    name: 'John Smith',
+    role: 'COO',
+    avatar: '/images/block/avatar-3.webp',
     content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur odio, maxime corporis, ducimus dolorem possimus aspernatur blanditiis asperiores voluptatem.",
-    link: "#",
-    icon: "/images/block/logos/instagram-icon.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur odio, maxime corporis, ducimus dolorem possimus aspernatur blanditiis asperiores voluptatem.',
+    link: '#',
+    icon: '/images/block/logos/instagram-icon.svg',
   },
   {
-    name: "Jane Smith",
-    role: "Tech Lead",
-    avatar: "/images/block/avatar-4.webp",
+    name: 'Jane Smith',
+    role: 'Tech Lead',
+    avatar: '/images/block/avatar-4.webp',
     content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur blanditiis asperiores voluptatem Ipsam ipsa cumque.",
-    link: "#",
-    icon: "/images/block/logos/twitter-icon.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur blanditiis asperiores voluptatem Ipsam ipsa cumque.',
+    link: '#',
+    icon: '/images/block/logos/twitter-icon.svg',
   },
   {
-    name: "Richard Doe",
-    role: "Designer",
-    avatar: "/images/block/avatar-5.webp",
+    name: 'Richard Doe',
+    role: 'Designer',
+    avatar: '/images/block/avatar-5.webp',
     content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. repellat consequatur odio, maxime corporis, ducimus dolorem possimus aspernatur blanditiis asperiores voluptatem Ipsam ipsa cumque deleniti.",
-    link: "#",
-    icon: "/images/block/logos/producthunt-icon.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. repellat consequatur odio, maxime corporis, ducimus dolorem possimus aspernatur blanditiis asperiores voluptatem Ipsam ipsa cumque deleniti.',
+    link: '#',
+    icon: '/images/block/logos/producthunt-icon.svg',
   },
   {
-    name: "Gordon Doe",
-    role: "Developer",
-    avatar: "/images/block/avatar-6.webp",
+    name: 'Gordon Doe',
+    role: 'Developer',
+    avatar: '/images/block/avatar-6.webp',
     content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur odio, maxime corporis, ducimus dolorem possimus aspernatur blanditiis asperiores voluptatem Ipsam ipsa cumque deleniti.",
-    link: "#",
-    icon: "/images/block/logos/twitter-icon.svg",
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat consequatur odio, maxime corporis, ducimus dolorem possimus aspernatur blanditiis asperiores voluptatem Ipsam ipsa cumque deleniti.',
+    link: '#',
+    icon: '/images/block/logos/twitter-icon.svg',
   },
-];
+]
 
-const Testimonial9: React.FC<TestimonialBlock> = ({
-  headline,
-  link,
-  tagline,
-  testimonial,
-}) => {
+const Testimonial9: React.FC<TestimonialBlock> = ({ headline, link, tagline, testimonial }) => {
   return (
     <section className="py-32">
       <div className="container">
@@ -81,9 +76,7 @@ const Testimonial9: React.FC<TestimonialBlock> = ({
           </p>
         </div>
         <div className="mt-14 w-full">
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{ 350: 1, 768: 2, 1024: 3 }}
-          >
+          <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 768: 2, 1024: 3 }}>
             <Masonry gutter="20px" columnsCount={3}>
               {testimonials.map((testimonial, idx) => {
                 return (
@@ -91,38 +84,29 @@ const Testimonial9: React.FC<TestimonialBlock> = ({
                     <div className="flex justify-between">
                       <div className="flex gap-4 leading-5">
                         <Avatar className="size-9 rounded-full ring-1 ring-input">
-                          <AvatarImage
-                            src={testimonial.avatar}
-                            alt={testimonial.name}
-                          />
+                          <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
                         </Avatar>
                         <div className="text-sm">
                           <p className="font-medium">{testimonial.name}</p>
-                          <p className="text-muted-foreground">
-                            {testimonial.role}
-                          </p>
+                          <p className="text-muted-foreground">{testimonial.role}</p>
                         </div>
                       </div>
                       <a href={testimonial.link}>
-                        <img
-                          alt="Testimonial source"
-                          src={testimonial.icon}
-                          className="size-4"
-                        />
+                        <img alt="Testimonial source" src={testimonial.icon} className="size-4" />
                       </a>
                     </div>
                     <div className="mt-8 leading-7 text-foreground/70">
                       <q>{testimonial.content}</q>
                     </div>
                   </Card>
-                );
+                )
               })}
             </Masonry>
           </ResponsiveMasonry>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonial9;
+export default Testimonial9

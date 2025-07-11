@@ -1,25 +1,25 @@
-import { ArrowRight, Clock, MapPin, Target } from "lucide-react";
+import { ArrowRight, Clock, MapPin, Target } from 'lucide-react'
 
-import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/utilities/cn";
+import { Badge } from '@/components/ui/badge'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/utilities/cn'
 
 const jobs = [
   {
-    title: "Senior Software Engineer",
-    location: "Remote",
-    city: "Vancouver, BC",
-    type: "Full-time",
-    link: "#",
+    title: 'Senior Software Engineer',
+    location: 'Remote',
+    city: 'Vancouver, BC',
+    type: 'Full-time',
+    link: '#',
   },
   {
-    title: "Product Manager",
-    location: "Remote",
-    city: "Vienna, Austria",
-    type: "Full-time",
-    link: "#",
+    title: 'Product Manager',
+    location: 'Remote',
+    city: 'Vienna, Austria',
+    type: 'Full-time',
+    link: '#',
   },
-];
+]
 
 const Careers2 = () => {
   return (
@@ -60,10 +60,7 @@ const Careers2 = () => {
                     {job.location}
                   </div>
                 </div>
-                <a
-                  href={job.link}
-                  className={cn(buttonVariants(), "w-fit gap-1 lg:ml-auto")}
-                >
+                <a href={job.link} className={cn(buttonVariants(), 'w-fit gap-1 lg:ml-auto')}>
                   Apply
                   <ArrowRight className="h-auto w-4" />
                 </a>
@@ -73,7 +70,7 @@ const Careers2 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Careers2;
+export default Careers2

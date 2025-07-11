@@ -1,69 +1,65 @@
-"use client";
+'use client'
 
-import Autoplay from "embla-carousel-autoplay";
-import { useEffect, useRef, useState } from "react";
+import Autoplay from 'embla-carousel-autoplay'
+import { useEffect, useRef, useState } from 'react'
 
-import type { CarouselApi } from "@/components/ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { cn } from "@/utilities/cn";
+import type { CarouselApi } from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { cn } from '@/utilities/cn'
 
 const technologies = [
   {
-    name: "Next",
-    command: "npx create-next-app my-app",
-    image: "/images/block/logos/nextjs-small.svg",
+    name: 'Next',
+    command: 'npx create-next-app my-app',
+    image: '/images/block/logos/nextjs-small.svg',
   },
   {
-    name: "Vite",
-    command: "npm create vite@latest",
-    image: "/images/block/logos/vite.svg",
+    name: 'Vite',
+    command: 'npm create vite@latest',
+    image: '/images/block/logos/vite.svg',
   },
   {
-    name: "Remix",
-    command: "npx create-remix@latest my-app",
-    image: "/images/block/logos/remix.svg",
+    name: 'Remix',
+    command: 'npx create-remix@latest my-app',
+    image: '/images/block/logos/remix.svg',
   },
   {
-    name: "Gatsby",
-    command: "npm init gatsby",
-    image: "/images/block/logos/gatsby.svg",
+    name: 'Gatsby',
+    command: 'npm init gatsby',
+    image: '/images/block/logos/gatsby.svg',
   },
   {
-    name: "Astro",
-    command: "npm create astro@latest",
-    image: "/images/block/logos/astro.svg",
+    name: 'Astro',
+    command: 'npm create astro@latest',
+    image: '/images/block/logos/astro.svg',
   },
 
   {
-    name: "Laravel",
-    command: "laravel new my-app ",
-    image: "/images/block/logos/laravel.svg",
+    name: 'Laravel',
+    command: 'laravel new my-app ',
+    image: '/images/block/logos/laravel.svg',
   },
   {
-    name: "React",
-    command: "npx create-react-app my-app",
-    image: "/images/block/logos/react-black.svg",
+    name: 'React',
+    command: 'npx create-react-app my-app',
+    image: '/images/block/logos/react-black.svg',
   },
-];
+]
 
 const Hero14 = () => {
-  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }))
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    if (!api) return;
+    if (!api) return
 
-    setCurrent(api.selectedScrollSnap() + 1);
+    setCurrent(api.selectedScrollSnap() + 1)
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
 
   return (
     <section className="py-32">
@@ -85,9 +81,7 @@ const Hero14 = () => {
               className="h-4 md:h-7"
             />
 
-            <p className="border-l px-2 font-mono text-sm">
-              {technologies[current - 1]?.command}
-            </p>
+            <p className="border-l px-2 font-mono text-sm">{technologies[current - 1]?.command}</p>
           </div>
         </div>
         <Carousel
@@ -102,16 +96,11 @@ const Hero14 = () => {
         >
           <CarouselContent>
             {technologies.map((technology, idx) => (
-              <CarouselItem
-                key={idx}
-                className="basis-1/3 select-none sm:basis-1/4 md:basis-1/6"
-              >
+              <CarouselItem key={idx} className="basis-1/3 select-none sm:basis-1/4 md:basis-1/6">
                 <div
                   className={cn(
-                    "flex items-center justify-center gap-2 rounded-md border p-6",
-                    idx === current - 1
-                      ? "border-primary"
-                      : "border-transparent",
+                    'flex items-center justify-center gap-2 rounded-md border p-6',
+                    idx === current - 1 ? 'border-primary' : 'border-transparent',
                   )}
                 >
                   <img
@@ -127,7 +116,7 @@ const Hero14 = () => {
         </Carousel>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero14;
+export default Hero14

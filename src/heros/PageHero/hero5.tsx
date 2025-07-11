@@ -1,12 +1,15 @@
-import { Page } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { CMSLink } from "@/components/Link";
-import { Media } from "@/components/Media";
-import { PublicContextProps } from "@/utilities/publicContextProps";
+import { Page } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import { PublicContextProps } from '@/utilities/publicContextProps'
 
-export const Hero5: React.FC<
-  Page["hero"] & { publicContext: PublicContextProps }
-> = ({ links, images, richText, publicContext }) => {
+export const Hero5: React.FC<Page['hero'] & { publicContext: PublicContextProps }> = ({
+  links,
+  images,
+  richText,
+  publicContext,
+}) => {
   return (
     <section className="overflow-hidden py-32">
       <div className="container">
@@ -19,8 +22,8 @@ export const Hero5: React.FC<
                 content={richText}
                 enableGutter={false}
                 overrideStyle={{
-                  h1: "text-pretty text-4xl font-bold lg:max-w-md lg:text-7xl",
-                  p: "max-w-xl text-xl font-medium lg:text-2xl",
+                  h1: 'text-pretty text-4xl font-bold lg:max-w-md lg:text-7xl',
+                  p: 'max-w-xl text-xl font-medium lg:text-2xl',
                 }}
               />
             )}
@@ -32,11 +35,11 @@ export const Hero5: React.FC<
                     <CMSLink
                       publicContext={publicContext}
                       className="w-full sm:w-auto"
-                      size={links.length === 1 ? "lg" : undefined}
+                      size={links.length === 1 ? 'lg' : undefined}
                       key={i}
                       {...link}
                     />
-                  );
+                  )
                 })}
               </div>
             )}
@@ -51,5 +54,5 @@ export const Hero5: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

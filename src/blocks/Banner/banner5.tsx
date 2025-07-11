@@ -1,17 +1,15 @@
-"use client";
+'use client'
 
-import { X } from "lucide-react";
-import { useState } from "react";
+import { X } from 'lucide-react'
+import { useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { BannerBlockV2 } from "@/payload-types";
-import { Icon } from "@/components/Icon";
-import { CMSLink } from "@/components/Link";
+import { Button } from '@/components/ui/button'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { BannerBlockV2 } from '@/payload-types'
+import { Icon } from '@/components/Icon'
+import { CMSLink } from '@/components/Link'
 
-const Banner5: React.FC<
-  BannerBlockV2 & { publicContext: PublicContextProps }
-> = ({
+const Banner5: React.FC<BannerBlockV2 & { publicContext: PublicContextProps }> = ({
   position,
   title,
   description,
@@ -20,20 +18,20 @@ const Banner5: React.FC<
   publicContext,
   defaultVisible,
 }) => {
-  const [isVisible, setIsVisible] = useState(defaultVisible);
+  const [isVisible, setIsVisible] = useState(defaultVisible)
 
   const handleClose = () => {
-    setIsVisible(false);
-  };
+    setIsVisible(false)
+  }
 
-  if (!isVisible) return null;
+  if (!isVisible) return null
 
   return (
     <section
       className={
-        position === "BOTTOM"
-          ? "fixed bottom-0 left-0 right-0 mx-auto max-w-2xl mb-4 animate-fade-in z-100"
-          : "absolute top-4 right-0 left-0 mx-auto max-w-2xl animate-fade-in z-100"
+        position === 'BOTTOM'
+          ? 'fixed bottom-0 left-0 right-0 mx-auto max-w-2xl mb-4 animate-fade-in z-100'
+          : 'absolute top-4 right-0 left-0 mx-auto max-w-2xl animate-fade-in z-100'
       }
     >
       <div className="mx-4">
@@ -64,10 +62,10 @@ const Banner5: React.FC<
                       className="w-full sm:w-auto"
                       key={i}
                       {...link}
-                      size={"sm"}
-                      appearance={"outline"}
+                      size={'sm'}
+                      appearance={'outline'}
                     />
-                  );
+                  )
                 })}
               <Button
                 variant="ghost"
@@ -82,7 +80,7 @@ const Banner5: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Banner5;
+export default Banner5

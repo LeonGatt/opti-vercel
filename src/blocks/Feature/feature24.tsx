@@ -1,6 +1,6 @@
-import { ChevronRight, LayoutTemplate } from "lucide-react";
+import { ChevronRight, LayoutTemplate } from 'lucide-react'
 
-import { Separator } from "@/components/ui/separator";
+import { Separator } from '@/components/ui/separator'
 
 const Feature24 = () => {
   return (
@@ -22,9 +22,8 @@ const Feature24 = () => {
             Use our UI components to build your website faster
           </h2>
           <p className="leading-7 text-muted-foreground md:w-1/2">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae
-            praesent, ad ullam quis cupiditate atque maxime alias eaque
-            repellendus perferendis, nemo repudiandae.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae praesent, ad ullam
+            quis cupiditate atque maxime alias eaque repellendus perferendis, nemo repudiandae.
           </p>
         </div>
         <img
@@ -34,7 +33,7 @@ const Feature24 = () => {
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature24;
+export default Feature24

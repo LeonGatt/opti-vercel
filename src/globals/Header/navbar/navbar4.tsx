@@ -1,48 +1,44 @@
-"use client";
+'use client'
 
-import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
-import { useState } from "react";
-import type { Header as HeaderType } from "@/payload-types";
+import { ArrowLeft, ArrowRight, Menu, X } from 'lucide-react'
+import { useState } from 'react'
+import type { Header as HeaderType } from '@/payload-types'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { CMSLink } from "@/components/Link";
-import { Icon } from "@/components/Icon";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { BlockRenderer } from "./blocks";
-import { Logo } from "@/components/Logo/Logo";
+} from '@/components/ui/navigation-menu'
+import { CMSLink } from '@/components/Link'
+import { Icon } from '@/components/Icon'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { BlockRenderer } from './blocks'
+import { Logo } from '@/components/Logo/Logo'
 
 const Navbar4: React.FC<{
-  header: HeaderType;
-  publicContext: PublicContextProps;
+  header: HeaderType
+  publicContext: PublicContextProps
 }> = ({ header, publicContext }) => {
-  const [open, setOpen] = useState(false);
-  const [submenu, setSubmenu] = useState<string | null>(null);
+  const [open, setOpen] = useState(false)
+  const [submenu, setSubmenu] = useState<string | null>(null)
 
-  const navItems = header.richItems || [];
+  const navItems = header.richItems || []
 
   return (
     <section className="inset-x-0 top-0 z-50 w-full py-4 bg-secondary text-black">
       <div className="container">
         <NavigationMenu className="min-w-full relative z-50">
           <div className="flex w-full justify-between gap-2 py-4">
-            <CMSLink
-              publicContext={publicContext}
-              url={"/"}
-              className="flex items-center gap-2"
-            >
+            <CMSLink publicContext={publicContext} url={'/'} className="flex items-center gap-2">
               <Logo />
             </CMSLink>
             <div className="flex items-center gap-2 xl:gap-8">
               <NavigationMenuList className="hidden lg:flex">
                 {navItems.map((item) => {
-                  if (item.blockType === "link") {
+                  if (item.blockType === 'link') {
                     return (
                       <NavigationMenuItem key={item.id}>
                         <CMSLink
@@ -51,27 +47,22 @@ const Navbar4: React.FC<{
                           className="text-xs xl:text-sm"
                         />
                       </NavigationMenuItem>
-                    );
-                  } else if (item.blockType === "submenu" && item.blocks) {
+                    )
+                  } else if (item.blockType === 'submenu' && item.blocks) {
                     // Handle submenu (new block-based) navigation type
                     return (
                       <NavigationMenuItem key={item.id}>
                         <NavigationMenuTrigger className="text-xs xl:text-sm">
-                          {item.icon && (
-                            <Icon icon={item.icon} className="mr-2 h-4 w-4" />
-                          )}
+                          {item.icon && <Icon icon={item.icon} className="mr-2 h-4 w-4" />}
                           {item.label}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent className="min-w-[calc(100vw-4rem)] p-12 2xl:min-w-[calc(1400px-4rem)] z-50">
-                          <BlockRenderer
-                            blocks={item.blocks}
-                            publicContext={publicContext}
-                          />
+                          <BlockRenderer blocks={item.blocks} publicContext={publicContext} />
                         </NavigationMenuContent>
                       </NavigationMenuItem>
-                    );
+                    )
                   }
-                  return null;
+                  return null
                 })}
               </NavigationMenuList>
             </div>
@@ -91,10 +82,10 @@ const Navbar4: React.FC<{
                 className="lg:hidden"
                 onClick={() => {
                   if (open) {
-                    setOpen(false);
-                    setSubmenu(null);
+                    setOpen(false)
+                    setSubmenu(null)
                   } else {
-                    setOpen(true);
+                    setOpen(true)
                   }
                 }}
               >
@@ -118,7 +109,7 @@ const Navbar4: React.FC<{
               {submenu === null && (
                 <div>
                   {navItems.map((item: any) => {
-                    if (item.blockType === "link") {
+                    if (item.blockType === 'link') {
                       return (
                         <CMSLink
                           key={item.id}
@@ -126,11 +117,8 @@ const Navbar4: React.FC<{
                           {...item.link}
                           className="flex w-full items-center border-b border-border px-8 py-6 text-left font-medium"
                         />
-                      );
-                    } else if (
-                      item.blockType === "submenu" ||
-                      item.blockType === "sub"
-                    ) {
+                      )
+                    } else if (item.blockType === 'submenu' || item.blockType === 'sub') {
                       return (
                         <button
                           key={item.id}
@@ -140,10 +128,7 @@ const Navbar4: React.FC<{
                         >
                           <span className="flex-1 text-sm font-medium">
                             {item.icon && (
-                              <Icon
-                                icon={item.icon}
-                                className="mr-2 inline-block h-4 w-4"
-                              />
+                              <Icon icon={item.icon} className="mr-2 inline-block h-4 w-4" />
                             )}
                             {item.label}
                           </span>
@@ -151,9 +136,9 @@ const Navbar4: React.FC<{
                             <ArrowRight className="size-4" />
                           </span>
                         </button>
-                      );
+                      )
                     }
-                    return null;
+                    return null
                   })}
                 </div>
               )}
@@ -161,22 +146,17 @@ const Navbar4: React.FC<{
               {/* Dynamic submenu content */}
               {navItems.map((item: any) => {
                 if (
-                  ((item.blockType === "submenu" && item.blocks) ||
-                    (item.blockType === "sub" && item.subitems)) &&
+                  ((item.blockType === 'submenu' && item.blocks) ||
+                    (item.blockType === 'sub' && item.subitems)) &&
                   submenu === item.id
                 ) {
                   return (
                     <div key={item.id} className="container">
-                      <h2 className="pt-4 pb-6 text-lg font-medium">
-                        {item.label}
-                      </h2>
-                      {item.blockType === "submenu" && item.blocks && (
-                        <BlockRenderer
-                          blocks={item.blocks}
-                          publicContext={publicContext}
-                        />
+                      <h2 className="pt-4 pb-6 text-lg font-medium">{item.label}</h2>
+                      {item.blockType === 'submenu' && item.blocks && (
+                        <BlockRenderer blocks={item.blocks} publicContext={publicContext} />
                       )}
-                      {item.blockType === "sub" && item.subitems && (
+                      {item.blockType === 'sub' && item.subitems && (
                         <div className="grid grid-cols-1 gap-4">
                           {item.subitems.map((subitem) => (
                             <CMSLink
@@ -186,15 +166,10 @@ const Navbar4: React.FC<{
                               className="group flex flex-col gap-2 rounded-lg border p-4 hover:border-foreground/50"
                             >
                               {subitem.link.iconBefore && (
-                                <Icon
-                                  icon={subitem.link.iconBefore}
-                                  className="size-8"
-                                />
+                                <Icon icon={subitem.link.iconBefore} className="size-8" />
                               )}
                               <div>
-                                <h3 className="font-medium">
-                                  {subitem.link.label}
-                                </h3>
+                                <h3 className="font-medium">{subitem.link.label}</h3>
                                 <p className="text-sm text-muted-foreground">
                                   {subitem.Description}
                                 </p>
@@ -204,19 +179,15 @@ const Navbar4: React.FC<{
                         </div>
                       )}
                     </div>
-                  );
+                  )
                 }
-                return null;
+                return null
               })}
 
               {/* Mobile menu footer */}
               <div className="mx-[2rem] mt-auto flex flex-col items-center gap-8 py-24">
                 {header.buttons?.map((btn) => (
-                  <CMSLink
-                    key={btn.id}
-                    publicContext={publicContext}
-                    {...btn.link}
-                  />
+                  <CMSLink key={btn.id} publicContext={publicContext} {...btn.link} />
                 ))}
                 <p className="text-xs">{header.copyright}</p>
               </div>
@@ -225,7 +196,7 @@ const Navbar4: React.FC<{
         </NavigationMenu>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export { Navbar4 };
+export { Navbar4 }

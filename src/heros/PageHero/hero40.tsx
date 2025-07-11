@@ -1,97 +1,97 @@
-import { Cloud } from "lucide-react";
+import { Cloud } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const integrations = [
   [
     {
-      title: "Integration A",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration A',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration B",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration B',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration C",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration C',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration D",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration D',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
   ],
   [
     {
-      title: "Integration E",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration E',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration F",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration F',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration G",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration G',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration H",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration H',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
   ],
   [
     {
-      title: "Integration I",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration I',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration J",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration J',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration K",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration K',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration L",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration L',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
   ],
   [
     {
-      title: "Integration M",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration M',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration N",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration N',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration O",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration O',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
     {
-      title: "Integration P",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      title: 'Integration P',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
       icon: Cloud,
     },
   ],
-];
+]
 
 const Hero40 = () => {
   return (
@@ -105,23 +105,10 @@ const Hero40 = () => {
           <defs>
             <filter id="blur1" x="-20%" y="-20%" width="140%" height="140%">
               <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="BackgroundImageFix"
-                result="shape"
-              />
-              <feGaussianBlur
-                stdDeviation="180"
-                result="effect1_foregroundBlur"
-              />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="180" result="effect1_foregroundBlur" />
             </filter>
-            <pattern
-              id="innerGrid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
+            <pattern id="innerGrid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path
                 d="M 40 0 L 0 0 0 40"
                 fill="none"
@@ -130,12 +117,7 @@ const Hero40 = () => {
                 strokeOpacity={0.6}
               />
             </pattern>
-            <pattern
-              id="grid"
-              width="160"
-              height="160"
-              patternUnits="userSpaceOnUse"
-            >
+            <pattern id="grid" width="160" height="160" patternUnits="userSpaceOnUse">
               <rect width="160" height="160" fill="url(#innerGrid)" />
               <path
                 d="M 70 80 H 90 M 80 70 V 90"
@@ -147,11 +129,7 @@ const Hero40 = () => {
             </pattern>
           </defs>
           <g filter="url(#blur1)">
-            <rect
-              width="1400"
-              height="656"
-              fill="hsl(from_var(--muted)_h_s_l)"
-            />
+            <rect width="1400" height="656" fill="hsl(from_var(--muted)_h_s_l)" />
             <rect
               x="0"
               y="0"
@@ -182,9 +160,8 @@ const Hero40 = () => {
               Welcome to Our Website
             </h1>
             <p className="mb-8 max-w-xl text-muted-foreground lg:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi
-              consequatur. Explicabo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               <Button variant="outline" className="w-full sm:w-auto">
@@ -197,10 +174,7 @@ const Hero40 = () => {
             <div className="absolute">
               <div className="flex scale-75 flex-col gap-12 pl-32 pt-8 sm:scale-100">
                 {integrations.map((line, i) => (
-                  <div
-                    key={i}
-                    className="flex gap-x-8 odd:pl-[calc(--spacing(32)+16px)]"
-                  >
+                  <div key={i} className="flex gap-x-8 odd:pl-[calc(--spacing(32)+16px)]">
                     {line.map((integration) => (
                       <div
                         key={integration.title}
@@ -210,9 +184,7 @@ const Hero40 = () => {
                           <integration.icon className="size-4" />
                         </div>
                         <div>
-                          <div className="mb-0.5 text-xs font-medium">
-                            {integration.title}
-                          </div>
+                          <div className="mb-0.5 text-xs font-medium">{integration.title}</div>
                           <div className="text-xs font-normal text-muted-foreground">
                             {integration.description}
                           </div>
@@ -228,7 +200,7 @@ const Hero40 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero40;
+export default Hero40

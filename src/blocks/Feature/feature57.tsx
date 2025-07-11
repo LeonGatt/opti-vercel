@@ -1,59 +1,58 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import { Icon } from "@/components/Icon";
-import { Badge } from "@/components/ui/badge";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import type { CarouselApi } from "@/components/ui/carousel";
-import { PublicContextProps } from "@/utilities/publicContextProps";
-import { FeatureBlock } from "@/payload-types";
-import RichText from "@/components/RichText";
-import { Media } from "@/components/Media";
+import { useEffect, useState } from 'react'
+import { Icon } from '@/components/Icon'
+import { Badge } from '@/components/ui/badge'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import type { CarouselApi } from '@/components/ui/carousel'
+import { PublicContextProps } from '@/utilities/publicContextProps'
+import { FeatureBlock } from '@/payload-types'
+import RichText from '@/components/RichText'
+import { Media } from '@/components/Media'
 
-const Feature57: React.FC<
-  FeatureBlock & { publicContext: PublicContextProps }
-> = ({ richText, badge, USPs, publicContext }) => {
-  const [selection, setSelection] = useState(0);
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+const Feature57: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+  richText,
+  badge,
+  USPs,
+  publicContext,
+}) => {
+  const [selection, setSelection] = useState(0)
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>()
 
   const handleSelection = (index: number) => {
-    setSelection(index);
-    const mobileCarousel = document.querySelector(".snap-x.snap-mandatory");
+    setSelection(index)
+    const mobileCarousel = document.querySelector('.snap-x.snap-mandatory')
     if (mobileCarousel) {
-      const slides = Array.from(mobileCarousel.children);
+      const slides = Array.from(mobileCarousel.children)
       if (slides[index]) {
         slides[index].scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center',
+        })
       }
     }
-  };
+  }
 
   useEffect(() => {
     if (!carouselApi) {
-      return;
+      return
     }
-    carouselApi.scrollTo(selection);
-  }, [carouselApi, selection]);
+    carouselApi.scrollTo(selection)
+  }, [carouselApi, selection])
 
   useEffect(() => {
     if (!carouselApi) {
-      return;
+      return
     }
     const updateSelection = () => {
-      setSelection(carouselApi.selectedScrollSnap());
-    };
-    carouselApi.on("select", updateSelection);
+      setSelection(carouselApi.selectedScrollSnap())
+    }
+    carouselApi.on('select', updateSelection)
     return () => {
-      carouselApi.off("select", updateSelection);
-    };
-  }, [carouselApi]);
+      carouselApi.off('select', updateSelection)
+    }
+  }, [carouselApi])
 
   return (
     <section className="py-12 md:py-24 lg:py-32">
@@ -67,10 +66,10 @@ const Feature57: React.FC<
               publicContext={publicContext}
               withWrapper={false}
               overrideStyle={{
-                h1: "text-3xl leading-tight font-bold md:text-4xl lg:text-5xl",
-                h2: "text-3xl leading-tight font-bold md:text-4xl lg:text-5xl",
-                h3: "text-2xl leading-tight font-bold md:text-3xl lg:text-4xl",
-                p: "mx-auto mt-3 max-w-2xl text-sm text-muted-foreground md:mt-4 md:text-base",
+                h1: 'text-3xl leading-tight font-bold md:text-4xl lg:text-5xl',
+                h2: 'text-3xl leading-tight font-bold md:text-4xl lg:text-5xl',
+                h3: 'text-2xl leading-tight font-bold md:text-3xl lg:text-4xl',
+                p: 'mx-auto mt-3 max-w-2xl text-sm text-muted-foreground md:mt-4 md:text-base',
               }}
               content={richText}
             />
@@ -100,15 +99,13 @@ const Feature57: React.FC<
                         {uspIcon && <Icon icon={uspIcon} className="size-5" />}
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground">
-                          {tagline}
-                        </h3>
+                        <h3 className="text-lg font-semibold text-foreground">{tagline}</h3>
                         {richText && (
                           <RichText
                             publicContext={publicContext}
                             content={richText}
                             overrideStyle={{
-                              p: "mt-1 line-clamp-2 text-xs text-muted-foreground",
+                              p: 'mt-1 line-clamp-2 text-xs text-muted-foreground',
                             }}
                           />
                         )}
@@ -125,9 +122,7 @@ const Feature57: React.FC<
                 <button
                   key={index}
                   className={`size-2 rounded-full transition-all ${
-                    selection === index
-                      ? "w-6 bg-primary"
-                      : "bg-muted hover:bg-muted-foreground/50"
+                    selection === index ? 'w-6 bg-primary' : 'bg-muted hover:bg-muted-foreground/50'
                   }`}
                   onClick={() => handleSelection(index)}
                   aria-label={`Go to slide ${index + 1}`}
@@ -139,36 +134,32 @@ const Feature57: React.FC<
             <div className="md:w-1/2 lg:w-2/5">
               <ul className="grid grid-cols-1 gap-3 md:flex md:flex-col md:gap-2">
                 {USPs?.map(({ richText, uspIcon, tagline }, index: number) => {
-                  const isSelected = selection === index;
+                  const isSelected = selection === index
                   return (
                     <li
                       key={index}
                       className={`group relative flex cursor-pointer rounded-xl border px-4 py-3 transition-all duration-300 md:px-5 md:py-4 ${
                         isSelected
-                          ? "border-border bg-accent shadow-sm"
-                          : "border-transparent hover:border-border hover:bg-accent/30"
+                          ? 'border-border bg-accent shadow-sm'
+                          : 'border-transparent hover:border-border hover:bg-accent/30'
                       }`}
-                      data-open={isSelected ? "true" : undefined}
+                      data-open={isSelected ? 'true' : undefined}
                       onClick={() => handleSelection(index)}
                     >
                       <div className="flex w-full items-start gap-3 md:gap-4">
                         <div
                           className={`flex aspect-square w-9 shrink-0 items-center justify-center rounded-lg transition-colors md:w-10 ${
                             isSelected
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-muted text-muted-foreground"
+                              ? 'bg-primary text-primary-foreground'
+                              : 'bg-muted text-muted-foreground'
                           }`}
                         >
-                          {uspIcon && (
-                            <Icon icon={uspIcon} className="size-4 md:size-5" />
-                          )}
+                          {uspIcon && <Icon icon={uspIcon} className="size-4 md:size-5" />}
                         </div>
                         <div className="min-w-0 flex-1">
                           <h3
                             className={`mb-1 text-sm font-semibold transition-colors md:text-base lg:text-lg ${
-                              isSelected
-                                ? "text-foreground"
-                                : "text-muted-foreground"
+                              isSelected ? 'text-foreground' : 'text-muted-foreground'
                             }`}
                           >
                             {tagline}
@@ -185,7 +176,7 @@ const Feature57: React.FC<
                         </div>
                       </div>
                     </li>
-                  );
+                  )
                 })}
               </ul>
             </div>
@@ -214,13 +205,9 @@ const Feature57: React.FC<
                           <div className="absolute right-0 bottom-0 left-0 bg-linear-to-t from-background/80 via-background/40 to-transparent p-6">
                             <div className="flex items-center gap-3">
                               <div className="flex aspect-square w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                                {uspIcon && (
-                                  <Icon icon={uspIcon} className="size-5" />
-                                )}
+                                {uspIcon && <Icon icon={uspIcon} className="size-5" />}
                               </div>
-                              <h3 className="text-xl font-semibold text-foreground">
-                                {tagline}
-                              </h3>
+                              <h3 className="text-xl font-semibold text-foreground">{tagline}</h3>
                             </div>
                           </div>
                         </div>
@@ -237,8 +224,8 @@ const Feature57: React.FC<
                     key={index}
                     className={`size-2 rounded-full transition-all ${
                       selection === index
-                        ? "w-6 bg-primary"
-                        : "bg-muted hover:bg-muted-foreground/50"
+                        ? 'w-6 bg-primary'
+                        : 'bg-muted hover:bg-muted-foreground/50'
                     }`}
                     onClick={() => handleSelection(index)}
                     aria-label={`Go to slide ${index + 1}`}
@@ -250,7 +237,7 @@ const Feature57: React.FC<
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature57;
+export default Feature57

@@ -166,6 +166,8 @@ export interface Page {
     | BannerBlockV2
     | CasestudiesBlock
     | TimelineBlock
+    | LoginBlock
+    | SignupBlock
   )[];
   meta?: {
     title?: string | null;
@@ -237,7 +239,7 @@ export interface Hero {
         | 'transparent'
       )
     | null;
-  designVersion: 'none' | '1' | '2' | '3' | '4' | '5' | '6' | '12' | '112' | '195' | 'customHighImpact';
+  designVersion: 'none' | '1' | '2' | '3' | '4' | '5' | '6' | '12' | '112' | '195' | '220' | '214' | 'customHighImpact';
   badge?: string | null;
   badgeIcon?: string | null;
   tagline?: string | null;
@@ -252,6 +254,17 @@ export interface Hero {
     url?: string | null;
     iconBefore?: string | null;
     iconAfter?: string | null;
+  };
+  buttonLink?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?: {
+      relationTo: 'pages';
+      value: string | Page;
+    } | null;
+    section?: string | null;
+    url?: string | null;
+    label: string;
   };
   richText?: {
     root: {
@@ -1433,7 +1446,7 @@ export interface GalleryBlock {
         | 'transparent'
       )
     | null;
-  designVersion: 'GALLERY4' | 'GALLERY5' | 'GALLERY6';
+  designVersion: 'GALLERY4' | 'GALLERY5' | 'GALLERY6' | 'GALLERY25' | 'GALLERY26';
   /**
    * Optional heading and description for the gallery
    */
@@ -1476,6 +1489,34 @@ export interface GalleryBlock {
     | {
         image: string | Media;
         /**
+         * Select the height of the image. This is only applicable to Gallery 25.
+         */
+        imageHeight?:
+          | (
+              | '12rem'
+              | '13rem'
+              | '14rem'
+              | '15rem'
+              | '16rem'
+              | '17rem'
+              | '18rem'
+              | '19rem'
+              | '20rem'
+              | '21rem'
+              | '22rem'
+              | '23rem'
+              | '24rem'
+              | '25rem'
+              | '26rem'
+              | '27rem'
+              | '28rem'
+              | '29rem'
+              | '30rem'
+              | '31rem'
+              | '32rem'
+            )
+          | null;
+        /**
          * Select an icon to display with this item
          */
         icon?: string | null;
@@ -1494,7 +1535,7 @@ export interface GalleryBlock {
           };
           [k: string]: unknown;
         } | null;
-        link: {
+        link?: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
           reference?: {
@@ -2442,6 +2483,49 @@ export interface TimelineBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LoginBlock".
+ */
+export interface LoginBlock {
+  designVersion: 'LOGIN3';
+  signupEnabled?: boolean | null;
+  /**
+   * Select a signup form to use
+   */
+  signupBlock?: SignupBlock[] | null;
+  googleLoginEnabled?: boolean | null;
+  facebookLoginEnabled?: boolean | null;
+  appleLoginEnabled?: boolean | null;
+  heading?: string | null;
+  subheading?: string | null;
+  loginText?: string | null;
+  googleText?: string | null;
+  dontHaveAccountText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'login';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SignupBlock".
+ */
+export interface SignupBlock {
+  designVersion: 'SIGNUP4';
+  googleSignupEnabled?: boolean | null;
+  facebookSignupEnabled?: boolean | null;
+  appleSignupEnabled?: boolean | null;
+  heading?: string | null;
+  subheading?: string | null;
+  signupText?: string | null;
+  loginText?: string | null;
+  googleText?: string | null;
+  facebookText?: string | null;
+  appleText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'signup';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -2634,6 +2718,8 @@ export interface PagesSelect<T extends boolean = true> {
         banner?: T | BannerBlockV2Select<T>;
         casestudies?: T | CasestudiesBlockSelect<T>;
         timeline?: T | TimelineBlockSelect<T>;
+        login?: T | LoginBlockSelect<T>;
+        signup?: T | SignupBlockSelect<T>;
       };
   meta?:
     | T
@@ -2679,6 +2765,16 @@ export interface HeroSelect<T extends boolean = true> {
         url?: T;
         iconBefore?: T;
         iconAfter?: T;
+      };
+  buttonLink?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        section?: T;
+        url?: T;
+        label?: T;
       };
   richText?: T;
   links?:
@@ -3009,6 +3105,7 @@ export interface GalleryBlockSelect<T extends boolean = true> {
     | T
     | {
         image?: T;
+        imageHeight?: T;
         icon?: T;
         richText?: T;
         link?:
@@ -3356,6 +3453,48 @@ export interface TimelineBlockSelect<T extends boolean = true> {
         richText?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LoginBlock_select".
+ */
+export interface LoginBlockSelect<T extends boolean = true> {
+  designVersion?: T;
+  signupEnabled?: T;
+  signupBlock?:
+    | T
+    | {
+        signup?: T | SignupBlockSelect<T>;
+      };
+  googleLoginEnabled?: T;
+  facebookLoginEnabled?: T;
+  appleLoginEnabled?: T;
+  heading?: T;
+  subheading?: T;
+  loginText?: T;
+  googleText?: T;
+  dontHaveAccountText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SignupBlock_select".
+ */
+export interface SignupBlockSelect<T extends boolean = true> {
+  designVersion?: T;
+  googleSignupEnabled?: T;
+  facebookSignupEnabled?: T;
+  appleSignupEnabled?: T;
+  heading?: T;
+  subheading?: T;
+  signupText?: T;
+  loginText?: T;
+  googleText?: T;
+  facebookText?: T;
+  appleText?: T;
   id?: T;
   blockName?: T;
 }

@@ -1,6 +1,6 @@
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const Feature80 = () => {
   return (
@@ -15,29 +15,21 @@ const Feature80 = () => {
             />
           </div>
           <div className="flex shrink-0 flex-col justify-center md:w-1/2 md:py-16 lg:mr-8 lg:pl-24 lg:text-left 2xl:pl-32">
-            <p className="mb-6 text-xs font-medium uppercase tracking-wider">
-              Tag Line
-            </p>
-            <h2 className="mb-6 text-pretty text-3xl font-bold lg:text-5xl">
-              Feature Description
-            </h2>
+            <p className="mb-6 text-xs font-medium uppercase tracking-wider">Tag Line</p>
+            <h2 className="mb-6 text-pretty text-3xl font-bold lg:text-5xl">Feature Description</h2>
             <p className="mb-6 text-muted-foreground lg:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-              doloremque mollitia fugiat omnis! Porro facilis quo animi
-              consequatur. Explicabo.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia
+              fugiat omnis! Porro facilis quo animi consequatur. Explicabo.
             </p>
             <a
               href="#"
               className="group mb-12 flex items-center pb-3 text-accent-foreground lg:text-xl"
             >
-              Learn more{" "}
+              Learn more{' '}
               <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
             </a>
             <div className="flex flex-col gap-6 md:flex-row">
-              <a
-                href="#"
-                className="group flex-1 rounded-xl border border-border p-6"
-              >
+              <a href="#" className="group flex-1 rounded-xl border border-border p-6">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center">
                     <Avatar className="size-10">
@@ -57,10 +49,7 @@ const Feature80 = () => {
                 </div>
                 <p className="mt-8 font-medium lg:text-lg">Action 1</p>
               </a>
-              <a
-                href="#"
-                className="group flex-1 rounded-xl border border-border p-6"
-              >
+              <a href="#" className="group flex-1 rounded-xl border border-border p-6">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center">
                     <img
@@ -78,7 +67,7 @@ const Feature80 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature80;
+export default Feature80

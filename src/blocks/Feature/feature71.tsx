@@ -1,22 +1,19 @@
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Feature71 = () => {
   return (
     <section className="py-32">
       <div className="container flex flex-col items-center gap-16 lg:px-16">
         <div className="text-center">
-          <p className="mb-6 text-xs font-medium uppercase tracking-wider">
-            Tag Line
-          </p>
+          <p className="mb-6 text-xs font-medium uppercase tracking-wider">Tag Line</p>
           <h3 className="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
             Feature group
           </h3>
           <p className="mb-8 text-muted-foreground lg:max-w-2xl lg:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig
-            doloremque mollitia fugiat omnis! Porro facilis quo animi
-            consequatur. Explicabo.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat
+            omnis! Porro facilis quo animi consequatur. Explicabo.
           </p>
           <div className="flex w-full flex-col justify-center gap-2 sm:flex-row">
             <Button className="w-full sm:w-auto">
@@ -45,7 +42,7 @@ const Feature71 = () => {
                 className="mb-12 h-10 invert md:h-12"
               />
               <div className="flex items-center text-xs font-medium md:text-base lg:text-lg">
-                Read more{" "}
+                Read more{' '}
                 <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
               </div>
             </div>
@@ -84,7 +81,7 @@ const Feature71 = () => {
                 />
               </div>
               <div className="flex shrink-0 items-center text-xs font-medium md:text-base lg:text-lg">
-                Read more{" "}
+                Read more{' '}
                 <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
               </div>
             </div>
@@ -92,7 +89,7 @@ const Feature71 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Feature71;
+export default Feature71

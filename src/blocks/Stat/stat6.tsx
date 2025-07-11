@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const Stat6 = () => {
   return (
@@ -22,41 +22,25 @@ const Stat6 = () => {
         </div>
         <div className="grid w-full grid-cols-2 gap-12 sm:w-fit sm:grid-cols-4 lg:gap-16">
           <div className="w-full">
-            <div className="mb-2 text-4xl font-semibold sm:text-4xl lg:text-5xl">
-              90%
-            </div>
-            <div className="text-base leading-6 text-muted-foreground lg:text-lg">
-              Metric 1
-            </div>
+            <div className="mb-2 text-4xl font-semibold sm:text-4xl lg:text-5xl">90%</div>
+            <div className="text-base leading-6 text-muted-foreground lg:text-lg">Metric 1</div>
           </div>
           <div className="w-full">
-            <div className="mb-2 text-4xl font-semibold sm:text-4xl lg:text-5xl">
-              200+
-            </div>
-            <div className="text-base leading-6 text-muted-foreground lg:text-lg">
-              Metric 2
-            </div>
+            <div className="mb-2 text-4xl font-semibold sm:text-4xl lg:text-5xl">200+</div>
+            <div className="text-base leading-6 text-muted-foreground lg:text-lg">Metric 2</div>
           </div>
           <div className="w-full">
-            <div className="mb-2 text-4xl font-semibold sm:text-4xl lg:text-5xl">
-              99%
-            </div>
-            <div className="text-base leading-6 text-muted-foreground lg:text-lg">
-              Metric 3
-            </div>
+            <div className="mb-2 text-4xl font-semibold sm:text-4xl lg:text-5xl">99%</div>
+            <div className="text-base leading-6 text-muted-foreground lg:text-lg">Metric 3</div>
           </div>
           <div className="w-full">
-            <div className="mb-2 text-4xl font-semibold sm:text-4xl lg:text-5xl">
-              150+
-            </div>
-            <div className="text-base leading-6 text-muted-foreground lg:text-lg">
-              Metric 4
-            </div>
+            <div className="mb-2 text-4xl font-semibold sm:text-4xl lg:text-5xl">150+</div>
+            <div className="text-base leading-6 text-muted-foreground lg:text-lg">Metric 4</div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Stat6;
+export default Stat6

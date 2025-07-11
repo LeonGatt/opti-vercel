@@ -1,15 +1,9 @@
-import { Globe, UserRound } from "lucide-react";
+import { Globe, UserRound } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 const Signup1 = () => {
   return (
@@ -25,9 +19,7 @@ const Signup1 = () => {
             <CardHeader className="items-center">
               <UserRound className="size-10 rounded-full bg-accent p-2.5 text-muted-foreground" />
               <CardTitle className="text-xl">Sign Up</CardTitle>
-              <CardDescription>
-                Enter your information to create an account
-              </CardDescription>
+              <CardDescription>Enter your information to create an account</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-4">
@@ -42,12 +34,7 @@ const Signup1 = () => {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="m@example.com"
-                    required
-                  />
+                  <Input id="email" type="email" placeholder="m@example.com" required />
                 </div>
                 <Button type="submit" className="w-full">
                   Create an account
@@ -70,7 +57,7 @@ const Signup1 = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Signup1;
+export default Signup1
