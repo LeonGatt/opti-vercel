@@ -46,6 +46,7 @@
   --color-gray-950: #090a0b;
   --color-error: #fa461b;
   --color-error-light: #ff6f4c;
+  --color-outline-focus: #a3a3a3;
 
   /* Theme variables - Light theme */
   --bg-color: var(--color-white);
@@ -67,6 +68,7 @@
   --border-color: var(--color-gray-300);
   --input-color: var(--color-gray-300);
   --ring-color: var(--color-gray-400);
+  --outline-focus-color: var(--color-outline-focus);
 
   /* Custom tokens - Light theme */
   --sidebar-ring-color: var(--color-gray-500);
@@ -210,6 +212,7 @@
   --color-stroke-inverse: var(--stroke-inverse-color);
   --color-stroke-icon: var(--stroke-icon-color);
   --color-hover: var(--hover-color);
+  --color-outline-focus: var(--color-outline-focus);
 
   /* Font families - managed by Next.js localFont */
   --font-body: var(--font-body);
