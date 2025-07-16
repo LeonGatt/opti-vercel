@@ -15,6 +15,7 @@ import { resolveSlugs } from '@/utilities/resolveSlugs'
 import localization, { type Locale } from '@/localization.config'
 import type { PublicContextProps } from '@/utilities/publicContextProps'
 import { getMessages } from '@/i18n/messages'
+import { queryCollectionData } from './data'
 
 import './globals.css'
 import { TrackingScriptsBody, TrackingScriptsHead } from '@/providers/TrackingScriptWrapper'
@@ -38,21 +39,39 @@ export default async function RootLayout({
   const slugData = resolveSlugs(slugs || [])
   const { isEnabled } = await draftMode()
 
-  const publicContext: PublicContextProps = {
-    ...slugData,
-  }
-
   const locale = (slugData.locale || localization.defaultLocale) as Locale
   const messages = await getMessages(locale)
+
+  // Query page data to get the theme
+  const { cleanSlugs } = slugData
+  const collection = cleanSlugs?.[0] === 'posts' ? 'posts' : 'pages'
+
+  let pageTheme: 'light' | 'dark' = 'light'
+
+  if (cleanSlugs && cleanSlugs.length > 0) {
+    const page = await queryCollectionData({
+      cleanSlugs,
+      locale,
+      collection,
+    })
+
+    // Extract theme from page, fallback to light
+    pageTheme = page?.type === 'page' ? page.theme || 'light' : 'light'
+  }
+
+  const publicContext: PublicContextProps = {
+    ...slugData,
+    theme: pageTheme,
+  }
 
   return (
     <html
       className={cn(haasGrotText.variable, haasGrotDisplay.variable, haasGrotBody.variable)}
       lang={locale}
+      data-theme={pageTheme}
       suppressHydrationWarning
     >
       <head>
-        <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
 

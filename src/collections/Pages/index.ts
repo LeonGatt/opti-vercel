@@ -187,6 +187,27 @@ export const Pages: CollectionConfig = {
         },
       },
     },
+    {
+      name: 'theme',
+      type: 'select',
+      options: [
+        {
+          label: 'Light',
+          value: 'light',
+        },
+        {
+          label: 'Dark',
+          value: 'dark',
+        },
+      ],
+      defaultValue: 'light',
+      admin: {
+        position: 'sidebar',
+        description: {
+          en: 'Theme for the page',
+        },
+      },
+    }
   ],
   hooks: {
     afterChange: [revalidatePage],

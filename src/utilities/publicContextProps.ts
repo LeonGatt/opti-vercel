@@ -4,4 +4,5 @@ export type PublicContextProps = {
   locale: string
   isNotFound: boolean
   cleanSlugs?: string[]
+  theme?: 'light' | 'dark' | null
 }

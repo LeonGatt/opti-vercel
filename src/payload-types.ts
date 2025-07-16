@@ -184,6 +184,10 @@ export interface Page {
    * Enable breadcrumbs for the page
    */
   enableBreadcrumbs?: boolean | null;
+  /**
+   * Theme for the page
+   */
+  theme?: ('light' | 'dark') | null;
   parent?: (string | null) | Page;
   breadcrumbs?:
     | {
@@ -2732,6 +2736,7 @@ export interface PagesSelect<T extends boolean = true> {
   slug?: T;
   slugLock?: T;
   enableBreadcrumbs?: T;
+  theme?: T;
   parent?: T;
   breadcrumbs?:
     | T
