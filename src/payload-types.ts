@@ -1144,7 +1144,7 @@ export interface LogosBlock {
         | 'transparent'
       )
     | null;
-  designVersion: 'LOGOS2' | 'LOGOS3';
+  designVersion: 'LOGO3-custom' | 'LOGOS2' | 'LOGOS3';
   richText?: {
     root: {
       type: string;

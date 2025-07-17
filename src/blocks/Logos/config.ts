@@ -3,7 +3,7 @@ import { link } from '@/fields/link'
 import { HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { Block } from 'payload'
 
-export const allLogosDesignVersions = ['LOGOS2', 'LOGOS3'] as const
+export const allLogosDesignVersions = ['LOGO3-custom', 'LOGOS2', 'LOGOS3'] as const
 
 export type LogosDesignVersion = (typeof allLogosDesignVersions)[number]
 

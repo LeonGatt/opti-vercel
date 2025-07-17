@@ -215,3 +215,9 @@ export function extractPlainText(content: any, maxLength: number = 200): string 
 
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text
 }
+
+export function hasRichTextContent(
+  content: any
+): boolean {
+  return extractPlainText(content).trim().length > 0;
+}

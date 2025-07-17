@@ -2,6 +2,7 @@ import Logos2 from '@/blocks/Logos/logos2'
 import Logos3 from '@/blocks/Logos/logos3'
 
 import { LogosDesignVersion } from './config'
+import Logos3Custom from './logos3-custom'
 
 type Logos<T extends string = string> = Required<Record<LogosDesignVersion, React.FC<any>>> &
   Record<T, React.FC<any>>
@@ -9,6 +10,7 @@ type Logos<T extends string = string> = Required<Record<LogosDesignVersion, Reac
 const Logos: Logos = {
   LOGOS2: Logos2,
   LOGOS3: Logos3,
+  'LOGO3-custom': Logos3Custom,
 }
 
 export const LogosBlock: React.FC<any> = (props) => {
