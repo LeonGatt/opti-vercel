@@ -12,6 +12,9 @@ import { env } from '@/env'
 const SEED_DUMP_URL =
   env.SERVER_URL + '/seed/demo-payblocks---demo-payblocks.trieb.work---1739813600714.json'
 
+const SEED_OPTITRACK_URL =
+  env.SERVER_URL + '/seed/optitrack-seed.json'
+
 const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
   if (!user) return
 
@@ -36,7 +39,7 @@ const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
 
   return (
     <div className="backup-dashboard-2">
-      <h2>Welcome to the Payblocks starter</h2>
+      <h2>Welcome to the Optitrack Payblocks</h2>
 
       <p>
         Payblocks is a comprehensive website builder toolkit that combines PayloadCMS&apos;s
@@ -84,6 +87,41 @@ const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
           pages.
         </span>
       )}
+
+      {process.env.DATABASE_URI && (
+        <div style={{ marginTop: '20px' }}>
+          Here you can seed the database with the optitrack seed - currently only for the <strong>footer</strong> and <strong>header</strong>.<br />
+          <Popup
+            className="btn-inline btn-right"
+            button={
+              <div className="btn btn--icon-style-without-border btn--size-medium btn--withoutPopup btn--style-primary btn--withoutPopup">
+                Seed DB
+              </div>
+            }
+          >
+            <div>
+              Warning: This will replace all your existing content with the optitrack seed.
+              <br />
+              After seeding you will be automatically logged out and have to login with your
+              previously created admin user again.
+              <br />
+              Do you want to proceed?
+            </div>
+            <Button
+              className="btn-red"
+              onClick={async () => {
+                'use server'
+                await restoreSeedMedia()
+                await restoreBackup(SEED_OPTITRACK_URL, ['users', 'roles'], true)
+                revalidatePath('/admin')
+              }}
+            >
+              Yes
+            </Button>
+          </Popup>
+        </div>
+      )
+      }
     </div>
   )
 }
