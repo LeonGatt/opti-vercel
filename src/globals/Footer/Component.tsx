@@ -11,6 +11,7 @@ import Footer5 from './footer/footer5'
 import Footer6 from './footer/footer6'
 import Footer7 from './footer/footer7'
 import Footer8 from './footer/footer8'
+import Footer4Custom from './footer/footer4-custom'
 import { PublicContextProps } from '@/utilities/publicContextProps'
 
 export async function Footer({ publicContext }: { publicContext: PublicContextProps }) {
@@ -35,6 +36,8 @@ export async function Footer({ publicContext }: { publicContext: PublicContextPr
       return <Footer7 footer={footer} publicContext={publicContext} />
     case '8':
       return <Footer8 footer={footer} publicContext={publicContext} />
+    case '4-custom':
+      return <Footer4Custom footer={footer} publicContext={publicContext} />
   }
 
   return null

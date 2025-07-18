@@ -12,8 +12,9 @@ import { env } from '@/env'
 const SEED_DUMP_URL =
   env.SERVER_URL + '/seed/demo-payblocks---demo-payblocks.trieb.work---1739813600714.json'
 
-const SEED_OPTITRACK_URL =
-  env.SERVER_URL + '/seed/optitrack-seed.json'
+const SEED_OPTITRACK_GLOBALS_URL =
+  env.SERVER_URL + '/seed/optitrack-globals-seed.json'
+
 
 const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
   if (!user) return
@@ -112,7 +113,7 @@ const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
               onClick={async () => {
                 'use server'
                 await restoreSeedMedia()
-                await restoreBackup(SEED_OPTITRACK_URL, ['users', 'roles'], true)
+                await restoreBackup(SEED_OPTITRACK_GLOBALS_URL, ['users', 'roles'], false) // Restore globals configuration - replace
                 revalidatePath('/admin')
               }}
             >

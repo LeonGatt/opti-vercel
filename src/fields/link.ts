@@ -198,7 +198,7 @@ export const link: LinkType = ({
         {
           name: 'size',
           type: 'select',
-          options: ['default', 'sm', 'lg', 'icon', 'clear'],
+          options: ['default', 'sm', 'lg', 'icon'],
         },
       ],
     })

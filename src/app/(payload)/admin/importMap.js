@@ -36,6 +36,7 @@ import { SlugComponent as SlugComponent_92cc057d0a2abb4f6cf0307edf59f986 } from 
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { LinkToDoc as LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
 import { ReindexButton as ReindexButton_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
+import { TextStateFeatureClient as TextStateFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { default as default_6b2353e3111548bdd4323abcc52ba5a0 } from '@/components/AdminDashboard/PayblocksIcon'
 import { default as default_53224279228825239c4a8482aaddfaa8 } from '@/components/AdminDashboard/PayblocksLogo'
 import { default as default_0a2ba52d3c78797a6b0937e7611782e5 } from '@/components/AdminDashboard/BackupDashboard'
@@ -82,6 +83,7 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/plugin-search/client#LinkToDoc": LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634,
   "@payloadcms/plugin-search/client#ReindexButton": ReindexButton_aead06e4cbf6b2620c5c51c9ab283634,
+  "@payloadcms/richtext-lexical/client#TextStateFeatureClient": TextStateFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@/components/AdminDashboard/PayblocksIcon#default": default_6b2353e3111548bdd4323abcc52ba5a0,
   "@/components/AdminDashboard/PayblocksLogo#default": default_53224279228825239c4a8482aaddfaa8,
   "@/components/AdminDashboard/BackupDashboard#default": default_0a2ba52d3c78797a6b0937e7611782e5,

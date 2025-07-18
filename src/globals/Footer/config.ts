@@ -5,8 +5,8 @@ import { revalidateFooter } from './hooks/revalidateFooter'
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import { serverUrl as NEXT_PUBLIC_SERVER_URL } from '@/config/server'
 import { socialIcon } from '@/components/SocialIcon/config'
-import { backgroundColor } from '@/fields/color'
 import { authenticated } from '@/access/authenticated'
+import { BoldFeature, FixedToolbarFeature, ItalicFeature, lexicalEditor, TextStateFeature } from '@payloadcms/richtext-lexical'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
@@ -40,16 +40,19 @@ export const Footer: GlobalConfig = {
     },
   },
   fields: [
-    backgroundColor,
+    // backgroundColor,
     {
       name: 'designVersion',
       type: 'select',
-      options: ['1', '2', '3', '4', '5', '6', '7', '8'],
+      options: ['4-custom', '1', '2', '3', '4', '5', '6', '7', '8'],
     },
     {
       name: 'logo',
       type: 'upload',
       relationTo: 'media',
+      admin: {
+        condition: (_, siblingData) => siblingData.designVersion !== '4-custom',
+      },
     },
     {
       name: 'copyright',
@@ -73,8 +76,40 @@ export const Footer: GlobalConfig = {
           siblingData.designVersion === '2' ||
           siblingData.designVersion === '6' ||
           siblingData.designVersion === '7' ||
-          siblingData.designVersion === '8',
+          siblingData.designVersion === '8'
       },
+    },
+    {
+      name: 'sublineRichText',
+      type: 'richText',
+      localized: true,
+      admin: {
+        condition: (_, siblingData) =>
+          siblingData.designVersion === '4-custom',
+      },
+      editor: lexicalEditor({
+        features: () => [
+          FixedToolbarFeature(),
+          BoldFeature(),
+          ItalicFeature(),
+          TextStateFeature({
+            state: {
+              color: {
+                'text-text-light': { css: { 'color': `#52575b`, }, label: 'Text Light' },
+                'text-text-default': { css: { 'color': `#ffffff`, }, label: 'Text Default' },
+              },
+            },
+          })
+        ],
+      }),
+    },
+    {
+      name: 'contactButton',
+      type: 'array',
+      fields: [
+        link()
+      ],
+      maxRows: 1,
     },
     /**
      * Legal links like imprint, privacy policy, etc. that are displayed at the bottom of the footer.
@@ -98,7 +133,8 @@ export const Footer: GlobalConfig = {
             version === '3' ||
             version === '4' ||
             version === '6' ||
-            version === '7'
+            version === '7' ||
+            version === '4-custom'
           )
         },
       },
@@ -109,7 +145,7 @@ export const Footer: GlobalConfig = {
           disableIcon: true,
         }),
       ],
-      maxRows: 3,
+      maxRows: 4,
     },
     /**
      * Social media links that are displayed in the footer
@@ -135,7 +171,8 @@ export const Footer: GlobalConfig = {
             version === '5' ||
             version === '6' ||
             version === '7' ||
-            version === '8'
+            version === '8' ||
+            version === '4-custom'
           )
         },
       },
@@ -175,10 +212,8 @@ export const Footer: GlobalConfig = {
               appearances: false,
             }),
           ],
-          maxRows: 6,
         },
       ],
-      maxRows: 3,
     },
   ],
   hooks: {

@@ -53,6 +53,10 @@ export const socialIconOptions = {
     label: 'Google Play',
     value: 'googleplay',
   },
+  vimeo: {
+    label: 'Vimeo',
+    value: 'vimeo',
+  },
 } as const
 
 export type SocialIconType = keyof typeof socialIconOptions

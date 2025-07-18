@@ -12,6 +12,7 @@ import {
   FaTiktok,
   FaTwitter,
   FaYoutube,
+  FaVimeo,
 } from 'react-icons/fa'
 
 import { SocialIconType } from './config'
@@ -30,6 +31,7 @@ const iconMap = {
   apple: FaApple,
   android: FaAndroid,
   googleplay: FaGooglePlay,
+  vimeo: FaVimeo,
 }
 
 export interface SocialIconProps {

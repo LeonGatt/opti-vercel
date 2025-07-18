@@ -39,6 +39,10 @@ type Props = {
   overrideStyle?: OverrideStyle
 }
 
+export const extractClassNames = (node: NodeTypes) => {
+  return node.$ ? Object.values(node.$).join(' ') : '';
+}
+
 export function serializeLexical({
   nodes,
   overrideStyle,
@@ -61,39 +65,40 @@ export function serializeLexical({
         if (node == null) {
           return null
         }
+        const classNames = extractClassNames(node);
         if (node.type === 'text') {
           let text = <React.Fragment key={index}>{node.text}</React.Fragment>
           if (node.format & IS_BOLD) {
-            text = <strong key={index}>{text}</strong>
+            text = <strong key={index} className={classNames}>{text}</strong>
           }
           if (node.format & IS_ITALIC) {
-            text = <em key={index}>{text}</em>
+            text = <em key={index} className={classNames}>{text}</em>
           }
           if (node.format & IS_STRIKETHROUGH) {
             text = (
-              <span key={index} style={{ textDecoration: 'line-through' }}>
+              <span key={index} className={cn('line-through', classNames)}>
                 {text}
               </span>
             )
           }
           if (node.format & IS_UNDERLINE) {
             text = (
-              <span key={index} style={{ textDecoration: 'underline' }}>
+              <span key={index} className={cn('underline', classNames)}>
                 {text}
               </span>
             )
           }
           if (node.format & IS_CODE) {
-            text = <code key={index}>{node.text}</code>
+            text = <code key={index} className={classNames}>{node.text}</code>
           }
           if (node.format & IS_SUBSCRIPT) {
-            text = <sub key={index}>{text}</sub>
+            text = <sub key={index} className={classNames}>{text}</sub>
           }
           if (node.format & IS_SUPERSCRIPT) {
-            text = <sup key={index}>{text}</sup>
+            text = <sup key={index} className={classNames}>{text}</sup>
           }
 
-          return text
+          return <span key={index} className={classNames}>{text}</span>
         }
 
         // NOTE: Hacky fix for

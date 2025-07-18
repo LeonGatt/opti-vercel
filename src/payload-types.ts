@@ -303,7 +303,7 @@ export interface Hero {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
       }[]
@@ -497,7 +497,7 @@ export interface FeatureBlock {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
       }[]
@@ -572,7 +572,7 @@ export interface FeatureBlock {
                  * Choose how the link should be rendered.
                  */
                 appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-                size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+                size?: ('default' | 'sm' | 'lg' | 'icon') | null;
               };
               id?: string | null;
             }[]
@@ -1092,7 +1092,7 @@ export interface CtaBlock {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
       }[]
@@ -1176,7 +1176,7 @@ export interface LogosBlock {
      * Choose how the link should be rendered.
      */
     appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+    size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   logos: (string | Media)[];
   id?: string | null;
@@ -1302,7 +1302,7 @@ export interface AboutBlock {
      * Choose how the link should be rendered.
      */
     appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+    size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   images?: (string | Media)[] | null;
   logos?: (string | Media)[] | null;
@@ -1634,7 +1634,7 @@ export interface TestimonialBlock {
      * Choose how the link should be rendered.
      */
     appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+    size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   testimonial?:
     | {
@@ -1674,7 +1674,7 @@ export interface TestimonialBlock {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
       }[]
@@ -1794,7 +1794,7 @@ export interface FaqBlock {
      * Choose how the link should be rendered.
      */
     appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+    size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   id?: string | null;
   blockName?: string | null;
@@ -1898,7 +1898,7 @@ export interface StatBlock {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
       }[]
@@ -2029,7 +2029,7 @@ export interface TextBlock {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
       }[]
@@ -3970,7 +3970,7 @@ export interface Header {
                      * Choose how the link should be rendered.
                      */
                     appearance?: ('default' | 'outline' | 'ghost' | 'secondary') | null;
-                    size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+                    size?: ('default' | 'sm' | 'lg' | 'icon') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -4131,7 +4131,7 @@ export interface Header {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
       }[]
@@ -4148,47 +4148,48 @@ export interface Header {
  */
 export interface Footer {
   id: string;
-  /**
-   * Choose the background color for this section. If left empty, the default color will be used.
-   */
-  backgroundColor?:
-    | (
-        | 'background'
-        | 'foreground'
-        | 'card'
-        | 'card-foreground'
-        | 'popover'
-        | 'popover-foreground'
-        | 'primary'
-        | 'primary-foreground'
-        | 'secondary'
-        | 'secondary-foreground'
-        | 'muted'
-        | 'muted-foreground'
-        | 'accent'
-        | 'accent-foreground'
-        | 'destructive'
-        | 'destructive-foreground'
-        | 'border'
-        | 'input'
-        | 'ring-3'
-        | 'success'
-        | 'warning'
-        | 'error'
-        | 'chart-1'
-        | 'chart-2'
-        | 'chart-3'
-        | 'chart-4'
-        | 'chart-5'
-        | 'muted2'
-        | 'muted2-foreground'
-        | 'transparent'
-      )
-    | null;
-  designVersion?: ('1' | '2' | '3' | '4' | '5' | '6' | '7' | '8') | null;
+  designVersion?: ('4-custom' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8') | null;
   logo?: (string | null) | Media;
   copyright?: string | null;
   subline?: string | null;
+  sublineRichText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  contactButton?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
   /**
    * Legal links like imprint, privacy policy, etc.
    */
@@ -4226,7 +4227,8 @@ export interface Footer {
           | 'tiktok'
           | 'apple'
           | 'android'
-          | 'googleplay';
+          | 'googleplay'
+          | 'vimeo';
         url: string;
         id?: string | null;
       }[]
@@ -4557,11 +4559,30 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  backgroundColor?: T;
   designVersion?: T;
   logo?: T;
   copyright?: T;
   subline?: T;
+  sublineRichText?: T;
+  contactButton?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+              appearance?: T;
+              size?: T;
+            };
+        id?: T;
+      };
   legalLinks?:
     | T
     | {
