@@ -13,6 +13,7 @@ const SEED_DUMP_URL =
   env.SERVER_URL + '/seed/demo-payblocks---demo-payblocks.trieb.work---1739813600714.json'
 
 const SEED_OPTITRACK_GLOBALS_URL = env.SERVER_URL + '/seed/optitrack-globals-seed.json'
+const SEED_OPTITRACK_PAGES_URL = env.SERVER_URL + '/seed/optitrack-pages-seed.json'
 
 const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
   if (!user) return
@@ -90,7 +91,7 @@ const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
       {process.env.DATABASE_URI && (
         <div style={{ marginTop: '20px' }}>
           Here you can seed the database with the optitrack seed - currently only for the{' '}
-          <strong>footer</strong> and <strong>header</strong>.<br />
+          <strong>footer</strong>, <strong>header</strong> and <strong>homepage</strong>.<br />
           <Popup
             className="btn-inline btn-right"
             button={
@@ -113,6 +114,7 @@ const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
                 'use server'
                 await restoreSeedMedia()
                 await restoreBackup(SEED_OPTITRACK_GLOBALS_URL, ['users', 'roles'], false) // Restore globals configuration - replace
+                await restoreBackup(SEED_OPTITRACK_PAGES_URL, ['users', 'roles'], true) // Restore pages configuration - merge
                 revalidatePath('/admin')
               }}
             >

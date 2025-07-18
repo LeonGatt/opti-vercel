@@ -529,7 +529,7 @@ export interface FeatureBlock {
   USPs?:
     | {
         uspIcon?: string | null;
-        tagline: string;
+        tagline?: string | null;
         richText?: {
           root: {
             type: string;

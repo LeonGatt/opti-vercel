@@ -484,7 +484,8 @@ export const FeatureBlock: Block = {
         {
           name: 'tagline',
           type: 'text',
-          required: createBlockItemCondition(['FEATURE111-custom']) ? true : false,
+          // required: createBlockItemCondition(['FEATURE111-custom']) ? true : false,
+
           localized: true,
           admin: {
             // conditions on sibling fields are unfortunatly currently not possible in payload
@@ -496,8 +497,8 @@ export const FeatureBlock: Block = {
           localized: true,
           admin: {
             condition: (data, siblingData) => {
-              const layout = data.layout.find((l) =>
-                l.USPs.some((usp) => usp.id === siblingData.id),
+              const layout = data?.layout?.find((l) =>
+                l?.USPs?.some((usp) => usp.id === siblingData.id),
               )
 
               return (
@@ -537,7 +538,7 @@ export const FeatureBlock: Block = {
 
               // Find the feature block that contains our current USP
               const currentFeatureBlock = featureBlocks.find((block) =>
-                block.USPs?.some(
+                block?.USPs?.some(
                   (usp) =>
                     // Compare USP fields to identify the current one
                     usp.tagline === siblingData.tagline && usp.image === siblingData.image,
@@ -562,7 +563,7 @@ export const FeatureBlock: Block = {
 
                   // Find the feature block that contains our current USP
                   const currentFeatureBlock = featureBlocks.find((block) =>
-                    block.USPs?.some(
+                    block?.USPs?.some(
                       (usp) =>
                         // Compare USP fields to identify the current one
                         usp.tagline === siblingData.tagline && usp.image === siblingData.image,
@@ -587,7 +588,8 @@ export const FeatureBlock: Block = {
         linkGroup({
           disableIcon: true,
           overrides: {
-            maxRows: createBlockItemCondition(['FEATURE111-custom']) ? 3 : 2,
+            // maxRows: createBlockItemCondition(['FEATURE111-custom']) ? 3 : 2,
+            maxRows: 3,
             admin: {
               condition: (data, _) => {
                 const designVersion = data.layout.find(
