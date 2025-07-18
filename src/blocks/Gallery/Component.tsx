@@ -5,6 +5,7 @@ import Gallery3Custom from '@/blocks/Gallery/gallery3-custom'
 import Gallery4 from '@/blocks/Gallery/gallery4'
 import Gallery5 from '@/blocks/Gallery/gallery5'
 import Gallery6 from '@/blocks/Gallery/gallery6'
+import Gallery6Custom from '@/blocks/Gallery/gallery6-custom'
 import { Gallery25 } from '@/blocks/Gallery/gallery25'
 import { Gallery26 } from '@/blocks/Gallery/gallery26'
 import { Page } from '@/payload-types'
@@ -28,6 +29,7 @@ const galleries: Gallery = {
   GALLERY25: Gallery25,
   GALLERY26: Gallery26,
   'GALLERY3-custom': Gallery3Custom,
+  'GALLERY6-custom': Gallery6Custom,
 }
 
 export const GalleryBlock: React.FC<Page['layout'][0]> = (props) => {

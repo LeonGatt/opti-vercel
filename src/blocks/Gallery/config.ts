@@ -34,6 +34,11 @@ export const allGalleryDesignVersions = [
     image: '/admin/previews/gallery/gallery6.jpeg',
   },
   {
+    label: 'Gallery 6 (Custom)',
+    value: 'GALLERY6-custom',
+    image: '/admin/previews/gallery/gallery6-custom.jpg',
+  },
+  {
     label: 'Gallery 25 (4 Column Grid)',
     value: 'GALLERY25',
     image: '/admin/previews/gallery/gallery25.webp',
@@ -71,9 +76,14 @@ export const Gallery: Block = {
       admin: {
         description: 'Optional heading and description for the gallery',
         condition: (_, { designVersion = '' } = {}) =>
-          !['GALLERY1', 'GALLERY3', 'GALLERY25', 'GALLERY26', 'GALLERY3-custom'].includes(
-            designVersion,
-          ),
+          ![
+            'GALLERY1',
+            'GALLERY3',
+            'GALLERY25',
+            'GALLERY26',
+            'GALLERY3-custom',
+            'GALLERY6-custom',
+          ].includes(designVersion),
       },
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [
@@ -89,7 +99,7 @@ export const Gallery: Block = {
       localized: true,
       admin: {
         condition: (_, { designVersion = '' } = {}) =>
-          ['GALLERY3', 'GALLERY6', 'GALLERY3-custom'].includes(designVersion),
+          ['GALLERY3', 'GALLERY6', 'GALLERY3-custom', 'GALLERY6-custom'].includes(designVersion),
       },
     },
     link({
@@ -183,6 +193,7 @@ export const Gallery: Block = {
               'GALLERY4',
               'GALLERY5',
               'GALLERY6',
+              'GALLERY6-custom',
               'GALLERY3-custom',
             ]),
           },
@@ -195,7 +206,6 @@ export const Gallery: Block = {
           }),
         },
         link({
-          appearances: false,
           overrides: {
             admin: {
               condition: createBlockItemCondition([
@@ -203,6 +213,7 @@ export const Gallery: Block = {
                 'GALLERY4',
                 'GALLERY5',
                 'GALLERY6',
+                'GALLERY6-custom',
                 'GALLERY3-custom',
               ]),
             },
@@ -216,6 +227,35 @@ export const Gallery: Block = {
           admin: {
             condition: createBlockItemCondition(['GALLERY3', 'GALLERY3-custom']),
           },
+        },
+        {
+          name: 'cta_button',
+          label: 'CTA Button',
+          type: 'group',
+          required: false,
+          admin: {
+            description: 'Optional button',
+            condition: createBlockItemCondition(['GALLERY6-custom']),
+          },
+          fields: [
+            {
+              name: 'label',
+              type: 'text',
+              required: false,
+            },
+            {
+              name: 'url',
+              label: 'Custom URL',
+              type: 'text',
+              required: false,
+            },
+            {
+              name: 'variant',
+              type: 'select',
+              options: ['default', 'secondary', 'outline', 'ghost', 'destructive', 'link'],
+              required: false,
+            },
+          ],
         },
       ],
     },

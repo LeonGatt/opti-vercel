@@ -457,3 +457,7 @@
 a {
   cursor: pointer;
 }
+
+.rich-text-strong strong {
+  color: var(--text-default-color);
+}

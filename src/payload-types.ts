@@ -1464,7 +1464,15 @@ export interface GalleryBlock {
         | 'transparent'
       )
     | null;
-  designVersion: 'GALLERY3' | 'GALLERY3-custom' | 'GALLERY4' | 'GALLERY5' | 'GALLERY6' | 'GALLERY25' | 'GALLERY26';
+  designVersion:
+    | 'GALLERY3'
+    | 'GALLERY3-custom'
+    | 'GALLERY4'
+    | 'GALLERY5'
+    | 'GALLERY6'
+    | 'GALLERY6-custom'
+    | 'GALLERY25'
+    | 'GALLERY26';
   /**
    * Optional heading and description for the gallery
    */
@@ -1565,8 +1573,21 @@ export interface GalleryBlock {
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         label?: string | null;
+        /**
+         * Optional button
+         */
+        cta_button?: {
+          label?: string | null;
+          url?: string | null;
+          variant?: ('default' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'link') | null;
+        };
         id?: string | null;
       }[]
     | null;
@@ -3393,8 +3414,17 @@ export interface GalleryBlockSelect<T extends boolean = true> {
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
+              appearance?: T;
+              size?: T;
             };
         label?: T;
+        cta_button?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              variant?: T;
+            };
         id?: T;
       };
   id?: T;
