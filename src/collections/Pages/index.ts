@@ -19,6 +19,7 @@ import { MediaBlock } from '@/blocks/MediaBlock/config'
 import { hero } from '@/heros/config'
 import { CustomBlock } from '@/blocks/CustomBlock/config'
 import { ChangelogBlock } from '@/blocks/Changelog/config'
+import { HeroBlock } from '@/blocks/Hero/config'
 
 import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '@/hooks/populatePublishedAt'
@@ -128,6 +129,7 @@ export const Pages: CollectionConfig = {
                 TimelineBlock,
                 LoginBlock,
                 SignupBlock,
+                HeroBlock,
                 BentoBoxBlock,
               ],
               required: true,

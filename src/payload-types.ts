@@ -168,6 +168,7 @@ export interface Page {
     | TimelineBlock
     | LoginBlock
     | SignupBlock
+    | HeroBlock
     | BentoBoxBlock
   )[];
   meta?: {
@@ -357,6 +358,10 @@ export interface Hero {
    * Enable high impact mode for the hero section.
    */
   highImpact?: boolean | null;
+  /**
+   * Enable dark mode for the hero section.
+   */
+  darkMode?: boolean | null;
   presentationVideo?: {
     label?: string | null;
     videoUrl?: string | null;
@@ -2531,6 +2536,108 @@ export interface SignupBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  /**
+   * Choose the background color for this section. If left empty, the default color will be used.
+   */
+  backgroundColor?:
+    | (
+        | 'background'
+        | 'foreground'
+        | 'card'
+        | 'card-foreground'
+        | 'popover'
+        | 'popover-foreground'
+        | 'primary'
+        | 'primary-foreground'
+        | 'secondary'
+        | 'secondary-foreground'
+        | 'muted'
+        | 'muted-foreground'
+        | 'accent'
+        | 'accent-foreground'
+        | 'destructive'
+        | 'destructive-foreground'
+        | 'border'
+        | 'input'
+        | 'ring-3'
+        | 'success'
+        | 'warning'
+        | 'error'
+        | 'chart-1'
+        | 'chart-2'
+        | 'chart-3'
+        | 'chart-4'
+        | 'chart-5'
+        | 'muted2'
+        | 'muted2-foreground'
+        | 'transparent'
+      )
+    | null;
+  designVersion: 'HERO1-custom';
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+          iconBefore?: string | null;
+          iconAfter?: string | null;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  images?: (string | Media)[] | null;
+  /**
+   * Choose the horizontal alignment of the hero content.
+   */
+  horizontalAlignment?: ('left' | 'center' | 'right') | null;
+  /**
+   * Choose the vertical alignment of the hero content.
+   */
+  verticalAlignment?: ('top' | 'middle' | 'bottom') | null;
+  /**
+   * Enable high impact mode for the hero section.
+   */
+  highImpact?: boolean | null;
+  /**
+   * Enable dark mode for the hero section.
+   */
+  darkMode?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "BentoBoxBlock".
  */
 export interface BentoBoxBlock {
@@ -2608,7 +2715,7 @@ export interface BentoBoxBlock {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-          size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+          size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
       }[]
@@ -2656,7 +2763,7 @@ export interface BentoBoxBlock {
                  * Choose how the link should be rendered.
                  */
                 appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
-                size?: ('default' | 'sm' | 'lg' | 'icon' | 'clear') | null;
+                size?: ('default' | 'sm' | 'lg' | 'icon') | null;
               };
               id?: string | null;
             }[]
@@ -2874,6 +2981,7 @@ export interface PagesSelect<T extends boolean = true> {
         timeline?: T | TimelineBlockSelect<T>;
         login?: T | LoginBlockSelect<T>;
         signup?: T | SignupBlockSelect<T>;
+        hero?: T | HeroBlockSelect<T>;
         bentobox?: T | BentoBoxBlockSelect<T>;
       };
   meta?:
@@ -2979,6 +3087,7 @@ export interface HeroSelect<T extends boolean = true> {
   horizontalAlignment?: T;
   verticalAlignment?: T;
   highImpact?: T;
+  darkMode?: T;
   presentationVideo?:
     | T
     | {
@@ -3651,6 +3760,41 @@ export interface SignupBlockSelect<T extends boolean = true> {
   googleText?: T;
   facebookText?: T;
   appleText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock_select".
+ */
+export interface HeroBlockSelect<T extends boolean = true> {
+  backgroundColor?: T;
+  designVersion?: T;
+  richText?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
+              iconBefore?: T;
+              iconAfter?: T;
+              appearance?: T;
+              size?: T;
+            };
+        id?: T;
+      };
+  images?: T;
+  horizontalAlignment?: T;
+  verticalAlignment?: T;
+  highImpact?: T;
+  darkMode?: T;
   id?: T;
   blockName?: T;
 }

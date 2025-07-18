@@ -29,9 +29,9 @@ const Navbar4: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicCo
   const navItems = header.richItems || []
 
   return (
-    <section className="inset-x-0 top-0 z-50 bg-background">
+    <section className="bg-background inset-x-0 top-0 z-50">
       <div className="container">
-        <NavigationMenu className="min-w-full relative z-50">
+        <NavigationMenu className="relative z-50 min-w-full">
           <div className="flex w-full justify-between gap-2 py-4">
             <CMSLink publicContext={publicContext} url={'/'} className="flex items-center gap-2">
               <Media resource={header.logo} className="h-9" imgClassName="h-full w-auto" priority />
@@ -57,7 +57,7 @@ const Navbar4: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicCo
                           {item.icon && <Icon icon={item.icon} className="mr-2 h-4 w-4" />}
                           {item.label}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent className="min-w-[calc(100vw-4rem)] p-12 2xl:min-w-[calc(1400px-4rem)] z-50">
+                        <NavigationMenuContent className="z-50 min-w-[calc(100vw-4rem)] p-12 2xl:min-w-[calc(1400px-4rem)]">
                           <BlockRenderer blocks={item.blocks} publicContext={publicContext} />
                         </NavigationMenuContent>
                       </NavigationMenuItem>
@@ -73,7 +73,7 @@ const Navbar4: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicCo
                   key={btn.id}
                   publicContext={publicContext}
                   {...btn.link}
-                  className="hidden md:inline-flex items-center justify-center"
+                  className="hidden items-center justify-center md:inline-flex"
                 />
               ))}
               <Button
@@ -98,7 +98,7 @@ const Navbar4: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicCo
 
           {/* Mobile Menu */}
           {open && (
-            <div className="fixed inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-scroll border-t border-border bg-background lg:hidden">
+            <div className="border-border bg-background fixed inset-0 top-[72px] flex h-[calc(100vh-72px)] w-full flex-col overflow-scroll border-t lg:hidden">
               {submenu && (
                 <div className="mt-3 px-[1rem]">
                   <Button variant="link" onClick={() => setSubmenu(null)}>
@@ -116,7 +116,7 @@ const Navbar4: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicCo
                           key={item.id}
                           publicContext={publicContext}
                           {...item.link}
-                          className="flex w-full items-center border-b border-border px-8 py-6 text-left font-medium"
+                          className="border-border flex w-full items-center border-b px-8 py-6 text-left font-medium"
                         />
                       )
                     } else if (item.blockType === 'submenu' || item.blockType === 'sub') {
@@ -124,7 +124,7 @@ const Navbar4: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicCo
                         <button
                           key={item.id}
                           type="button"
-                          className="flex w-full items-center border-b border-border px-8 py-6 text-left"
+                          className="border-border flex w-full items-center border-b px-8 py-6 text-left"
                           onClick={() => setSubmenu(item.id as string)}
                         >
                           <span className="flex-1 text-sm font-medium">
@@ -164,14 +164,14 @@ const Navbar4: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicCo
                               key={subitem.id}
                               publicContext={publicContext}
                               {...subitem.link}
-                              className="group flex flex-col gap-2 rounded-lg border p-4 hover:border-foreground/50"
+                              className="group hover:border-foreground/50 flex flex-col gap-2 rounded-lg border p-4"
                             >
                               {subitem.link.iconBefore && (
                                 <Icon icon={subitem.link.iconBefore} className="size-8" />
                               )}
                               <div>
                                 <h3 className="font-medium">{subitem.link.label}</h3>
-                                <p className="text-sm text-muted-foreground">
+                                <p className="text-muted-foreground text-sm">
                                   {subitem.Description}
                                 </p>
                               </div>

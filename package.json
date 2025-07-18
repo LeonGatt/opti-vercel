@@ -15,8 +15,8 @@
     "tsc": "cross-env NODE_OPTIONS=--no-deprecation tsc --noEmit",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "lint:fix": "cross-env NODE_OPTIONS=--no-deprecation next lint --fix",
-    "format": "cross-env NODE_OPTIONS=--no-deprecation prettier --write .",
-    "format:fix": "cross-env NODE_OPTIONS=--no-deprecation prettier --check . && cross-env NODE_OPTIONS=--no-deprecation prettier --write .",
+    "format": "cross-env NODE_OPTIONS=--no-deprecation prettier --check .",
+    "format:fix": "cross-env NODE_OPTIONS=--no-deprecation prettier --write .",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
@@ -143,11 +143,12 @@
     "playwright": "^1.53.2",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "styled-jsx": "^5.1.7",
     "tailwindcss": "^4.1.6",
     "typescript": "5.6.3",
     "vite": "^6.3.5",
-    "vitest": "^3.2.2",
-    "styled-jsx": "^5.1.7"
+    "vitest": "^3.2.2"
   },
   "engines": {
     "node": "^18.20.2 || ^20.9.0 || ^23.6.0"

@@ -8,7 +8,6 @@ import { Footer } from '@/globals/Footer/Component'
 import { Header } from '@/globals/Header/Component'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { Providers } from '@/providers'
-import { InitTheme } from '@/providers/Theme/InitTheme'
 import { draftMode } from 'next/headers'
 
 import { resolveSlugs } from '@/utilities/resolveSlugs'

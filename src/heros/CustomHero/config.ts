@@ -1,5 +1,6 @@
 import { Field } from 'payload'
-import { HeroHorizontalAlignment, HeroVerticalAlignment } from './HighImpactHero'
+import { HeroHorizontalAlignment, HeroVerticalAlignment } from '@/components/uiCustom/HeroCustom'
+import { darkMode } from '@/fields/darkMode'
 
 /**
  * We define here just additional config fields for the custom heros, that gets merged with the default ones
@@ -13,7 +14,7 @@ export const customHeroFields: Field[] = [
       label,
       value,
     })),
-    defaultValue: HeroHorizontalAlignment.Left,
+    defaultValue: HeroHorizontalAlignment.left,
     admin: {
       description: 'Choose the horizontal alignment of the hero content.',
 
@@ -28,7 +29,7 @@ export const customHeroFields: Field[] = [
       label,
       value,
     })),
-    defaultValue: HeroVerticalAlignment.Middle,
+    defaultValue: HeroVerticalAlignment.middle,
     admin: {
       description: 'Choose the vertical alignment of the hero content.',
       condition: (_, { designVersion = '' } = {}) => ['customHighImpact'].includes(designVersion),
@@ -44,4 +45,11 @@ export const customHeroFields: Field[] = [
       condition: (_, { designVersion = '' } = {}) => ['customHighImpact'].includes(designVersion),
     },
   },
+  darkMode({
+    overrides: {
+      admin: {
+        condition: (_, { designVersion = '' } = {}) => ['customHighImpact'].includes(designVersion),
+      },
+    },
+  }),
 ]

@@ -27,16 +27,16 @@ import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/LanguageS
 import { PublicContextProps } from '@/utilities/publicContextProps'
 import { HeaderNonNullableLogo } from '../Component'
 
-export const Navbar1: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicContextProps }> = ({
-  header,
-  publicContext,
-}) => {
+export const Navbar1: React.FC<{
+  header: HeaderNonNullableLogo
+  publicContext: PublicContextProps
+}> = ({ header, publicContext }) => {
   return (
-    <section className="py-32 z-50">
+    <section className="z-50 py-32">
       <div className="container">
         {/* Desktop Navigation */}
-        <nav className="hidden justify-between lg:flex z-50">
-          <div className="flex items-center gap-6 z-50">
+        <nav className="z-50 hidden justify-between lg:flex">
+          <div className="z-50 flex items-center gap-6">
             <div className="flex items-center gap-2">
               <Media resource={header.logo} priority />
             </div>
@@ -77,7 +77,7 @@ export const Navbar1: React.FC<{ header: HeaderNonNullableLogo; publicContext: P
                                     <CMSLink
                                       publicContext={publicContext}
                                       className={cn(
-                                        'flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                                        'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none',
                                       )}
                                       {...subitem.link}
                                       label=""
@@ -91,7 +91,7 @@ export const Navbar1: React.FC<{ header: HeaderNonNullableLogo; publicContext: P
                                         <div className="text-sm font-semibold">
                                           {subitem.link.label}
                                         </div>
-                                        <p className="text-sm leading-snug text-muted-foreground">
+                                        <p className="text-muted-foreground text-sm leading-snug">
                                           {subitem.Description}
                                         </p>
                                       </div>
@@ -110,7 +110,7 @@ export const Navbar1: React.FC<{ header: HeaderNonNullableLogo; publicContext: P
             </div>
           </div>
           {/* Right Button Group */}
-          <div className="flex gap-2 z-50">
+          <div className="z-50 flex gap-2">
             {header?.buttons?.map((btn) => (
               <CMSLink publicContext={publicContext} key={btn.id} {...btn.link} size="sm" />
             ))}
@@ -173,7 +173,7 @@ export const Navbar1: React.FC<{ header: HeaderNonNullableLogo; publicContext: P
                                   publicContext={publicContext}
                                   key={subitem.id}
                                   className={cn(
-                                    'flex select-none gap-4 rounded-md p-3 leading-none outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                                    'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex gap-4 rounded-md p-3 leading-none outline-hidden transition-colors select-none',
                                   )}
                                   {...subitem.link}
                                   label=""
@@ -187,7 +187,7 @@ export const Navbar1: React.FC<{ header: HeaderNonNullableLogo; publicContext: P
                                     <div className="text-sm font-semibold">
                                       {subitem.link.label}
                                     </div>
-                                    <p className="text-sm leading-snug text-muted-foreground">
+                                    <p className="text-muted-foreground text-sm leading-snug">
                                       {subitem.Description}
                                     </p>
                                   </div>

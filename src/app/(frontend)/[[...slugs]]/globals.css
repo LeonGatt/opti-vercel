@@ -352,11 +352,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased cursor-default;
+    @apply bg-background text-foreground cursor-default antialiased;
     font-family: var(--font-body);
   }
   .contentWrapper {
-    @apply min-h-[100vh] flex flex-col;
+    @apply flex min-h-[100vh] flex-col;
   }
   a,
   button {
@@ -364,7 +364,7 @@
   }
 
   .container {
-    @apply mx-auto w-full px-3 sm:px-6 !max-w-[1400px];
+    @apply mx-auto w-full !max-w-[1400px] px-3 sm:px-6;
   }
   .styled-tags,
   .payload-richtext {
@@ -374,35 +374,35 @@
     h4,
     h5,
     h6 {
-      @apply font-bold text-foreground;
+      @apply text-foreground font-bold;
       font-family: var(--font-heading);
     }
     h1 {
-      @apply lg:text-5xl text-3xl mb-6 last:mb-0;
+      @apply mb-6 text-3xl last:mb-0 lg:text-5xl;
     }
     h2 {
-      @apply lg:text-4xl text-3xl mt-10 mb-6 last:mb-0;
+      @apply mt-10 mb-6 text-3xl last:mb-0 lg:text-4xl;
     }
     h3 {
-      @apply text-3xl mt-8 mb-6 last:mb-0;
+      @apply mt-8 mb-6 text-3xl last:mb-0;
     }
     h4,
     h5,
     h6 {
-      @apply text-2xl mt-8 mb-6 last:mb-0;
+      @apply mt-8 mb-6 text-2xl last:mb-0;
     }
     p {
-      @apply text-base my-6 last:mb-0;
+      @apply my-6 text-base last:mb-0;
       font-family: var(--font-body);
     }
     a {
       @apply underline;
     }
     table {
-      @apply my-6 last:mb-0 w-full;
+      @apply my-6 w-full last:mb-0;
       td,
       th {
-        @apply px-4 py-2 border-border border-solid border-1 text-left;
+        @apply border-border border-1 border-solid px-4 py-2 text-left;
       }
 
       tbody {
@@ -412,20 +412,20 @@
       }
     }
     ul {
-      @apply my-6 last:mb-0 pl-6 flex flex-col gap-2;
+      @apply my-6 flex flex-col gap-2 pl-6 last:mb-0;
       li {
-        @apply pl-6 relative;
+        @apply relative pl-6;
         &:before {
           content: '';
-          @apply size-1 absolute left-2.5 bg-foreground rounded-full top-2.5;
+          @apply bg-foreground absolute top-2.5 left-2.5 size-1 rounded-full;
         }
       }
     }
     blockquote {
-      @apply my-6 last:mb-0 text-base pl-6 relative;
+      @apply relative my-6 pl-6 text-base last:mb-0;
       &::before {
         content: '';
-        @apply absolute left-0 top-0 w-0.5 h-full bg-border;
+        @apply bg-border absolute top-0 left-0 h-full w-0.5;
       }
     }
   }
