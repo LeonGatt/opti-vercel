@@ -2,6 +2,7 @@ import type { Field } from 'payload'
 
 import deepMerge from '@/utilities/deepMerge'
 import { icon } from '@/components/Icon/config'
+import { CustomButtonSizes, CustomButtonVariants } from '@/types/button'
 
 export type LinkAppearances =
   | 'default'
@@ -11,7 +12,7 @@ export type LinkAppearances =
   | 'ghost'
   | 'secondary'
 
-export const appearanceOptions: Record<LinkAppearances, { label: string; value: string }> = {
+export const appearanceOptions: Record<CustomButtonVariants, { label: string; value: string }> = {
   default: {
     label: 'Default',
     value: 'default',
@@ -20,9 +21,9 @@ export const appearanceOptions: Record<LinkAppearances, { label: string; value: 
     label: 'Outline',
     value: 'outline',
   },
-  inline: {
-    label: 'Inline',
-    value: 'inline',
+  link: {
+    label: 'Link',
+    value: 'link',
   },
   destructive: {
     label: 'Destructive',
@@ -39,11 +40,11 @@ export const appearanceOptions: Record<LinkAppearances, { label: string; value: 
 }
 
 type LinkType = (options?: {
-  appearances?: LinkAppearances[] | false
+  appearances?: CustomButtonVariants[] | false
   disableLabel?: boolean
   disableIcon?: boolean
   overrides?: Record<string, unknown>
-  size?: 'default' | 'sm' | 'lg' | 'icon'
+  size?: CustomButtonSizes[]
 }) => Field
 
 export const link: LinkType = ({

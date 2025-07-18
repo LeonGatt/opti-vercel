@@ -304,7 +304,7 @@ export interface Hero {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -456,6 +456,7 @@ export interface FeatureBlock {
     | 'FEATURE25'
     | 'FEATURE50'
     | 'FEATURE53'
+    | 'FEATURE54-custom'
     | 'FEATURE57'
     | 'FEATURE70'
     | 'FEATURE72'
@@ -469,7 +470,14 @@ export interface FeatureBlock {
     | 'FEATURE126';
   badge?: string | null;
   tagline?: string | null;
+  /**
+   * Fills out features from description
+   */
+  fillFromDescription?: boolean | null;
   icon?: string | null;
+  /**
+   * Fill out block description fields
+   */
   richText?: {
     root: {
       type: string;
@@ -502,7 +510,7 @@ export interface FeatureBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -572,12 +580,10 @@ export interface FeatureBlock {
                 section?: string | null;
                 url?: string | null;
                 label: string;
-                iconBefore?: string | null;
-                iconAfter?: string | null;
                 /**
                  * Choose how the link should be rendered.
                  */
-                appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+                appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
                 size?: ('default' | 'sm' | 'lg' | 'icon') | null;
               };
               id?: string | null;
@@ -1097,7 +1103,7 @@ export interface CtaBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -1181,7 +1187,7 @@ export interface LogosBlock {
     /**
      * Choose how the link should be rendered.
      */
-    appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+    appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
     size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   logos: (string | Media)[];
@@ -1307,7 +1313,7 @@ export interface AboutBlock {
     /**
      * Choose how the link should be rendered.
      */
-    appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+    appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
     size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   images?: (string | Media)[] | null;
@@ -1640,7 +1646,7 @@ export interface TestimonialBlock {
     /**
      * Choose how the link should be rendered.
      */
-    appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+    appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
     size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   testimonial?:
@@ -1680,7 +1686,7 @@ export interface TestimonialBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -1800,7 +1806,7 @@ export interface FaqBlock {
     /**
      * Choose how the link should be rendered.
      */
-    appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+    appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
     size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   id?: string | null;
@@ -1904,7 +1910,7 @@ export interface StatBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -2035,7 +2041,7 @@ export interface TextBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -2610,7 +2616,7 @@ export interface HeroBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -2715,7 +2721,7 @@ export interface BentoBoxBlock {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -2763,7 +2769,7 @@ export interface BentoBoxBlock {
                 /**
                  * Choose how the link should be rendered.
                  */
-                appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+                appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
                 size?: ('default' | 'sm' | 'lg' | 'icon') | null;
               };
               id?: string | null;
@@ -3113,6 +3119,7 @@ export interface FeatureBlockSelect<T extends boolean = true> {
   designVersion?: T;
   badge?: T;
   tagline?: T;
+  fillFromDescription?: T;
   icon?: T;
   richText?: T;
   links?:
@@ -3168,8 +3175,6 @@ export interface FeatureBlockSelect<T extends boolean = true> {
                     section?: T;
                     url?: T;
                     label?: T;
-                    iconBefore?: T;
-                    iconAfter?: T;
                     appearance?: T;
                     size?: T;
                   };
@@ -4464,7 +4469,7 @@ export interface Header {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;
@@ -4518,7 +4523,7 @@ export interface Footer {
           /**
            * Choose how the link should be rendered.
            */
-          appearance?: ('default' | 'outline' | 'inline' | 'destructive' | 'ghost' | 'secondary') | null;
+          appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         id?: string | null;

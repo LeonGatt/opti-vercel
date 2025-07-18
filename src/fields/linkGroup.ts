@@ -1,22 +1,23 @@
 import type { ArrayField, Field } from 'payload'
 
-import type { LinkAppearances } from './link'
-
 import deepMerge from '@/utilities/deepMerge'
 import { link } from './link'
+import { CustomButtonVariants } from '@/types/button'
 
 type LinkGroupType = (options?: {
-  appearances?: LinkAppearances[] | false
+  appearances?: false | CustomButtonVariants[]
   overrides?: Partial<ArrayField>
+  disableIcon?: boolean
 }) => Field
 
-export const linkGroup: LinkGroupType = ({ appearances, overrides = {} } = {}) => {
+export const linkGroup: LinkGroupType = ({ appearances, overrides = {}, disableIcon } = {}) => {
   const generatedLinkGroup: Field = {
     name: 'links',
     type: 'array',
     fields: [
       link({
         appearances,
+        disableIcon,
       }),
     ],
   }

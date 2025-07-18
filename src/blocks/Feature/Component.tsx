@@ -46,6 +46,7 @@ import Feature51 from '@/blocks/Feature/feature51'
 import Feature52 from '@/blocks/Feature/feature52'
 import Feature53 from '@/blocks/Feature/feature53'
 import Feature54 from '@/blocks/Feature/feature54'
+import Feature54Custom from '@/blocks/Feature/feature54-custom'
 import Feature55 from '@/blocks/Feature/feature55'
 import Feature56 from '@/blocks/Feature/feature56'
 import Feature57 from '@/blocks/Feature/feature57'
@@ -102,7 +103,7 @@ import Feature117 from '@/blocks/Feature/feature117'
 import Feature126 from '@/blocks/Feature/feature126'
 
 import { Page } from '@/payload-types'
-import { FeatureDesignVersion, allFeatureDesignVersions } from './config'
+import { FeatureDesignVersion } from './config'
 
 // Extract just the value property from FeatureDesignVersion for use as keys
 type FeatureDesignVersionValue = FeatureDesignVersion['value']
@@ -162,6 +163,7 @@ const features: Feature = {
   FEATURE52: Feature52,
   FEATURE53: Feature53,
   FEATURE54: Feature54,
+  'FEATURE54-custom': Feature54Custom,
   FEATURE55: Feature55,
   FEATURE56: Feature56,
   FEATURE57: Feature57,

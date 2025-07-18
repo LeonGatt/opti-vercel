@@ -16,6 +16,7 @@ import { Block } from 'payload'
 import { designVersionDescription } from '@/components/AdminDashboard/DesignVersionDescription'
 import { designVersionPreview } from '@/components/AdminDashboard/DesignVersionPreview/config'
 import { backgroundColor } from '@/fields/color'
+import { CustomButtonVariants } from '@/types/button'
 
 export const allFeatureDesignVersions = [
   {
@@ -82,6 +83,11 @@ export const allFeatureDesignVersions = [
     image: '/admin/previews/feature/feature53.jpeg',
   },
   // 'FEATURE54',
+  {
+    label: 'FEATURE54 Custom',
+    value: 'FEATURE54-custom',
+    image: '/admin/previews/feature/feature54-custom.jpg',
+  },
   // 'FEATURE55',
   // 'FEATURE56',
   {
@@ -218,7 +224,17 @@ export const FeatureBlock: Block = {
       localized: true,
       admin: {
         condition: (_, { designVersion = '' } = {}) =>
-          ['FEATURE99', 'FEATURE103', 'FEATURE25'].includes(designVersion),
+          ['FEATURE99', 'FEATURE103', 'FEATURE25', 'FEATURE54-custom'].includes(designVersion),
+      },
+    },
+    {
+      name: 'fillFromDescription',
+      label: 'Use Block Description',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        condition: (_, { designVersion = '' } = {}) => ['FEATURE54-custom'].includes(designVersion),
+        description: 'Fills out features from description',
       },
     },
     icon({
@@ -241,8 +257,9 @@ export const FeatureBlock: Block = {
       type: 'richText',
       localized: true,
       admin: {
-        condition: (_, { designVersion = '' } = {}) =>
-          ![
+        description: 'Fill out block description fields',
+        condition: (data = {}, siblingData = {}) => {
+          const forbiddenVersions = [
             'FEATURE14',
             'FEATURE28',
             'FEATURE37',
@@ -256,7 +273,15 @@ export const FeatureBlock: Block = {
             'FEATURE62',
             'FEATURE106',
             'FEATURE91',
-          ].includes(designVersion),
+          ]
+
+          const designVersion = data.designVersion || ''
+          if (forbiddenVersions.includes(designVersion)) {
+            return false
+          }
+
+          return siblingData.fillFromDescription
+        },
       },
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
@@ -378,9 +403,9 @@ export const FeatureBlock: Block = {
         },
       ],
     },
-
     {
       name: 'USPs',
+      label: 'Feature',
       type: 'array',
       admin: {
         condition: (_, { designVersion = '' } = {}) =>
@@ -399,6 +424,12 @@ export const FeatureBlock: Block = {
             'FEATURE86',
             'FEATURE90',
           ].includes(designVersion),
+      },
+      validate: (value, { siblingData }: any) => {
+        if (['FEATURE54-custom'].includes(siblingData?.designVersion)) {
+          return (Array.isArray(value) && value?.length <= 5) || 'You can only add up to 5 items.'
+        }
+        return true
       },
       fields: [
         icon({
@@ -453,7 +484,17 @@ export const FeatureBlock: Block = {
           name: 'richText',
           type: 'richText',
           localized: true,
-          admin: {},
+          admin: {
+            condition: (data, siblingData) => {
+              const layout = data.layout.find((l) =>
+                l.USPs.some((usp) => usp.id === siblingData.id),
+              )
+
+              return (
+                !layout.fillFromDescription && ['FEATURE54-custom'].includes(layout.designVersion)
+              )
+            },
+          },
           editor: lexicalEditor({
             features: ({ rootFeatures }) => {
               return [
@@ -532,6 +573,7 @@ export const FeatureBlock: Block = {
           ],
         },
         linkGroup({
+          disableIcon: true,
           overrides: {
             maxRows: 2,
             admin: {
@@ -539,7 +581,7 @@ export const FeatureBlock: Block = {
                 const designVersion = data.layout.find(
                   (block) => block.blockType === 'feature',
                 ).designVersion
-                return ['FEATURE70', 'FEATURE91'].includes(designVersion)
+                return ['FEATURE70', 'FEATURE91', 'FEATURE54-custom'].includes(designVersion)
               },
             },
           },
@@ -583,6 +625,7 @@ export const FeatureBlock: Block = {
               'FEATURE81',
               'FEATURE117',
               'FEATURE126',
+              'FEATURE54-custom',
             ]),
           },
           relationTo: 'media',
