@@ -8,6 +8,7 @@ const Hero21 = () => {
     <section className="mb-32 border-b pt-32">
       <div className="container">
         <div className="relative pb-16">
+          {/* Replace form media magicpattern */}
           <div className="magicpattern absolute inset-x-0 top-0 -z-10 flex size-full items-center justify-center opacity-100" />
           <a
             href="#"

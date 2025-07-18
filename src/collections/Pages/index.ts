@@ -41,6 +41,7 @@ import { CasestudiesBlock } from '@/blocks/Casestudies/config'
 import { TimelineBlock } from '@/blocks/Timeline/config'
 import { LoginBlock } from '@/blocks/Login/config'
 import { SignupBlock } from '@/blocks/Signup/config'
+import { BentoBoxBlock } from '@/blocks/BentoBox/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -127,6 +128,7 @@ export const Pages: CollectionConfig = {
                 TimelineBlock,
                 LoginBlock,
                 SignupBlock,
+                BentoBoxBlock,
               ],
               required: true,
             },
@@ -207,7 +209,7 @@ export const Pages: CollectionConfig = {
           en: 'Theme for the page',
         },
       },
-    }
+    },
   ],
   hooks: {
     afterChange: [revalidatePage],
