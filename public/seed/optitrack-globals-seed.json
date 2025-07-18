@@ -842,5 +842,730 @@
         }
       }
     }
+  ],
+  "pages": [
+    {
+      "_id": { "$oid": "687a3469274e1ea48c360be0" },
+      "createdAt": { "$date": "2025-07-18T11:47:53.228Z" },
+      "updatedAt": { "$date": "2025-07-18T12:47:31.349Z" },
+      "hero": {
+        "backgroundColor": null,
+        "designVersion": "customHighImpact",
+        "badgeLink": { "type": "reference" },
+        "buttonLink": { "type": "reference" },
+        "richText": {
+          "en": {
+            "root": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "detail": 0,
+                      "format": 0,
+                      "mode": "normal",
+                      "style": "",
+                      "text": "The World’s Most Precise Motion Capture",
+                      "type": "text",
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "format": "",
+                  "indent": 0,
+                  "type": "heading",
+                  "version": 1,
+                  "tag": "h1"
+                },
+                {
+                  "children": [
+                    {
+                      "detail": 0,
+                      "format": 0,
+                      "mode": "normal",
+                      "style": "",
+                      "text": "Optical motion capture technology is trusted by researchers, innovators, and industry leaders from around the world.",
+                      "type": "text",
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "format": "",
+                  "indent": 0,
+                  "type": "paragraph",
+                  "version": 1,
+                  "textFormat": 0,
+                  "textStyle": ""
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "root",
+              "version": 1
+            }
+          }
+        },
+        "links": [
+          {
+            "link": {
+              "type": "custom",
+              "url": { "en": "https://optitrack.com/about" },
+              "label": { "en": "Shop Solutions" },
+              "appearance": "default",
+              "size": "lg"
+            },
+            "id": "687a349d14a05fb07d97caae"
+          },
+          {
+            "link": {
+              "type": "custom",
+              "url": { "en": "https://optitrack.com/systems" },
+              "label": { "en": "Shop Solutions" },
+              "appearance": "outline",
+              "size": "lg"
+            },
+            "id": "687a350614a05fb07d97cab3"
+          }
+        ],
+        "images": [{ "$oid": "687a355b274e1ea48c360e03" }],
+        "USPs": [],
+        "statsItems": [
+          {
+            "title": { "en": "Courses by Experts" },
+            "value": { "en": "87" },
+            "id": "687a346968db9c3417834649"
+          },
+          {
+            "title": { "en": "Hours of Content" },
+            "value": { "en": "200+" },
+            "id": "687a346968db9c341783464a"
+          },
+          {
+            "title": { "en": "User Satisfaction Rating" },
+            "value": { "en": "100%" },
+            "id": "687a346968db9c341783464b"
+          }
+        ],
+        "pricing": {},
+        "horizontalAlignment": "left",
+        "verticalAlignment": "middle",
+        "highImpact": true,
+        "darkMode": true,
+        "presentationVideo": {
+          "label": {
+            "en": "Presentation Video",
+            "de": "Presentation Video",
+            "fr": "Presentation Video",
+            "ja": "Presentation Video",
+            "ko": "Presentation Video",
+            "pt": "Presentation Video",
+            "sk": "Presentation Video",
+            "zh": "Presentation Video"
+          }
+        },
+        "tabs": []
+      },
+      "layout": [
+        {
+          "blockType": "logos",
+          "designVersion": "LOGO3-custom",
+          "link": { "type": "reference", "appearance": "default" },
+          "logos": [
+            { "$oid": "687a35cb274e1ea48c360edc" },
+            { "$oid": "687a35cc274e1ea48c360ee1" },
+            { "$oid": "687a35cc274e1ea48c360ee6" },
+            { "$oid": "687a35cd274e1ea48c360eeb" },
+            { "$oid": "687a35cd274e1ea48c360ef0" },
+            { "$oid": "687a35cd274e1ea48c360ef5" },
+            { "$oid": "687a35ce274e1ea48c360efa" },
+            { "$oid": "687a35ce274e1ea48c360eff" },
+            { "$oid": "687a35cf274e1ea48c360f04" },
+            { "$oid": "687a35cf274e1ea48c360f09" },
+            { "$oid": "687a35cf274e1ea48c360f0e" }
+          ],
+          "id": "687a357214a05fb07d97cab6",
+          "blockName": "Logos"
+        },
+        {
+          "blockType": "text",
+          "content": {
+            "en": {
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "detail": 0,
+                        "format": 1,
+                        "mode": "normal",
+                        "style": "",
+                        "text": "We build motion capture tools",
+                        "type": "text",
+                        "version": 1
+                      },
+                      {
+                        "detail": 0,
+                        "format": 0,
+                        "mode": "normal",
+                        "style": "",
+                        "text": " that bring your vision to life—with the precision, reliability, and real-time performance you can trust.",
+                        "type": "text",
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "center",
+                    "indent": 0,
+                    "type": "heading",
+                    "version": 1,
+                    "tag": "h2"
+                  }
+                ],
+                "direction": "ltr",
+                "format": "",
+                "indent": 0,
+                "type": "root",
+                "version": 1,
+                "textFormat": 1
+              }
+            }
+          },
+          "links": [],
+          "id": "687a366d14a05fb07d97cab8",
+          "blockName": "Claim"
+        },
+        {
+          "blockType": "feature",
+          "designVersion": "FEATURE111-custom",
+          "tagline": { "en": "" },
+          "fillFromDescription": false,
+          "links": [],
+          "metrics": [],
+          "USPs": [
+            {
+              "tagline": { "en": "Cameras" },
+              "USPFeatures": [],
+              "links": [
+                {
+                  "link": {
+                    "type": "custom",
+                    "url": { "en": "https://optitrack.com/cameras/" },
+                    "label": { "en": "Shop Cameras >" },
+                    "appearance": "link"
+                  },
+                  "id": "687a3d9d3b51dda58d6028b9"
+                }
+              ],
+              "link": { "type": "reference" },
+              "imagePlacement": "bottom",
+              "image": { "$oid": "687a3a4e274e1ea48c361da3" },
+              "id": "687a3d8c3b51dda58d6028b7"
+            },
+            {
+              "tagline": { "en": "Software" },
+              "USPFeatures": [],
+              "links": [
+                {
+                  "link": {
+                    "type": "custom",
+                    "url": { "en": "https://optitrack.com/software/" },
+                    "label": { "en": "Shop Software >" },
+                    "appearance": "link"
+                  },
+                  "id": "687a3dc13b51dda58d6028cc"
+                }
+              ],
+              "link": { "type": "reference" },
+              "imagePlacement": "bottom",
+              "image": { "$oid": "687a3a7a274e1ea48c361e15" },
+              "id": "687a3dc13b51dda58d6028ca"
+            },
+            {
+              "tagline": { "en": "Accessories" },
+              "USPFeatures": [],
+              "links": [
+                {
+                  "link": {
+                    "type": "custom",
+                    "url": { "en": "https://optitrack.com/accessories/" },
+                    "label": { "en": "Shop Accessories >" },
+                    "appearance": "link"
+                  },
+                  "id": "687a3dbf3b51dda58d6028c2"
+                }
+              ],
+              "link": { "type": "reference" },
+              "imagePlacement": "bottom",
+              "image": { "$oid": "687a3ab3274e1ea48c361e9b" },
+              "id": "687a3dbf3b51dda58d6028c0"
+            }
+          ],
+          "id": "687a398314a05fb07d97cadc",
+          "blockName": "Products"
+        },
+        {
+          "blockType": "gallery",
+          "designVersion": "GALLERY3-custom",
+          "tagline": { "en": "Latest News & Updates" },
+          "link": { "type": "reference" },
+          "elements": [
+            {
+              "image": { "$oid": "687a3f8c274e1ea48c362ffc" },
+              "imageHeight": "21rem",
+              "richText": {
+                "en": {
+                  "root": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "detail": 0,
+                            "format": 0,
+                            "mode": "normal",
+                            "style": "",
+                            "text": "Verdure Imaging & SpineUS Success Story",
+                            "type": "text",
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr",
+                        "format": "",
+                        "indent": 0,
+                        "type": "heading",
+                        "version": 1,
+                        "tag": "h3"
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "",
+                    "indent": 0,
+                    "type": "root",
+                    "version": 1
+                  }
+                }
+              },
+              "link": {
+                "type": "custom",
+                "url": {
+                  "en": "https://optitrack.com/news/69/Verdure-Imaging-&-SpineUS--Success-Story"
+                },
+                "label": { "en": "Read more" },
+                "iconAfter": "",
+                "appearance": "link"
+              },
+              "label": { "en": "Movement Sciences" },
+              "cta_button": {},
+              "id": "687a3ed43b51dda58d6028d1"
+            }
+          ],
+          "id": "687a3ec03b51dda58d6028cf",
+          "blockName": "News"
+        },
+        {
+          "blockType": "bentobox",
+          "designVersion": "BENTOBOX2",
+          "richText": {
+            "en": {
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "detail": 0,
+                        "format": 0,
+                        "mode": "normal",
+                        "style": "",
+                        "text": "Applications",
+                        "type": "text",
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "center",
+                    "indent": 0,
+                    "type": "heading",
+                    "version": 1,
+                    "tag": "h2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "detail": 0,
+                        "format": 0,
+                        "mode": "normal",
+                        "style": "",
+                        "text": "We proudly support a wide range of applications.",
+                        "type": "text",
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "center",
+                    "indent": 0,
+                    "type": "paragraph",
+                    "version": 1,
+                    "textFormat": 0,
+                    "textStyle": ""
+                  }
+                ],
+                "direction": "ltr",
+                "format": "",
+                "indent": 0,
+                "type": "root",
+                "version": 1
+              }
+            }
+          },
+          "links": [],
+          "fullSizeImage": false,
+          "elements": [
+            {
+              "image": { "$oid": "687a37d0274e1ea48c36156e" },
+              "richText": {
+                "en": {
+                  "root": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "detail": 0,
+                            "format": 0,
+                            "mode": "normal",
+                            "style": "",
+                            "text": "Virtual Production",
+                            "type": "text",
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr",
+                        "format": "",
+                        "indent": 0,
+                        "type": "heading",
+                        "version": 1,
+                        "tag": "h3"
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "",
+                    "indent": 0,
+                    "type": "root",
+                    "version": 1
+                  }
+                }
+              },
+              "links": [],
+              "link": {
+                "type": "custom",
+                "url": {
+                  "en": "https://optitrack.com/applications/virtual-production"
+                }
+              },
+              "id": "687a36f114a05fb07d97cabe"
+            },
+            {
+              "image": { "$oid": "687a3807274e1ea48c361663" },
+              "richText": {
+                "en": {
+                  "root": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "detail": 0,
+                            "format": 0,
+                            "mode": "normal",
+                            "style": "",
+                            "text": "Robotics",
+                            "type": "text",
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr",
+                        "format": "",
+                        "indent": 0,
+                        "type": "heading",
+                        "version": 1,
+                        "tag": "h3"
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "",
+                    "indent": 0,
+                    "type": "root",
+                    "version": 1
+                  }
+                }
+              },
+              "links": [],
+              "link": {
+                "type": "custom",
+                "url": { "en": "https://optitrack.com/applications/robotics" }
+              },
+              "id": "687a37ee14a05fb07d97cac3"
+            },
+            {
+              "image": { "$oid": "687a3833274e1ea48c3617a8" },
+              "richText": {
+                "en": {
+                  "root": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "detail": 0,
+                            "format": 0,
+                            "mode": "normal",
+                            "style": "",
+                            "text": "Animation",
+                            "type": "text",
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr",
+                        "format": "",
+                        "indent": 0,
+                        "type": "heading",
+                        "version": 1,
+                        "tag": "h3"
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "",
+                    "indent": 0,
+                    "type": "root",
+                    "version": 1
+                  }
+                }
+              },
+              "links": [],
+              "link": {
+                "type": "custom",
+                "url": { "en": "https://optitrack.com/applications/animation" }
+              },
+              "id": "687a382314a05fb07d97cac9"
+            },
+            {
+              "image": { "$oid": "687a385d274e1ea48c3618a2" },
+              "richText": {
+                "en": {
+                  "root": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "detail": 0,
+                            "format": 0,
+                            "mode": "normal",
+                            "style": "",
+                            "text": "Movement Sciences",
+                            "type": "text",
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr",
+                        "format": "",
+                        "indent": 0,
+                        "type": "heading",
+                        "version": 1,
+                        "tag": "h3"
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "",
+                    "indent": 0,
+                    "type": "root",
+                    "version": 1
+                  }
+                }
+              },
+              "links": [],
+              "link": {
+                "type": "custom",
+                "url": {
+                  "en": "https://optitrack.com/applications/movement-sciences"
+                }
+              },
+              "id": "687a384214a05fb07d97cacf"
+            },
+            {
+              "image": { "$oid": "687a3890274e1ea48c361948" },
+              "richText": {
+                "en": {
+                  "root": {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "detail": 0,
+                            "format": 0,
+                            "mode": "normal",
+                            "style": "",
+                            "text": "Virtual Reality",
+                            "type": "text",
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr",
+                        "format": "",
+                        "indent": 0,
+                        "type": "heading",
+                        "version": 1,
+                        "tag": "h3"
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "",
+                    "indent": 0,
+                    "type": "root",
+                    "version": 1
+                  }
+                }
+              },
+              "links": [],
+              "link": {
+                "type": "custom",
+                "url": {
+                  "en": "https://optitrack.com/applications/virtual-reality"
+                }
+              },
+              "id": "687a386f14a05fb07d97cad5"
+            }
+          ],
+          "id": "687a36c714a05fb07d97cabc",
+          "blockName": "Applications"
+        },
+        {
+          "blockType": "feature",
+          "designVersion": "FEATURE54-custom",
+          "tagline": { "en": "Build My System" },
+          "fillFromDescription": false,
+          "links": [],
+          "metrics": [],
+          "USPs": [
+            {
+              "tagline": { "en": "Virtual Production" },
+              "USPFeatures": [],
+              "links": [],
+              "link": { "type": "reference" },
+              "imagePlacement": "top",
+              "image": { "$oid": "687a414e274e1ea48c3633c6" },
+              "id": "687a40cb3b51dda58d6028d7"
+            },
+            {
+              "tagline": { "en": "Robotics" },
+              "USPFeatures": [],
+              "links": [],
+              "link": { "type": "reference" },
+              "imagePlacement": "top",
+              "image": { "$oid": "687a41d1274e1ea48c363703" },
+              "id": "687a41b83b51dda58d6028ee"
+            },
+            {
+              "tagline": { "en": "Animation" },
+              "USPFeatures": [],
+              "links": [],
+              "link": { "type": "reference" },
+              "imagePlacement": "top",
+              "image": { "$oid": "687a41e6274e1ea48c363783" },
+              "id": "687a41b13b51dda58d6028e2"
+            },
+            {
+              "tagline": { "en": "Movement Sciences" },
+              "USPFeatures": [],
+              "links": [],
+              "link": { "type": "reference" },
+              "imagePlacement": "top",
+              "image": { "$oid": "687a4206274e1ea48c36394e" },
+              "id": "687a41b33b51dda58d6028e8"
+            },
+            {
+              "tagline": { "en": "Virtual Reality" },
+              "USPFeatures": [],
+              "links": [],
+              "link": { "type": "reference" },
+              "imagePlacement": "top",
+              "image": { "$oid": "687a4261274e1ea48c363c17" },
+              "id": "687a41b03b51dda58d6028dc"
+            }
+          ],
+          "id": "687a40843b51dda58d6028d5",
+          "blockName": "Build My System"
+        },
+        {
+          "blockType": "hero",
+          "designVersion": "HERO1-custom",
+          "richText": {
+            "en": {
+              "root": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "detail": 0,
+                        "format": 0,
+                        "mode": "normal",
+                        "style": "",
+                        "text": "Designed & Manufactured Under One Roof",
+                        "type": "text",
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "format": "",
+                    "indent": 0,
+                    "type": "heading",
+                    "version": 1,
+                    "tag": "h2"
+                  }
+                ],
+                "direction": "ltr",
+                "format": "",
+                "indent": 0,
+                "type": "root",
+                "version": 1
+              }
+            }
+          },
+          "links": [
+            {
+              "link": {
+                "type": "custom",
+                "url": { "en": "https://optitrack.com/contact/" },
+                "label": { "en": "Contact Sales" },
+                "appearance": "outline",
+                "size": "lg"
+              },
+              "id": "687a38e814a05fb07d97cada"
+            }
+          ],
+          "images": [{ "$oid": "687a3964274e1ea48c361bc3" }],
+          "horizontalAlignment": "center",
+          "verticalAlignment": "middle",
+          "highImpact": false,
+          "darkMode": true,
+          "id": "687a38bf14a05fb07d97cad8",
+          "blockName": "Designed & Manufactured"
+        }
+      ],
+      "meta": {},
+      "slugLock": true,
+      "enableBreadcrumbs": false,
+      "theme": "light",
+      "breadcrumbs": {
+        "en": [
+          {
+            "doc": { "$oid": "687a3469274e1ea48c360be0" },
+            "url": "/home-2",
+            "label": "Home-2",
+            "id": "687a4263becd5b3417128889"
+          }
+        ]
+      },
+      "_status": "published",
+      "__v": 0,
+      "publishedAt": { "$date": "2025-07-18T12:10:00.523Z" },
+      "slug": "home-2",
+      "title": "Home-2"
+    }
   ]
 }

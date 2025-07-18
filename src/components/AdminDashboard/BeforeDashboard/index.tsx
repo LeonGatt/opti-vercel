@@ -114,7 +114,7 @@ const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
                 'use server'
                 await restoreSeedMedia()
                 await restoreBackup(SEED_OPTITRACK_GLOBALS_URL, ['users', 'roles'], false) // Restore globals configuration - replace
-                await restoreBackup(SEED_OPTITRACK_PAGES_URL, ['users', 'roles'], true) // Restore pages configuration - merge
+                // await restoreBackup(SEED_OPTITRACK_PAGES_URL, ['users', 'roles'], true) // Restore pages configuration - merge
                 revalidatePath('/admin')
               }}
             >
