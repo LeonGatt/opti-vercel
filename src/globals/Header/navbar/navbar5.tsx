@@ -28,17 +28,93 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import Link from 'next/link'
 import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/LanguageSwitcher'
 import { PublicContextProps } from '@/utilities/publicContextProps'
-import { Logo } from '@/components/Logo/Logo'
-import { CartToggle } from '@/components/Cart/CartToggle'
 
-const Navbar5: React.FC<{
-  header: HeaderType
-  publicContext: PublicContextProps
-}> = ({ header, publicContext }) => {
+const Navbar5: React.FC<{ header: HeaderType; publicContext: PublicContextProps }> = ({
+  header,
+  publicContext,
+}) => {
   return (
-    <section className="py-4 z-50 bg-secondary text-black">
+    <section className="py-4 z-50">
       <div className="container">
         <nav className="flex items-center justify-between">
+          <div className="flex items-center">
+            <Link href="/">
+              <Media resource={header.logo} priority className="h-9" imgClassName="h-full w-auto" />
+            </Link>
+          </div>
+          <NavigationMenu className="hidden lg:block z-50">
+            <NavigationMenuList>
+              {header.items?.map((item) => {
+                if (item.blockType === 'link') {
+                  return (
+                    <CMSLink
+                      publicContext={publicContext}
+                      key={item.id}
+                      {...item.link}
+                      className={cn(
+                        'text-muted-foreground',
+                        navigationMenuTriggerStyle,
+                        buttonVariants({
+                          variant: 'ghost',
+                        }),
+                      )}
+                    />
+                  )
+                } else if (item.blockType === 'sub') {
+                  return (
+                    <NavigationMenuItem key={item.id} className="text-muted-foreground">
+                      <NavigationMenuTrigger className="bg-transparent">
+                        {item.icon && <Icon className="mr-2 h-6" icon={item.icon} />}
+                        <span>{item.label}</span>
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="w-80 p-3">
+                          {item.subitems.map((subitem) => (
+                            <NavigationMenuLink asChild key={subitem.id}>
+                              <li>
+                                <CMSLink
+                                  publicContext={publicContext}
+                                  className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                  {...subitem.link}
+                                  label=""
+                                  iconBefore={undefined}
+                                  iconAfter={undefined}
+                                >
+                                  {subitem.link.iconBefore && (
+                                    <Icon
+                                      icon={subitem.link.iconBefore}
+                                      className="size-5 shrink-0"
+                                    />
+                                  )}
+                                  <div>
+                                    <div className="text-sm font-semibold">
+                                      {subitem.link.label}
+                                    </div>
+                                    <p className="text-sm leading-snug text-muted-foreground">
+                                      {subitem.Description}
+                                    </p>
+                                  </div>
+                                </CMSLink>
+                              </li>
+                            </NavigationMenuLink>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  )
+                }
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          {/* Right Button Group */}
+          <div className="hidden lg:flex gap-2 z-50">
+            {header?.buttons?.map((btn) => (
+              <CMSLink publicContext={publicContext} key={btn.id} {...btn.link} size="sm" />
+            ))}
+            <LanguageSwitcher publicContext={publicContext} size="sm" />
+          </div>
+
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <Sheet>
@@ -52,7 +128,12 @@ const Navbar5: React.FC<{
                   <SheetTitle>
                     <div className="flex items-center">
                       <Link href="/">
-                        <Logo />
+                        <Media
+                          resource={header.logo}
+                          priority
+                          className="h-9"
+                          imgClassName="h-full w-auto"
+                        />
                       </Link>
                     </div>
                   </SheetTitle>
@@ -126,86 +207,6 @@ const Navbar5: React.FC<{
                 </div>
               </SheetContent>
             </Sheet>
-          </div>
-          <div className="flex items-center">
-            <Link href="/">
-              <Logo />
-            </Link>
-          </div>
-          <NavigationMenu className="hidden lg:block z-50">
-            <NavigationMenuList>
-              {header.items?.map((item) => {
-                if (item.blockType === 'link') {
-                  return (
-                    <CMSLink
-                      publicContext={publicContext}
-                      key={item.id}
-                      {...item.link}
-                      className={cn(
-                        'text-muted-foreground',
-                        navigationMenuTriggerStyle,
-                        buttonVariants({ variant: 'ghost' }),
-                      )}
-                    />
-                  )
-                } else if (item.blockType === 'sub') {
-                  return (
-                    <NavigationMenuItem key={item.id} className="text-muted-foreground">
-                      <NavigationMenuTrigger className="bg-transparent">
-                        {item.icon && <Icon className="mr-2 h-6" icon={item.icon} />}
-                        <span>{item.label}</span>
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <ul className="w-80 p-3">
-                          {item.subitems.map((subitem) => (
-                            <NavigationMenuLink asChild key={subitem.id}>
-                              <li>
-                                <CMSLink
-                                  publicContext={publicContext}
-                                  className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                  {...subitem.link}
-                                  label=""
-                                  iconBefore={undefined}
-                                  iconAfter={undefined}
-                                >
-                                  {subitem.link.iconBefore && (
-                                    <Icon
-                                      icon={subitem.link.iconBefore}
-                                      className="size-5 shrink-0"
-                                    />
-                                  )}
-                                  <div>
-                                    <div className="text-sm font-semibold">
-                                      {subitem.link.label}
-                                    </div>
-                                    <p className="text-sm leading-snug text-muted-foreground">
-                                      {subitem.Description}
-                                    </p>
-                                  </div>
-                                </CMSLink>
-                              </li>
-                            </NavigationMenuLink>
-                          ))}
-                        </ul>
-                      </NavigationMenuContent>
-                    </NavigationMenuItem>
-                  )
-                }
-              })}
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          {/* Right Button Group */}
-          {header?.buttons?.length ? (
-            <div className="hidden lg:flex gap-2 z-50">
-              {header?.buttons?.map((btn) => (
-                <CMSLink publicContext={publicContext} key={btn.id} {...btn.link} size="sm" />
-              ))}
-            </div>
-          ) : null}
-          <div className="flex items-center gap-2 z-50">
-            <LanguageSwitcher publicContext={publicContext} size="sm" className="hidden lg:flex" />
-            <CartToggle />
           </div>
         </nav>
       </div>

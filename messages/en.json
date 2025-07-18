@@ -5,6 +5,7 @@
     "empty": "Empty",
     "empty_description": "Your cart is empty.",
     "loading": "Loading...",
+    "toggle": "Toggle cart",
     "items": {
       "remove": "Remove"
     }

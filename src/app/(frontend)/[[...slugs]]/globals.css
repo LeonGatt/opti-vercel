@@ -262,12 +262,6 @@
   --cursor-zoom-in: url('/cursors/zoom-in.svg'), zoom-in;
   --cursor-zoom-out: url('/cursors/zoom-out.svg'), zoom-out;
 
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1400px;
-
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-fade-in-out: fade-in-out 4s ease-in-out;
@@ -317,7 +311,6 @@
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
 
 @utility container {
   margin-inline: auto;

@@ -12,28 +12,28 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
+import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
 import { Icon } from '@/components/Icon'
 import { PublicContextProps } from '@/utilities/publicContextProps'
-import { BlockRenderer } from './blocks'
-import { Logo } from '@/components/Logo/Logo'
+import { BlockRenderer, NavSubmenuBlock } from './blocks'
 
-const Navbar4: React.FC<{
-  header: HeaderType
-  publicContext: PublicContextProps
-}> = ({ header, publicContext }) => {
+const Navbar4: React.FC<{ header: HeaderType; publicContext: PublicContextProps }> = ({
+  header,
+  publicContext,
+}) => {
   const [open, setOpen] = useState(false)
   const [submenu, setSubmenu] = useState<string | null>(null)
 
   const navItems = header.richItems || []
 
   return (
-    <section className="inset-x-0 top-0 z-50 w-full py-4 bg-secondary text-black">
+    <section className="inset-x-0 top-0 z-50 bg-background">
       <div className="container">
         <NavigationMenu className="min-w-full relative z-50">
           <div className="flex w-full justify-between gap-2 py-4">
             <CMSLink publicContext={publicContext} url={'/'} className="flex items-center gap-2">
-              <Logo />
+              <Media resource={header.logo} className="h-9" imgClassName="h-full w-auto" priority />
             </CMSLink>
             <div className="flex items-center gap-2 xl:gap-8">
               <NavigationMenuList className="hidden lg:flex">

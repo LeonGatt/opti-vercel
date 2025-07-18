@@ -38,7 +38,51 @@ export const Header: GlobalConfig = {
       return `${NEXT_PUBLIC_SERVER_URL}${path}`
     },
   },
-  fields: [backgroundColor, ...navbar],
+  fields: [
+    // backgroundColor,
+    {
+      name: 'designVersion',
+      type: 'select',
+      options: [
+        {
+          label: 'Custom (Navbar5-custom)',
+          value: '5-custom',
+        },
+        {
+          label: '1 (left aligned)',
+          value: '1',
+        },
+
+        // '3' is not implemented yet because of the complex mobile menu
+        // {
+        //   label: "3 (centered)",
+        //   value: "3"
+        // },
+
+        {
+          label: '4 (multi block submenus)',
+          value: '4',
+        },
+
+        {
+          label: '5 (simple)',
+          value: '5',
+        },
+      ],
+      defaultValue: '1',
+      required: true,
+    },
+    {
+      name: 'logo',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      admin: {
+        condition: (_, { designVersion }) => designVersion !== '5-custom',
+      },
+    },
+    ...navbar,
+  ],
   hooks: {
     afterChange: [revalidateHeader],
   },

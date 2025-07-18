@@ -273,7 +273,11 @@ export const navbar: Field[] = [
      */
     type: 'blocks',
     name: 'items',
-
+    admin: {
+      condition: (_, { designVersion = '' } = {}) =>
+        ['1', '3', '5', '5-custom'].includes(designVersion),
+      description: 'Navigation structure for navbar designs 1, 3, and 5',
+    },
     blocks: [
       {
         slug: 'sub',
@@ -330,6 +334,12 @@ export const navbar: Field[] = [
     type: 'blocks',
     name: 'richItems',
     label: 'Items',
+    admin: {
+      condition: (_, { designVersion = '' } = {}) => designVersion === '4',
+      description: {
+        en: 'Navigation elements',
+      },
+    },
     blocks: [
       {
         slug: 'link',
@@ -381,5 +391,8 @@ export const navbar: Field[] = [
     label: 'Copyright',
     localized: true,
     defaultValue: 'Copyright © All Rights Reserved.',
+    admin: {
+      condition: (_, { designVersion = '' } = {}) => designVersion === '4',
+    },
   },
 ]

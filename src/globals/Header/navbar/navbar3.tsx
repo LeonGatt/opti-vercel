@@ -25,7 +25,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
-import { Logo } from '@/components/Logo/Logo'
 
 const solutions = [
   {
@@ -149,7 +148,11 @@ export const Navbar3: React.FC<{ header: HeaderType }> = ({ header }) => {
             <div>
               {(!open || !submenu) && (
                 <a href="#">
-                  <Logo />
+                  <img
+                    src="https://www.shadcnblocks.com/images/block/logos/shadcn-ui.svg"
+                    alt="Logo"
+                    className="h-auto w-[125px]"
+                  />
                 </a>
               )}
               {open && submenu && (

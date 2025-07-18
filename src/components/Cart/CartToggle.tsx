@@ -2,9 +2,11 @@ import React from 'react'
 import { CartFlyOut } from './Cart'
 import { CartToggleIcon } from '@/components/Icon/old/CartIcon'
 import { cn } from '@/utilities'
+import { useTranslations } from 'next-intl'
 
 export const CartToggle: React.FC = () => {
   const [cartOpen, setCartOpen] = React.useState(false)
+  const t = useTranslations('cart')
 
   return (
     <>
@@ -24,7 +26,9 @@ export const CartToggle: React.FC = () => {
         />
         <label
           htmlFor="cart-flyout-toggle"
-          className="text-neutral-900 dark:text-white cursor-pointer group"
+          className="text-foreground cursor-pointer group"
+          tabIndex={0}
+          aria-label={t('toggle')}
         >
           <CartToggleIcon />
         </label>

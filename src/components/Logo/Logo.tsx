@@ -3,7 +3,7 @@ import React from 'react'
 export const Logo = () => {
   return (
     <svg
-      className="w-[92px] text-black"
+      className="w-[92px] text-foreground pt-[5px]"
       role="img"
       aria-label="OptiTrack Logo"
       xmlns="http://www.w3.org/2000/svg"

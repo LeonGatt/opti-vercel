@@ -3,11 +3,11 @@
 const cssVariables = {
   breakpoints: {
     '3xl': 1920,
-    '2xl': 1536,
-    xl: 1280,
-    lg: 1024,
+    '2xl': 1400,
+    xl: 1200,
+    lg: 960,
     md: 768,
-    sm: 640,
+    sm: 480,
   },
 }
 

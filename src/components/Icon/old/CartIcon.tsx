@@ -13,7 +13,7 @@ export const CartToggleIcon = () => (
     viewBox="0 0 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="[&>path]:fill-black [&>rect]:stroke-black  transition-colors duration-300 group-hover:[&>rect]:fill-button-primary group-hover:[&>rect]:stroke-button-primary group-hover:[&>path]:fill-white"
+    className="[&>path]:fill-foreground [&>rect]:stroke-foreground transition-colors duration-300 group-hover:[&>rect]:fill-button-primary group-hover:[&>rect]:stroke-button-primary group-hover:[&>path]:fill-white"
   >
     <title>Cart Icon</title>
     <rect

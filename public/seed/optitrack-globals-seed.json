@@ -5,7 +5,7 @@
       "createdAt": { "$date": "2025-07-11T08:06:22.514Z" },
       "updatedAt": { "$date": "2025-07-17T04:57:36.144Z" },
       "globalType": "header",
-      "designVersion": "5",
+      "designVersion": "5-custom",
       "items": [
         {
           "blockType": "link",

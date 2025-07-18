@@ -1,4 +1,5 @@
-import { Menu } from 'lucide-react'
+import { Book, Menu, Sunset, Trees, Zap } from 'lucide-react'
+import * as lucide from 'lucide-react'
 import type { Header as HeaderType } from '@/payload-types'
 
 import {
@@ -19,16 +20,16 @@ import {
 } from '@/components/ui/navigation-menu'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/utilities/cn'
+import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
 import { Icon } from '@/components/Icon'
 import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/LanguageSwitcher'
 import { PublicContextProps } from '@/utilities/publicContextProps'
-import { Logo } from '@/components/Logo/Logo'
 
-export const Navbar1: React.FC<{
-  header: HeaderType
-  publicContext: PublicContextProps
-}> = ({ header, publicContext }) => {
+export const Navbar1: React.FC<{ header: HeaderType; publicContext: PublicContextProps }> = ({
+  header,
+  publicContext,
+}) => {
   return (
     <section className="py-32 z-50">
       <div className="container">
@@ -36,7 +37,7 @@ export const Navbar1: React.FC<{
         <nav className="hidden justify-between lg:flex z-50">
           <div className="flex items-center gap-6 z-50">
             <div className="flex items-center gap-2">
-              <Logo />
+              <Media resource={header.logo} priority />
             </div>
             <div className="flex items-center">
               {/* Left Link Group */}
@@ -120,7 +121,7 @@ export const Navbar1: React.FC<{
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Logo />
+              <Media resource={header.logo} />
             </div>
             <Sheet>
               <SheetTrigger asChild>
@@ -132,7 +133,7 @@ export const Navbar1: React.FC<{
                 <SheetHeader>
                   <SheetTitle>
                     <div className="flex items-center gap-2">
-                      <Logo />
+                      <Media resource={header.logo} />
                     </div>
                   </SheetTitle>
                 </SheetHeader>

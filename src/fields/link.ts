@@ -43,7 +43,7 @@ type LinkType = (options?: {
   disableLabel?: boolean
   disableIcon?: boolean
   overrides?: Record<string, unknown>
-  size?: 'default' | 'sm' | 'lg' | 'icon' | 'clear'
+  size?: 'default' | 'sm' | 'lg' | 'icon'
 }) => Field
 
 export const link: LinkType = ({

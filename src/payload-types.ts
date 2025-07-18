@@ -3841,43 +3841,11 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Header {
   id: string;
+  designVersion: '5-custom' | '1' | '4' | '5';
+  logo?: (string | null) | Media;
   /**
-   * Choose the background color for this section. If left empty, the default color will be used.
+   * Navigation structure for navbar designs 1, 3, and 5
    */
-  backgroundColor?:
-    | (
-        | 'background'
-        | 'foreground'
-        | 'card'
-        | 'card-foreground'
-        | 'popover'
-        | 'popover-foreground'
-        | 'primary'
-        | 'primary-foreground'
-        | 'secondary'
-        | 'secondary-foreground'
-        | 'muted'
-        | 'muted-foreground'
-        | 'accent'
-        | 'accent-foreground'
-        | 'destructive'
-        | 'destructive-foreground'
-        | 'border'
-        | 'input'
-        | 'ring-3'
-        | 'success'
-        | 'warning'
-        | 'error'
-        | 'chart-1'
-        | 'chart-2'
-        | 'chart-3'
-        | 'chart-4'
-        | 'chart-5'
-        | 'muted2'
-        | 'muted2-foreground'
-        | 'transparent'
-      )
-    | null;
   items?:
     | (
         | {
@@ -3924,6 +3892,9 @@ export interface Header {
           }
       )[]
     | null;
+  /**
+   * Navigation elements
+   */
   richItems?:
     | (
         | {
@@ -4292,7 +4263,8 @@ export interface PageConfig {
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
-  backgroundColor?: T;
+  designVersion?: T;
+  logo?: T;
   items?:
     | T
     | {
