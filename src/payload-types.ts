@@ -1456,7 +1456,7 @@ export interface GalleryBlock {
         | 'transparent'
       )
     | null;
-  designVersion: 'GALLERY4' | 'GALLERY5' | 'GALLERY6' | 'GALLERY25' | 'GALLERY26';
+  designVersion: 'GALLERY3' | 'GALLERY3-custom' | 'GALLERY4' | 'GALLERY5' | 'GALLERY6' | 'GALLERY25' | 'GALLERY26';
   /**
    * Optional heading and description for the gallery
    */
@@ -1558,6 +1558,7 @@ export interface GalleryBlock {
           iconBefore?: string | null;
           iconAfter?: string | null;
         };
+        label?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -3385,6 +3386,7 @@ export interface GalleryBlockSelect<T extends boolean = true> {
               iconBefore?: T;
               iconAfter?: T;
             };
+        label?: T;
         id?: T;
       };
   id?: T;

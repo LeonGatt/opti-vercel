@@ -8,7 +8,16 @@ import { createBlockItemCondition } from '@/utilities/findParentFeatureVersion'
 export const allGalleryDesignVersions = [
   // 'GALLERY1',
   // 'GALLERY2',
-  // 'GALLERY3',
+  {
+    label: 'Gallery 3',
+    value: 'GALLERY3',
+    image: '/admin/previews/gallery/gallery3.jpg',
+  },
+  {
+    label: 'Gallery 3 (Custom)',
+    value: 'GALLERY3-custom',
+    image: '/admin/previews/gallery/gallery3-custom.jpg',
+  },
   {
     label: 'Gallery 4 (Large Images with Overlay)',
     value: 'GALLERY4',
@@ -62,7 +71,9 @@ export const Gallery: Block = {
       admin: {
         description: 'Optional heading and description for the gallery',
         condition: (_, { designVersion = '' } = {}) =>
-          !['GALLERY1', 'GALLERY25', 'GALLERY26'].includes(designVersion),
+          !['GALLERY1', 'GALLERY3', 'GALLERY25', 'GALLERY26', 'GALLERY3-custom'].includes(
+            designVersion,
+          ),
       },
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [
@@ -77,7 +88,8 @@ export const Gallery: Block = {
       type: 'text',
       localized: true,
       admin: {
-        condition: (_, { designVersion = '' } = {}) => ['GALLERY6'].includes(designVersion),
+        condition: (_, { designVersion = '' } = {}) =>
+          ['GALLERY3', 'GALLERY6', 'GALLERY3-custom'].includes(designVersion),
       },
     },
     link({
@@ -99,6 +111,15 @@ export const Gallery: Block = {
         description: 'Add images to the gallery',
         condition: (_, { designVersion = '' } = {}) =>
           galleryDesignVersions.includes(designVersion),
+      },
+      validate: (value, { siblingData }: any) => {
+        if (['GALLERY6-custom'].includes(siblingData?.designVersion)) {
+          return (Array.isArray(value) && value?.length <= 5) || 'You can only add up to 5 items.'
+        }
+        if (['GALLERY3-custom'].includes(siblingData?.designVersion)) {
+          return (Array.isArray(value) && value?.length <= 8) || 'You can only add up to 8 items.'
+        }
+        return true
       },
       fields: [
         {
@@ -157,7 +178,13 @@ export const Gallery: Block = {
           type: 'richText',
           localized: true,
           admin: {
-            condition: createBlockItemCondition(['GALLERY4', 'GALLERY5', 'GALLERY6']),
+            condition: createBlockItemCondition([
+              'GALLERY3',
+              'GALLERY4',
+              'GALLERY5',
+              'GALLERY6',
+              'GALLERY3-custom',
+            ]),
           },
           editor: lexicalEditor({
             features: ({ defaultFeatures }) => [
@@ -171,10 +198,25 @@ export const Gallery: Block = {
           appearances: false,
           overrides: {
             admin: {
-              condition: createBlockItemCondition(['GALLERY4', 'GALLERY5', 'GALLERY6']),
+              condition: createBlockItemCondition([
+                'GALLERY3',
+                'GALLERY4',
+                'GALLERY5',
+                'GALLERY6',
+                'GALLERY3-custom',
+              ]),
             },
           },
         }),
+        {
+          name: 'label',
+          type: 'text',
+          label: 'Badge',
+          localized: true,
+          admin: {
+            condition: createBlockItemCondition(['GALLERY3', 'GALLERY3-custom']),
+          },
+        },
       ],
     },
   ],

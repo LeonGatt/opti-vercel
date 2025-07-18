@@ -106,7 +106,7 @@ export default async function Page(props: Args) {
     const { hero, layout, breadcrumbs: breadcrumbData, enableBreadcrumbs } = page
 
     return (
-      <article className="">
+      <article>
         <PageClient />
         {/* Allows redirects for valid pages too */}
         <PayloadRedirects disableNotFound url={url} />
