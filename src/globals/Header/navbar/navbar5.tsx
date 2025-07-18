@@ -22,14 +22,14 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-import type { Header as HeaderType } from '@/payload-types'
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import Link from 'next/link'
 import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/LanguageSwitcher'
 import { PublicContextProps } from '@/utilities/publicContextProps'
+import { HeaderNonNullableLogo } from '../Component'
 
-const Navbar5: React.FC<{ header: HeaderType; publicContext: PublicContextProps }> = ({
+const Navbar5: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicContextProps }> = ({
   header,
   publicContext,
 }) => {

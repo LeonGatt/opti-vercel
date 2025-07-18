@@ -13,9 +13,10 @@ import Footer7 from './footer/footer7'
 import Footer8 from './footer/footer8'
 import Footer4Custom from './footer/footer4-custom'
 import { PublicContextProps } from '@/utilities/publicContextProps'
+import { DataFromGlobalSlug } from 'payload'
 
 export async function Footer({ publicContext }: { publicContext: PublicContextProps }) {
-  const footer: Footer = await getCachedGlobal('footer', 2)()
+  const footer = (await getCachedGlobal('footer', 2)()) as DataFromGlobalSlug<'footer'>
 
   const footerType = footer.designVersion
 

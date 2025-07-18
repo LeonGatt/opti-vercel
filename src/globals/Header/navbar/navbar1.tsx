@@ -25,8 +25,9 @@ import { CMSLink } from '@/components/Link'
 import { Icon } from '@/components/Icon'
 import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/LanguageSwitcher'
 import { PublicContextProps } from '@/utilities/publicContextProps'
+import { HeaderNonNullableLogo } from '../Component'
 
-export const Navbar1: React.FC<{ header: HeaderType; publicContext: PublicContextProps }> = ({
+export const Navbar1: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicContextProps }> = ({
   header,
   publicContext,
 }) => {

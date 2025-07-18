@@ -10,21 +10,23 @@ import { PublicContextProps } from '@/utilities/publicContextProps'
 import { Navbar4 } from './navbar/navbar4'
 import Navbar5Custom from './navbar/navbar5-custom'
 
+export type HeaderNonNullableLogo = Header & { logo: NonNullable<Header['logo']> }
+
 export async function Header({ publicContext }: { publicContext: PublicContextProps }) {
   const header = (await getCachedGlobal('header', 1)()) as DataFromGlobalSlug<'header'>
 
   let navbarComponent: ReactElement
   switch (header.designVersion) {
     case '1': {
-      navbarComponent = <Navbar1 header={header} publicContext={publicContext} />
+      navbarComponent = <Navbar1 header={header as HeaderNonNullableLogo} publicContext={publicContext} />
       break
     }
     case '4': {
-      navbarComponent = <Navbar4 header={header} publicContext={publicContext} />
+      navbarComponent = <Navbar4 header={header as HeaderNonNullableLogo} publicContext={publicContext} />
       break
     }
     case '5': {
-      navbarComponent = <Navbar5 header={header} publicContext={publicContext} />
+      navbarComponent = <Navbar5 header={header as HeaderNonNullableLogo} publicContext={publicContext} />
       break
     }
     case '5-custom': {

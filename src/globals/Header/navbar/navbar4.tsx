@@ -16,9 +16,10 @@ import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
 import { Icon } from '@/components/Icon'
 import { PublicContextProps } from '@/utilities/publicContextProps'
-import { BlockRenderer, NavSubmenuBlock } from './blocks'
+import { BlockRenderer } from './blocks'
+import { HeaderNonNullableLogo } from '../Component'
 
-const Navbar4: React.FC<{ header: HeaderType; publicContext: PublicContextProps }> = ({
+const Navbar4: React.FC<{ header: HeaderNonNullableLogo; publicContext: PublicContextProps }> = ({
   header,
   publicContext,
 }) => {
