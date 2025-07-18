@@ -16,7 +16,6 @@ import { Block } from 'payload'
 import { designVersionDescription } from '@/components/AdminDashboard/DesignVersionDescription'
 import { designVersionPreview } from '@/components/AdminDashboard/DesignVersionPreview/config'
 import { backgroundColor } from '@/fields/color'
-import { CustomButtonVariants } from '@/types/button'
 
 export const allFeatureDesignVersions = [
   {
@@ -172,6 +171,11 @@ export const allFeatureDesignVersions = [
   // 'FEATURE108',
   // 'FEATURE109',
   {
+    label: 'FEATURE111 (Custom)',
+    value: 'FEATURE111-custom',
+    image: '/admin/previews/feature/feature111-custom.jpg',
+  },
+  {
     label: 'FEATURE114',
     value: 'FEATURE114',
     image: '/admin/previews/feature/feature114.jpeg',
@@ -224,7 +228,13 @@ export const FeatureBlock: Block = {
       localized: true,
       admin: {
         condition: (_, { designVersion = '' } = {}) =>
-          ['FEATURE99', 'FEATURE103', 'FEATURE25', 'FEATURE54-custom'].includes(designVersion),
+          [
+            'FEATURE99',
+            'FEATURE103',
+            'FEATURE25',
+            'FEATURE54-custom',
+            'FEATURE111-custom',
+          ].includes(designVersion),
       },
     },
     {
@@ -273,14 +283,12 @@ export const FeatureBlock: Block = {
             'FEATURE62',
             'FEATURE106',
             'FEATURE91',
+            'FEATURE111-custom',
           ]
 
           const designVersion = data.designVersion || ''
-          if (forbiddenVersions.includes(designVersion)) {
-            return false
-          }
 
-          return siblingData.fillFromDescription
+          return siblingData.fillFromDescription || !forbiddenVersions.includes(designVersion)
         },
       },
       editor: lexicalEditor({
@@ -321,6 +329,7 @@ export const FeatureBlock: Block = {
               'FEATURE109',
               'FEATURE114',
               'FEATURE126',
+              'FEATURE111-custom',
             ].includes(designVersion),
         },
       },
@@ -475,6 +484,7 @@ export const FeatureBlock: Block = {
         {
           name: 'tagline',
           type: 'text',
+          required: createBlockItemCondition(['FEATURE111-custom']) ? true : false,
           localized: true,
           admin: {
             // conditions on sibling fields are unfortunatly currently not possible in payload
@@ -491,7 +501,9 @@ export const FeatureBlock: Block = {
               )
 
               return (
-                !layout.fillFromDescription && ['FEATURE54-custom'].includes(layout.designVersion)
+                (!layout.fillFromDescription &&
+                  ['FEATURE54-custom'].includes(layout.designVersion)) ||
+                ['FEATURE111-custom'].includes(layout.designVersion)
               )
             },
           },
@@ -575,13 +587,15 @@ export const FeatureBlock: Block = {
         linkGroup({
           disableIcon: true,
           overrides: {
-            maxRows: 2,
+            maxRows: createBlockItemCondition(['FEATURE111-custom']) ? 3 : 2,
             admin: {
               condition: (data, _) => {
                 const designVersion = data.layout.find(
                   (block) => block.blockType === 'feature',
                 ).designVersion
-                return ['FEATURE70', 'FEATURE91', 'FEATURE54-custom'].includes(designVersion)
+                return ['FEATURE70', 'FEATURE91', 'FEATURE54-custom', 'FEATURE111-custom'].includes(
+                  designVersion,
+                )
               },
             },
           },
@@ -604,6 +618,16 @@ export const FeatureBlock: Block = {
             },
           },
         }),
+        {
+          name: 'imagePlacement',
+          label: 'Image Placement',
+          type: 'select',
+          options: ['top', 'bottom'],
+          defaultValue: 'top',
+          admin: {
+            condition: createBlockItemCondition(['FEATURE111-custom']),
+          },
+        },
         /**
          * USP images
          */
@@ -626,6 +650,7 @@ export const FeatureBlock: Block = {
               'FEATURE117',
               'FEATURE126',
               'FEATURE54-custom',
+              'FEATURE111-custom',
             ]),
           },
           relationTo: 'media',

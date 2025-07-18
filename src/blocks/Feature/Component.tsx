@@ -101,6 +101,7 @@ import Feature109 from '@/blocks/Feature/feature109'
 import Feature114 from '@/blocks/Feature/feature114'
 import Feature117 from '@/blocks/Feature/feature117'
 import Feature126 from '@/blocks/Feature/feature126'
+import Feature111Custom from '@/blocks/Feature/feature111-custom'
 
 import { Page } from '@/payload-types'
 import { FeatureDesignVersion } from './config'
@@ -215,6 +216,7 @@ const features: Feature = {
   FEATURE107: Feature107,
   FEATURE108: Feature108,
   FEATURE109: Feature109,
+  'FEATURE111-custom': Feature111Custom,
   FEATURE114: Feature114,
   FEATURE117: Feature117,
   FEATURE126: Feature126,

@@ -465,6 +465,7 @@ export interface FeatureBlock {
     | 'FEATURE99'
     | 'FEATURE102'
     | 'FEATURE103'
+    | 'FEATURE111-custom'
     | 'FEATURE114'
     | 'FEATURE117'
     | 'FEATURE126';
@@ -528,7 +529,7 @@ export interface FeatureBlock {
   USPs?:
     | {
         uspIcon?: string | null;
-        tagline?: string | null;
+        tagline: string;
         richText?: {
           root: {
             type: string;
@@ -605,6 +606,7 @@ export interface FeatureBlock {
           iconBefore?: string | null;
           iconAfter?: string | null;
         };
+        imagePlacement?: ('top' | 'bottom') | null;
         image?: (string | null) | Media;
         id?: string | null;
       }[]
@@ -3192,6 +3194,7 @@ export interface FeatureBlockSelect<T extends boolean = true> {
               iconBefore?: T;
               iconAfter?: T;
             };
+        imagePlacement?: T;
         image?: T;
         id?: T;
       };

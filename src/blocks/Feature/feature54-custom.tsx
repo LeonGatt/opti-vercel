@@ -81,7 +81,7 @@ const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextPro
                       return (
                         <div
                           key={feature.id}
-                          className="mx-auto max-w-[426px] md:max-w-[564px] mt-12"
+                          className="mx-auto mt-12 max-w-[426px] md:max-w-[564px]"
                         >
                           {extractPlainText(firstNodeDescription) &&
                             firstNodeDescription &&
