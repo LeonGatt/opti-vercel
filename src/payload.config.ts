@@ -1,7 +1,4 @@
 // storage-adapter-import-placeholder
-// import { postgresAdapter } from '@payloadcms/db-postgres'
-import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { en } from '@payloadcms/translations/languages/en'
 import { de } from '@payloadcms/translations/languages/de'
 import { fr } from '@payloadcms/translations/languages/fr'
@@ -13,12 +10,13 @@ import { zh } from '@payloadcms/translations/languages/zh'
 
 import { OAuth2Plugin } from 'payload-oauth2'
 
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import { searchPlugin } from '@payloadcms/plugin-search'
-import { resendAdapter } from '@payloadcms/email-resend'
 import {
   BoldFeature,
   FixedToolbarFeature,
@@ -148,9 +146,7 @@ export default buildConfig({
       ]
     },
   }),
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
-  }),
+  db: mongooseAdapter({ url: process.env.DATABASE_URI || '' }),
   collections: [Pages, Posts, Media, Categories, Users, Roles],
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
@@ -243,12 +239,6 @@ export default buildConfig({
         },
       },
     }),
-    vercelBlobStorage({
-      collections: {
-        media: true,
-      },
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
-    }),
     OAuth2Plugin({
       enabled: googleAuthActive,
       strategyName: 'google',
@@ -300,15 +290,15 @@ export default buildConfig({
         return '/login'
       },
     }),
+
+    payloadCloudPlugin({
+      debug: process.env.DEBUG_PAYLOAD_CLOUD === 'true',
+      email: {
+        defaultFromAddress: process.env.EMAIL_FROM_ADDRESS!,
+        defaultFromName: 'Optitrack',
+      },
+    }),
   ],
-  /**
-   * Use the Resend adapter or switch to your own email service here: https://payloadcms.com/docs/email/overview
-   */
-  email: resendAdapter({
-    defaultFromAddress: process.env.EMAIL_FROM_ADDRESS!,
-    defaultFromName: 'Payblocks Website',
-    apiKey: process.env.RESEND_API_KEY || '',
-  }),
   secret: process.env.PAYLOAD_SECRET!,
   sharp,
   typescript: {

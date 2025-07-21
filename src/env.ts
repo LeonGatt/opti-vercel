@@ -23,6 +23,7 @@ export const env = createEnv({
     SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING: z.string().optional(),
 
     RECAPTCHA_SECRET_KEY: z.string().optional(),
+    DEBUG_PAYLOAD_CLOUD: z.string().optional(),
   },
   /*
    * Environment variables available on the client (and server).
@@ -74,6 +75,7 @@ export const env = createEnv({
     SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING:
       process.env.SENTRY_SUPPRESS_GLOBAL_ERROR_HANDLER_FILE_WARNING,
     RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
+    DEBUG_PAYLOAD_CLOUD: process.env.DEBUG_PAYLOAD_CLOUD === 'true',
 
     // Client environment variables
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
