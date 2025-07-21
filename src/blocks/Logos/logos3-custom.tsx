@@ -21,7 +21,7 @@ const Logos3Custom: React.FC<LogosBlock & { publicContext: PublicContextProps }>
 }) => {
   const hasRichText = richText && hasRichTextContent(richText)
   return (
-    <section>
+    <section className="mx-auto max-w-[1440px]">
       <div className="container flex flex-col items-center text-center">
         {hasRichText && (
           <RichText
@@ -56,8 +56,8 @@ const Logos3Custom: React.FC<LogosBlock & { publicContext: PublicContextProps }>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="absolute inset-y-0 left-0 w-12 bg-linear-to-r from-background to-transparent"></div>
-            <div className="absolute inset-y-0 right-0 w-12 bg-linear-to-l from-background to-transparent"></div>
+            <div className="from-background absolute inset-y-0 left-0 w-12 bg-linear-to-r to-transparent"></div>
+            <div className="from-background absolute inset-y-0 right-0 w-12 bg-linear-to-l to-transparent"></div>
           </Carousel>
         </div>
       </div>
