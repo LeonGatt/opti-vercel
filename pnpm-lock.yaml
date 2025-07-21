@@ -20,6 +20,9 @@ importers:
       '@commercetools/ts-client':
         specifier: ^3.4.1
         version: 3.4.1
+      '@faker-js/faker':
+        specifier: ^9.9.0
+        version: 9.9.0
       '@payloadcms/db-mongodb':
         specifier: 3.40.0
         version: 3.40.0(payload@3.40.0(graphql@16.10.0)(typescript@5.6.3))
@@ -1998,6 +2001,10 @@ packages:
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
+
+  '@faker-js/faker@9.9.0':
+    resolution: {integrity: sha512-OEl393iCOoo/z8bMezRlJu+GlRGlsKbUAN7jKB6LhnKoqKve5DXRpalbItIIcwnCjs1k/FOPjFzcA6Qn+H+YbA==}
+    engines: {node: '>=18.0.0', npm: '>=9.0.0'}
 
   '@fastify/busboy@2.1.1':
     resolution:
@@ -13434,6 +13441,8 @@ snapshots:
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+
+  '@faker-js/faker@9.9.0': {}
 
   '@fastify/busboy@2.1.1': {}
 

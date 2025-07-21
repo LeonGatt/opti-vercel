@@ -15,6 +15,35 @@ export type RichTextContent<T = DefaultNodeTypes> = {
   [key: string]: any
 }
 
+type RichTextContentProps = {
+  type: string;
+  text?: string;
+  tag?: string;
+  listType?: string;
+  value?: object;
+  format?: number | string;
+  children?: RichTextNode[];
+}[];
+
+type BaseRichTextProps = {
+  className?: string;
+};
+
+export type PayloadRichTextProps =
+  | {
+      root: {
+        children: RichTextNode[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        type: string;
+        version: number;
+      };
+      [k: string]: unknown;
+      className?: string;
+    }
+  | (null & BaseRichTextProps)
+
 type SplitOptions = {
   splitOn?: string[] | string // e.g., ['heading', 'h1', 'h2'] or 'heading'
   takeFirst?: boolean // if true, takes first matching node, if false takes first node regardless of type
@@ -100,6 +129,53 @@ export const splitRichText = <T extends { root?: { children?: any[] } }>(
     rest: restNodes.length ? { ...content, root: { ...content.root, children: restNodes } } : null,
   }
 }
+
+/**
+ * Simplifies RichText in storybook 
+ * 
+ * USAGE: 
+ * richText: {
+ *  ...genRichText([{type: 'heading', tag: 'h2', text: faker.lorem.words(2)}])
+ * },
+ * 
+ * ...genRichText([{type: 'paragrapph', text: faker.lorem.paragraph(15)}])
+ * 
+ * ...genRichText([{type: 'heading', tag: 'h2', text: 'OUR PARTNERS'}])
+ */
+
+const getContent = (content: RichTextContentProps) =>
+  content.map(({ type, listType, tag, text, value, format, children }) => ({
+    type,
+    format: format ?? 0,
+    tag: tag ?? '',
+    listType,
+    indent: 0,
+    version: 1,
+    value: value ?? '',
+    children: children
+      ? children
+      : text
+        ? [
+            {
+              type: 'text',
+              text,
+              version: 1
+            }
+          ]
+        : [],
+    direction: 'ltr'
+  }));
+
+export const genRichText = (content: RichTextContentProps): PayloadRichTextProps => ({
+  root: {
+    type: 'root',
+    format: '',
+    indent: 0,
+    version: 1,
+    children: getContent(content) as RichTextNode[],
+    direction: 'ltr'
+  }
+});
 
 /**
  * Extracts text content from a node and its children recursively

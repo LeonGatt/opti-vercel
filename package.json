@@ -33,6 +33,7 @@
   "dependencies": {
     "@commercetools/platform-sdk": "^8.12.0",
     "@commercetools/ts-client": "^3.4.1",
+    "@faker-js/faker": "^9.9.0",
     "@payloadcms/db-mongodb": "3.40.0",
     "@payloadcms/db-postgres": "3.40.0",
     "@payloadcms/email-nodemailer": "3.40.0",

@@ -45,8 +45,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     width = fullWidth!
     height = fullHeight!
     alt = altFromResource
-
-    src = url ? `${NEXT_PUBLIC_SERVER_URL}${url}` : null
+    // fix: enable storybook images using faker
+    src = url ? (url.startsWith('http') ? url : `${NEXT_PUBLIC_SERVER_URL}${url}`) : null;
   }
 
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
