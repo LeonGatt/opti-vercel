@@ -22,7 +22,7 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
       <div className="mx-6 md:mx-8">
         <div className="flex flex-col items-center justify-center gap-5">
           <div className="max-w-[376px] md:max-w-[768px]">
-            <h2 className="text-text-default mb-5 text-center text-3xl leading-9 font-bold md:text-5xl">
+            <h2 className="text-text-default font-heading mb-5 text-center text-3xl leading-9 font-bold md:text-5xl">
               {tagline}
             </h2>
             {extractPlainText(firstNode) && firstNode && (
@@ -30,9 +30,9 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
                 publicContext={publicContext}
                 content={firstNode}
                 overrideStyle={{
-                  h2: 'line-clamp-3 break-words text-lg font-medium md:text-xl lg:text-2xl',
-                  h3: 'line-clamp-3 break-words text-lg font-medium md:text-xl lg:text-2xl',
-                  h4: 'line-clamp-3 break-words text-lg font-medium md:text-xl lg:text-2xl',
+                  h2: 'line-clamp-3 break-words text-lg font-medium md:text-xl lg:text-2xl font-heading',
+                  h3: 'line-clamp-3 break-words text-lg font-medium md:text-xl lg:text-2xl font-heading',
+                  h4: 'line-clamp-3 break-words text-lg font-medium md:text-xl lg:text-2xl font-heading',
                   p: 'line-clamp-4 text-center text-[#86868B] leading-8 text-text-light md:text-xl',
                 }}
                 withWrapper={false}
@@ -80,9 +80,9 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
                           publicContext={publicContext}
                           content={firstNode}
                           overrideStyle={{
-                            h2: 'line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl',
-                            h3: 'line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl',
-                            h4: 'line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl',
+                            h2: 'line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+                            h3: 'line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+                            h4: 'line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
                             p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-text-light text-center',
                           }}
                           withWrapper={false}

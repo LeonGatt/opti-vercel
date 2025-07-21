@@ -53,7 +53,7 @@ const Gallery6Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
     <section className="mx-auto py-16 lg:max-w-[1280px]">
       <div>
         <div className="mx-6 mb-0 sm:mx-8 md:mb-12">
-          {tagline && <h2 className="text-3xl font-bold sm:text-5xl">{tagline}</h2>}
+          {tagline && <h2 className="font-heading text-3xl font-bold sm:text-5xl">{tagline}</h2>}
 
           {link && (
             <CMSLink
@@ -120,9 +120,9 @@ const Gallery6Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
                   publicContext={publicContext}
                   content={activeRichText.firstNode}
                   overrideStyle={{
-                    h2: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl',
-                    h3: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl',
-                    h4: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl',
+                    h2: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+                    h3: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+                    h4: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
                     p: 'line-clamp-4 leading-6 text-muted-foreground text-base',
                   }}
                   withWrapper={false}

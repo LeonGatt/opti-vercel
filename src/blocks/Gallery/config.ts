@@ -214,8 +214,17 @@ export const Gallery: Block = {
                 'GALLERY5',
                 'GALLERY6',
                 'GALLERY6-custom',
-                'GALLERY3-custom',
               ]),
+            },
+          },
+        }),
+        link({
+          appearances: false,
+          disableIcon: true,
+          overrides: {
+            name: 'oneLink',
+            admin: {
+              condition: createBlockItemCondition(['GALLERY3-custom']),
             },
           },
         }),

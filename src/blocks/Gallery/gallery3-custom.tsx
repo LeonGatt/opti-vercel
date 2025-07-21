@@ -9,7 +9,7 @@ import type { CarouselApi } from '@/components/ui/carousel'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { GalleryBlock } from '@/payload-types'
 import { PublicContextProps } from '@/utilities/publicContextProps'
-import { splitRichText } from '@/utilities/richtext'
+import { extractPlainText, splitRichText } from '@/utilities/richtext'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
@@ -38,12 +38,16 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
   }, [carouselApi])
 
   return (
-    <section className="lg:max-w-[1280px] mx-auto py-16">
+    <section className="mx-auto py-16 lg:max-w-[1280px]">
       <div>
-        <div className="mb-12 mx-6 flex items-center justify-between">
-          {tagline && <h2 className="text-4xl font-bold max-w-[340px] sm:max-w-full">{tagline}</h2>}
+        <div className="mx-6 mb-12 flex items-center justify-between">
+          {tagline && (
+            <h2 className="font-heading max-w-[340px] text-4xl font-bold sm:max-w-full">
+              {tagline}
+            </h2>
+          )}
           {elements && elements?.length > 1 && (
-            <div className="shrink-0 flex gap-4 md:flex">
+            <div className="flex shrink-0 gap-4 md:flex">
               <Button
                 size="icon"
                 variant="secondary"
@@ -79,7 +83,7 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
             },
           }}
         >
-          <CarouselContent className="flex px-5 gap-6 sm:gap-5 ml-[calc(theme(container.padding)-20px)] 2xl:ml-[calc(50vw-700px+theme(container.padding)-20px)]">
+          <CarouselContent className="ml-[calc(theme(container.padding)-20px)] 2xl:ml-[calc(50vw-700px+theme(container.padding)-20px)] flex gap-6 px-5 sm:gap-5">
             {elements &&
               elements.map((item) => {
                 const { firstNode, rest } = splitRichText(item.richText, {
@@ -89,16 +93,17 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
                 return (
                   <CarouselItem
                     key={item.id}
-                    className="p-0 max-w-[380px] sm:max-w-[305px] lg:max-w-[340px]"
+                    className="max-w-[380px] p-0 sm:max-w-[305px] lg:max-w-[340px]"
                   >
                     <CMSLink
                       publicContext={publicContext}
-                      {...item.link}
+                      {...item.oneLink}
                       label={''}
-                      className="group flex flex-col justify-between items-start rounded-xl py-6"
+                      appearance={'inline'}
+                      className="group flex flex-col items-start justify-between rounded-xl py-6"
                     >
                       <div>
-                        <div className="flex text-clip rounded-xl">
+                        <div className="flex rounded-xl text-clip">
                           <div className="flex-1">
                             <div className="relative size-full origin-bottom transition duration-300 group-hover:scale-105">
                               {item.image && (
@@ -118,33 +123,36 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
                         )}
                       </div>
 
-                      {firstNode && (
+                      {extractPlainText(firstNode) && firstNode && (
                         <RichText
                           publicContext={publicContext}
                           content={firstNode}
                           overrideStyle={{
-                            h2: 'mb-3 line-clamp-2 min-h-[80px] break-words pt-4 text-xl font-bold leading-8 md:pt-4 lg:pt-4',
-                            h3: 'mb-3 line-clamp-2 min-h-[80px] break-words pt-4 text-xl font-bold leading-8 md:pt-4 lg:pt-4',
-                            h4: 'mb-3 line-clamp-2 min-h-[80px] break-words pt-4 text-xl font-bold leading-8 md:pt-4 lg:pt-4',
+                            h2: 'mb-3 line-clamp-2 min-h-[80px] break-words pt-4 text-xl font-bold leading-8 md:pt-4 lg:pt-4 font-heading',
+                            h3: 'mb-3 line-clamp-2 min-h-[80px] break-words pt-4 text-xl font-bold leading-8 md:pt-4 lg:pt-4 font-heading',
+                            h4: 'mb-3 line-clamp-2 min-h-[80px] break-words pt-4 text-xl font-bold leading-8 md:pt-4 lg:pt-4 font-heading',
                             p: 'mb-3 line-clamp-2 min-h-[80px] text-sm text-muted-foreground md:text-base pt-4',
                           }}
                           withWrapper={false}
                         />
                       )}
 
-                      {rest && (
+                      {extractPlainText(rest) && rest && (
                         <RichText
                           publicContext={publicContext}
                           content={rest}
                           overrideStyle={{
-                            p: 'mb-3 line-clamp-2 text-sm text-muted-foreground md:text-base pt-4',
+                            h2: 'mb-3 line-clamp-2 break-words text-xl font-bold leading-8 font-heading',
+                            h3: 'mb-3 line-clamp-2 break-words text-xl font-bold leading-8 font-heading',
+                            h4: 'mb-3 line-clamp-2 break-words text-xl font-bold leading-8 font-heading',
+                            p: 'mb-3 line-clamp-2 text-sm text-muted-foreground md:text-base',
                           }}
                           withWrapper={false}
                         />
                       )}
 
                       <div className="flex items-center text-sm">
-                        Read more{' '}
+                        {item.oneLink?.label}
                         <ChevronRight className="ml-2 size-5 transition-transform group-hover:translate-x-1" />
                       </div>
                     </CMSLink>

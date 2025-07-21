@@ -15,7 +15,9 @@ export const TextBlock: React.FC<
   return (
     <div className={!disableContainer ? 'container py-32' : ''}>
       <div className="w-full">
-        {content && <RichText publicContext={publicContext} content={content} />}
+        {content && (
+          <RichText className="font-heading" publicContext={publicContext} content={content} />
+        )}
         <div className="flex flex-col gap-2 sm:flex-row">
           {Array.isArray(links) &&
             links.length > 0 &&

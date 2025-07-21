@@ -1579,6 +1579,17 @@ export interface GalleryBlock {
           appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
+        oneLink?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+        };
         label?: string | null;
         /**
          * Optional button
@@ -3416,6 +3427,16 @@ export interface GalleryBlockSelect<T extends boolean = true> {
               iconAfter?: T;
               appearance?: T;
               size?: T;
+            };
+        oneLink?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              section?: T;
+              url?: T;
+              label?: T;
             };
         label?: T;
         cta_button?:
