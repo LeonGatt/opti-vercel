@@ -12,8 +12,7 @@ import { env } from '@/env'
 const SEED_DUMP_URL =
   env.SERVER_URL + '/seed/demo-payblocks---demo-payblocks.trieb.work---1739813600714.json'
 
-const SEED_OPTITRACK_GLOBALS_URL = env.SERVER_URL + '/seed/optitrack-globals-seed.json'
-const SEED_OPTITRACK_PAGES_URL = env.SERVER_URL + '/seed/optitrack-pages-seed.json'
+const SEED_OPTITRACK_HOMEPAGE_URL = env.SERVER_URL + '/seed/optitrack-homepage-seed.json'
 
 const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
   if (!user) return
@@ -50,44 +49,6 @@ const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
         </a>{' '}
         to guide you through setting up, configuring, and extending your Payblocks project.
       </p>
-
-      {process.env.DATABASE_URI && showSeeding && (
-        <span>
-          <Popup
-            className="btn-inline btn-right"
-            button={
-              <div className="btn btn--icon-style-without-border btn--size-medium btn--withoutPopup btn--style-primary btn--withoutPopup">
-                Seed DB
-              </div>
-            }
-          >
-            <div>
-              Warning: Seeding will overwrite your existing database content.
-              <br />
-              This is safe if you&apos;ve only created a user account so far.
-              <br />
-              After seeding you will be automatically logged out and have to login with your
-              previously created admin user again.
-              <br />
-              Do you want to proceed?
-            </div>
-            <Button
-              className="btn-red"
-              onClick={async () => {
-                'use server'
-                await restoreSeedMedia()
-                await restoreBackup(SEED_DUMP_URL, ['users', 'roles'])
-                revalidatePath('/admin')
-              }}
-            >
-              Yes
-            </Button>
-          </Popup>
-          Seed your DB now to get a first preview how your project could look like with some example
-          pages.
-        </span>
-      )}
-
       {process.env.DATABASE_URI && (
         <div style={{ marginTop: '20px' }}>
           Here you can seed the database with the optitrack seed - currently only for the{' '}
@@ -109,12 +70,11 @@ const BackupDashboard: React.FC = async ({ user }: { user: User | null }) => {
               Do you want to proceed?
             </div>
             <Button
-              className="btn-red"
+              className="button-pop-up"
               onClick={async () => {
                 'use server'
                 await restoreSeedMedia()
-                await restoreBackup(SEED_OPTITRACK_GLOBALS_URL, ['users', 'roles'], false) // Restore globals configuration - replace
-                // await restoreBackup(SEED_OPTITRACK_PAGES_URL, ['users', 'roles'], true) // Restore pages configuration - merge
+                await restoreBackup(SEED_OPTITRACK_HOMEPAGE_URL, ['users', 'roles'], false) // Restore globals configuration - replace
                 revalidatePath('/admin')
               }}
             >

@@ -15,6 +15,7 @@ import { Readable } from 'node:stream'
 
 const BACKUPS_TO_KEEP = Number(process.env.BACKUPS_TO_KEEP) || 10
 const COLLECTION_FILE_NAME = 'collections.json'
+const MEDIA_FILES_PATH = 'media/optitrack-homepage-seed'
 
 export async function getDb() {
   const payload = await getPayload({ config: configPromise })
@@ -175,9 +176,9 @@ export async function restoreBackup(
 
 export async function restoreSeedMedia() {
   'use server'
-  const files = await fs.readdir(path.join(process.cwd(), 'public/seed/media'))
+  const files = await fs.readdir(path.join(process.cwd(), MEDIA_FILES_PATH))
   for (const file of files) {
-    const data = await fs.readFile(path.join(process.cwd(), 'public/seed/media', file))
+    const data = await fs.readFile(path.join(process.cwd(), MEDIA_FILES_PATH, file))
     if (process.env.BLOB_READ_WRITE_TOKEN) {
       // Upload file to vercel blob storage
       const blob = await put(file, data, {

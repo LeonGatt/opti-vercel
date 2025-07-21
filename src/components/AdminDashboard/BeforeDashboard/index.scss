@@ -14,3 +14,13 @@
   display: inline-block;
   margin-right: 10px;
 }
+
+.button-pop-up {
+  background-color: var(--bg-color);
+  &:hover,
+  &:focus-visible,
+  &:focus,
+  &:active {
+    background-color: var(--hover-bg);
+  }
+}
