@@ -81,7 +81,7 @@ export default buildConfig({
       afterDashboard: ['@/components/AdminDashboard/BackupDashboard'],
       graphics: {
         Icon: '@/components/AdminDashboard/PayblocksIcon',
-        Logo: '@/components/AdminDashboard/PayblocksLogo',
+        Logo: '@/components/Logo',
       },
     },
     importMap: {

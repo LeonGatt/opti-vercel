@@ -21,9 +21,7 @@ const BeforeLogin: React.FC = () => {
           </>
         ) : (
           <>
-            <b>Welcome to your dashboard!</b>
-            {' This is where site admins will log in to manage your website.'}
-            <br />
+            <b>Welcome to the OptiTrack dashboard!</b>
             <br />
           </>
         )}

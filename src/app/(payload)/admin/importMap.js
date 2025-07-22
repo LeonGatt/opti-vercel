@@ -38,7 +38,7 @@ import { LinkToDoc as LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloa
 import { ReindexButton as ReindexButton_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
 import { TextStateFeatureClient as TextStateFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { default as default_6b2353e3111548bdd4323abcc52ba5a0 } from '@/components/AdminDashboard/PayblocksIcon'
-import { default as default_53224279228825239c4a8482aaddfaa8 } from '@/components/AdminDashboard/PayblocksLogo'
+import { default as default_2b7e2e151f989fb419ce3009e56b903e } from '@/components/Logo'
 import { default as default_0a2ba52d3c78797a6b0937e7611782e5 } from '@/components/AdminDashboard/BackupDashboard'
 import { default as default_2f704de5e6c59b8917a26e353bdf0747 } from '@/components/AdminDashboard/BeforeDashboard'
 import { default as default_5abc63c3cf3fe7a656266cc0318fce13 } from '@/components/AdminDashboard/BeforeLogin'
@@ -84,7 +84,7 @@ export const importMap = {
   "@payloadcms/plugin-search/client#ReindexButton": ReindexButton_aead06e4cbf6b2620c5c51c9ab283634,
   "@payloadcms/richtext-lexical/client#TextStateFeatureClient": TextStateFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@/components/AdminDashboard/PayblocksIcon#default": default_6b2353e3111548bdd4323abcc52ba5a0,
-  "@/components/AdminDashboard/PayblocksLogo#default": default_53224279228825239c4a8482aaddfaa8,
+  "@/components/Logo#default": default_2b7e2e151f989fb419ce3009e56b903e,
   "@/components/AdminDashboard/BackupDashboard#default": default_0a2ba52d3c78797a6b0937e7611782e5,
   "@/components/AdminDashboard/BeforeDashboard#default": default_2f704de5e6c59b8917a26e353bdf0747,
   "@/components/AdminDashboard/BeforeLogin#default": default_5abc63c3cf3fe7a656266cc0318fce13

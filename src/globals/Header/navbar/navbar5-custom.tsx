@@ -26,7 +26,7 @@ import type { Header as HeaderType } from '@/payload-types'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import Link from 'next/link'
 import { PublicContextProps } from '@/utilities/publicContextProps'
-import { Logo } from '@/components/Logo/Logo'
+import Logo from '@/components/Logo'
 import { CartToggle } from '@/components/Cart/CartToggle'
 import { usePathname } from 'next/navigation'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Logo = () => {
+export default function Logo() {
   return (
     <svg
       className="w-[92px] text-foreground pt-[5px]"
