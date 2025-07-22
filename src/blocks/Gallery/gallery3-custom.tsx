@@ -123,7 +123,7 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
                         )}
                       </div>
 
-                      {extractPlainText(firstNode) && firstNode && (
+                      {firstNode && extractPlainText(firstNode) && (
                         <RichText
                           publicContext={publicContext}
                           content={firstNode}
@@ -137,7 +137,7 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
                         />
                       )}
 
-                      {extractPlainText(rest) && rest && (
+                      {rest && extractPlainText(rest) && (
                         <RichText
                           publicContext={publicContext}
                           content={rest}

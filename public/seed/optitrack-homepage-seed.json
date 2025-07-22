@@ -417,9 +417,7 @@
                 "label": {
                   "en": "Movement Sciences"
                 },
-                "link": {
-                  "appearance": "link",
-                  "iconAfter": "",
+                "oneLink": {
                   "label": {
                     "en": "Read more"
                   },

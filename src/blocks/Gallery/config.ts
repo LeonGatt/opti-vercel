@@ -218,6 +218,7 @@ export const Gallery: Block = {
             },
           },
         }),
+        // gallery3-custom doesn't use variants for buttons, for this reason is used oneLink
         link({
           appearances: false,
           disableIcon: true,
