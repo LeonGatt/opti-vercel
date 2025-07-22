@@ -1,9 +1,10 @@
 import { cache } from 'react'
 import { draftMode } from 'next/headers'
 import { Config, Page, Post } from '@/payload-types'
-import { LocalizationConfig, Payload } from 'payload'
+import { Payload } from 'payload'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
+import { Locale, locales } from '@/localization.config'
 
 type CollectionReturnTypeMap = {
   pages: Page & { type: 'page' }
@@ -31,9 +32,8 @@ export const queryCollectionData = async <T extends keyof CollectionReturnTypeMa
   const payload = await getPayload({ config: configPromise })
 
   // Check if locale is supported
-  const { locales } = payload.config.localization as LocalizationConfig
-  if (!locales.map((locale) => locale.code).includes(locale)) {
-    // locale is not supported
+  if (!locales.includes(locale as Locale)) {
+    // locale is not supported  
     return null
   }
 
