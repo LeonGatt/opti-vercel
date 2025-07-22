@@ -60,7 +60,7 @@ const HeroBlockComponent: React.FC<HeroProps & { publicContext: PublicContextPro
     : 'font-heading font-bold text-5xl text-foreground'
   return (
     <section
-      className="container max-h-[100vh] py-6"
+      className="container py-6"
       data-theme={darkMode ? 'dark' : ''}
       role="banner"
       aria-label="Hero section"
