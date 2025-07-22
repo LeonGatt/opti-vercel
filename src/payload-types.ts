@@ -1591,7 +1591,7 @@ export interface GalleryBlock {
           size?: ('default' | 'sm' | 'lg' | 'icon') | null;
         };
         oneLink?: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -1599,39 +1599,7 @@ export interface GalleryBlock {
           } | null;
           section?: string | null;
           url?: string | null;
-          label: string;
-        };
-        oneLink?: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
-          section?: string | null;
-          url?: string | null;
-          label: string;
-        };
-        oneLink?: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
-          section?: string | null;
-          url?: string | null;
-          label: string;
-        };
-        oneLink?: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
-          section?: string | null;
-          url?: string | null;
+          slug?: string | null;
           label: string;
         };
         label?: string | null;
@@ -3502,6 +3470,7 @@ export interface GalleryBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
             };
         label?: T;

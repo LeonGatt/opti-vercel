@@ -17,8 +17,8 @@
         },
         "defaultMeta": {
           "en": {
-            "description": "Demopage for the payblocks project",
-            "title": "Payblocks Demopage"
+            "description": "OptiTrack - Motion Capture Systems",
+            "title": "OptiTrack"
           }
         },
         "openGraph": {
@@ -910,7 +910,7 @@
         ],
         "meta": {
           "title": {
-            "en": "Payblocks demo  - the Payload & shadcn starter kit"
+            "en": "OptiTrack - Motion Capture Systems"
           }
         },
         "publishedAt": {
@@ -936,8 +936,8 @@
       },
       "defaultMeta": {
         "en": {
-          "description": "Demopage for the payblocks project",
-          "title": "Payblocks Demopage"
+          "description": "OptiTrack - Motion Capture Systems",
+          "title": "OptiTrack"
         }
       },
       "globalType": "page-config",
@@ -3589,7 +3589,7 @@
       ],
       "meta": {
         "title": {
-          "en": "Payblocks demo  - the Payload & shadcn starter kit"
+          "en": "OptiTrack - Motion Capture Systems"
         }
       },
       "publishedAt": {
