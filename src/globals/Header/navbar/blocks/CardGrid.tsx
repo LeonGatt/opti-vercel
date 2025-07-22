@@ -17,7 +17,7 @@ export type CardGridProps = {
         label: string
         url?: string
         newTab?: boolean
-        type?: 'reference' | 'custom'
+        type?: 'reference' | 'custom' | 'legacy'
         reference?: {
           value: string
           relationTo: string

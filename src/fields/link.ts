@@ -80,6 +80,10 @@ export const link: LinkType = ({
                 label: 'Custom URL',
                 value: 'custom',
               },
+              {
+                label: 'Legacy link',
+                value: 'legacy',
+              },
             ],
           },
           {
@@ -132,6 +136,16 @@ export const link: LinkType = ({
       required: true,
       localized: true,
     },
+    {
+      name: 'slug',
+      type: 'text',
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'legacy',
+      },
+      label: 'Legacy slug',
+      required: true,
+      localized: false,
+    }
   ]
 
   if (!disableLabel) {

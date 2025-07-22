@@ -7,6 +7,7 @@ import type { Page, Post } from '@/payload-types'
 import { Icon } from '@/components/Icon'
 import localization from '@/localization.config'
 import { PublicContextProps } from '@/utilities/publicContextProps'
+import { env } from '@/env'
 
 type CMSLinkType = {
   appearance?: 'inline' | ButtonProps['variant']
@@ -20,7 +21,8 @@ type CMSLinkType = {
   } | null
   section?: string | null
   size?: ButtonProps['size'] | null
-  type?: 'custom' | 'reference' | null
+  type?: 'custom' | 'reference' | 'legacy' | null
+  slug?: string | null
   url?: string | null
   iconBefore?: string | null
   iconAfter?: string | null
@@ -46,6 +48,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
     section,
     size: sizeFromProps,
     url,
+    slug,
     iconBefore,
     iconAfter,
     iconClassName,
@@ -76,6 +79,10 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   }
 
   if (!href) return null
+
+  if (type === 'legacy' && slug) {
+    href = `${env.NEXT_PUBLIC_LEGACY_HOSTNAME}/${slug}`
+  }
 
   const size = appearance === 'link' ? 'clear' : sizeFromProps
   const newTabProps = newTab ? { rel: 'noopener noreferrer', target: '_blank' } : {}

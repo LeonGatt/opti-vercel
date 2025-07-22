@@ -43,6 +43,7 @@ export const env = createEnv({
     NEXT_PUBLIC_GTM_AUTH: z.string().optional(),
 
     NEXT_PUBLIC_CART_API_URL: z.string().url(),
+    NEXT_PUBLIC_LEGACY_HOSTNAME: z.string().optional(),
   },
   shared: {
     // NODE_ENV makes app to behave as it's in production mode (optimized builds, no dev-only behavior, etc.)
@@ -87,6 +88,7 @@ export const env = createEnv({
     NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID: process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID,
     NEXT_PUBLIC_GTM_AUTH: process.env.NEXT_PUBLIC_GTM_AUTH,
     NEXT_PUBLIC_CART_API_URL: process.env.NEXT_PUBLIC_CART_API_URL,
+    NEXT_PUBLIC_LEGACY_HOSTNAME: process.env.NEXT_PUBLIC_LEGACY_HOSTNAME,
 
     // Shared environment variables
     NODE_ENV: process.env.NODE_ENV,

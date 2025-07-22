@@ -250,7 +250,7 @@ export interface Hero {
   badgeIcon?: string | null;
   tagline?: string | null;
   badgeLink?: {
-    type?: ('reference' | 'custom') | null;
+    type?: ('reference' | 'custom' | 'legacy') | null;
     newTab?: boolean | null;
     reference?: {
       relationTo: 'pages';
@@ -258,11 +258,12 @@ export interface Hero {
     } | null;
     section?: string | null;
     url?: string | null;
+    slug?: string | null;
     iconBefore?: string | null;
     iconAfter?: string | null;
   };
   buttonLink?: {
-    type?: ('reference' | 'custom') | null;
+    type?: ('reference' | 'custom' | 'legacy') | null;
     newTab?: boolean | null;
     reference?: {
       relationTo: 'pages';
@@ -270,6 +271,7 @@ export interface Hero {
     } | null;
     section?: string | null;
     url?: string | null;
+    slug?: string | null;
     label: string;
   };
   richText?: {
@@ -290,7 +292,7 @@ export interface Hero {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -298,6 +300,7 @@ export interface Hero {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -497,7 +500,7 @@ export interface FeatureBlock {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -505,6 +508,7 @@ export interface FeatureBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -572,7 +576,7 @@ export interface FeatureBlock {
         links?:
           | {
               link: {
-                type?: ('reference' | 'custom') | null;
+                type?: ('reference' | 'custom' | 'legacy') | null;
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
@@ -580,6 +584,7 @@ export interface FeatureBlock {
                 } | null;
                 section?: string | null;
                 url?: string | null;
+                slug?: string | null;
                 label: string;
                 /**
                  * Choose how the link should be rendered.
@@ -594,7 +599,7 @@ export interface FeatureBlock {
          * Single link for this USP. Icons might be set automatically, depending on the design version
          */
         link?: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -602,6 +607,7 @@ export interface FeatureBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -1091,7 +1097,7 @@ export interface CtaBlock {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -1099,6 +1105,7 @@ export interface CtaBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -1175,7 +1182,7 @@ export interface LogosBlock {
     [k: string]: unknown;
   } | null;
   link?: {
-    type?: ('reference' | 'custom') | null;
+    type?: ('reference' | 'custom' | 'legacy') | null;
     newTab?: boolean | null;
     reference?: {
       relationTo: 'pages';
@@ -1183,6 +1190,7 @@ export interface LogosBlock {
     } | null;
     section?: string | null;
     url?: string | null;
+    slug?: string | null;
     label: string;
     iconBefore?: string | null;
     iconAfter?: string | null;
@@ -1301,7 +1309,7 @@ export interface AboutBlock {
     [k: string]: unknown;
   } | null;
   link?: {
-    type?: ('reference' | 'custom') | null;
+    type?: ('reference' | 'custom' | 'legacy') | null;
     newTab?: boolean | null;
     reference?: {
       relationTo: 'pages';
@@ -1309,6 +1317,7 @@ export interface AboutBlock {
     } | null;
     section?: string | null;
     url?: string | null;
+    slug?: string | null;
     label: string;
     iconBefore?: string | null;
     iconAfter?: string | null;
@@ -1496,7 +1505,7 @@ export interface GalleryBlock {
    * Single link for this gallery. Might look best with arrowRight icon
    */
   link?: {
-    type?: ('reference' | 'custom') | null;
+    type?: ('reference' | 'custom' | 'legacy') | null;
     newTab?: boolean | null;
     reference?: {
       relationTo: 'pages';
@@ -1504,6 +1513,7 @@ export interface GalleryBlock {
     } | null;
     section?: string | null;
     url?: string | null;
+    slug?: string | null;
     label: string;
     iconBefore?: string | null;
     iconAfter?: string | null;
@@ -1562,7 +1572,7 @@ export interface GalleryBlock {
           [k: string]: unknown;
         } | null;
         link?: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -1570,6 +1580,7 @@ export interface GalleryBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -1666,7 +1677,7 @@ export interface TestimonialBlock {
   } | null;
   tagline?: string | null;
   link?: {
-    type?: ('reference' | 'custom') | null;
+    type?: ('reference' | 'custom' | 'legacy') | null;
     newTab?: boolean | null;
     reference?: {
       relationTo: 'pages';
@@ -1674,6 +1685,7 @@ export interface TestimonialBlock {
     } | null;
     section?: string | null;
     url?: string | null;
+    slug?: string | null;
     label: string;
     iconBefore?: string | null;
     iconAfter?: string | null;
@@ -1706,7 +1718,7 @@ export interface TestimonialBlock {
           [k: string]: unknown;
         } | null;
         link?: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -1714,6 +1726,7 @@ export interface TestimonialBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -1826,7 +1839,7 @@ export interface FaqBlock {
     [k: string]: unknown;
   } | null;
   calloutLink?: {
-    type?: ('reference' | 'custom') | null;
+    type?: ('reference' | 'custom' | 'legacy') | null;
     newTab?: boolean | null;
     reference?: {
       relationTo: 'pages';
@@ -1834,6 +1847,7 @@ export interface FaqBlock {
     } | null;
     section?: string | null;
     url?: string | null;
+    slug?: string | null;
     label: string;
     iconBefore?: string | null;
     iconAfter?: string | null;
@@ -1930,7 +1944,7 @@ export interface StatBlock {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -1938,6 +1952,7 @@ export interface StatBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -2061,7 +2076,7 @@ export interface TextBlock {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -2069,6 +2084,7 @@ export interface TextBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -2313,7 +2329,7 @@ export interface BlogBlock {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -2321,6 +2337,7 @@ export interface BlogBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -2383,7 +2400,7 @@ export interface BannerBlockV2 {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -2391,6 +2408,7 @@ export interface BannerBlockV2 {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -2636,7 +2654,7 @@ export interface HeroBlock {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -2644,6 +2662,7 @@ export interface HeroBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -2741,7 +2760,7 @@ export interface BentoBoxBlock {
   links?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -2749,6 +2768,7 @@ export interface BentoBoxBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -2789,7 +2809,7 @@ export interface BentoBoxBlock {
         links?:
           | {
               link: {
-                type?: ('reference' | 'custom') | null;
+                type?: ('reference' | 'custom' | 'legacy') | null;
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
@@ -2797,6 +2817,7 @@ export interface BentoBoxBlock {
                 } | null;
                 section?: string | null;
                 url?: string | null;
+                slug?: string | null;
                 label: string;
                 iconBefore?: string | null;
                 iconAfter?: string | null;
@@ -2810,7 +2831,7 @@ export interface BentoBoxBlock {
             }[]
           | null;
         link?: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -2818,6 +2839,7 @@ export interface BentoBoxBlock {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
         };
         id?: string | null;
       }[]
@@ -3068,6 +3090,7 @@ export interface HeroSelect<T extends boolean = true> {
         reference?: T;
         section?: T;
         url?: T;
+        slug?: T;
         iconBefore?: T;
         iconAfter?: T;
       };
@@ -3079,6 +3102,7 @@ export interface HeroSelect<T extends boolean = true> {
         reference?: T;
         section?: T;
         url?: T;
+        slug?: T;
         label?: T;
       };
   richText?: T;
@@ -3093,6 +3117,7 @@ export interface HeroSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3167,6 +3192,7 @@ export interface FeatureBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3208,6 +3234,7 @@ export interface FeatureBlockSelect<T extends boolean = true> {
                     reference?: T;
                     section?: T;
                     url?: T;
+                    slug?: T;
                     label?: T;
                     appearance?: T;
                     size?: T;
@@ -3222,6 +3249,7 @@ export interface FeatureBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3281,6 +3309,7 @@ export interface CtaBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3309,6 +3338,7 @@ export interface LogosBlockSelect<T extends boolean = true> {
         reference?: T;
         section?: T;
         url?: T;
+        slug?: T;
         label?: T;
         iconBefore?: T;
         iconAfter?: T;
@@ -3338,6 +3368,7 @@ export interface AboutBlockSelect<T extends boolean = true> {
         reference?: T;
         section?: T;
         url?: T;
+        slug?: T;
         label?: T;
         iconBefore?: T;
         iconAfter?: T;
@@ -3403,6 +3434,7 @@ export interface GalleryBlockSelect<T extends boolean = true> {
         reference?: T;
         section?: T;
         url?: T;
+        slug?: T;
         label?: T;
         iconBefore?: T;
         iconAfter?: T;
@@ -3422,6 +3454,7 @@ export interface GalleryBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3468,6 +3501,7 @@ export interface TestimonialBlockSelect<T extends boolean = true> {
         reference?: T;
         section?: T;
         url?: T;
+        slug?: T;
         label?: T;
         iconBefore?: T;
         iconAfter?: T;
@@ -3491,6 +3525,7 @@ export interface TestimonialBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3527,6 +3562,7 @@ export interface FaqBlockSelect<T extends boolean = true> {
         reference?: T;
         section?: T;
         url?: T;
+        slug?: T;
         label?: T;
         iconBefore?: T;
         iconAfter?: T;
@@ -3563,6 +3599,7 @@ export interface StatBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3608,6 +3645,7 @@ export interface TextBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3695,6 +3733,7 @@ export interface BlogBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3727,6 +3766,7 @@ export interface BannerBlockV2Select<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3843,6 +3883,7 @@ export interface HeroBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3878,6 +3919,7 @@ export interface BentoBoxBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -3903,6 +3945,7 @@ export interface BentoBoxBlockSelect<T extends boolean = true> {
                     reference?: T;
                     section?: T;
                     url?: T;
+                    slug?: T;
                     label?: T;
                     iconBefore?: T;
                     iconAfter?: T;
@@ -3919,6 +3962,7 @@ export interface BentoBoxBlockSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
             };
         id?: T;
       };
@@ -4275,7 +4319,7 @@ export interface Header {
             label: string;
             subitems: {
               link: {
-                type?: ('reference' | 'custom') | null;
+                type?: ('reference' | 'custom' | 'legacy') | null;
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
@@ -4283,6 +4327,7 @@ export interface Header {
                 } | null;
                 section?: string | null;
                 url?: string | null;
+                slug?: string | null;
                 label: string;
                 iconBefore?: string | null;
                 iconAfter?: string | null;
@@ -4296,7 +4341,7 @@ export interface Header {
           }
         | {
             link: {
-              type?: ('reference' | 'custom') | null;
+              type?: ('reference' | 'custom' | 'legacy') | null;
               newTab?: boolean | null;
               reference?: {
                 relationTo: 'pages';
@@ -4304,6 +4349,7 @@ export interface Header {
               } | null;
               section?: string | null;
               url?: string | null;
+              slug?: string | null;
               label: string;
               iconBefore?: string | null;
               iconAfter?: string | null;
@@ -4321,7 +4367,7 @@ export interface Header {
     | (
         | {
             link: {
-              type?: ('reference' | 'custom') | null;
+              type?: ('reference' | 'custom' | 'legacy') | null;
               newTab?: boolean | null;
               reference?: {
                 relationTo: 'pages';
@@ -4329,6 +4375,7 @@ export interface Header {
               } | null;
               section?: string | null;
               url?: string | null;
+              slug?: string | null;
               label: string;
               iconBefore?: string | null;
               iconAfter?: string | null;
@@ -4348,7 +4395,7 @@ export interface Header {
                   image?: (string | null) | Media;
                   backgroundColor?: ('primary' | 'secondary' | 'accent' | 'muted') | null;
                   link: {
-                    type?: ('reference' | 'custom') | null;
+                    type?: ('reference' | 'custom' | 'legacy') | null;
                     newTab?: boolean | null;
                     reference?: {
                       relationTo: 'pages';
@@ -4356,6 +4403,7 @@ export interface Header {
                     } | null;
                     section?: string | null;
                     url?: string | null;
+                    slug?: string | null;
                     label: string;
                     iconBefore?: string | null;
                     iconAfter?: string | null;
@@ -4377,7 +4425,7 @@ export interface Header {
                         description?: string | null;
                         icon?: string | null;
                         link: {
-                          type?: ('reference' | 'custom') | null;
+                          type?: ('reference' | 'custom' | 'legacy') | null;
                           newTab?: boolean | null;
                           reference?: {
                             relationTo: 'pages';
@@ -4385,6 +4433,7 @@ export interface Header {
                           } | null;
                           section?: string | null;
                           url?: string | null;
+                          slug?: string | null;
                           label: string;
                           iconBefore?: string | null;
                           iconAfter?: string | null;
@@ -4405,7 +4454,7 @@ export interface Header {
                         links?:
                           | {
                               link: {
-                                type?: ('reference' | 'custom') | null;
+                                type?: ('reference' | 'custom' | 'legacy') | null;
                                 newTab?: boolean | null;
                                 reference?: {
                                   relationTo: 'pages';
@@ -4413,6 +4462,7 @@ export interface Header {
                                 } | null;
                                 section?: string | null;
                                 url?: string | null;
+                                slug?: string | null;
                                 label: string;
                                 iconBefore?: string | null;
                                 iconAfter?: string | null;
@@ -4436,7 +4486,7 @@ export interface Header {
                         description?: string | null;
                         icon?: string | null;
                         link: {
-                          type?: ('reference' | 'custom') | null;
+                          type?: ('reference' | 'custom' | 'legacy') | null;
                           newTab?: boolean | null;
                           reference?: {
                             relationTo: 'pages';
@@ -4444,6 +4494,7 @@ export interface Header {
                           } | null;
                           section?: string | null;
                           url?: string | null;
+                          slug?: string | null;
                           label: string;
                           iconBefore?: string | null;
                           iconAfter?: string | null;
@@ -4460,7 +4511,7 @@ export interface Header {
                   links?:
                     | {
                         link: {
-                          type?: ('reference' | 'custom') | null;
+                          type?: ('reference' | 'custom' | 'legacy') | null;
                           newTab?: boolean | null;
                           reference?: {
                             relationTo: 'pages';
@@ -4468,6 +4519,7 @@ export interface Header {
                           } | null;
                           section?: string | null;
                           url?: string | null;
+                          slug?: string | null;
                           label: string;
                         };
                         icon?: string | null;
@@ -4486,7 +4538,7 @@ export interface Header {
                   image?: (string | null) | Media;
                   backgroundColor?: ('primary' | 'secondary' | 'accent' | 'muted') | null;
                   link?: {
-                    type?: ('reference' | 'custom') | null;
+                    type?: ('reference' | 'custom' | 'legacy') | null;
                     newTab?: boolean | null;
                     reference?: {
                       relationTo: 'pages';
@@ -4494,6 +4546,7 @@ export interface Header {
                     } | null;
                     section?: string | null;
                     url?: string | null;
+                    slug?: string | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -4509,7 +4562,7 @@ export interface Header {
   buttons?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -4517,6 +4570,7 @@ export interface Header {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -4563,7 +4617,7 @@ export interface Footer {
   contactButton?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -4571,6 +4625,7 @@ export interface Footer {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
           iconBefore?: string | null;
           iconAfter?: string | null;
@@ -4589,7 +4644,7 @@ export interface Footer {
   legalLinks?:
     | {
         link: {
-          type?: ('reference' | 'custom') | null;
+          type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
           reference?: {
             relationTo: 'pages';
@@ -4597,6 +4652,7 @@ export interface Footer {
           } | null;
           section?: string | null;
           url?: string | null;
+          slug?: string | null;
           label: string;
         };
         id?: string | null;
@@ -4632,7 +4688,7 @@ export interface Footer {
         subNavItems?:
           | {
               link: {
-                type?: ('reference' | 'custom') | null;
+                type?: ('reference' | 'custom' | 'legacy') | null;
                 newTab?: boolean | null;
                 reference?: {
                   relationTo: 'pages';
@@ -4640,6 +4696,7 @@ export interface Footer {
                 } | null;
                 section?: string | null;
                 url?: string | null;
+                slug?: string | null;
                 label: string;
                 iconBefore?: string | null;
                 iconAfter?: string | null;
@@ -4706,6 +4763,7 @@ export interface HeaderSelect<T extends boolean = true> {
                           reference?: T;
                           section?: T;
                           url?: T;
+                          slug?: T;
                           label?: T;
                           iconBefore?: T;
                           iconAfter?: T;
@@ -4727,6 +4785,7 @@ export interface HeaderSelect<T extends boolean = true> {
                     reference?: T;
                     section?: T;
                     url?: T;
+                    slug?: T;
                     label?: T;
                     iconBefore?: T;
                     iconAfter?: T;
@@ -4749,6 +4808,7 @@ export interface HeaderSelect<T extends boolean = true> {
                     reference?: T;
                     section?: T;
                     url?: T;
+                    slug?: T;
                     label?: T;
                     iconBefore?: T;
                     iconAfter?: T;
@@ -4780,6 +4840,7 @@ export interface HeaderSelect<T extends boolean = true> {
                                 reference?: T;
                                 section?: T;
                                 url?: T;
+                                slug?: T;
                                 label?: T;
                                 iconBefore?: T;
                                 iconAfter?: T;
@@ -4807,6 +4868,7 @@ export interface HeaderSelect<T extends boolean = true> {
                                       reference?: T;
                                       section?: T;
                                       url?: T;
+                                      slug?: T;
                                       label?: T;
                                       iconBefore?: T;
                                       iconAfter?: T;
@@ -4836,6 +4898,7 @@ export interface HeaderSelect<T extends boolean = true> {
                                             reference?: T;
                                             section?: T;
                                             url?: T;
+                                            slug?: T;
                                             label?: T;
                                             iconBefore?: T;
                                             iconAfter?: T;
@@ -4866,6 +4929,7 @@ export interface HeaderSelect<T extends boolean = true> {
                                       reference?: T;
                                       section?: T;
                                       url?: T;
+                                      slug?: T;
                                       label?: T;
                                       iconBefore?: T;
                                       iconAfter?: T;
@@ -4890,6 +4954,7 @@ export interface HeaderSelect<T extends boolean = true> {
                                       reference?: T;
                                       section?: T;
                                       url?: T;
+                                      slug?: T;
                                       label?: T;
                                     };
                                 icon?: T;
@@ -4915,6 +4980,7 @@ export interface HeaderSelect<T extends boolean = true> {
                                 reference?: T;
                                 section?: T;
                                 url?: T;
+                                slug?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -4935,6 +5001,7 @@ export interface HeaderSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -4969,6 +5036,7 @@ export interface FooterSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
               iconBefore?: T;
               iconAfter?: T;
@@ -4988,6 +5056,7 @@ export interface FooterSelect<T extends boolean = true> {
               reference?: T;
               section?: T;
               url?: T;
+              slug?: T;
               label?: T;
             };
         id?: T;
@@ -5014,6 +5083,7 @@ export interface FooterSelect<T extends boolean = true> {
                     reference?: T;
                     section?: T;
                     url?: T;
+                    slug?: T;
                     label?: T;
                     iconBefore?: T;
                     iconAfter?: T;
