@@ -110,7 +110,7 @@ export interface Config {
     footer: FooterSelect<false> | FooterSelect<true>;
     'page-config': PageConfigSelect<false> | PageConfigSelect<true>;
   };
-  locale: 'en' | 'de' | 'fr' | 'ja' | 'ko' | 'pt' | 'sk' | 'zh';
+  locale: 'en';
   user: User & {
     collection: 'users';
   };

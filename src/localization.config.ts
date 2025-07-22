@@ -1,4 +1,4 @@
-import { LocalizationConfig } from 'payload'
+import type { LocalizationConfig } from 'payload'
 
 // You need to restart the development server after changing this file
 export const locales = ['en'] as const

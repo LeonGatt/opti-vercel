@@ -11,8 +11,9 @@ export const ClientProviders: React.FC<{
   locale: Locale
   messages: any
 }> = ({ children, locale, messages }) => {
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages} timeZone={timeZone}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </NextIntlClientProvider>
   )
