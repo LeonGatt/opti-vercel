@@ -1,7 +1,9 @@
 import { LocalizationConfig } from 'payload'
 
 // You need to restart the development server after changing this file
-export const locales = ['en', 'de', 'fr', 'ja', 'ko', 'pt', 'sk', 'zh'] as const
+export const locales = ['en'] as const
+// export const locales = ['en', 'de', 'fr', 'ja', 'ko', 'pt', 'sk', 'zh'] as const
+
 export type Locale = (typeof locales)[number]
 
 export const localization: LocalizationConfig = {
@@ -12,13 +14,13 @@ export const localization: LocalizationConfig = {
 
 export const localeLabels: Record<Locale, string> = {
   en: 'EN',
-  de: 'DE',
-  fr: 'FR',
-  ja: 'JA',
-  ko: 'KO',
-  pt: 'PT',
-  sk: 'SK',
-  zh: 'ZH',
+  // de: 'DE',
+  // fr: 'FR',
+  // ja: 'JA',
+  // ko: 'KO',
+  // pt: 'PT',
+  // sk: 'SK',
+  // zh: 'ZH',
 }
 
 export default localization

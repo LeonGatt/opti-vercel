@@ -1,12 +1,12 @@
 // storage-adapter-import-placeholder
 import { en } from '@payloadcms/translations/languages/en'
-import { de } from '@payloadcms/translations/languages/de'
-import { fr } from '@payloadcms/translations/languages/fr'
-import { ja } from '@payloadcms/translations/languages/ja'
-import { ko } from '@payloadcms/translations/languages/ko'
-import { pt } from '@payloadcms/translations/languages/pt'
-import { sk } from '@payloadcms/translations/languages/sk'
-import { zh } from '@payloadcms/translations/languages/zh'
+// import { de } from '@payloadcms/translations/languages/de'
+// import { fr } from '@payloadcms/translations/languages/fr'
+// import { ja } from '@payloadcms/translations/languages/ja'
+// import { ko } from '@payloadcms/translations/languages/ko'
+// import { pt } from '@payloadcms/translations/languages/pt'
+// import { sk } from '@payloadcms/translations/languages/sk'
+// import { zh } from '@payloadcms/translations/languages/zh'
 
 import { OAuth2Plugin } from 'payload-oauth2'
 
@@ -314,6 +314,7 @@ export default buildConfig({
   localization,
   // Enable localization for admin panel
   i18n: {
-    supportedLanguages: { en, de, fr, ja, ko, pt, sk, zh },
+    // supportedLanguages: { en, de, fr, ja, ko, pt, sk, zh },
+    supportedLanguages: { en },
   },
 })

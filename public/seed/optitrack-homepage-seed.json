@@ -2243,7 +2243,7 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.402Z"
       },
-      "filename": "virtual-reality.webp",
+      "filename": "bms_virtual-reality.webp",
       "filesize": 629669,
       "focalX": 50,
       "focalY": 50,
@@ -2986,7 +2986,7 @@
               "label": {
                 "en": "Movement Sciences"
               },
-              "link": {
+              "oneLink": {
                 "appearance": "link",
                 "iconAfter": "",
                 "label": {
