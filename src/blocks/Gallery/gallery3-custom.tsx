@@ -72,10 +72,11 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
           )}
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full pl-5">
         <Carousel
           setApi={setCarouselApi}
           opts={{
+            align: 'start',
             breakpoints: {
               '(max-width: 768px)': {
                 dragFree: true,
@@ -83,7 +84,7 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
             },
           }}
         >
-          <CarouselContent className="ml-[calc(theme(container.padding)-20px)] 2xl:ml-[calc(50vw-700px+theme(container.padding)-20px)] flex gap-6 px-5 sm:gap-5">
+          <CarouselContent className="ml-[calc(theme(container.padding)-20px)] 2xl:ml-[calc(50vw-700px+theme(container.padding)-20px)] flex gap-6 sm:gap-5">
             {elements &&
               elements.map((item) => {
                 const { firstNode, rest } = splitRichText(item.richText, {
