@@ -2043,12 +2043,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.392Z"
       },
-      "filename": "category-accessories.png",
+      "filename": "category-accessories.webp",
       "filesize": 2957758,
       "focalX": 50,
       "focalY": 50,
       "height": 4096,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.392Z"
       },
@@ -2063,12 +2063,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.393Z"
       },
-      "filename": "bms-animation.png",
+      "filename": "bms_animation.webp",
       "filesize": 377162,
       "focalX": 50,
       "focalY": 50,
       "height": 1076,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.393Z"
       },
@@ -2083,12 +2083,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.394Z"
       },
-      "filename": "category-camera.png",
+      "filename": "category-cameras.webp",
       "filesize": 650797,
       "focalX": 50,
       "focalY": 50,
       "height": 899,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.394Z"
       },
@@ -2143,12 +2143,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.397Z"
       },
-      "filename": "bms-movement-sciences.png",
+      "filename": "bms_movement-sciences.webp",
       "filesize": 433508,
       "focalX": 50,
       "focalY": 50,
       "height": 1076,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.397Z"
       },
@@ -2163,12 +2163,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.398Z"
       },
-      "filename": "bms-robotics.png",
+      "filename": "bms_robotics.webp",
       "filesize": 307286,
       "focalX": 50,
       "focalY": 50,
       "height": 1076,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.398Z"
       },
@@ -2183,12 +2183,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.399Z"
       },
-      "filename": "category-software.png",
+      "filename": "category-software.webp",
       "filesize": 1156176,
       "focalX": 50,
       "focalY": 50,
       "height": 1380,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.399Z"
       },
@@ -2223,12 +2223,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.401Z"
       },
-      "filename": "bms-virtual-production.png",
+      "filename": "bms_virtual-production.webp",
       "filesize": 403561,
       "focalX": 50,
       "focalY": 50,
       "height": 1076,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.401Z"
       },
@@ -2239,16 +2239,16 @@
       "_id": {
         "$oid": "67a508af2ead0c7978f0236a"
       },
-      "alt": "bms-virtual-reality",
+      "alt": "bms_virtual-reality",
       "createdAt": {
         "$date": "2025-02-06T19:08:31.402Z"
       },
-      "filename": "virtual-reality.png",
+      "filename": "virtual-reality.webp",
       "filesize": 629669,
       "focalX": 50,
       "focalY": 50,
       "height": 1076,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.402Z"
       },
@@ -2263,12 +2263,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.403Z"
       },
-      "filename": "application-animation.png",
+      "filename": "application-animation.webp",
       "filesize": 2119239,
       "focalX": 50,
       "focalY": 50,
       "height": 1138,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.403Z"
       },
@@ -2283,12 +2283,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.404Z"
       },
-      "filename": "application-movement-sciences.png",
+      "filename": "application-movement-sciences.webp",
       "filesize": 2086526,
       "focalX": 50,
       "focalY": 50,
       "height": 1138,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.404Z"
       },
@@ -2303,12 +2303,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.405Z"
       },
-      "filename": "application-robotics.png",
+      "filename": "application-robotics.webp",
       "filesize": 3044022,
       "focalX": 50,
       "focalY": 50,
       "height": 1138,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.405Z"
       },
@@ -2323,12 +2323,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.406Z"
       },
-      "filename": "application-virtual-production.png",
+      "filename": "application-virtual-production.webp",
       "filesize": 2573483,
       "focalX": 50,
       "focalY": 50,
       "height": 1138,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.406Z"
       },
@@ -2343,12 +2343,12 @@
       "createdAt": {
         "$date": "2025-02-06T19:08:31.407Z"
       },
-      "filename": "application-virtual-reality.png",
+      "filename": "application-virtual-reality.webp",
       "filesize": 3945373,
       "focalX": 50,
       "focalY": 50,
       "height": 1138,
-      "mimeType": "image/png",
+      "mimeType": "image/webp",
       "updatedAt": {
         "$date": "2025-02-06T19:08:31.407Z"
       },
