@@ -102,7 +102,7 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
                       appearance={'inline'}
                       className="group flex flex-col items-start justify-between rounded-xl py-6"
                     >
-                      <div>
+                      <div className="w-full">
                         <div className="flex rounded-xl text-clip">
                           <div className="flex-1">
                             <div className="relative size-full origin-bottom transition duration-300 group-hover:scale-105">

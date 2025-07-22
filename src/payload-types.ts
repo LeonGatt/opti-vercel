@@ -1601,6 +1601,17 @@ export interface GalleryBlock {
           url?: string | null;
           label: string;
         };
+        oneLink?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          section?: string | null;
+          url?: string | null;
+          label: string;
+        };
         label?: string | null;
         /**
          * Optional button
