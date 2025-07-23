@@ -2044,6 +2044,13 @@ export interface SplitViewBlock {
  */
 export interface TextBlock {
   /**
+   * Define the spacing for the top and bottom of the block.
+   */
+  spacings?: {
+    spacingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+    spacingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+  };
+  /**
    * Choose the background color for this section. If left empty, the default color will be used.
    */
   backgroundColor?:
@@ -2080,6 +2087,8 @@ export interface TextBlock {
         | 'transparent'
       )
     | null;
+  textAlignment?: ('left' | 'center') | null;
+  headingSize?: ('l' | 'xl') | null;
   content?: {
     root: {
       type: string;
@@ -3687,7 +3696,15 @@ export interface SplitViewBlockSelect<T extends boolean = true> {
  * via the `definition` "TextBlock_select".
  */
 export interface TextBlockSelect<T extends boolean = true> {
+  spacings?:
+    | T
+    | {
+        spacingTop?: T;
+        spacingBottom?: T;
+      };
   backgroundColor?: T;
+  textAlignment?: T;
+  headingSize?: T;
   content?: T;
   links?:
     | T
