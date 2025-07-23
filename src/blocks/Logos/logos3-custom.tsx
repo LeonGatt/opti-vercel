@@ -42,7 +42,10 @@ const Logos3Custom: React.FC<LogosBlock & { publicContext: PublicContextProps }>
       <div className={cn(hasRichText ? 'pt-10 md:pt-16 lg:pt-20' : 'pt-0')}>
         <div className="relative mx-auto flex items-center justify-center">
           <Carousel
-            opts={{ loop: true }}
+            opts={{
+              loop: true, watchDrag: false, align: 'start',
+              containScroll: 'trimSnaps',
+            }}
             plugins={[AutoScroll({ playOnInit: true })]}
             className="overflow-hidden"
           >
