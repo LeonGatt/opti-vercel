@@ -1,6 +1,6 @@
 import type { CollectionAfterChangeHook } from 'payload'
 
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 
 import type { Page } from '../../../payload-types'
 import localization from '@/localization.config'
@@ -44,6 +44,8 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
       revalidatePath(`/${locale}${oldPath}`)
     })
   }
+  // Should fix invalidation error on page change
+  revalidateTag('global_header')
 
   return doc
 }
