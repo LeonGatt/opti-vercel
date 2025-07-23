@@ -31,7 +31,8 @@ function generateUrl(locale: string, cleanSlugs: string[]) {
 }
 
 export async function generateStaticParams(): Promise<Array<Params>> {
-  const payload = await getPayload({ config: configPromise })
+  const payloadConfig = await configPromise
+  const payload = await getPayload({ config: payloadConfig })
   const pages = await payload.find({
     collection: 'pages',
     draft: false,

@@ -29,7 +29,8 @@ export const queryCollectionData = async <T extends keyof CollectionReturnTypeMa
 }): Promise<CollectionReturnTypeMap[T] | null> => {
   const { isEnabled: draft } = await draftMode()
 
-  const payload = await getPayload({ config: configPromise })
+  const payloadConfig = await configPromise
+  const payload = await getPayload({ config: payloadConfig })
 
   // Check if locale is supported
   if (!locales.includes(locale as Locale)) {

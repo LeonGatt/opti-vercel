@@ -42,5 +42,11 @@ export const Media: CollectionConfig = {
   upload: {
     // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
     staticDir: path.resolve(dirname, '../../public/media'),
+    modifyResponseHeaders({ headers }) {
+      if (headers.get('content-type') === 'application/xml') {
+        headers.set('content-type', 'image/svg+xml; charset=utf-8')
+      }
+      return headers
+    },
   },
 }

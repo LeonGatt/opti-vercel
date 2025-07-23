@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 import { getPayload, Locale } from 'payload'
 import configPromise from '@payload-config'
 import { CollectionSlug } from 'payload'
-import localization, { locales } from '@/localization.config'
+import { locales } from '@/localization.config'
 
 const payloadToken = 'payload-token'
 
@@ -17,7 +17,8 @@ export async function GET(
     }
   },
 ): Promise<Response> {
-  const payload = await getPayload({ config: configPromise })
+  const payloadConfig = await configPromise
+  const payload = await getPayload({ config: payloadConfig })
   const token = req.cookies.get(payloadToken)?.value
   const { searchParams } = new URL(req.url)
   const path = searchParams.get('path')

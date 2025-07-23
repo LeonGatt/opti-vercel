@@ -1,7 +1,7 @@
 'use server'
 // Payload offers pre-build server functions to handle authentication: https://payloadcms.com/docs/local-api/server-functions#login
 
-import config from '@payload-config'
+import configPromise from '@payload-config'
 import { login as payloadLogin, logout as payloadLogout } from '@payloadcms/next/auth'
 
 export interface LoginFormData {
@@ -11,10 +11,11 @@ export interface LoginFormData {
 }
 
 export async function login(formData: LoginFormData) {
+  const payloadConfig = await configPromise
   try {
     const result = await payloadLogin({
       collection: 'users',
-      config,
+      config: payloadConfig,
       email: formData.email,
       password: formData.password,
     })
@@ -26,9 +27,10 @@ export async function login(formData: LoginFormData) {
 }
 
 export async function logout() {
+  const payloadConfig = await configPromise
   try {
     const res = await payloadLogout({
-      config,
+      config: payloadConfig,
     })
     return res
   } catch (error: any) {

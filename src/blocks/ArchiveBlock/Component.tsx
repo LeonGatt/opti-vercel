@@ -29,7 +29,8 @@ export const ArchiveBlock: React.FC<
   let posts: Post[] = []
 
   if (populateBy === 'collection') {
-    const payload = await getPayload({ config: configPromise })
+    const payloadConfig = await configPromise
+    const payload = await getPayload({ config: payloadConfig })
 
     const flattenedCategories = categories?.map((category) => {
       if (typeof category === 'object') return category.id

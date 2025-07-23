@@ -59,7 +59,8 @@ export const BlogBlock: React.FC<BlogBlockProps> = async (props) => {
   // Fetch posts based on populateBy approach
   if (populateBy === 'collection') {
     // Fetch posts from collection with filters
-    const payload = await getPayload({ config: configPromise })
+    const payloadConfig = await configPromise
+    const payload = await getPayload({ config: payloadConfig })
 
     // Flatten categories for query
     const flattenedCategories = categories?.map((category) => {

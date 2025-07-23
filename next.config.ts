@@ -16,6 +16,19 @@ const nextConfig: NextConfig = {
     staticGenerationMaxConcurrency: 8,
     staticGenerationMinPagesPerWorker: 25,
   },
+  async headers() {
+    return [
+      {
+        source: '/media/:path*.svg',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/svg+xml',
+          },
+        ],
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       ...[new URL(serverUrl)].map((item) => {

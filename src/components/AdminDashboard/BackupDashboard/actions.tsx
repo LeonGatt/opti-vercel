@@ -17,6 +17,24 @@ const BACKUPS_TO_KEEP = Number(process.env.BACKUPS_TO_KEEP) || 10
 const COLLECTION_FILE_NAME = 'collections.json'
 const MEDIA_FILES_PATH = 'media/optitrack-homepage-seed'
 
+function getMimeType(filename: string): string {
+  const ext = path.extname(filename).toLowerCase()
+  const mimeTypes: Record<string, string> = {
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.png': 'image/png',
+    '.gif': 'image/gif',
+    '.webp': 'image/webp',
+    '.svg': 'image/svg+xml',
+    '.pdf': 'application/pdf',
+    '.mp4': 'video/mp4',
+    '.webm': 'video/webm',
+    '.mp3': 'audio/mpeg',
+    '.wav': 'audio/wav',
+  }
+  return mimeTypes[ext] || 'application/octet-stream'
+}
+
 export async function getDb() {
   const payload = await getPayload({ config: configPromise })
   if (payload.db.name !== 'mongoose') {
@@ -39,7 +57,7 @@ function createTarGzip(files: { name: string; content: Buffer }[]) {
   return new Promise<Buffer>((resolve, reject) => {
     const pack = tar.pack() // Create a tar stream
     const gzip = zlib.createGzip()
-    const chunks: Buffer[] = []
+    const chunks: Uint8Array[] = []
 
     // Add each file to the tar archive
     files.forEach(({ name, content }) => {
@@ -51,7 +69,7 @@ function createTarGzip(files: { name: string; content: Buffer }[]) {
     // Pipe the tar archive through gzip
     const compressedStream = pack.pipe(gzip)
 
-    compressedStream.on('data', (chunk: Buffer) => chunks.push(chunk))
+    compressedStream.on('data', (chunk: Uint8Array) => chunks.push(chunk))
     compressedStream.on('end', () => resolve(Buffer.concat(chunks)))
     compressedStream.on('error', reject)
   })
@@ -65,7 +83,7 @@ function resolveTarGzip(fileBuffer: Buffer) {
     const files: { name: string; content: Buffer }[] = []
 
     extract.on('entry', (header, stream, next) => {
-      const chunks: Buffer[] = []
+      const chunks: Uint8Array[] = []
       stream.on('data', (chunk) => chunks.push(chunk))
       stream.on('end', () => {
         files.push({
@@ -103,17 +121,39 @@ export async function restoreBackup(
       files.find((file) => file.name === COLLECTION_FILE_NAME)?.content?.toString() || '{}',
     )
     const medias = files.filter((file) => file.name !== COLLECTION_FILE_NAME)
-    console.log(
-      'Restored medias',
-      await Promise.all(
-        medias.map((media) => {
+    const payload = await getPayload({ config: configPromise })
+    
+    const uploadedMedias = await Promise.all(
+      medias.map(async (media) => {
+        try {
+          // Create Media document through Payload's file upload system
+          const mediaDoc = await payload.create({
+            collection: 'media',
+            data: {
+              alt: media.name.split('.')[0].replace(/-/g, ' '),
+            },
+            file: {
+              data: media.content,
+              mimetype: getMimeType(media.name),
+              name: media.name,
+              size: media.content.length,
+            },
+          })
+
+          console.log('Restored media with Payload document:', media.name, mediaDoc.id)
+          return mediaDoc
+        } catch (error) {
+          console.error('Failed to restore media:', media.name, error)
+          // Fallback to just blob upload
           return put(media.name, media.content, {
             access: 'public',
             addRandomSuffix: false,
           })
-        }),
-      ),
+        }
+      }),
     )
+    
+    console.log('Restored medias:', uploadedMedias.length)
   } else {
     throw new Error(`File type of backup ${downloadUrl} not supported`)
   }
@@ -133,8 +173,17 @@ export async function restoreBackup(
       if (!mergeData) {
         await collection.deleteMany({})
       }
+      
+      // Fix Media collection URLs (remove incorrect URL fields)
+      const processedCollectionData = collectionName === 'media' 
+        ? collectionData.map((doc: any) => {
+            const { url, ...docWithoutUrl } = doc
+            return docWithoutUrl
+          })
+        : collectionData
+      
       const res = await collection.bulkWrite(
-        collectionData.map((doc) => {
+        processedCollectionData.map((doc) => {
           return {
             updateOne: {
               filter:
@@ -176,27 +225,67 @@ export async function restoreBackup(
 
 export async function restoreSeedMedia() {
   'use server'
+  const payload = await getPayload({ config: configPromise })
   const files = await fs.readdir(path.join(process.cwd(), MEDIA_FILES_PATH))
+  const uploadedFiles: any[] = []
+  
   for (const file of files) {
     const data = await fs.readFile(path.join(process.cwd(), MEDIA_FILES_PATH, file))
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
-      // Upload file to vercel blob storage
-      const blob = await put(file, data, {
-        access: 'public',
-        addRandomSuffix: false,
+    
+    try {
+      // Check if media already exists
+      const existingMedia = await payload.find({
+        collection: 'media',
+        where: {
+          filename: {
+            equals: file,
+          },
+        },
       })
-      console.log('Restored seed media to vercel blob storage', file, blob)
-    } else {
-      // Copy file to public media directory
-      const folderPath = path.join(process.cwd(), 'public/media')
-      const publicPath = path.join(folderPath, file)
-      await fs.mkdir(folderPath, { recursive: true })
-      await fs.writeFile(publicPath, data)
-      console.log('Restored seed media to public directory', file, publicPath)
+
+      if (existingMedia.docs.length > 0) {
+        console.log('Media already exists, skipping:', file)
+        continue
+      }
+
+      // Create media document through Payload's API
+      const mediaDoc = await payload.create({
+        collection: 'media',
+        data: {
+          alt: file.split('.')[0].replace(/-/g, ' '),
+        },
+        file: {
+          data,
+          mimetype: getMimeType(file),
+          name: file,
+          size: data.length,
+        },
+      })
+
+      uploadedFiles.push(mediaDoc)
+      console.log('Successfully uploaded media through Payload:', file, mediaDoc.id)
+    } catch (error) {
+      console.error('Failed to upload media:', file, error)
+      
+      // Fallback to the original method if Payload upload fails
+      if (process.env.BLOB_READ_WRITE_TOKEN) {
+        const blob = await put(file, data, {
+          access: 'public',
+          addRandomSuffix: false,
+        })
+        console.log('Fallback: Uploaded to blob storage', file, blob)
+      } else {
+        const folderPath = path.join(process.cwd(), 'public/media')
+        const publicPath = path.join(folderPath, file)
+        await fs.mkdir(folderPath, { recursive: true })
+        await fs.writeFile(publicPath, new Uint8Array(data))
+        console.log('Fallback: Copied to public directory', file, publicPath)
+      }
     }
   }
-  console.log('Restored all files')
-  return files
+  
+  console.log('Restored all files. Successfully uploaded through Payload:', uploadedFiles.length)
+  return uploadedFiles
 }
 
 export async function createMediaBackupFile(
