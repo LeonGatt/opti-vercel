@@ -14,11 +14,18 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
   USPs,
   publicContext,
   spacings,
+  threeColumnLayout,
+  fullImageWidth,
 }) => {
   const { firstNode, rest } = splitRichText(richText, {
     splitOn: ['h2', 'h3', 'h4'],
     takeFirst: true,
   })
+
+  const fullImagePadding = threeColumnLayout ? 'px-6 pb-6' : 'px-14 pb-12'
+  const fullImageSize = threeColumnLayout
+    ? 'h-[280px] md:h-[348px]'
+    : 'h-[280px] md:h-[348px] lg:h-[378px]'
 
   return (
     <section className={cn('mx-auto py-24 lg:max-w-[1280px]', getSpacings(spacings))}>
@@ -58,7 +65,12 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
             })}
           </div>
         </div>
-        <div className="mt-20 grid gap-10 md:mt-16 md:grid-cols-2">
+        <div
+          className={cn(
+            'mt-20 grid gap-10 md:mt-16',
+            threeColumnLayout ? 'md:grid-cols-3' : 'md:grid-cols-2',
+          )}
+        >
           {USPs?.map((card) => {
             const { firstNode, rest } = splitRichText(card.richText, {
               splitOn: ['h2', 'h3', 'h4'],
@@ -69,7 +81,7 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
               <div key={card.id} className="bg-card rounded-lg">
                 <div>
                   <div>
-                    <div className="flex flex-col items-center justify-center gap-4 p-12 md:gap-6">
+                    <div className="flex flex-col items-center justify-center gap-4 p-12 pb-[30px] md:gap-6">
                       {card.image && card.imagePlacement === 'top' && (
                         <Media
                           resource={card.image}
@@ -77,7 +89,14 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
                           htmlElement={null}
                         />
                       )}
-                      <h2 className="text-center text-2xl font-bold md:text-3xl">{card.tagline}</h2>
+                      <h2
+                        className={cn(
+                          'text-center font-bold',
+                          threeColumnLayout ? 'text-2xl' : 'md:text-3xl lg:text-2xl',
+                        )}
+                      >
+                        {card.tagline}
+                      </h2>
                       {extractPlainText(firstNode) && firstNode && (
                         <RichText
                           publicContext={publicContext}
@@ -123,7 +142,11 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
                   {card.image && card.imagePlacement === 'bottom' && (
                     <Media
                       resource={card.image}
-                      imgClassName={`w-full object-cover object-center rounded-b-lg h-[280px] md:h-[348px] lg:h-[378px]`}
+                      imgClassName={cn(
+                        'w-full object-contain object-center rounded-b-lg',
+                        fullImageWidth ? 'p-0' : fullImagePadding,
+                        fullImageWidth ? fullImageSize : 'h-[250px]',
+                      )}
                       htmlElement={null}
                     />
                   )}

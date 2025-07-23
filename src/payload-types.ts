@@ -537,6 +537,8 @@ export interface FeatureBlock {
         id?: string | null;
       }[]
     | null;
+  threeColumnLayout?: boolean | null;
+  fullImageWidth?: boolean | null;
   USPs?:
     | {
         uspIcon?: string | null;
@@ -3261,6 +3263,8 @@ export interface FeatureBlockSelect<T extends boolean = true> {
         subline?: T;
         id?: T;
       };
+  threeColumnLayout?: T;
+  fullImageWidth?: T;
   USPs?:
     | T
     | {

@@ -415,6 +415,26 @@ export const FeatureBlock: Block = {
       ],
     },
     {
+      type: 'checkbox',
+      name: 'threeColumnLayout',
+      label: 'Three Column Layout',
+      defaultValue: false,
+      admin: {
+        condition: (_, { designVersion = '' } = {}) =>
+          ['FEATURE111-custom'].includes(designVersion),
+      },
+    },
+    {
+      type: 'checkbox',
+      name: 'fullImageWidth',
+      label: 'Full Image Width',
+      defaultValue: false,
+      admin: {
+        condition: (_, { designVersion = '' } = {}) =>
+          ['FEATURE111-custom'].includes(designVersion),
+      },
+    },
+    {
       name: 'USPs',
       label: 'Feature',
       type: 'array',
