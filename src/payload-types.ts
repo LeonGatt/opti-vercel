@@ -384,7 +384,7 @@ export interface Hero {
  */
 export interface Media {
   id: string;
-  alt?: string | null;
+  alt: string;
   caption?: {
     root: {
       type: string;
@@ -417,6 +417,13 @@ export interface Media {
  * via the `definition` "FeatureBlock".
  */
 export interface FeatureBlock {
+  /**
+   * Define the spacing for the top and bottom of the block.
+   */
+  spacings?: {
+    spacingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+    spacingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+  };
   /**
    * Choose the background color for this section. If left empty, the default color will be used.
    */
@@ -1129,6 +1136,13 @@ export interface CtaBlock {
  */
 export interface LogosBlock {
   /**
+   * Define the spacing for the top and bottom of the block.
+   */
+  spacings?: {
+    spacingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+    spacingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+  };
+  /**
    * Choose the background color for this section. If left empty, the default color will be used.
    */
   backgroundColor?:
@@ -1436,6 +1450,13 @@ export interface ContactBlock {
  * via the `definition` "GalleryBlock".
  */
 export interface GalleryBlock {
+  /**
+   * Define the spacing for the top and bottom of the block.
+   */
+  spacings?: {
+    spacingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+    spacingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+  };
   /**
    * Choose the background color for this section. If left empty, the default color will be used.
    */
@@ -2600,6 +2621,13 @@ export interface SignupBlock {
  */
 export interface HeroBlock {
   /**
+   * Define the spacing for the top and bottom of the block.
+   */
+  spacings?: {
+    spacingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+    spacingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+  };
+  /**
    * Choose the background color for this section. If left empty, the default color will be used.
    */
   backgroundColor?:
@@ -2702,6 +2730,13 @@ export interface HeroBlock {
  * via the `definition` "BentoBoxBlock".
  */
 export interface BentoBoxBlock {
+  /**
+   * Define the spacing for the top and bottom of the block.
+   */
+  spacings?: {
+    spacingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+    spacingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+  };
   /**
    * Choose the background color for this section. If left empty, the default color will be used.
    */
@@ -3175,6 +3210,12 @@ export interface HeroSelect<T extends boolean = true> {
  * via the `definition` "FeatureBlock_select".
  */
 export interface FeatureBlockSelect<T extends boolean = true> {
+  spacings?:
+    | T
+    | {
+        spacingTop?: T;
+        spacingBottom?: T;
+      };
   backgroundColor?: T;
   designVersion?: T;
   badge?: T;
@@ -3328,6 +3369,12 @@ export interface CtaBlockSelect<T extends boolean = true> {
  * via the `definition` "LogosBlock_select".
  */
 export interface LogosBlockSelect<T extends boolean = true> {
+  spacings?:
+    | T
+    | {
+        spacingTop?: T;
+        spacingBottom?: T;
+      };
   backgroundColor?: T;
   designVersion?: T;
   richText?: T;
@@ -3423,6 +3470,12 @@ export interface ContactBlockSelect<T extends boolean = true> {
  * via the `definition` "GalleryBlock_select".
  */
 export interface GalleryBlockSelect<T extends boolean = true> {
+  spacings?:
+    | T
+    | {
+        spacingTop?: T;
+        spacingBottom?: T;
+      };
   backgroundColor?: T;
   designVersion?: T;
   richText?: T;
@@ -3871,6 +3924,12 @@ export interface SignupBlockSelect<T extends boolean = true> {
  * via the `definition` "HeroBlock_select".
  */
 export interface HeroBlockSelect<T extends boolean = true> {
+  spacings?:
+    | T
+    | {
+        spacingTop?: T;
+        spacingBottom?: T;
+      };
   backgroundColor?: T;
   designVersion?: T;
   richText?: T;
@@ -3907,6 +3966,12 @@ export interface HeroBlockSelect<T extends boolean = true> {
  * via the `definition` "BentoBoxBlock_select".
  */
 export interface BentoBoxBlockSelect<T extends boolean = true> {
+  spacings?:
+    | T
+    | {
+        spacingTop?: T;
+        spacingBottom?: T;
+      };
   backgroundColor?: T;
   designVersion?: T;
   richText?: T;

@@ -4,6 +4,8 @@ import { extractPlainText, splitRichText } from '@/utilities/richtext'
 import RichText from '@/components/RichText'
 import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
+import { cn } from '@/utilities'
+import { getSpacings } from '@/utilities/spacings'
 
 const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
   tagline,
@@ -11,6 +13,7 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
   links,
   USPs,
   publicContext,
+  spacings,
 }) => {
   const { firstNode, rest } = splitRichText(richText, {
     splitOn: ['h2', 'h3', 'h4'],
@@ -18,7 +21,7 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
   })
 
   return (
-    <section className="mx-auto py-24 lg:max-w-[1280px]">
+    <section className={cn('mx-auto py-24 lg:max-w-[1280px]', getSpacings(spacings))}>
       <div className="mx-6 md:mx-8">
         <div className="flex flex-col items-center justify-center gap-5">
           <div className="max-w-[376px] md:max-w-[768px]">

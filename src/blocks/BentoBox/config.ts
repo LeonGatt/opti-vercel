@@ -2,6 +2,7 @@ import { designVersionPreview } from '@/components/AdminDashboard/DesignVersionP
 import { backgroundColor } from '@/fields/color'
 import { link } from '@/fields/link'
 import { linkGroup } from '@/fields/linkGroup'
+import { blockSpacings } from '@/fields/spacing'
 import { createBlockItemCondition } from '@/utilities/findParentFeatureVersion'
 import { HeadingFeature, lexicalEditor, ParagraphFeature } from '@payloadcms/richtext-lexical'
 import { Block } from 'payload'
@@ -31,6 +32,7 @@ export const BentoBoxBlock: Block = {
     plural: 'BentoBoxes',
   },
   fields: [
+    blockSpacings,
     backgroundColor,
     designVersionPreview(allBentoBoxDesignVersions),
     {

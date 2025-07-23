@@ -6,6 +6,7 @@ import { PublicContextProps } from '@/utilities/publicContextProps'
 import { BentoBoxCard1 } from './cards/BentoBoxCard1'
 import { BentoBoxCard2 } from './cards/BentoBoxCard2'
 import { CMSLink } from '@/components/Link'
+import { getSpacings } from '@/utilities/spacings'
 
 const BentoBox1: React.FC<BentoBoxBlock & { publicContext: PublicContextProps }> = ({
   richText,
@@ -14,11 +15,12 @@ const BentoBox1: React.FC<BentoBoxBlock & { publicContext: PublicContextProps }>
   fullSizeImage = false,
   designVersion,
   links,
+  spacings,
 }) => {
   const Card = designVersion === 'BENTOBOX1' ? BentoBoxCard1 : BentoBoxCard2
 
   return (
-    <section className="py-32">
+    <section className={getSpacings(spacings)}>
       <div className="container">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 pb-14">
           {richText && (

@@ -4,6 +4,8 @@ import { cn } from '@/utilities'
 import { PublicContextProps } from '@/utilities/publicContextProps'
 import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
+import { Spacings } from '@/fields/spacing'
+import { getSpacings } from '@/utilities/spacings'
 
 export enum HeroHorizontalAlignment {
   left = 'left',
@@ -40,7 +42,9 @@ const verticalAlignmentClasses = {
   [HeroVerticalAlignment.bottom]: 'justify-end',
 }
 
-const HeroBlockComponent: React.FC<HeroProps & { publicContext: PublicContextProps }> = ({
+const HeroBlockComponent: React.FC<
+  HeroProps & { publicContext: PublicContextProps; spacings?: Spacings }
+> = ({
   richText,
   links,
   images,
@@ -49,6 +53,7 @@ const HeroBlockComponent: React.FC<HeroProps & { publicContext: PublicContextPro
   verticalAlignment,
   horizontalAlignment,
   darkMode = false,
+  spacings,
 }) => {
   const horizontalClasses =
     horizontalAlignmentClasses[horizontalAlignment ?? HeroHorizontalAlignment.left]
@@ -60,7 +65,7 @@ const HeroBlockComponent: React.FC<HeroProps & { publicContext: PublicContextPro
     : 'font-heading font-bold text-5xl text-foreground'
   return (
     <section
-      className="container max-h-[100vh] px-6 py-6"
+      className={cn('container', getSpacings(spacings))}
       data-theme={darkMode ? 'dark' : ''}
       role="banner"
       aria-label="Hero section"

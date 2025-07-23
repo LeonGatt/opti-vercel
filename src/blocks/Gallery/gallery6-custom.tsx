@@ -13,12 +13,15 @@ import { Media } from '@/components/Media'
 import { splitRichText } from '@/utilities/richtext'
 
 import { PublicContextProps } from '@/utilities/publicContextProps'
+import { cn } from '@/utilities'
+import { getSpacings } from '@/utilities/spacings'
 
 const Gallery6Custom: React.FC<GalleryBlock & { publicContext: PublicContextProps }> = ({
   tagline,
   link,
   elements,
   publicContext,
+  spacings,
 }) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
   const [canScrollPrev, setCanScrollPrev] = useState(false)
@@ -50,7 +53,7 @@ const Gallery6Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
     : null
 
   return (
-    <section className="mx-auto py-16 lg:max-w-[1280px]">
+    <section className={cn('mx-auto py-16 lg:max-w-[1280px]', getSpacings(spacings))}>
       <div>
         <div className="mx-6 mb-0 sm:mx-8 md:mb-12">
           {tagline && <h2 className="font-heading text-3xl font-bold sm:text-5xl">{tagline}</h2>}

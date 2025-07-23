@@ -4,6 +4,7 @@ import { link } from '@/fields/link'
 import { backgroundColor } from '@/fields/color'
 import { designVersionPreview } from '@/components/AdminDashboard/DesignVersionPreview/config'
 import { createBlockItemCondition } from '@/utilities/findParentFeatureVersion'
+import { blockSpacings } from '@/fields/spacing'
 
 export const allGalleryDesignVersions = [
   // 'GALLERY1',
@@ -67,6 +68,7 @@ export const Gallery: Block = {
     plural: 'Gallery Blocks',
   },
   fields: [
+    blockSpacings,
     backgroundColor,
     designVersionPreview(allGalleryDesignVersions),
     {

@@ -9,6 +9,8 @@ import { extractPlainText, splitRichText } from '@/utilities/richtext'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
+import { cn } from '@/utilities'
+import { getSpacings } from '@/utilities/spacings'
 
 const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
   tagline,
@@ -16,6 +18,7 @@ const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextPro
   USPs,
   publicContext,
   fillFromDescription,
+  spacings,
 }) => {
   const tabsData = USPs?.filter((usp) => usp.id).map((usp) => {
     return {
@@ -33,7 +36,7 @@ const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextPro
     return <div className="text-red-500">You need to add USPs for the component to work</div>
 
   return (
-    <section className="mx-auto py-16 lg:max-w-[1280px]">
+    <section className={cn('mx-auto py-16 lg:max-w-[1280px]', getSpacings(spacings))}>
       <div className="mx-6 md:mx-8">
         <div className="flex justify-center">
           <h3 className="text-text-default font-heading mb-12 text-center text-5xl font-bold lg:max-w-3xl">

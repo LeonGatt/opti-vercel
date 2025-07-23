@@ -16,6 +16,7 @@ import { Block } from 'payload'
 import { designVersionDescription } from '@/components/AdminDashboard/DesignVersionDescription'
 import { designVersionPreview } from '@/components/AdminDashboard/DesignVersionPreview/config'
 import { backgroundColor } from '@/fields/color'
+import { blockSpacings } from '@/fields/spacing'
 
 export const allFeatureDesignVersions = [
   {
@@ -202,6 +203,7 @@ export const FeatureBlock: Block = {
   slug: 'feature',
   interfaceName: 'FeatureBlock',
   fields: [
+    blockSpacings,
     backgroundColor,
     designVersionPreview(allFeatureDesignVersions),
     {

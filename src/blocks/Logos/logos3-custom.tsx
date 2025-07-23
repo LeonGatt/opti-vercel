@@ -13,15 +13,17 @@ import { Media } from '@/components/Media'
 import { PublicContextProps } from '@/utilities/publicContextProps'
 import { hasRichTextContent } from '@/utilities/richtext'
 import { cn } from '@/utilities'
+import { getSpacings } from '@/utilities/spacings'
 
 const Logos3Custom: React.FC<LogosBlock & { publicContext: PublicContextProps }> = ({
   richText,
   logos,
   publicContext,
+  spacings,
 }) => {
   const hasRichText = richText && hasRichTextContent(richText)
   return (
-    <section className="mx-auto max-w-[1440px]">
+    <section className={cn('mx-auto max-w-[1440px]', getSpacings(spacings))}>
       <div className="container flex flex-col items-center text-center">
         {hasRichText && (
           <RichText

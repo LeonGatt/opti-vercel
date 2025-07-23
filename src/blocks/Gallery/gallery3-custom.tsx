@@ -13,11 +13,14 @@ import { extractPlainText, splitRichText } from '@/utilities/richtext'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
+import { getSpacings } from '@/utilities/spacings'
+import { cn } from '@/utilities'
 
 const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProps }> = ({
   tagline,
   elements,
   publicContext,
+  spacings,
 }) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
   const [canScrollPrev, setCanScrollPrev] = useState(false)
@@ -38,7 +41,7 @@ const Gallery3Custom: React.FC<GalleryBlock & { publicContext: PublicContextProp
   }, [carouselApi])
 
   return (
-    <section className="mx-auto py-16 lg:max-w-[1280px]">
+    <section className={cn('mx-auto lg:max-w-[1280px]', getSpacings(spacings))}>
       <div>
         <div className="mx-6 mb-12 flex items-center justify-between">
           {tagline && (

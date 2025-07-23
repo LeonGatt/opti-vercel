@@ -1,5 +1,6 @@
 import { backgroundColor } from '@/fields/color'
 import { link } from '@/fields/link'
+import { blockSpacings } from '@/fields/spacing'
 import { HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { Block } from 'payload'
 
@@ -15,6 +16,7 @@ export const LogosBlock: Block = {
     plural: 'multiple Logos',
   },
   fields: [
+    blockSpacings,
     backgroundColor,
     {
       name: 'designVersion',

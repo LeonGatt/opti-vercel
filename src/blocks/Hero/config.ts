@@ -10,6 +10,7 @@ import {
   InlineToolbarFeature,
 } from '@payloadcms/richtext-lexical'
 import { linkGroup } from '@/fields/linkGroup'
+import { blockSpacings } from '@/fields/spacing'
 
 export const allHeroDesignVersions = [
   {
@@ -29,6 +30,7 @@ export const HeroBlock: Block = {
     plural: 'Hero Blocks',
   },
   fields: [
+    blockSpacings,
     backgroundColor,
     designVersionPreview(allHeroDesignVersions),
     {

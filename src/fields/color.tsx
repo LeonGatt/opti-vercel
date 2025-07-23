@@ -55,5 +55,8 @@ export const backgroundColor = color({
         de: 'Wählen Sie die Hintergrundfarbe für diese Sektion. Bei einem leeren Feld wird die Standardfarbe verwendet.',
       },
     },
+
+    // Hiding field -> OPT-170
+    hidden: true,
   },
 })
