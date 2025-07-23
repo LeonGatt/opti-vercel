@@ -60,7 +60,7 @@ const HeroBlockComponent: React.FC<HeroProps & { publicContext: PublicContextPro
     : 'font-heading font-bold text-5xl text-foreground'
   return (
     <section
-      className="container py-6"
+      className="container max-h-[100vh] px-6 py-6"
       data-theme={darkMode ? 'dark' : ''}
       role="banner"
       aria-label="Hero section"
@@ -122,7 +122,7 @@ const HeroBlockComponent: React.FC<HeroProps & { publicContext: PublicContextPro
           </header>
 
           {Array.isArray(links) && links.length > 0 && (
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               {links.map(({ link }, i) => (
                 <CMSLink publicContext={publicContext} key={i} {...link} />
               ))}
