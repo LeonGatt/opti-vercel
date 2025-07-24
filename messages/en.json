@@ -1,0 +1,21 @@
+{
+  "cart": {
+    "title": "Cart",
+    "checkout": "Checkout",
+    "empty": "Empty",
+    "empty_description": "Your cart is empty.",
+    "loading": "Loading...",
+    "clear": "Clear Cart",
+    "view": "View Cart",
+    "toggle": "Toggle cart",
+    "clear": "Clear Cart",
+    "view": "View Cart",
+    "toggle": "Toggle cart",
+    "items": {
+      "remove": "Remove"
+    },
+    "product": {
+      "partNumber": "Part Number"
+    }
+  }
+}

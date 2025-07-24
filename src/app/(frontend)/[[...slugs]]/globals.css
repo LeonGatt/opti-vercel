@@ -1,0 +1,426 @@
+@import 'tailwindcss';
+
+@source '../../../**/*.{ts,tsx}';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-animate";
+
+/*
+  THEME-ADAPTIVE UTILITIES WORKAROUND
+  
+  Tailwind 4 cannot handle CSS variable redefinition in theme switching.
+  
+  Problem:
+  @theme { --color-background: var(--color-gray-100); }
+  [data-theme='dark'] { --color-background: var(--color-gray-900); } // ❌ Doesn't work
+  
+  Solution:
+  We use intermediate theme variables that can be redefined:
+  @theme { --color-background: var(--bg-color); }
+  :root { --bg-color: var(--color-gray-100); }
+  [data-theme='dark'] { --bg-color: var(--color-gray-900); } // ✅ Works
+  
+  This allows utilities like bg-background to automatically adapt to theme changes.
+
+  Note: you still might use dark: modifiers to override the theme variables.
+*/
+
+/* Light theme (default) */
+:root {
+  /* Base color tokens */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-blue-primary: #41b6e6;
+  --color-blue-light: #75d5fd;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f5f5f7;
+  --color-gray-300: #d0d3da;
+  --color-gray-400: #a5aab4;
+  --color-gray-500: #7a7d85;
+  --color-gray-600: #52575b;
+  --color-gray-700: #36383a;
+  --color-gray-800: #27292a;
+  --color-gray-900: #181a1b;
+  --color-gray-950: #090a0b;
+  --color-error: #fa461b;
+  --color-error-light: #ff6f4c;
+  --color-outline-focus: #a3a3a3;
+
+  /* Theme variables - Light theme */
+  --bg-color: var(--color-white);
+  --text-color: var(--color-gray-950);
+  --card-color: var(--color-gray-100);
+  --card-text-color: var(--color-gray-950);
+  --popover-color: var(--color-white);
+  --popover-text-color: var(--color-gray-900);
+  --primary-color: var(--color-gray-900);
+  --primary-text-color: var(--color-gray-50);
+  --secondary-color: var(--color-gray-100);
+  --secondary-text-color: var(--color-gray-900);
+  --muted-color: var(--color-gray-100);
+  --muted-text-color: var(--color-gray-500);
+  --accent-color: var(--color-gray-100);
+  --accent-text-color: var(--color-gray-950);
+  --destructive-color: var(--color-error);
+  --destructive-text-color: var(--color-gray-50);
+  --border-color: var(--color-gray-300);
+  --input-color: var(--color-gray-300);
+  --ring-color: var(--color-gray-400);
+  --outline-focus-color: var(--color-outline-focus);
+
+  /* Custom tokens - Light theme */
+  --sidebar-ring-color: var(--color-gray-500);
+  --sidebar-border-color: var(--color-gray-300);
+  --sidebar-accent-text-color: var(--color-gray-800);
+  --sidebar-accent-color: var(--color-gray-100);
+  --sidebar-bg-color: var(--color-gray-50);
+  --sidebar-text-color: var(--color-gray-950);
+  --sidebar-primary-text-color: var(--color-gray-100);
+  --sidebar-primary-color: var(--color-gray-900);
+  --secondary-hover-color: var(--color-gray-50);
+  --ring-offset-color: var(--color-white);
+  --background-dark-color: var(--color-gray-100);
+  --background-light-color: var(--color-white);
+  --stroke-icon-red-color: var(--color-error);
+  --button-error-hover-color: var(--color-error-light);
+  --button-error-color: var(--color-error);
+  --button-outline-hover-color: var(--color-gray-400);
+  --button-outline-color: var(--color-gray-900);
+  --button-secondary-hover-color: var(--color-gray-50);
+  --button-secondary-color: var(--color-gray-100);
+  --button-primary-hover-color: var(--color-blue-light);
+  --button-primary-color: var(--color-blue-primary);
+  --button-default-hover-color: var(--color-gray-800);
+  --button-default-color: var(--color-gray-950);
+  --tool-tip-color: var(--color-gray-100);
+  --text-inverse-color: var(--color-white);
+  --text-light-color: var(--color-gray-600);
+  --text-default-color: var(--color-gray-950);
+  --stroke-inverse-color: var(--color-gray-50);
+  --stroke-icon-color: var(--color-gray-600);
+  --hover-color: var(--color-gray-100);
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+  /* Theme variables - Dark theme */
+  --bg-color: var(--color-gray-950);
+  --text-color: var(--color-gray-50);
+  --card-color: var(--color-gray-900);
+  --card-text-color: var(--color-gray-50);
+  --popover-color: var(--color-gray-800);
+  --popover-text-color: var(--color-gray-50);
+  --primary-color: var(--color-gray-100);
+  --primary-text-color: var(--color-gray-950);
+  --secondary-color: var(--color-gray-600);
+  --secondary-text-color: var(--color-gray-100);
+  --muted-color: var(--color-gray-800);
+  --muted-text-color: var(--color-gray-300);
+  --accent-color: var(--color-gray-700);
+  --accent-text-color: var(--color-white);
+  --destructive-color: var(--color-error-light);
+  --destructive-text-color: var(--color-gray-100);
+  --border-color: var(--color-gray-700);
+  --input-color: var(--color-gray-600);
+  --ring-color: var(--color-gray-500);
+
+  /* Custom tokens - Dark theme */
+  --sidebar-ring-color: var(--color-gray-600);
+  --sidebar-border-color: var(--color-gray-600);
+  --sidebar-accent-text-color: var(--color-gray-100);
+  --sidebar-accent-color: var(--color-gray-800);
+  --sidebar-bg-color: var(--color-gray-950);
+  --sidebar-text-color: var(--color-gray-50);
+  --sidebar-primary-color: var(--color-blue-primary);
+  --sidebar-primary-text-color: var(--color-gray-100);
+  --secondary-hover-color: var(--color-gray-700);
+  --ring-offset-color: var(--color-white);
+  --background-dark-color: var(--color-gray-800);
+  --background-light-color: var(--color-gray-950);
+  --stroke-icon-red-color: var(--color-error-light);
+  --button-error-hover-color: var(--color-error-light);
+  --button-error-color: var(--color-error);
+  --button-outline-hover-color: var(--color-gray-500);
+  --button-outline-color: var(--color-gray-50);
+  --button-secondary-hover-color: var(--color-gray-600);
+  --button-secondary-color: var(--color-gray-700);
+  --button-primary-hover-color: var(--color-blue-light);
+  --button-primary-color: var(--color-blue-primary);
+  --button-default-hover-color: var(--color-gray-300);
+  --button-default-color: var(--color-gray-50);
+  --tool-tip-color: var(--color-gray-800);
+  --text-inverse-color: var(--color-gray-900);
+  --text-light-color: var(--color-gray-400);
+  --text-default-color: var(--color-gray-50);
+  --stroke-inverse-color: var(--color-gray-900);
+  --stroke-icon-color: var(--color-gray-400);
+  --hover-color: var(--color-gray-700);
+}
+
+@theme inline {
+  /* Semantic Color System - Reference theme variables */
+  --color-background: var(--bg-color);
+  --color-foreground: var(--text-color);
+  --color-card: var(--card-color);
+  --color-card-foreground: var(--card-text-color);
+  --color-popover: var(--popover-color);
+  --color-popover-foreground: var(--popover-text-color);
+  --color-primary: var(--primary-color);
+  --color-primary-foreground: var(--primary-text-color);
+  --color-secondary: var(--secondary-color);
+  --color-secondary-foreground: var(--secondary-text-color);
+  --color-muted: var(--muted-color);
+  --color-muted-foreground: var(--muted-text-color);
+  --color-accent: var(--accent-color);
+  --color-accent-foreground: var(--accent-text-color);
+  --color-destructive: var(--destructive-color);
+  --color-destructive-foreground: var(--destructive-text-color);
+  --color-border: var(--border-color);
+  --color-input: var(--input-color);
+  --color-ring: var(--ring-color);
+
+  /* Custom Tokens (Custom Theme) */
+  --color-sidebar-ring: var(--sidebar-ring-color);
+  --color-sidebar-border: var(--sidebar-border-color);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-text-color);
+  --color-sidebar-accent: var(--sidebar-accent-color);
+  --color-sidebar-background: var(--sidebar-bg-color);
+  --color-sidebar-foreground: var(--sidebar-text-color);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-text-color);
+  --color-sidebar-primary: var(--sidebar-primary-color);
+  --color-secondary-hover: var(--secondary-hover-color);
+  --color-ring-offset: var(--ring-offset-color);
+  --color-background-dark: var(--background-dark-color);
+  --color-background-light: var(--background-light-color);
+  --color-stroke-icon-red: var(--stroke-icon-red-color);
+  --color-button-error-hover: var(--button-error-hover-color);
+  --color-button-error: var(--button-error-color);
+  --color-button-outline-hover: var(--button-outline-hover-color);
+  --color-button-outline: var(--button-outline-color);
+  --color-button-secondary-hover: var(--button-secondary-hover-color);
+  --color-button-secondary: var(--button-secondary-color);
+  --color-button-primary-hover: var(--button-primary-hover-color);
+  --color-button-primary: var(--button-primary-color);
+  --color-button-default-hover: var(--button-default-hover-color);
+  --color-button-default: var(--button-default-color);
+  --color-tool-tip: var(--tool-tip-color);
+  --color-text-inverse: var(--text-inverse-color);
+  --color-text-light: var(--text-light-color);
+  --color-text-default: var(--text-default-color);
+  --color-stroke-inverse: var(--stroke-inverse-color);
+  --color-stroke-icon: var(--stroke-icon-color);
+  --color-hover: var(--hover-color);
+  --color-outline-focus: var(--color-outline-focus);
+
+  /* Font families - managed by Next.js localFont */
+  --font-body: var(--font-body);
+  --font-heading: var(--font-heading);
+
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 960px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in-out: fade-in-out 4s ease-in-out;
+  --animate-progress: progress 8s linear;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes progress {
+    from {
+      width: '0%';
+    }
+    to {
+      width: '100%';
+    }
+  }
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground cursor-default antialiased;
+    font-family: var(--font-body);
+  }
+  .contentWrapper {
+    @apply flex min-h-[100vh] flex-col;
+  }
+  a,
+  button {
+    @apply cursor-pointer;
+  }
+
+  .container {
+    @apply mx-auto w-full !max-w-[1400px] px-3 sm:px-6;
+  }
+  .styled-tags,
+  .payload-richtext {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-foreground font-bold;
+      font-family: var(--font-heading);
+    }
+    h1 {
+      @apply mb-6 text-3xl last:mb-0 lg:text-5xl;
+    }
+    h2 {
+      @apply mt-10 mb-6 text-3xl last:mb-0 lg:text-4xl;
+    }
+    h3 {
+      @apply mt-8 mb-6 text-3xl last:mb-0;
+    }
+    h4,
+    h5,
+    h6 {
+      @apply mt-8 mb-6 text-2xl last:mb-0;
+    }
+    p {
+      @apply my-6 text-base last:mb-0;
+      font-family: var(--font-body);
+    }
+    a {
+      @apply underline;
+    }
+    table {
+      @apply my-6 w-full last:mb-0;
+      td,
+      th {
+        @apply border-border border-1 border-solid px-4 py-2 text-left;
+      }
+
+      tbody {
+        tr:nth-child(even) {
+          @apply bg-muted;
+        }
+      }
+    }
+    ul {
+      @apply my-6 flex flex-col gap-2 pl-6 last:mb-0;
+      li {
+        @apply relative pl-6;
+        &:before {
+          content: '';
+          @apply bg-foreground absolute top-2.5 left-2.5 size-1 rounded-full;
+        }
+      }
+    }
+    blockquote {
+      @apply relative my-6 pl-6 text-base last:mb-0;
+      &::before {
+        content: '';
+        @apply bg-border absolute top-0 left-0 h-full w-0.5;
+      }
+    }
+  }
+}
+
+@layer base {
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer base {
+  dialog {
+    margin: auto;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+.rich-text-strong strong {
+  color: var(--text-default-color);
+}

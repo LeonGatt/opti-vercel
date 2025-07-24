@@ -1,0 +1,26 @@
+@import '~@payloadcms/ui/scss';
+
+.backup-dashboard-2 {
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.red-text {
+  color: red;
+}
+
+.btn-inline {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.button-pop-up {
+  background-color: var(--bg-color);
+  &:hover,
+  &:focus-visible,
+  &:focus,
+  &:active {
+    background-color: var(--hover-bg);
+  }
+}

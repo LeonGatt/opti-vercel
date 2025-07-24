@@ -1,0 +1,21 @@
+{
+  "tailwindCSS.experimental.classRegex": [
+    "\\/\\*Tailwind\\*\\/ \"([^\"]*)",
+    "\\/\\*Tailwind\\*\\/ '([^']*)",
+    "\\/\\*Tailwind\\*\\/ `([^`]*)"
+  ],
+  "cSpell.words": [
+    "akku",
+    "AUTOLOGIN",
+    "darkmode",
+    "EJSON",
+    "heros",
+    "lucide",
+    "mongoexport",
+    "mongoimport",
+    "payblocks",
+    "payloadcms",
+    "subline"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
