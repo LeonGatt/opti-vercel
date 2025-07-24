@@ -8,23 +8,23 @@ import {
   FaInstagram,
   FaLinkedin,
   FaRedditAlien,
-  FaTelegramPlane,
+  FaTelegram,
   FaTiktok,
-  FaTwitter,
   FaYoutube,
   FaVimeo,
-} from 'react-icons/fa'
+  FaXTwitter,
+} from 'react-icons/fa6'
 
 import { SocialIconType } from './config'
 
 const iconMap = {
   facebook: FaFacebook,
-  twitter: FaTwitter,
+  twitter: FaXTwitter,
   instagram: FaInstagram,
   linkedin: FaLinkedin,
   discord: FaDiscord,
   reddit: FaRedditAlien,
-  telegram: FaTelegramPlane,
+  telegram: FaTelegram,
   github: FaGithub,
   youtube: FaYoutube,
   tiktok: FaTiktok,
