@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { FeatureBlock, Media as MediaType } from '@/payload-types'
@@ -12,6 +12,96 @@ import { CMSLink } from '@/components/Link'
 import { cn } from '@/utilities'
 import { getSpacings } from '@/utilities/spacings'
 
+type FeatureUSPItem = NonNullable<FeatureBlock['USPs']>[number]
+
+const ActiveTabContent: React.FC<{
+  feature: FeatureUSPItem
+  richtext: FeatureBlock['richText']
+  publicContext: PublicContextProps
+  fillFromDescription?: boolean | null
+}> = ({ feature, richtext, publicContext, fillFromDescription }) => {
+  const { firstNode, rest } = splitRichText(feature.richText, {
+    splitOn: ['h2', 'h3', 'h4'],
+    takeFirst: true,
+  })
+
+  const { firstNode: firstNodeDescription, rest: restDescription } =
+    splitRichText(richtext, {
+      splitOn: ['h2', 'h3', 'h4'],
+      takeFirst: true,
+    })
+
+  return (
+    <div
+      key={feature.id}
+      className="mx-auto mt-12 max-w-[426px] md:max-w-[564px]"
+    >
+      {
+        firstNodeDescription &&
+        fillFromDescription && extractPlainText(firstNodeDescription) && (
+          <RichText
+            publicContext={publicContext}
+            content={firstNodeDescription}
+            overrideStyle={{
+              h2: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+              h3: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+              h4: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+              p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-base',
+            }}
+            withWrapper={false}
+          />
+        )}
+      {
+        restDescription &&
+        fillFromDescription && extractPlainText(restDescription) && (
+          <RichText
+            publicContext={publicContext}
+            content={restDescription}
+            overrideStyle={{
+              p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-base',
+            }}
+            withWrapper={false}
+          />
+        )}
+      {
+        firstNode && !fillFromDescription && extractPlainText(firstNode) && (
+          <RichText
+            publicContext={publicContext}
+            content={firstNode}
+            overrideStyle={{
+              h2: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+              h3: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+              h4: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
+              p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-base',
+            }}
+            withWrapper={false}
+          />
+        )}
+      {rest && !fillFromDescription && extractPlainText(firstNode) && (
+        <RichText
+          publicContext={publicContext}
+          content={rest}
+          overrideStyle={{
+            p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-base',
+          }}
+          withWrapper={false}
+        />
+      )}
+      {feature.links && feature.links.length > 0 && <div className={cn("mt-12 flex flex-col justify-center gap-4 md:flex-row md:items-center md:gap-6", feature.links?.length === 1 && 'items-center')}>
+        {feature.links?.map((link) => {
+          return (
+            <CMSLink
+              key={link.id}
+              {...link.link}
+              publicContext={publicContext}
+            />
+          )
+        })}
+      </div>}
+    </div>
+  );
+}
+
 const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
   tagline,
   richText,
@@ -20,19 +110,26 @@ const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextPro
   fillFromDescription,
   spacings,
 }) => {
-  const tabsData = USPs?.filter((usp) => usp.id).map((usp) => {
+  const tabsData = useMemo(() => USPs?.filter((usp) => usp.id).map((usp) => {
     return {
       id: usp.id as string,
-      richtext: usp.richText,
+      richText: usp.richText,
       image: usp.image as MediaType,
       tagline: usp.tagline,
       links: usp.links,
     }
-  })
+  }), [USPs])
 
-  const [activeTabId, setActiveTabId] = useState<string | null>(tabsData?.[0]?.id || null)
+  const [activeTab, setActiveTab] = useState<FeatureUSPItem | null>(() => tabsData?.[0] || null)
 
-  if (!tabsData?.length || !activeTabId)
+  const selectActiveFeature = useCallback((tabId: string) => {
+    const feature = tabsData?.find((feature) => feature.id === tabId)
+    if (feature) {
+      setActiveTab(feature)
+    }
+  }, [tabsData])
+
+  if (!tabsData?.length || !activeTab?.id)
     return <div className="text-red-500">You need to add USPs for the component to work</div>
 
   return (
@@ -44,7 +141,7 @@ const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextPro
           </h3>
         </div>
         <div className="text-center">
-          <Tabs value={activeTabId} onValueChange={setActiveTabId}>
+          <Tabs value={activeTab.id} onValueChange={selectActiveFeature}>
             {tabsData.map((feature) => (
               <TabsContent key={feature.id} value={feature.id}>
                 {feature.image && (
@@ -54,105 +151,31 @@ const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextPro
                     htmlElement={null}
                   />
                 )}
-                <div className="mt-12">
-                  <div className="no-scrollbar overflow-auto">
-                    <TabsList className="bg-background-dark h-10 p-1">
-                      {tabsData.map((feature) => (
-                        <TabsTrigger
-                          key={feature.id}
-                          value={feature.id}
-                          className="text-text-light px-3 py-1.5"
-                        >
-                          {feature.tagline}
-                        </TabsTrigger>
-                      ))}
-                    </TabsList>
-                  </div>
-                  {activeTabId &&
-                    (() => {
-                      const { firstNode, rest } = splitRichText(feature.richtext, {
-                        splitOn: ['h2', 'h3', 'h4'],
-                        takeFirst: true,
-                      })
-
-                      const { firstNode: firstNodeDescription, rest: restDescription } =
-                        splitRichText(richText, {
-                          splitOn: ['h2', 'h3', 'h4'],
-                          takeFirst: true,
-                        })
-
-                      return (
-                        <div
-                          key={feature.id}
-                          className="mx-auto mt-12 max-w-[426px] md:max-w-[564px]"
-                        >
-                          {extractPlainText(firstNodeDescription) &&
-                            firstNodeDescription &&
-                            fillFromDescription && (
-                              <RichText
-                                publicContext={publicContext}
-                                content={firstNodeDescription}
-                                overrideStyle={{
-                                  h2: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
-                                  h3: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
-                                  h4: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
-                                  p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-base',
-                                }}
-                                withWrapper={false}
-                              />
-                            )}
-                          {extractPlainText(restDescription) &&
-                            restDescription &&
-                            fillFromDescription && (
-                              <RichText
-                                publicContext={publicContext}
-                                content={restDescription}
-                                overrideStyle={{
-                                  p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-base',
-                                }}
-                                withWrapper={false}
-                              />
-                            )}
-                          {extractPlainText(firstNode) && firstNode && !fillFromDescription && (
-                            <RichText
-                              publicContext={publicContext}
-                              content={firstNode}
-                              overrideStyle={{
-                                h2: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
-                                h3: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
-                                h4: 'mb-2 line-clamp-3 break-words text-lg font-medium md:mb-3 md:text-xl lg:text-2xl font-heading',
-                                p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-base',
-                              }}
-                              withWrapper={false}
-                            />
-                          )}
-                          {extractPlainText(firstNode) && rest && !fillFromDescription && (
-                            <RichText
-                              publicContext={publicContext}
-                              content={rest}
-                              overrideStyle={{
-                                p: 'line-clamp-4 text-center text-[#86868B] leading-6 text-base',
-                              }}
-                              withWrapper={false}
-                            />
-                          )}
-                          <div className="mt-12 flex flex-col justify-center gap-4 md:flex-row md:items-center md:gap-6">
-                            {feature.links?.map((link) => {
-                              return (
-                                <CMSLink
-                                  key={link.id}
-                                  {...link.link}
-                                  publicContext={publicContext}
-                                />
-                              )
-                            })}
-                          </div>
-                        </div>
-                      )
-                    })()}
-                </div>
               </TabsContent>
             ))}
+            <div className="mt-12">
+              <div className="no-scrollbar overflow-auto">
+                <TabsList className="bg-background-dark h-10 p-1">
+                  {tabsData.map((feature) => (
+                    <TabsTrigger
+                      key={feature.id}
+                      value={feature.id}
+                      className="text-text-light px-3 py-1.5"
+                    >
+                      {feature.tagline}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
+              {activeTab &&
+                <ActiveTabContent
+                  feature={activeTab}
+                  richtext={richText}
+                  publicContext={publicContext}
+                  fillFromDescription={fillFromDescription}
+                />
+              }
+            </div>
           </Tabs>
         </div>
       </div>
