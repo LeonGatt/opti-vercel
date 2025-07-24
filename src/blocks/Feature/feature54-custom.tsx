@@ -147,7 +147,7 @@ const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextPro
                 {feature.image && (
                   <Media
                     resource={feature.image}
-                    imgClassName="w-full object-cover object-center rounded-xl h-[233px] md:h-[389px] lg:h-[612px]"
+                    imgClassName="w-full object-contain object-center rounded-xl h-[233px] md:h-[389px] lg:h-[612px]"
                     htmlElement={null}
                   />
                 )}
