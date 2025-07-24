@@ -44,8 +44,6 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({
       revalidatePath(`/${locale}${oldPath}`)
     })
   }
-  // Should fix invalidation error on page change
-  revalidateTag('global_header')
 
   return doc
 }
