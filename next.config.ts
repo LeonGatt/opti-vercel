@@ -57,4 +57,7 @@ export default withPayload(
     widenClientFileUpload: true,
     tunnelRoute: "/monitoring",
   }),
+  {
+    devBundleServerPackages: false,
+  },
 );
