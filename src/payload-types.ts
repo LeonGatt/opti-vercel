@@ -350,6 +350,13 @@ export interface Hero {
   };
   rating?: number | null;
   /**
+   * Define the spacing for the top and bottom of the block.
+   */
+  spacings?: {
+    spacingTop?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+    spacingBottom?: ('none' | 'xs' | 'sm' | 'md' | 'lg') | null;
+  };
+  /**
    * Choose the horizontal alignment of the hero content.
    */
   horizontalAlignment?: ('left' | 'center' | 'right') | null;
@@ -3197,6 +3204,12 @@ export interface HeroSelect<T extends boolean = true> {
         description?: T;
       };
   rating?: T;
+  spacings?:
+    | T
+    | {
+        spacingTop?: T;
+        spacingBottom?: T;
+      };
   horizontalAlignment?: T;
   verticalAlignment?: T;
   highImpact?: T;

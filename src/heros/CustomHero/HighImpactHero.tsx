@@ -11,6 +11,7 @@ const HeroBlock: React.FC<Page['hero'] & { publicContext: PublicContextProps }> 
   verticalAlignment,
   horizontalAlignment,
   darkMode = false,
+  spacings,
 }) => (
   <HeroBlockComponent
     richText={richText}
@@ -21,6 +22,7 @@ const HeroBlock: React.FC<Page['hero'] & { publicContext: PublicContextProps }> 
     verticalAlignment={verticalAlignment}
     horizontalAlignment={horizontalAlignment}
     darkMode={darkMode}
+    spacings={spacings}
   />
 )
 

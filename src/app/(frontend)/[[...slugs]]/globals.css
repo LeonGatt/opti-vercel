@@ -277,7 +277,7 @@
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: 1.5rem;
 }
 
 /*
@@ -327,7 +327,7 @@
   }
 
   .container {
-    @apply mx-auto w-full !max-w-[1400px] px-3 sm:px-6;
+    @apply mx-auto w-full !max-w-[1400px] px-6;
   }
   .styled-tags,
   .payload-richtext {

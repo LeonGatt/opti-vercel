@@ -1,11 +1,13 @@
 import { Field } from 'payload'
 import { HeroHorizontalAlignment, HeroVerticalAlignment } from '@/components/uiCustom/HeroCustom'
 import { darkMode } from '@/fields/darkMode'
+import { blockSpacings } from '@/fields/spacing'
 
 /**
  * We define here just additional config fields for the custom heros, that gets merged with the default ones
  */
 export const customHeroFields: Field[] = [
+  blockSpacings,
   {
     name: 'horizontalAlignment',
     label: 'Horizontal Alignment',

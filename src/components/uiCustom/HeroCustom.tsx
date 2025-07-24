@@ -72,7 +72,7 @@ const HeroBlockComponent: React.FC<
     >
       <div
         className={cn(
-          'relative flex w-full flex-col overflow-hidden rounded-lg p-6',
+          'relative flex w-full flex-col overflow-hidden rounded-lg',
           verticalClasses,
           highImpact ? 'min-h-[673px]' : 'min-h-[350px]',
         )}
@@ -96,7 +96,7 @@ const HeroBlockComponent: React.FC<
         <div
           className={cn(
             'relative z-10 flex w-full flex-col gap-6',
-            highImpact && 'px-6 md:px-12',
+            highImpact && 'px-6 md:p-12 md:pr-6',
             horizontalClasses,
           )}
         >
