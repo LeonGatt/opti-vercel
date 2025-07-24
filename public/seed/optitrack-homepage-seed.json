@@ -2579,11 +2579,11 @@
       "_id": {
         "$oid": "67a508af2ead0c7978f0237b"
       },
-      "alt": "hero4",
+      "alt": "Home hero web",
       "createdAt": {
         "$date": "2025-02-06T19:08:31.419Z"
       },
-      "filename": "hero4.mp4",
+      "filename": "home-hero-web.mp4",
       "filesize": 12765098,
       "focalX": 50,
       "focalY": 50,
@@ -2599,11 +2599,11 @@
       "_id": {
         "$oid": "67a508af2ead0c7978f0237c"
       },
-      "alt": "home-under-one-roof",
+      "alt": "Home under one roof web",
       "createdAt": {
         "$date": "2025-02-06T19:08:31.420Z"
       },
-      "filename": "home-under-one-roof.mp4",
+      "filename": "home-under-one-roof-web.mp4",
       "filesize": 1150553,
       "focalX": 50,
       "focalY": 50,
