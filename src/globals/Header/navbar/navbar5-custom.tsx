@@ -76,7 +76,7 @@ const Navbar5: React.FC<{
                 <MenuIcon strokeWidth={1} />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="max-h-screen bg-[#f1f1f1] dark:bg-[#303030] flex flex-col justify-between px-10 py-32">
+            <SheetContent side="left" className="max-h-screen overflow-y-auto bg-[#f1f1f1] dark:bg-[#303030] flex flex-col justify-between px-10 py-32">
               <SheetHeader className="hidden">
                 <SheetTitle>
                   <div className="flex items-center">
