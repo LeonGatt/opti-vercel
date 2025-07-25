@@ -2853,30 +2853,6 @@ export interface BentoBoxBlock {
           };
           [k: string]: unknown;
         } | null;
-        links?:
-          | {
-              link: {
-                type?: ('reference' | 'custom' | 'legacy') | null;
-                newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
-                section?: string | null;
-                url?: string | null;
-                slug?: string | null;
-                label: string;
-                iconBefore?: string | null;
-                iconAfter?: string | null;
-                /**
-                 * Choose how the link should be rendered.
-                 */
-                appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
-                size?: ('default' | 'sm' | 'lg' | 'icon') | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
         link?: {
           type?: ('reference' | 'custom' | 'legacy') | null;
           newTab?: boolean | null;
@@ -2887,6 +2863,7 @@ export interface BentoBoxBlock {
           section?: string | null;
           url?: string | null;
           slug?: string | null;
+          label: string;
         };
         id?: string | null;
       }[]
@@ -4024,26 +4001,6 @@ export interface BentoBoxBlockSelect<T extends boolean = true> {
     | {
         image?: T;
         richText?: T;
-        links?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    section?: T;
-                    url?: T;
-                    slug?: T;
-                    label?: T;
-                    iconBefore?: T;
-                    iconAfter?: T;
-                    appearance?: T;
-                    size?: T;
-                  };
-              id?: T;
-            };
         link?:
           | T
           | {
@@ -4053,6 +4010,7 @@ export interface BentoBoxBlockSelect<T extends boolean = true> {
               section?: T;
               url?: T;
               slug?: T;
+              label?: T;
             };
         id?: T;
       };

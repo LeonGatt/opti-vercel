@@ -15,12 +15,16 @@ export const BentoBoxCard1: React.FC<{
     <CMSLink
       publicContext={publicContext}
       {...element.link}
-      className="flex flex-col justify-between rounded-lg bg-accent md:col-span-2 overflow-hidden h-full"
+      label=""
+      className="group bg-accent flex h-full flex-col justify-between overflow-hidden rounded-lg md:col-span-2"
     >
       {element.image && (
         <Media
           resource={element?.image}
-          className={cn('w-full', !fullSizeImage ? 'px-6 pt-6 h-[260px]' : 'h-[290px]')}
+          className={cn(
+            'w-full transition duration-300 group-hover:scale-102',
+            !fullSizeImage ? 'h-[260px] px-6 pt-6' : 'h-[290px]',
+          )}
           imgClassName={cn(' size-full max-h-72 object-cover', !fullSizeImage ? 'rounded-lg' : '')}
         />
       )}

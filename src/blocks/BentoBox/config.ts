@@ -104,19 +104,9 @@ export const BentoBoxBlock: Block = {
             ],
           }),
         },
-        linkGroup({
-          overrides: {
-            label: 'Buttons',
-            maxRows: 2,
-            admin: {
-              condition: createBlockItemCondition(['BENTOBOX2']),
-            },
-          },
-        }),
         link({
           appearances: false,
           disableIcon: true,
-          disableLabel: true,
           overrides: {
             admin: {
               condition: createBlockItemCondition(['BENTOBOX1', 'BENTOBOX2']),

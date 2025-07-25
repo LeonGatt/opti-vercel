@@ -8,14 +8,14 @@
     "clear": "Clear Cart",
     "view": "View Cart",
     "toggle": "Toggle cart",
-    "clear": "Clear Cart",
-    "view": "View Cart",
-    "toggle": "Toggle cart",
     "items": {
       "remove": "Remove"
     },
     "product": {
       "partNumber": "Part Number"
     }
+  },
+  "general": {
+    "more": "Learn More"
   }
 }
