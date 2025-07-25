@@ -1,3 +1,4 @@
+'use client'
 import { FeatureBlock } from '@/payload-types'
 import { PublicContextProps } from '@/utilities/publicContextProps'
 import { extractPlainText, splitRichText } from '@/utilities/richtext'
@@ -6,6 +7,7 @@ import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
 import { cn } from '@/utilities'
 import { getSpacings } from '@/utilities/spacings'
+import { useMemo } from 'react'
 
 const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
   tagline,
@@ -27,15 +29,21 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
     ? 'h-[280px] md:h-[348px]'
     : 'h-[280px] md:h-[348px] lg:h-[378px]'
 
+  const hasContent = useMemo(() => {
+    return Boolean(tagline || extractPlainText(firstNode) || (links?.length ?? 0) > 0)
+  }, [tagline, firstNode, links])
+
   return (
-    <section className={cn('mx-auto py-24 lg:max-w-[1280px]', getSpacings(spacings))}>
+    <section className={cn('mx-auto lg:max-w-[1280px]', getSpacings(spacings))}>
       <div className="mx-6 md:mx-8">
-        <div className="flex flex-col items-center justify-center gap-5">
-          <div className="max-w-[376px] md:max-w-[768px]">
-            <h2 className="text-text-default font-heading mb-5 text-center text-3xl leading-9 font-bold md:text-5xl">
-              {tagline}
-            </h2>
-            {extractPlainText(firstNode) && firstNode && (
+        {hasContent && (
+          <div className="mx-auto mb-20 flex max-w-[376px] flex-col gap-5 md:mb-16 md:max-w-[768px]">
+            {tagline && (
+              <h2 className="text-text-default font-heading text-center text-3xl leading-9 font-bold md:text-5xl">
+                {tagline}
+              </h2>
+            )}
+            {firstNode && extractPlainText(firstNode) && (
               <RichText
                 publicContext={publicContext}
                 content={firstNode}
@@ -48,7 +56,7 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
                 withWrapper={false}
               />
             )}
-            {extractPlainText(rest) && rest && (
+            {rest && extractPlainText(rest) && (
               <RichText
                 publicContext={publicContext}
                 content={rest}
@@ -58,19 +66,16 @@ const Feature111Custom: React.FC<FeatureBlock & { publicContext: PublicContextPr
                 withWrapper={false}
               />
             )}
+            {links && links.length > 0 && (
+              <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
+                {links?.map((link) => {
+                  return <CMSLink key={link.id} publicContext={publicContext} {...link.link} />
+                })}
+              </div>
+            )}
           </div>
-          <div className="flex flex-row items-center justify-center gap-4 md:gap-6">
-            {links?.map((link) => {
-              return <CMSLink key={link.id} publicContext={publicContext} {...link.link} />
-            })}
-          </div>
-        </div>
-        <div
-          className={cn(
-            'mt-20 grid gap-10 md:mt-16',
-            threeColumnLayout ? 'md:grid-cols-3' : 'md:grid-cols-2',
-          )}
-        >
+        )}
+        <div className={cn('grid gap-7', threeColumnLayout ? 'md:grid-cols-3' : 'md:grid-cols-2')}>
           {USPs?.map((card) => {
             const { firstNode, rest } = splitRichText(card.richText, {
               splitOn: ['h2', 'h3', 'h4'],
