@@ -77,7 +77,7 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   if (type === 'reference' && section) {
     href += `#${section}`
   } else if (type === 'legacy' && slug) {
-    href = `${env.NEXT_PUBLIC_LEGACY_HOSTNAME}/${slug}`
+    href = `${env.NEXT_PUBLIC_LEGACY_HOSTNAME}${slug}`
   }
 
   if (!href) return null
