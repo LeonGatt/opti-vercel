@@ -12,6 +12,7 @@ import { CMSLink } from '@/components/Link'
 import { cn } from '@/utilities'
 import { getSpacings } from '@/utilities/spacings'
 import { useAutoplayTabs } from '@/hooks/useAutoplayTabs'
+import { useIntersectionObserver } from 'usehooks-ts'
 
 type FeatureUSPItem = NonNullable<FeatureBlock['USPs']>[number]
 
@@ -95,100 +96,109 @@ const ActiveTabContent: React.FC<{
   )
 }
 
-const Feature54Custom: React.FC<FeatureBlock & {
-  publicContext: PublicContextProps
-}> = ({
-  tagline,
-  richText,
-  USPs,
-  publicContext,
-  fillFromDescription,
-  spacings,
-  autoplay
-}) => {
-    const tabsData = useMemo(
-      () =>
-        USPs?.filter((usp) => usp.id).map((usp) => {
-          return {
-            id: usp.id as string,
-            richText: usp.richText,
-            image: usp.image as MediaType,
-            tagline: usp.tagline,
-            links: usp.links,
-          }
-        }),
-      [USPs],
-    )
+const Feature54Custom: React.FC<
+  FeatureBlock & {
+    publicContext: PublicContextProps
+  }
+> = ({ tagline, richText, USPs, publicContext, fillFromDescription, spacings, autoplay }) => {
+  const { isIntersecting, ref } = useIntersectionObserver({
+    freezeOnceVisible: true,
+    rootMargin: '200px',
+  })
 
-    const {
-      activeItem: activeTab,
-      selectItem: selectActiveFeature,
-      handleMouseEnter,
-      handleMouseLeave
-    } = useAutoplayTabs({
-      items: tabsData || [],
-      options: {
-        enabled: autoplay ?? false
-      }
-    })
+  const tabsData = useMemo(
+    () =>
+      USPs?.filter((usp) => usp.id).map((usp) => ({
+        id: usp.id as string,
+        richText: usp.richText,
+        image: usp.image as MediaType,
+        tagline: usp.tagline,
+        links: usp.links,
+      })),
+    [USPs],
+  )
 
-    if (!tabsData?.length || !activeTab?.id)
-      return <div className="text-red-500">You need to add USPs for the component to work</div>
+  const {
+    activeItem: activeTab,
+    selectItem: selectActiveFeature,
+    handleMouseEnter,
+    handleMouseLeave,
+  } = useAutoplayTabs({
+    items: tabsData || [],
+    options: {
+      enabled: (isIntersecting && autoplay) ?? false,
+    },
+  })
 
-    return (
-      <section className={cn('mx-auto py-16 lg:max-w-[1280px]', getSpacings(spacings))}>
-        <div>
-          <div className="mx-6 flex justify-center md:mx-8">
-            <h3 className="text-text-default font-heading mb-12 text-center text-5xl font-bold lg:max-w-3xl">
-              {tagline}
-            </h3>
-          </div>
-          <div className="text-center">
-            <Tabs
-              value={activeTab.id}
-              onValueChange={selectActiveFeature}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              {tabsData.map((feature) => (
-                <TabsContent key={feature.id} value={feature.id} className="mx-6 md:mx-8">
-                  {feature.image && (
-                    <Media
-                      resource={feature.image}
-                      imgClassName="w-full object-cover object-center rounded-xl h-[233px] md:h-[389px] lg:h-[612px]"
-                      htmlElement={null}
-                    />
-                  )}
-                </TabsContent>
-              ))}
-              <div className="mt-12">
-                <div className="no-scrollbar overflow-auto">
-                  <TabsList className="bg-background-dark mx-6 h-10 p-1 md:mx-8">
-                    {tabsData.map((feature) => (
-                      <TabsTrigger
-                        key={feature.id}
-                        value={feature.id}
-                        className="text-text-light px-3 py-1.5"
-                      >
-                        {feature.tagline}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                </div>
-                {activeTab && (
-                  <ActiveTabContent
-                    feature={activeTab}
-                    richtext={richText}
-                    publicContext={publicContext}
-                    fillFromDescription={fillFromDescription}
+  if (!tabsData?.length || !activeTab?.id)
+    return <div className="text-red-500">You need to add USPs for the component to work</div>
+
+  return (
+    <section className={cn('mx-auto py-16 lg:max-w-[1280px]', getSpacings(spacings))} ref={ref}>
+      <div>
+        <div className="mx-6 flex justify-center md:mx-8">
+          <h3 className="text-text-default font-heading mb-12 text-center text-5xl font-bold lg:max-w-3xl">
+            {tagline}
+          </h3>
+        </div>
+        <div className="text-center">
+          <Tabs
+            value={activeTab.id}
+            onValueChange={selectActiveFeature}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="relative"
+          >
+            {tabsData.map((feature, index) => (
+              <TabsContent
+                key={feature.id}
+                value={feature.id}
+                className={cn(
+                  'mx-6 transition-opacity duration-500 ease-in-out md:mx-8',
+                  feature.id === activeTab.id ? 'opacity-100' : 'absolute inset-0 opacity-0',
+                )}
+                // For smooth transition, we forceMount other tabs when in viewport
+                forceMount={index === 0 || isIntersecting ? true : undefined}
+              >
+                {feature.image && (
+                  <Media
+                    // Preload all images in in viewport
+                    priority={isIntersecting}
+                    resource={feature.image}
+                    imgClassName="w-full object-cover object-center rounded-xl h-[233px] md:h-[389px] lg:h-[612px]"
+                    htmlElement={null}
                   />
                 )}
+              </TabsContent>
+            ))}
+            <div className="mt-12">
+              <div className="no-scrollbar overflow-auto">
+                <TabsList className="bg-background-dark mx-6 h-10 p-1 md:mx-8">
+                  {tabsData.map((feature) => (
+                    <TabsTrigger
+                      key={feature.id}
+                      value={feature.id}
+                      className="text-text-light px-3 py-1.5"
+                    >
+                      {feature.tagline}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
               </div>
-            </Tabs>
-          </div>
+              {activeTab && (
+                <ActiveTabContent
+                  feature={activeTab}
+                  richtext={richText}
+                  publicContext={publicContext}
+                  fillFromDescription={fillFromDescription}
+                />
+              )}
+            </div>
+          </Tabs>
         </div>
-      </section>
-    )
-  }
+      </div>
+    </section>
+  )
+}
 
 export default Feature54Custom
