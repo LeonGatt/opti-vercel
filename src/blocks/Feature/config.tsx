@@ -447,6 +447,10 @@ export const FeatureBlock: Block = {
       name: 'USPs',
       label: 'Feature',
       type: 'array',
+      labels: {
+        singular: 'Tab',
+        plural: 'Tabs',
+      },
       admin: {
         condition: (_, { designVersion = '' } = {}) =>
           ![
@@ -691,7 +695,7 @@ export const FeatureBlock: Block = {
         },
       ],
       minRows: 1,
-    }
+    },
   ],
   labels: {
     singular: 'Feature',
