@@ -76,13 +76,11 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
 
   if (type === 'reference' && section) {
     href += `#${section}`
+  } else if (type === 'legacy' && slug) {
+    href = `${env.NEXT_PUBLIC_LEGACY_HOSTNAME}/${slug}`
   }
 
   if (!href) return null
-
-  if (type === 'legacy' && slug) {
-    href = `${env.NEXT_PUBLIC_LEGACY_HOSTNAME}/${slug}`
-  }
 
   const size = appearance === 'link' ? 'clear' : sizeFromProps
   const newTabProps = newTab ? { rel: 'noopener noreferrer', target: '_blank' } : {}

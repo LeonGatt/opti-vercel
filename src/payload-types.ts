@@ -1215,14 +1215,6 @@ export interface LogosBlock {
     section?: string | null;
     url?: string | null;
     slug?: string | null;
-    label: string;
-    iconBefore?: string | null;
-    iconAfter?: string | null;
-    /**
-     * Choose how the link should be rendered.
-     */
-    appearance?: ('default' | 'outline' | 'link' | 'destructive' | 'ghost' | 'secondary') | null;
-    size?: ('default' | 'sm' | 'lg' | 'icon') | null;
   };
   logos: (string | Media)[];
   id?: string | null;
@@ -3415,11 +3407,6 @@ export interface LogosBlockSelect<T extends boolean = true> {
         section?: T;
         url?: T;
         slug?: T;
-        label?: T;
-        iconBefore?: T;
-        iconAfter?: T;
-        appearance?: T;
-        size?: T;
       };
   logos?: T;
   id?: T;
