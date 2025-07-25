@@ -290,13 +290,11 @@ export default buildConfig({
         return '/login'
       },
     }),
-
     payloadCloudPlugin({
-      debug: process.env.DEBUG_PAYLOAD_CLOUD === 'true',
-      email: {
-        defaultFromAddress: process.env.EMAIL_FROM_ADDRESS!,
-        defaultFromName: 'Optitrack',
-      },
+      email: false,
+      enableAutoRun: false,
+      uploadCaching: false,
+      debug: true,
     }),
   ],
   secret: process.env.PAYLOAD_SECRET!,
