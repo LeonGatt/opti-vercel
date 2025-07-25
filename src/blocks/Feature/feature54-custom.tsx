@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { FeatureBlock, Media as MediaType } from '@/payload-types'
@@ -10,6 +10,8 @@ import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
 import { cn } from '@/utilities'
+import { getSpacings } from '@/utilities/spacings'
+import { useAutoplayTabs } from '@/hooks/useAutoplayTabs'
 
 type FeatureUSPItem = NonNullable<FeatureBlock['USPs']>[number]
 
@@ -93,91 +95,100 @@ const ActiveTabContent: React.FC<{
   )
 }
 
-const Feature54Custom: React.FC<FeatureBlock & { publicContext: PublicContextProps }> = ({
+const Feature54Custom: React.FC<FeatureBlock & {
+  publicContext: PublicContextProps
+}> = ({
   tagline,
   richText,
   USPs,
   publicContext,
   fillFromDescription,
+  spacings,
+  autoplay
 }) => {
-  const tabsData = useMemo(
-    () =>
-      USPs?.filter((usp) => usp.id).map((usp) => {
-        return {
-          id: usp.id as string,
-          richText: usp.richText,
-          image: usp.image as MediaType,
-          tagline: usp.tagline,
-          links: usp.links,
-        }
-      }),
-    [USPs],
-  )
+    const tabsData = useMemo(
+      () =>
+        USPs?.filter((usp) => usp.id).map((usp) => {
+          return {
+            id: usp.id as string,
+            richText: usp.richText,
+            image: usp.image as MediaType,
+            tagline: usp.tagline,
+            links: usp.links,
+          }
+        }),
+      [USPs],
+    )
 
-  const [activeTab, setActiveTab] = useState<FeatureUSPItem | null>(() => tabsData?.[0] || null)
-
-  const selectActiveFeature = useCallback(
-    (tabId: string) => {
-      const feature = tabsData?.find((feature) => feature.id === tabId)
-      if (feature) {
-        setActiveTab(feature)
+    const {
+      activeItem: activeTab,
+      selectItem: selectActiveFeature,
+      handleMouseEnter,
+      handleMouseLeave
+    } = useAutoplayTabs({
+      items: tabsData || [],
+      options: {
+        enabled: autoplay ?? false
       }
-    },
-    [tabsData],
-  )
+    })
 
-  if (!tabsData?.length || !activeTab?.id)
-    return <div className="text-red-500">You need to add USPs for the component to work</div>
+    if (!tabsData?.length || !activeTab?.id)
+      return <div className="text-red-500">You need to add USPs for the component to work</div>
 
-  return (
-    <section className="mx-auto py-16 lg:max-w-[1280px]">
-      <div>
-        <div className="mx-6 flex justify-center md:mx-8">
-          <h3 className="text-text-default font-heading mb-12 text-center text-5xl font-bold lg:max-w-3xl">
-            {tagline}
-          </h3>
-        </div>
-        <div className="text-center">
-          <Tabs value={activeTab.id} onValueChange={selectActiveFeature}>
-            {tabsData.map((feature) => (
-              <TabsContent key={feature.id} value={feature.id} className="mx-6 md:mx-8">
-                {feature.image && (
-                  <Media
-                    resource={feature.image}
-                    imgClassName="w-full object-cover object-center rounded-xl h-[233px] md:h-[389px] lg:h-[612px]"
-                    htmlElement={null}
+    return (
+      <section className={cn('mx-auto py-16 lg:max-w-[1280px]', getSpacings(spacings))}>
+        <div>
+          <div className="mx-6 flex justify-center md:mx-8">
+            <h3 className="text-text-default font-heading mb-12 text-center text-5xl font-bold lg:max-w-3xl">
+              {tagline}
+            </h3>
+          </div>
+          <div className="text-center">
+            <Tabs
+              value={activeTab.id}
+              onValueChange={selectActiveFeature}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {tabsData.map((feature) => (
+                <TabsContent key={feature.id} value={feature.id} className="mx-6 md:mx-8">
+                  {feature.image && (
+                    <Media
+                      resource={feature.image}
+                      imgClassName="w-full object-cover object-center rounded-xl h-[233px] md:h-[389px] lg:h-[612px]"
+                      htmlElement={null}
+                    />
+                  )}
+                </TabsContent>
+              ))}
+              <div className="mt-12">
+                <div className="no-scrollbar overflow-auto">
+                  <TabsList className="bg-background-dark mx-6 h-10 p-1 md:mx-8">
+                    {tabsData.map((feature) => (
+                      <TabsTrigger
+                        key={feature.id}
+                        value={feature.id}
+                        className="text-text-light px-3 py-1.5"
+                      >
+                        {feature.tagline}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
+                {activeTab && (
+                  <ActiveTabContent
+                    feature={activeTab}
+                    richtext={richText}
+                    publicContext={publicContext}
+                    fillFromDescription={fillFromDescription}
                   />
                 )}
-              </TabsContent>
-            ))}
-            <div className="mt-12">
-              <div className="no-scrollbar overflow-auto">
-                <TabsList className="bg-background-dark mx-6 h-10 p-1 md:mx-8">
-                  {tabsData.map((feature) => (
-                    <TabsTrigger
-                      key={feature.id}
-                      value={feature.id}
-                      className="text-text-light px-3 py-1.5"
-                    >
-                      {feature.tagline}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
               </div>
-              {activeTab && (
-                <ActiveTabContent
-                  feature={activeTab}
-                  richtext={richText}
-                  publicContext={publicContext}
-                  fillFromDescription={fillFromDescription}
-                />
-              )}
-            </div>
-          </Tabs>
+            </Tabs>
+          </div>
         </div>
-      </div>
-    </section>
-  )
-}
+      </section>
+    )
+  }
 
 export default Feature54Custom

@@ -435,6 +435,15 @@ export const FeatureBlock: Block = {
       },
     },
     {
+      name: 'autoplay',
+      type: 'checkbox',
+      label: 'Autoplay',
+      defaultValue: true,
+      admin: {
+        condition: (_, { designVersion = '' } = {}) => ['FEATURE54-custom'].includes(designVersion),
+      },
+    },
+    {
       name: 'USPs',
       label: 'Feature',
       type: 'array',
@@ -682,7 +691,7 @@ export const FeatureBlock: Block = {
         },
       ],
       minRows: 1,
-    },
+    }
   ],
   labels: {
     singular: 'Feature',
