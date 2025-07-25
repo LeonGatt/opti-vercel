@@ -46,7 +46,7 @@ const Logos3Custom: React.FC<LogosBlock & { publicContext: PublicContextProps }>
               loop: true, watchDrag: false, align: 'start',
               containScroll: 'trimSnaps',
             }}
-            plugins={[AutoScroll({ playOnInit: true })]}
+            plugins={[AutoScroll({ playOnInit: true, speed: 1.25 })]}
             className="overflow-hidden"
           >
             <CarouselContent className="ml-0 gap-6">
