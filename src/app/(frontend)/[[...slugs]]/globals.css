@@ -315,7 +315,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground cursor-default antialiased;
+    @apply bg-background text-foreground cursor-auto antialiased;
     font-family: var(--font-body);
   }
   .contentWrapper {
