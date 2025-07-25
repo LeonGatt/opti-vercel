@@ -40,10 +40,13 @@ export const LogosBlock: Block = {
     },
 
     link({
+      disableIcon: true,
+      appearances: false,
+      disableLabel: true,
       overrides: {
         admin: {
           condition: (_, { designVersion } = { designVersion: '' }) =>
-            ['LOGOS2'].includes(designVersion),
+            ['LOGOS2', 'LOGO3-custom'].includes(designVersion),
         },
       },
     }),

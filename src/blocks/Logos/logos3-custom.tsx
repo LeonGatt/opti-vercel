@@ -14,12 +14,34 @@ import { PublicContextProps } from '@/utilities/publicContextProps'
 import { hasRichTextContent } from '@/utilities/richtext'
 import { cn } from '@/utilities'
 import { getSpacings } from '@/utilities/spacings'
+import { CMSLink } from '@/components/Link'
+
+const CarouselWrapper = ({
+  children,
+  link,
+  publicContext,
+}: {
+  children: React.ReactNode
+  link: LogosBlock['link']
+  publicContext: PublicContextProps
+}) => {
+  const className = 'relative mx-auto flex items-center justify-center'
+
+  return link ? (
+    <CMSLink publicContext={publicContext} className={className} {...link}>
+      {children}
+    </CMSLink>
+  ) : (
+    <div className={className}>{children}</div>
+  )
+}
 
 const Logos3Custom: React.FC<LogosBlock & { publicContext: PublicContextProps }> = ({
   richText,
   logos,
   publicContext,
   spacings,
+  link,
 }) => {
   const hasRichText = richText && hasRichTextContent(richText)
   return (
@@ -40,10 +62,12 @@ const Logos3Custom: React.FC<LogosBlock & { publicContext: PublicContextProps }>
         )}
       </div>
       <div className={cn(hasRichText ? 'pt-10 md:pt-16 lg:pt-20' : 'pt-0')}>
-        <div className="relative mx-auto flex items-center justify-center">
+        <CarouselWrapper link={link} publicContext={publicContext}>
           <Carousel
             opts={{
-              loop: true, watchDrag: false, align: 'start',
+              loop: true,
+              watchDrag: false,
+              align: 'start',
               containScroll: 'trimSnaps',
             }}
             plugins={[AutoScroll({ playOnInit: true, speed: 1.25 })]}
@@ -64,7 +88,7 @@ const Logos3Custom: React.FC<LogosBlock & { publicContext: PublicContextProps }>
             <div className="from-background absolute inset-y-0 left-0 w-12 bg-linear-to-r to-transparent"></div>
             <div className="from-background absolute inset-y-0 right-0 w-12 bg-linear-to-l to-transparent"></div>
           </Carousel>
-        </div>
+        </CarouselWrapper>
       </div>
     </section>
   )
