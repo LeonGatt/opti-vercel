@@ -23,6 +23,14 @@ import { haasGrotText, haasGrotDisplay, haasGrotBody } from '@/fonts'
 
 export const metadata: Metadata = {
   metadataBase: new URL(NEXT_PUBLIC_SERVER_URL || 'https://trieb.work'),
+  robots: {
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+    nocache: true,
+  },
   openGraph: mergeOpenGraph(),
 }
 
